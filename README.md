@@ -1,6 +1,6 @@
-# ShareholderGame user interface
+# Shareholder Game UI
 
-This is a new UI interface for a Stockholder game that can 
+This is a new UI interface for a Shareholder game that can be seen at http://shareholdergame.com/
 
 # Lincese
 This project is licensed under [MIT](/LICENSE) license
