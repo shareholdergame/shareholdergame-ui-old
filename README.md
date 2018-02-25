@@ -10,29 +10,32 @@ Goal: Elimination of Adobe Flash
 Basic requirements
 - Responsive web design
 - Communication with server via REST API
+- i18n
+- Push notifications support
 
 Frontend
-- Page mock-ups   - responsible: Alexander Savin
-- Mock data for pages - Alexander Savin
-- Sign-in/up page - Sergey Chernyshev
-- Start/Home page (New design will be provided) - Sergey Chernyshev
-- New Game page (New design will be provided) - Sergey Chernyshev
-- My Games page (Minor changes) -  Sergey Chernyshev
-- Achievements page (New page) -  Sergey Chernyshev
-- Game Archive page (New page) -  Sergey Chernyshev
-- User Profile page (New design) -  Sergey Chernyshev
-- Game Play page -  Sergey Chernyshev
-- Game Result popup -  Sergey Chernyshev
-- Game Report page -  Sergey Chernyshev
-- Gamers page - Sergey Chernyshev
-- Search User page - Sergey Chernyshev
-- Card Set popup - Sergey Chernyshev
-- Chat popup - Sergey Chernyshev 
+- Page wireframes
+- Mock data for pages 
+- Mock up Redux states
+- Sign-in/up page 
+- Start/Home page (New design will be provided) 
+- New Game page (New design will be provided)
+- My Games page (Minor changes) 
+- Achievements page (New page) 
+- Game Archive page (New page) 
+- User Profile page (New design) 
+- Game Play page 
+- Game Result popup 
+- Game Report page 
+- Gamers page 
+- Search User page 
+- Card Set popup 
+- Chat popup  
 
-Backend
-- REST API implementation - Alexander Savin
-- OAuth integration - Alexander Savin
+Backend 
+- REST API implementation 
+- OAuth integration 
 
-Deployment
-- UI Deployment on prod - Alexander Savin
-- Server app deployment - Alexander Savin
+Deployment 
+- UI Deployment on prod 
+- Server app deployment
