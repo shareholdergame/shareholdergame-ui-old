@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 import logo from './logo.svg';
-import { Button, Media, Panel, Badge, Glyphicon, Image, Grid, Row, Col, Navbar, NavItem, Nav } from 'react-bootstrap';
+import { Table, Button, Media, Panel, Badge, Glyphicon, Image, Grid, Row, Col, Navbar, NavItem, Nav } from 'react-bootstrap';
 
 class App extends Component {
   STARTYEAR = 2013; // copyright start year
@@ -14,6 +14,10 @@ class App extends Component {
           <Navbar inverse={this.inverse}>
             <Navbar.Header>
               <Navbar.Brand>
+                <img class="startupapi-logo align-top"
+                  style={{ display: 'inline-block', verticalAlign: 'middle' }}
+                  height="24"
+                  src="/images/logo.png" />
                 <a href="#home">Shareholder</a>
               </Navbar.Brand>
               <Navbar.Toggle />
@@ -34,7 +38,7 @@ class App extends Component {
                   <Glyphicon glyph="info-sign" /> <Badge>3</Badge>
                 </NavItem>
                 <NavItem href="#">
-                  Sergey Chernyshev <Glyphicon glyph="user" />
+                  Sergey Chernyshev <Image src="/images/userpics/avatar_137.jpg" width="24" height="24" circle />
                 </NavItem>
               </Nav>
             </Navbar.Collapse>
@@ -54,49 +58,49 @@ class App extends Component {
           <Col xs={12} md={6}>
             <Panel>
               <Panel.Heading>Activity</Panel.Heading>
-              <Panel.Body>
+              <Panel.Body style={{ padding: 0 }}>
+                <Table striped style={{ margin: 0 }}>
+                  <tbody>
+                    <tr>
+                      <td>
+                        <Image src="/images/userpics/avatar_7.jpg" width="48" height="48" circle />
+                      </td>
+                      <td>
+                        <b>Зырянов invites you to play</b>
+                        <p>Game 4 x 6 / 10 total turns</p>
+                      </td>
+                      <td align="right">
+                        <Button bsSize="small" bsStyle="success">Accept</Button> <Button bsSize="small" bsStyle="danger">Regect</Button>
+                      </td>
+                    </tr>
 
-                <Media>
-                  <Media.Left>
-                    <Image src={logo} width="48" height="48" circle />
-                  </Media.Left>
-                  <Media.Body>
-                    <div className="pull-right" style={{ marginLeft: '1em' }}>
-                      <Button bsSize="small" bsStyle="success">Accept</Button> <Button bsSize="small" bsStyle="danger">Regect</Button>
-                    </div>
-                    <Media.Heading>Alkonaft invites you to play</Media.Heading>
-                    <p>
-                      Game 4 x 6 / 10 total turns
-                    </p>
-                  </Media.Body>
-                </Media>
+                    <tr>
+                      <td>
+                        <Image src="/images/userpics/avatar_1.png" width="48" height="48" circle />
+                      </td>
+                      <td>
+                        <b>Admin vs. Sergey Chernyshev</b>
+                        <p>Turn 4.1: Your turn</p>
+                      </td>
+                      <td align="right">
+                        <Button className="pull-right" style={{ marginLeft: '1em' }} bsSize="small" bsStyle="success">Make Your Move</Button>
+                      </td>
+                    </tr>
 
-                <Media>
-                  <Media.Left>
-                    <Image src={logo} width="48" height="48" circle />
-                  </Media.Left>
-                  <Media.Body>
-                    <Button className="pull-right" style={{ marginLeft: '1em' }} bsSize="small" bsStyle="success">Make Your Move</Button>
-                    <Media.Heading>Alkonaft vs. Sergey Chernyshev</Media.Heading>
-                    <p>
-                      Turn 4.1: You turn
-                    </p>
-
-                  </Media.Body>
-                </Media>
-
-                <Media>
-                  <Media.Left>
-                    <Image src={logo} width="48" height="48" circle />
-                  </Media.Left>
-                  <Media.Body>
-                    <Button className="pull-right" style={{ marginLeft: '1em' }} bsSize="small" bsStyle="info">View Game</Button>
-                    <Media.Heading>Sergey Chernyshev vs. Alkonaft</Media.Heading>
-                    <p>
-                      Congratulations, you won!
-                    </p>
-                  </Media.Body>
-                </Media>
+                    <tr>
+                      <td>
+                        <Image src="/images/userpics/avatar_8.jpg" width="48" height="48" circle />
+                      </td>
+                      <td>
+                        <b>Sergey Chernyshev vs. Governor</b>
+                        <p>Congratulations, you won!</p>
+                      </td>
+                      <td align="right">
+                        <Button className="pull-right" style={{ marginLeft: '1em' }} bsSize="small" bsStyle="info">View Game</Button>
+                      </td>
+                    </tr>
+                  </tbody>
+                </Table>
 
               </Panel.Body>
             </Panel>
