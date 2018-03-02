@@ -14,10 +14,11 @@ class App extends Component {
           <Navbar inverse={this.inverse}>
             <Navbar.Header>
               <Navbar.Brand>
-                <img class="startupapi-logo align-top"
-                  style={{ display: 'inline-block', verticalAlign: 'middle' }}
-                  height="24"
-                  src="/images/logo.png" />
+                <a href="#home"><img class="startupapi-logo align-top"
+                  style={{ height: '1em' }}
+                  src="/images/logo.png" /></a>
+              </Navbar.Brand>
+              <Navbar.Brand>
                 <a href="#home">Shareholder</a>
               </Navbar.Brand>
               <Navbar.Toggle />
