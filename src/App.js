@@ -185,7 +185,64 @@ class App extends Component {
                             <p>Congratulations, you won!</p>
                           </Col>
                           <Col xs={12} sm={6} className="activity-actions">
-                            <Button bsStyle="info">
+                            <Button>
+                              <Glyphicon glyph="eye-open" /> View Game
+                            </Button>
+                          </Col>
+                        </Row>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style={{ textAlign: 'center' }}>
+                        <Image src="/images/userpics/avatar_8.jpg" width="48" height="48" circle />
+                      </td>
+                      <td>
+                        <Row>
+                          <Col xs={12} sm={6}>
+                            <b>Sergey Chernyshev vs. Governor</b>
+                            <p>Congratulations, you won!</p>
+                          </Col>
+                          <Col xs={12} sm={6} className="activity-actions">
+                            <Button>
+                              <Glyphicon glyph="eye-open" /> View Game
+                            </Button>
+                          </Col>
+                        </Row>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style={{ textAlign: 'center' }}>
+                        <Image src="/images/userpics/avatar_8.jpg" width="48" height="48" circle />
+                      </td>
+                      <td>
+                        <Row>
+                          <Col xs={12} sm={6}>
+                            <b>Sergey Chernyshev vs. Governor</b>
+                            <p>Congratulations, you won!</p>
+                          </Col>
+                          <Col xs={12} sm={6} className="activity-actions">
+                            <Button>
+                              <Glyphicon glyph="eye-open" /> View Game
+                            </Button>
+                          </Col>
+                        </Row>
+                      </td>
+                    </tr>
+
+                    <tr>
+                      <td style={{ textAlign: 'center' }}>
+                        <Image src="/images/userpics/avatar_8.jpg" width="48" height="48" circle />
+                      </td>
+                      <td>
+                        <Row>
+                          <Col xs={12} sm={6}>
+                            <b>Sergey Chernyshev vs. Governor</b>
+                            <p>Congratulations, you won!</p>
+                          </Col>
+                          <Col xs={12} sm={6} className="activity-actions">
+                            <Button>
                               <Glyphicon glyph="eye-open" /> View Game
                             </Button>
                           </Col>
