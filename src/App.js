@@ -210,7 +210,7 @@ class App extends Component {
                       </td>
                       <td style={{ verticalAlign: 'middle' }} align="right">
                         <ButtonGroup>
-                          <Button bsSize="small" bsStyle="default"><Glyphicon glyph="envelope" /> Chat</Button>
+                          <Button bsSize="small" bsStyle="default"><Glyphicon glyph="envelope" /> Send Message</Button>
                           <Button bsSize="small" bsStyle="primary"><Glyphicon glyph="user" /><Glyphicon glyph="plus" /> Invite</Button>
                         </ButtonGroup>
                       </td>
@@ -221,7 +221,7 @@ class App extends Component {
                       </td>
                       <td style={{ verticalAlign: 'middle' }} align="right">
                         <ButtonGroup>
-                          <Button bsSize="small" bsStyle="default"><Glyphicon glyph="envelope" /> Chat</Button>
+                          <Button bsSize="small" bsStyle="default"><Glyphicon glyph="envelope" /> Send Message</Button>
                           <Button bsSize="small" bsStyle="primary"><Glyphicon glyph="user" /><Glyphicon glyph="plus" /> Invite</Button>
                         </ButtonGroup>
                       </td>
@@ -232,7 +232,7 @@ class App extends Component {
                       </td>
                       <td style={{ verticalAlign: 'middle' }} align="right">
                         <ButtonGroup>
-                          <Button bsSize="small" bsStyle="default"><Glyphicon glyph="envelope" /> Chat</Button>
+                          <Button bsSize="small" bsStyle="default"><Glyphicon glyph="envelope" /> Send Message</Button>
                           <Button bsSize="small" bsStyle="primary"><Glyphicon glyph="user" /><Glyphicon glyph="plus" /> Invite</Button>
                         </ButtonGroup>
                       </td>
