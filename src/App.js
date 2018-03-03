@@ -85,6 +85,7 @@ class App extends Component {
             <Navbar.Collapse>
               <Nav pullRight className="visible-xs">
                 <NavItem eventKey="4.1">
+                  <Glyphicon glyph="ok" className="pull-right" />
                   <img alt="US flag" src="/images/flags/us_flag.svg" style={{ width: '1.5em', verticalAlign: 'baseline' }} />
                   <span style={{ marginLeft: '1em' }}>English (United States)</span>
                 </NavItem>
@@ -97,10 +98,12 @@ class App extends Component {
             <Navbar.Collapse>
               <Nav pullRight className="visible-xs">
                 <NavItem href="#">
-                  <Glyphicon glyph="user" /><Glyphicon glyph="plus" /> <Badge bsStyle="success">2</Badge>
+                  <Badge pullRight>2</Badge>
+                  Invitations <Glyphicon glyph="user" /><Glyphicon glyph="plus" />
                 </NavItem>
                 <NavItem href="#">
-                  <Glyphicon glyph="envelope" /> <Badge>3</Badge>
+                  <Badge pullRight>3</Badge>
+                  Messages <Glyphicon glyph="envelope" />
                 </NavItem>
                 <NavDropdown eventKey="4" title={profileMenu} id="nav-dropdown">
                   <MenuItem eventKey="4.1">My Achievements</MenuItem>
