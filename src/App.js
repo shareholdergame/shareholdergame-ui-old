@@ -121,7 +121,7 @@ class App extends Component {
             <Button bsSize="large" bsStyle="success" block>Start New Game</Button>
           </Col>
           <Col xs={12} md={6}>
-            <Button bsSize="large" block>Select Game Variant</Button>
+            <Button bsSize="large" block>Game Options</Button>
           </Col>
         </Row>
 
@@ -145,7 +145,7 @@ class App extends Component {
                           <Col xs={12} sm={6} className="activity-actions">
                             <ButtonGroup>
                               <Button bsStyle="success"><Glyphicon glyph="ok" /> Accept</Button>
-                              <Button bsStyle="danger"><Glyphicon glyph="remove" /> Regect</Button>
+                              <Button bsStyle="danger"><Glyphicon glyph="remove" /> Reject</Button>
                             </ButtonGroup>
                           </Col>
                         </Row>
@@ -197,7 +197,7 @@ class App extends Component {
           </Col>
           <Col xs={12} md={6}>
             <Panel>
-              <Panel.Heading>On-line Players</Panel.Heading>
+              <Panel.Heading>Players On-line</Panel.Heading>
               <Panel.Body style={{ padding: 0 }}>
                 <Table striped style={{ margin: 0 }}>
                   <tbody>
