@@ -120,16 +120,16 @@ class App extends Component {
         </Row>
 
         <Row style={{ paddingBottom: '1em' }}>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={7}>
             <Button bsSize="large" bsStyle="success" block>Start New Game</Button>
           </Col>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={5}>
             <Button bsSize="large" block>Game Options</Button>
           </Col>
         </Row>
 
         <Row>
-          <Col xs={12} md={6}>
+          <Col xs={12} md={7}>
             <Panel>
               <Panel.Heading>Activity</Panel.Heading>
               <Panel.Body style={{ padding: 0 }}>
@@ -255,7 +255,8 @@ class App extends Component {
               </Panel.Body>
             </Panel>
           </Col>
-          <Col xs={12} md={6}>
+
+          <Col xs={12} md={5}>
             <Panel>
               <Panel.Heading>Players On-line</Panel.Heading>
               <Panel.Body style={{ padding: 0 }}>
