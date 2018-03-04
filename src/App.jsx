@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React from "react";
 import { Grid } from "react-bootstrap";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
