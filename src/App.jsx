@@ -6,18 +6,14 @@ import Home from "./Home";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 
-class App extends Component {
-  render() {
-    return (
-      <Router>
-        <Grid fluid>
-          <Navigation />
-          <Route exact path="/" component={Home} />
-          <Footer />
-        </Grid>
-      </Router>
-    );
-  }
-}
+const App = () => (
+  <Router>
+    <Grid fluid>
+      <Navigation />
+      <Route exact path="/" component={Home} />
+      <Footer />
+    </Grid>
+  </Router>
+);
 
 export default App;
