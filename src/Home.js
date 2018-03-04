@@ -8,6 +8,7 @@ import {
     FormControl,
     Well
 } from 'react-bootstrap';
+import { LinkContainer } from 'react-router-bootstrap';
 
 class Home extends Component {
     render() {
@@ -15,10 +16,14 @@ class Home extends Component {
             <div>
                 <Row style={{ paddingBottom: '1em' }}>
                     <Col xs={12} md={7}>
-                        <Button bsSize="large" bsStyle="success" block>Start New Game</Button>
+                        <LinkContainer to="new-game">
+                            <Button bsSize="large" bsStyle="success" block>Start New Game</Button>
+                        </LinkContainer>
                     </Col>
                     <Col xs={12} md={5}>
-                        <Button bsSize="large" block>Game Options</Button>
+                        <LinkContainer to="new-game">
+                            <Button bsSize="large" block>Game Options</Button>
+                        </LinkContainer>
                     </Col>
                 </Row>
                 <Row>

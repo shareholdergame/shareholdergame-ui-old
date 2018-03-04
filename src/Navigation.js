@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { Link } from "react-router-dom";
 import {
     Navbar, NavItem, Nav,
     NavDropdown,
@@ -33,16 +34,16 @@ class Navigation extends Component {
                                 <span style={{ marginLeft: '1em' }}>Russian</span>
                             </MenuItem>
                         </NavDropdown>
-                        <NavItem href="#">
+                        <NavItem>
                             <Glyphicon glyph="user" /><Glyphicon glyph="plus" /> <Badge bsStyle="success">2</Badge>
                         </NavItem>
-                        <NavItem href="#">
+                        <NavItem>
                             <Glyphicon glyph="envelope" /> <Badge>3</Badge>
                         </NavItem>
                         <NavDropdown eventKey="4" title={profileMenu} id="nav-dropdown">
-                            <MenuItem eventKey="4.1">My Achievements</MenuItem>
-                            <MenuItem eventKey="4.2">My Profile</MenuItem>
-                            <MenuItem eventKey="4.3">Account Settings</MenuItem>
+                            <MenuItem><Link to="/my-achievements">My Achievements</Link></MenuItem>
+                            <MenuItem><Link to="/profile">My Profile</Link></MenuItem>
+                            <MenuItem><Link to="/account">Account Settings</Link></MenuItem>
                             <MenuItem divider />
                             <MenuItem eventKey="4.4">Sign Out</MenuItem>
                         </NavDropdown>
@@ -52,24 +53,26 @@ class Navigation extends Component {
                 <Navbar fluid>
                     <Navbar.Header>
                         <Navbar.Brand>
-                            <a href="#home"><img className="align-top"
-                                alt="Stockholder game logo"
-                                style={{ height: '1em' }}
-                                src="/images/logo.png" /></a>
+                            <Link to="/">
+                                <img className="align-top"
+                                    alt="Stockholder game logo"
+                                    style={{ height: '1em' }}
+                                    src="/images/logo.png" />
+                            </Link>
                         </Navbar.Brand>
                         <Navbar.Brand>
-                            <a href="#home">Shareholder</a>
+                            <Link to="/">Shareholder</Link>
                         </Navbar.Brand>
                         <Navbar.Toggle />
                     </Navbar.Header>
                     <Navbar.Collapse>
                         <Nav>
-                            <NavItem eventKey={1} href="#">New Game</NavItem>
-                            <NavItem eventKey={2} href="#">My Games</NavItem>
-                            <NavItem eventKey={2} href="#">Players</NavItem>
-                            <NavItem eventKey={2} href="#">Game Archive</NavItem>
-                            <NavItem eventKey={2} href="#">Rules</NavItem>
-                            <NavItem eventKey={2} href="#">Forum</NavItem>
+                            <NavItem><Link to="/new-game">New Game</Link></NavItem>
+                            <NavItem><Link to="/my-games">My Games</Link></NavItem>
+                            <NavItem><Link to="/players">Players</Link></NavItem>
+                            <NavItem><Link to="/archive">Game Archive</Link></NavItem>
+                            <NavItem><Link to="/rules">Rules</Link></NavItem>
+                            <NavItem href="http://forum.stockholdergame.com/">Forum</NavItem>
                         </Nav>
                     </Navbar.Collapse>
                     <Navbar.Collapse>
@@ -87,18 +90,18 @@ class Navigation extends Component {
                     </Navbar.Collapse>
                     <Navbar.Collapse>
                         <Nav pullRight className="visible-xs">
-                            <NavItem href="#">
+                            <NavItem>
                                 <Badge pullRight>2</Badge>
                                 Invitations <Glyphicon glyph="user" /><Glyphicon glyph="plus" />
                             </NavItem>
-                            <NavItem href="#">
+                            <NavItem>
                                 <Badge pullRight>3</Badge>
                                 Messages <Glyphicon glyph="envelope" />
                             </NavItem>
                             <NavDropdown eventKey="4" title={profileMenu} id="nav-dropdown">
-                                <MenuItem eventKey="4.1">My Achievements</MenuItem>
-                                <MenuItem eventKey="4.2">My Profile</MenuItem>
-                                <MenuItem eventKey="4.3">Account Settings</MenuItem>
+                                <MenuItem><Link to="/my-achievements">My Achievements</Link></MenuItem>
+                                <MenuItem><Link to="/profile">My Profile</Link></MenuItem>
+                                <MenuItem><Link to="/account">Account Settings</Link></MenuItem>
                                 <MenuItem divider />
                                 <MenuItem eventKey="4.4">Sign Out</MenuItem>
                             </NavDropdown>
