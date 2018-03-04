@@ -2,8 +2,122 @@
   "result": {
     "activity": [
       {
+        "type": "INVITATION",
+        "timestamp": "2018-02-21T23:15:30.000Z",
+        "replied": false,
+        "player": {
+          "id": 7,
+          "name": "Зырянов",
+          "userpic": "avatar_7.jpg"
+        },
+        "game": {
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          }
+        }
+      },
+      {
+        "type": "YOUR_TURN",
+        "timestamp": "2018-02-20T23:15:30.000Z",
+        "game": {
+          "id": 761234782134,
+          "round": 4,
+          "turn": 1,
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 1,
+              "name": "Admin",
+              "userpic": "avatar_1.png"
+            },
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            }
+          ]
+        }
+      },
+      {
         "type": "GAME_DONE",
-        "winner": true
+        "timestamp": "2018-02-18T23:15:30.000Z",
+        "winner": true,
+        "game": {
+          "id": 12341251,
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            },
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            }
+          ]
+        }
+      },
+      {
+        "type": "GAME_DONE",
+        "timestamp": "2018-02-17T23:15:30.000Z",
+        "winner": true,
+        "game": {
+          "id": 12341251,
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            },
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            }
+          ]
+        }
+      },
+      {
+        "type": "GAME_DONE",
+        "timestamp": "2018-02-16T23:15:30.000Z",
+        "winner": true,
+        "game": {
+          "id": 12341251,
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            },
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            }
+          ]
+        }
       }
     ]
   }
