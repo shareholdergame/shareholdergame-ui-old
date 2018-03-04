@@ -1,10 +1,10 @@
-import React, { Component } from 'react';
-import { Grid } from 'react-bootstrap';
+import React, { Component } from "react";
+import { Grid } from "react-bootstrap";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 
-import Home from './Home';
-import Navigation from './Navigation';
-import Footer from './Footer';
+import Home from "./Home";
+import Navigation from "./Navigation";
+import Footer from "./Footer";
 
 class App extends Component {
   render() {
