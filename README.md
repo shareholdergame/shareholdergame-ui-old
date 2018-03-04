@@ -71,12 +71,13 @@ Install corresponding plugins for you text editor to enable automated style erro
 * [Prettier plugin](https://marketplace.visualstudio.com/items?itemName=esbenp.prettier-vscode)
 
 [Atom](https://atom.io/) is another open source editor created by GitHub team.
+
 * [ESLint plugin](https://atom.io/packages/linter-eslint)
 * [Prettier plugin](https://atom.io/packages/prettier-atom)
 
 #### Automated formatting
 
-On a todo list is to enable [automated formatting upon commit](/REACT-APP.md#Formatting_Code_Automatically).
+On a todo list is to enable [automated formatting upon commit](/REACT-APP.md#formatting-code-automatically).
 
 # Lincese
 
