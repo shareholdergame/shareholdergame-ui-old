@@ -5,15 +5,19 @@
 }
 
 .navbar-narrow .navbar-nav > li > a {
-    padding-top:3px !important;
-    padding-bottom:3px !important;
+    padding-top: 3px;
+    padding-bottom: 3px;
 }
 
 .navbar-narrow {
-    min-height:30px !important;
+    min-height: 30px;
     font-size: x-small;
 }
 
 .navbar { 
-    border-radius: 0 !important
+    border-radius: 0;
+}
+
+footer.navbar {
+    margin-bottom: 0;
 }

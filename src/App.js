@@ -12,8 +12,6 @@ import {
   Well
 } from 'react-bootstrap';
 
-import './App.css';
-
 class App extends Component {
   STARTYEAR = 2013; // copyright start year
   YEAR = 2018; // current year
