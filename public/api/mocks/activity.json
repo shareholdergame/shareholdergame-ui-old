@@ -1,0 +1,10 @@
+{
+  "result": {
+    "activity": [
+      {
+        "type": "GAME_DONE",
+        "winner": true
+      }
+    ]
+  }
+}
