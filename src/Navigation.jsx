@@ -11,6 +11,7 @@ import {
   Image,
   Row
 } from "react-bootstrap";
+import { LinkContainer } from "react-router-bootstrap";
 
 const profileMenu = (
   <span>
@@ -69,15 +70,15 @@ const Navigation = () => (
           <Glyphicon glyph="envelope" /> <Badge>3</Badge>
         </NavItem>
         <NavDropdown eventKey="4" title={profileMenu} id="nav-dropdown">
-          <MenuItem>
-            <Link to="/my-achievements">My Achievements</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/profile">My Profile</Link>
-          </MenuItem>
-          <MenuItem>
-            <Link to="/account">Account Settings</Link>
-          </MenuItem>
+          <LinkContainer to="/my-achievements">
+            <MenuItem>My Achievements</MenuItem>
+          </LinkContainer>
+          <LinkContainer to="/profile">
+            <MenuItem>My Profile</MenuItem>
+          </LinkContainer>
+          <LinkContainer to="/account">
+            <MenuItem>Account Settings</MenuItem>
+          </LinkContainer>
           <MenuItem divider />
           <MenuItem eventKey="4.4">Sign Out</MenuItem>
         </NavDropdown>
@@ -103,21 +104,21 @@ const Navigation = () => (
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
-          <NavItem>
-            <Link to="/new-game">New Game</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/my-games">My Games</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/players">Players</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/archive">Game Archive</Link>
-          </NavItem>
-          <NavItem>
-            <Link to="/rules">Rules</Link>
-          </NavItem>
+          <LinkContainer to="/new-game">
+            <NavItem>New Game</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/my-games">
+            <NavItem>My Games</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/players">
+            <NavItem>Players</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/archive">
+            <NavItem>Game Archive</NavItem>
+          </LinkContainer>
+          <LinkContainer to="/rules">
+            <NavItem>Rules</NavItem>
+          </LinkContainer>
           <NavItem href="http://forum.stockholdergame.com/">Forum</NavItem>
         </Nav>
       </Navbar.Collapse>
@@ -154,15 +155,15 @@ const Navigation = () => (
             Messages <Glyphicon glyph="envelope" />
           </NavItem>
           <NavDropdown eventKey="4" title={profileMenu} id="nav-dropdown">
-            <MenuItem>
-              <Link to="/my-achievements">My Achievements</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/profile">My Profile</Link>
-            </MenuItem>
-            <MenuItem>
-              <Link to="/account">Account Settings</Link>
-            </MenuItem>
+            <LinkContainer to="/my-achievements">
+              <MenuItem>My Achievements</MenuItem>
+            </LinkContainer>
+            <LinkContainer to="/profile">
+              <MenuItem>My Profile</MenuItem>
+            </LinkContainer>
+            <LinkContainer to="/account">
+              <MenuItem>Account Settings</MenuItem>
+            </LinkContainer>
             <MenuItem divider />
             <MenuItem eventKey="4.4">Sign Out</MenuItem>
           </NavDropdown>
