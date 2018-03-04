@@ -1,5 +1,5 @@
 @media (min-width: 768px) {
-    .activity-actions .btn-group, .activity-actions .btn {
+    .activity-actions .btn-group, .activity-actions > .btn {
         float: right;
     }
 }
