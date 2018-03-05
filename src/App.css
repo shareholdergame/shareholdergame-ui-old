@@ -1,0 +1,24 @@
+@media (min-width: 768px) {
+  .activity-actions .btn-group,
+  .activity-actions > .btn {
+    float: right;
+  }
+}
+
+.navbar-narrow .navbar-nav > li > a {
+  padding-top: 3px;
+  padding-bottom: 3px;
+}
+
+.navbar-narrow {
+  min-height: 30px;
+  font-size: x-small;
+}
+
+.navbar {
+  border-radius: 0;
+}
+
+footer.navbar {
+  margin-bottom: 0;
+}
