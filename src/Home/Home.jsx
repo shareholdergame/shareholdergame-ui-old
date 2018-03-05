@@ -2,7 +2,7 @@ import React from "react";
 import { Button, Row, Col } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
-import Activity from "./Activity";
+import Activity from "./Activity/Activity";
 import PlayersOnline from "./PlayersOnline";
 import GlobalChat from "./GlobalChat";
 
