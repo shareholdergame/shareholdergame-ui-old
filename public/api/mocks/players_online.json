@@ -1,0 +1,21 @@
+{
+  "result": {
+    "players_online": [
+      {
+        "id": 42,
+        "name": "Михаил",
+        "userpic": "avatar_42.jpg"
+      },
+      {
+        "id": 10,
+        "name": "Alkonaft",
+        "userpic": "default_avatar.png"
+      },
+      {
+        "id": 5,
+        "name": "Andrew",
+        "userpic": "avatar_5.png"
+      }
+    ]
+  }
+}

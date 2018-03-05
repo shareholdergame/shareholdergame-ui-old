@@ -15,7 +15,7 @@ import thunkMiddleware from "redux-thunk";
 import App from "./App";
 import registerServiceWorker from "./registerServiceWorker";
 
-import { home, loadActivity } from "./store/home";
+import { home, loadActivity, loadPlayersOnline } from "./store/home";
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
@@ -38,6 +38,7 @@ const store = createStore(
 );
 
 store.dispatch(loadActivity());
+store.dispatch(loadPlayersOnline());
 
 render(
   <Provider store={store}>
