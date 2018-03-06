@@ -3,7 +3,7 @@ import { Button, Row, Col } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 
 import Activity from "./Activity/Activity";
-import PlayersOnline from "./PlayersOnline";
+import PlayersSearch from "./PlayersSearch";
 import GlobalChat from "./GlobalChat";
 
 const Home = () => (
@@ -31,7 +31,7 @@ const Home = () => (
       </Col>
 
       <Col xs={12} md={5}>
-        <PlayersOnline />
+        <PlayersSearch />
         <GlobalChat />
       </Col>
     </Row>

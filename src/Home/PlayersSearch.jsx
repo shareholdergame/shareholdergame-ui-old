@@ -6,14 +6,34 @@ import {
   ButtonGroup,
   Button,
   Glyphicon,
-  Image
+  Image,
+  FormGroup,
+  InputGroup,
+  FormControl,
+  Label
 } from "react-bootstrap";
 import { arrayOf, number, shape, string } from "prop-types";
 
-const PlayersOnline = props => (
+const PlayersSearch = props => (
   <Panel>
-    <Panel.Heading>Players On-line</Panel.Heading>
+    <Panel.Heading>
+      Players <Label bsStyle="success">on-line</Label>
+    </Panel.Heading>
     <Panel.Body style={{ padding: 0 }}>
+      <FormGroup style={{ marginBottom: 0 }}>
+        <InputGroup>
+          <FormControl
+            type="text"
+            placeholder="type here to search players..."
+          />
+          <InputGroup.Button>
+            <Button>
+              <Glyphicon glyph="search" /> Search
+            </Button>
+          </InputGroup.Button>
+        </InputGroup>
+      </FormGroup>
+
       <Table striped style={{ margin: 0 }}>
         <tbody>
           {props.players_online.map(player => (
@@ -46,7 +66,7 @@ const PlayersOnline = props => (
   </Panel>
 );
 
-PlayersOnline.propTypes = {
+PlayersSearch.propTypes = {
   players_online: arrayOf(
     shape({
       userpic: string.isRequired,
@@ -56,10 +76,10 @@ PlayersOnline.propTypes = {
   )
 };
 
-PlayersOnline.defaultProps = {
+PlayersSearch.defaultProps = {
   players_online: []
 };
 
 export default connect(state => ({
   players_online: state.home.players_online
-}))(PlayersOnline);
+}))(PlayersSearch);
