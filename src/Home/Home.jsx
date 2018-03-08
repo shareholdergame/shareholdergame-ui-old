@@ -10,16 +10,20 @@ const Home = () => (
   <div>
     <Row style={{ paddingBottom: "1em" }}>
       <Col xs={12} md={7}>
-        <LinkContainer to="new-game">
+        <LinkContainer to="new-game/4x6/">
           <Button bsSize="large" bsStyle="success" block>
-            Start New Game
+            <div>Start New Game</div>
+            <div style={{ fontSize: "small" }}>4 x 6 / 10 turns total</div>
           </Button>
         </LinkContainer>
       </Col>
       <Col xs={12} md={5}>
-        <LinkContainer to="new-game">
+        <LinkContainer to="new-game/">
           <Button bsSize="large" block>
-            Game Options
+            <div>Game Options</div>
+            <div style={{ fontSize: "small" }}>
+              More players per game, custom number of cards
+            </div>
           </Button>
         </LinkContainer>
       </Col>
