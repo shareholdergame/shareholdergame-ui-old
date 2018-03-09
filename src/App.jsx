@@ -3,7 +3,7 @@ import { Grid } from "react-bootstrap";
 import { Route } from "react-router-dom";
 
 import Home from "./Home/Home";
-import NewGame from "./NewGame";
+import NewGame from "./NewGame/NewGame";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 
