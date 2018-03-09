@@ -49,13 +49,13 @@ addLocaleData([...en]);
 // Define user's language. Different browsers have the user locale defined
 // on different fields on the `navigator` object, so we make sure to account
 // for these different by checking all of them
-/* const language =
+const language =
   (navigator.languages && navigator.languages[0]) ||
   navigator.language ||
-  navigator.userLanguage; */
+  navigator.userLanguage;
 
 // hard-coding for debugging purposes, will need to be a combo of browser settings and user's choice in the future
-const language = "ru_RU";
+// const language = "ru_RU";
 
 // Split locales with a region code
 const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];

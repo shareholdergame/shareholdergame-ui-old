@@ -76,7 +76,7 @@ const GameTypeSelector = props => {
 
           {props.slug ? (
             <Row>
-              <Col md="6">
+              <Col md={6}>
                 <LinkContainer
                   to={`/new-game/${props.slug}/invite/`}
                   style={{ marginTop: "1em" }}
