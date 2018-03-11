@@ -2,6 +2,13 @@
 /profile              /index.html     200
 /account              /index.html     200
 /new-game             /index.html     200
+/new-game/4x6         /index.html     200
+/new-game/4x6/invite  /index.html     200
+/new-game/4x6/bot     /index.html     200
+/new-game/3x5         /index.html     200
+/new-game/3x5/invite  /index.html     200
+/new-game/3x5/bot     /index.html     200
+/new-game/custom      /index.html     200
 /my-games             /index.html     200
 /players              /index.html     200
 /archive              /index.html     200
