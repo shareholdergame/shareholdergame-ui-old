@@ -14,6 +14,7 @@ const App = () => (
     <Navigation />
     <Route exact path="/" component={Home} />
     <Route exact path="/new-game/" component={NewGame} />
+    <Route exact path="/new-game/:slug/" component={NewGame} />
     <Footer />
   </Grid>
 );
