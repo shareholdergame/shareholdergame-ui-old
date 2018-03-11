@@ -100,7 +100,10 @@ const GameTypeSelector = props => {
             </Row>
           ) : (
             <Row>
-              <LinkContainer to="new-game/custom/" style={{ marginTop: "1em" }}>
+              <LinkContainer
+                to="/new-game/custom/invite/"
+                style={{ marginTop: "1em" }}
+              >
                 <Button bsSize="large" bsStyle="success" block>
                   I like experiments!
                 </Button>
