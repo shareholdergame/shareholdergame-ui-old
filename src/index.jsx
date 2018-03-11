@@ -15,7 +15,7 @@ import { IntlProvider, addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
 
 import App from "./App";
-import registerServiceWorker from "./registerServiceWorker";
+// import registerServiceWorker from "./registerServiceWorker";
 
 import { home, loadActivity, loadPlayersOnline } from "./store/home";
 
@@ -77,4 +77,4 @@ render(
   document.getElementById("root")
 );
 
-registerServiceWorker();
+// registerServiceWorker();

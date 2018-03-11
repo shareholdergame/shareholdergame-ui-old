@@ -33,7 +33,7 @@ const GameDoneActivity = props => (
 );
 
 GameDoneActivity.propTypes = {
-  winner: bool.isRequired,
+  winner: bool,
   game: shape({
     id: number.isRequired,
     players: arrayOf(
@@ -42,6 +42,10 @@ GameDoneActivity.propTypes = {
       })
     ).isRequired
   }).isRequired
+};
+
+GameDoneActivity.defaultProps = {
+  winner: false
 };
 
 export default GameDoneActivity;
