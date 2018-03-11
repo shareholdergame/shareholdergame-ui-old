@@ -6,7 +6,7 @@ import GameTypeSelector from "./GameTypeSelector";
 
 const NewGame = ({ match }) => (
   <div>
-    <PageHeader>Select Game Settings</PageHeader>
+    {!match.params.slug && <PageHeader>Select Game Settings</PageHeader>}
 
     {(!match.params.slug || match.params.slug === "4x6") && (
       <GameTypeSelector
