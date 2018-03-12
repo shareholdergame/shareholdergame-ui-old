@@ -55,6 +55,20 @@ This project was bootstrapped using `create-react-app` tool, see [REACT-APP.md](
 
 React router is used to do front-end routing. In order for it to work with Bootstrap, `react-router-bootstrap` is used with [`<LinkContainer to="...">`](https://github.com/react-bootstrap/react-router-bootstrap#example) wrapper.
 
+## Internationalization (i18n)
+
+One of the core goals of the project is to make sure it supports multiple languages and other internationalization rules (e.g. date formats and etc.), we use [`react-intl`](https://github.com/yahoo/react-intl) module which is part of [FormatJS](https://formatjs.io/) to accomplish that.
+
+Use [`<FormattedMessage>`](https://github.com/yahoo/react-intl/wiki/Components#formattedmessage) component to represent all displayed strings.
+
+In case when you need to pass a string as a prop to another component, you can use [injection API](https://github.com/yahoo/react-intl/wiki/API#injection-api)'s [`formatMessage()`](https://github.com/yahoo/react-intl/wiki/API#formatmessage) function to accomplish that.
+
+To generate a list of strings from code when you added new messages, use [`/scripts/translate.js`](/scripts/translate.js) script to generate [`/src/locales/data.json`](/src/locales/data.json) file with all english labels (which is a default), but keep in mind that it will erase all current translated values from it so you might want to back it up before doing so. This script needs to be improved to make it less crazy of the process.
+
+### Help with translation
+
+You can help with translation efforts for this project without being a developer, just edit [`/src/locales/data.json`](/src/locales/data.json) to improve / add translation for messages that are not translated yet.
+
 ## Code quality guidelines
 
 [ESLint](https://eslint.org/) is used together with [airbnb JavaScript styleguide](https://github.com/airbnb/javascript) as industry de-facto standard for quality control.
