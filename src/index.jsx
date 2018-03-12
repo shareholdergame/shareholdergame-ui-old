@@ -65,7 +65,11 @@ store.dispatch(loadPlayersOnline());
 store.dispatch(setLanguage(browserLanguage)); // set initial language on the browser
 
 const I18nWrapper = props => (
-  <IntlProvider locale={props.locale} messages={props.messages}>
+  <IntlProvider
+    key={props.locale}
+    locale={props.locale}
+    messages={props.messages}
+  >
     <ConnectedRouter history={history}>
       <App />
     </ConnectedRouter>
