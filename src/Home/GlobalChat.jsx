@@ -1,8 +1,21 @@
 import React from "react";
 import { Panel, Glyphicon, FormControl, Well } from "react-bootstrap";
-import { FormattedMessage } from "react-intl";
+import {
+  FormattedMessage,
+  injectIntl,
+  intlShape,
+  defineMessages
+} from "react-intl";
 
-const GlobalChat = () => (
+const messages = defineMessages({
+  placeholder: {
+    id: "home.globalchat.placeholder",
+    description: "Global chat text area placeholder",
+    defaultMessage: "type your message here ..."
+  }
+});
+
+const GlobalChat = ({ intl }) => (
   <Panel>
     <Panel.Heading>
       <FormattedMessage
@@ -39,16 +52,14 @@ const GlobalChat = () => (
       <FormControl
         style={{ height: "5em" }}
         componentClass="textarea"
-        placeholder={
-          <FormattedMessage
-            id="home.globalchat.placeholder"
-            description="Global chat text area placeholder"
-            defaultMessage="type your message here ..."
-          />
-        }
+        placeholder={intl.formatMessage(messages.placeholder)}
       />
     </Panel.Body>
   </Panel>
 );
 
-export default GlobalChat;
+GlobalChat.propTypes = {
+  intl: intlShape.isRequired
+};
+
+export default injectIntl(GlobalChat);
