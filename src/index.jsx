@@ -66,7 +66,9 @@ store.dispatch(setLanguage(browserLanguage)); // set initial language on the bro
 
 const I18nWrapper = props => (
   <IntlProvider locale={props.locale} messages={props.messages}>
-    <App />
+    <ConnectedRouter history={history}>
+      <App />
+    </ConnectedRouter>
   </IntlProvider>
 );
 
@@ -76,19 +78,21 @@ I18nWrapper.propTypes = {
 };
 
 const TranslatedApp = connect(state => {
+  // read language from Redux store
   const { language } = state.i18n;
+
+  // Split locales with a region code
   const locale = language.toLowerCase().split(/[_-]+/)[0];
-  return {
-    locale, // Split locales with a region code
-    messages: localeData[locale] || localeData[language] || localeData.en // try language first, then full locale, then fall back to basic english
-  };
+
+  // try language first, then full locale, then fall back to basic english
+  const messages = localeData[locale] || localeData[language] || localeData.en;
+
+  return { locale, messages };
 })(I18nWrapper);
 
 render(
   <Provider store={store}>
-    <ConnectedRouter history={history}>
-      <TranslatedApp />
-    </ConnectedRouter>
+    <TranslatedApp />
   </Provider>,
   document.getElementById("root")
 );
