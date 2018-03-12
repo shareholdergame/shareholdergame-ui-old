@@ -57,7 +57,8 @@ addLocaleData([...en, ...ru]);
 //   navigator.userLanguage;
 
 // hard-coding for debugging purposes, will need to be a combo of browser settings and user's choice in the future
-const language = "ru";
+const language = "ru_RU";
+// const language = "en_US";
 
 // Split locales with a region code
 const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
@@ -69,7 +70,7 @@ const messages =
   localeData.en;
 
 render(
-  <IntlProvider locale={language} messages={messages}>
+  <IntlProvider locale={languageWithoutRegionCode} messages={messages}>
     <Provider store={store}>
       <ConnectedRouter history={history}>
         <App />

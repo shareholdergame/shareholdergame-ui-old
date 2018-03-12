@@ -1,5 +1,5 @@
 {
-  "en": {
+  "en_US": {
     "home.activity.panellabel": "Activity",
     "home.activity.gameover.won": "Game is over. Congratulations, you won!",
     "home.activity.gameover.lost": "Game is over. You lost.",
@@ -49,7 +49,7 @@
     "newgame.custom.description1": "Game experiments.",
     "newgame.custom.description2": "3+ players"
   },
-  "ru": {
+  "ru_RU": {
     "home.activity.panellabel": "Дневник Событий",
     "home.activity.gameover.won": "Игра окончена. Вы выиграли!",
     "home.activity.gameover.lost": "Игра окончена, вы проиграли.",
