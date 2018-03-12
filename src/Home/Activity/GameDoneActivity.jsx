@@ -2,6 +2,7 @@ import React from "react";
 import { Button, Glyphicon, Row, Col } from "react-bootstrap";
 import { arrayOf, number, shape, string, bool } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
+import { FormattedMessage } from "react-intl";
 
 const GameDoneActivity = props => (
   <tr>
@@ -16,14 +17,30 @@ const GameDoneActivity = props => (
         <Col xs={12} sm={6}>
           <b>{props.game.players.map(player => player.name).join(" vs. ")}</b>
           <p>
-            Game is over.{" "}
-            {props.winner ? "Congratulations, you won!" : "You lost."}
+            {props.winner ? (
+              <FormattedMessage
+                id="home.activity.gameover.won"
+                description="Won game message for game over activity"
+                defaultMessage="Game is over. Congratulations, you won!"
+              />
+            ) : (
+              <FormattedMessage
+                id="home.activity.gameover.lost"
+                description="Lost game message for game over activity"
+                defaultMessage="Game is over. You lost."
+              />
+            )}
           </p>
         </Col>
         <Col xs={12} sm={6} className="activity-actions">
           <LinkContainer to={`/game/${props.game.id}`}>
             <Button>
-              <Glyphicon glyph="eye-open" /> View Game
+              <Glyphicon glyph="eye-open" />{" "}
+              <FormattedMessage
+                id="home.activity.gameover.viewgame"
+                description="View game button label for game over activity"
+                defaultMessage="View Game"
+              />
             </Button>
           </LinkContainer>
         </Col>

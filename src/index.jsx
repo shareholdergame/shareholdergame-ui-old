@@ -13,13 +13,14 @@ import {
 import thunkMiddleware from "redux-thunk";
 import { IntlProvider, addLocaleData } from "react-intl";
 import en from "react-intl/locale-data/en";
+import ru from "react-intl/locale-data/ru";
 
 import App from "./App";
 // import registerServiceWorker from "./registerServiceWorker";
 
 import { home, loadActivity, loadPlayersOnline } from "./store/home";
 
-import localeData from "./locales.json";
+import localeData from "./locales/data.json";
 
 // Create a history of your choosing (we're using a browser history in this case)
 const history = createHistory();
@@ -44,18 +45,19 @@ const store = createStore(
 store.dispatch(loadActivity());
 store.dispatch(loadPlayersOnline());
 
-addLocaleData([...en]);
+addLocaleData([...en, ...ru]);
 
 // Define user's language. Different browsers have the user locale defined
 // on different fields on the `navigator` object, so we make sure to account
 // for these different by checking all of them
-const language =
-  (navigator.languages && navigator.languages[0]) ||
-  navigator.language ||
-  navigator.userLanguage;
+
+// const language =
+//   (navigator.languages && navigator.languages[0]) ||
+//   navigator.language ||
+//   navigator.userLanguage;
 
 // hard-coding for debugging purposes, will need to be a combo of browser settings and user's choice in the future
-// const language = "ru_RU";
+const language = "ru";
 
 // Split locales with a region code
 const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];

@@ -1,10 +1,16 @@
 import React from "react";
 import { Panel, Glyphicon, FormControl, Well } from "react-bootstrap";
+import { FormattedMessage } from "react-intl";
 
 const GlobalChat = () => (
   <Panel>
     <Panel.Heading>
-      Global Chat <Glyphicon glyph="envelope" />
+      <FormattedMessage
+        id="home.globalchat.panellabel"
+        description="Global Chat panel label"
+        defaultMessage="Global Chat"
+      />{" "}
+      <Glyphicon glyph="envelope" />
     </Panel.Heading>
     <Panel.Body style={{ padding: 0 }}>
       <Well style={{ marginBottom: 0 }}>
@@ -33,7 +39,13 @@ const GlobalChat = () => (
       <FormControl
         style={{ height: "5em" }}
         componentClass="textarea"
-        placeholder="type your message here ..."
+        placeholder={
+          <FormattedMessage
+            id="home.globalchat.placeholder"
+            description="Global chat text area placeholder"
+            defaultMessage="type your message here ..."
+          />
+        }
       />
     </Panel.Body>
   </Panel>

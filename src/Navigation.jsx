@@ -12,6 +12,7 @@ import {
   Row
 } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
+import { FormattedMessage } from "react-intl";
 
 const profileMenu = (
   <span>
@@ -44,22 +45,34 @@ const Navigation = () => (
       style={{ marginBottom: 0 }}
     >
       <Nav pullRight>
-        <NavDropdown eventKey="4" title={usDropdownFlag} id="nav-dropdown">
-          <MenuItem eventKey="4.1">
+        <NavDropdown title={usDropdownFlag} id="nav-dropdown">
+          <MenuItem>
             <img
               alt="US flag"
               src="/images/flags/us_flag.svg"
               style={{ width: "1.5em", verticalAlign: "baseline" }}
             />
-            <span style={{ marginLeft: "1em" }}>English (United States)</span>
+            <span style={{ marginLeft: "1em" }}>
+              <FormattedMessage
+                id="nav.lang.english.us"
+                description="English (United States) language selector in the header"
+                defaultMessage="English (United States)"
+              />
+            </span>
           </MenuItem>
-          <MenuItem eventKey="4.1">
+          <MenuItem>
             <img
               alt="Russian flag"
               src="/images/flags/ru_flag.svg"
               style={{ width: "1.5em", verticalAlign: "baseline" }}
             />
-            <span style={{ marginLeft: "1em" }}>Russian</span>
+            <span style={{ marginLeft: "1em" }}>
+              <FormattedMessage
+                id="nav.lang.russian"
+                description="Russian language selector in the header"
+                defaultMessage="Russian"
+              />
+            </span>
           </MenuItem>
         </NavDropdown>
         <NavItem>
@@ -69,18 +82,42 @@ const Navigation = () => (
         <NavItem>
           <Glyphicon glyph="envelope" /> <Badge>3</Badge>
         </NavItem>
-        <NavDropdown eventKey="4" title={profileMenu} id="nav-dropdown">
+        <NavDropdown title={profileMenu} id="nav-dropdown">
           <LinkContainer to="/my-achievements">
-            <MenuItem>My Achievements</MenuItem>
+            <MenuItem>
+              <FormattedMessage
+                id="nav.profile.myachievements"
+                description="My Achievements profile menu item"
+                defaultMessage="My Achievements"
+              />
+            </MenuItem>
           </LinkContainer>
           <LinkContainer to="/profile">
-            <MenuItem>My Profile</MenuItem>
+            <MenuItem>
+              <FormattedMessage
+                id="nav.profile.myprofile"
+                description="My Profile profile menu item"
+                defaultMessage="My Profile"
+              />
+            </MenuItem>
           </LinkContainer>
           <LinkContainer to="/account">
-            <MenuItem>Account Settings</MenuItem>
+            <MenuItem>
+              <FormattedMessage
+                id="nav.profile.accountsettings"
+                description="Account Settings profile menu item"
+                defaultMessage="Account Settings"
+              />
+            </MenuItem>
           </LinkContainer>
           <MenuItem divider />
-          <MenuItem eventKey="4.4">Sign Out</MenuItem>
+          <MenuItem>
+            <FormattedMessage
+              id="nav.profile.signout"
+              description="Sign Out profile menu item"
+              defaultMessage="Sign Out"
+            />
+          </MenuItem>
         </NavDropdown>
       </Nav>
     </Navbar>
@@ -98,48 +135,102 @@ const Navigation = () => (
           </Link>
         </Navbar.Brand>
         <Navbar.Brand>
-          <Link to="/">Shareholder</Link>
+          <Link to="/">
+            <FormattedMessage
+              id="nav.brandname"
+              description="Shareholder game brand message in the top-right corner"
+              defaultMessage="Shareholder"
+            />
+          </Link>
         </Navbar.Brand>
         <Navbar.Toggle />
       </Navbar.Header>
       <Navbar.Collapse>
         <Nav>
           <LinkContainer to="/new-game">
-            <NavItem>New Game</NavItem>
+            <NavItem>
+              <FormattedMessage
+                id="nav.newgame"
+                description="New Game menu item"
+                defaultMessage="New Game"
+              />
+            </NavItem>
           </LinkContainer>
           <LinkContainer to="/my-games">
-            <NavItem>My Games</NavItem>
+            <NavItem>
+              <FormattedMessage
+                id="nav.mygames"
+                description="My Games menu item"
+                defaultMessage="My Games"
+              />
+            </NavItem>
           </LinkContainer>
           <LinkContainer to="/players">
-            <NavItem>Players</NavItem>
+            <NavItem>
+              <FormattedMessage
+                id="nav.players"
+                description="Players menu item"
+                defaultMessage="Players"
+              />
+            </NavItem>
           </LinkContainer>
           <LinkContainer to="/archive">
-            <NavItem>Game Archive</NavItem>
+            <NavItem>
+              <FormattedMessage
+                id="nav.archive"
+                description="Game Archive menu item"
+                defaultMessage="Game Archive"
+              />
+            </NavItem>
           </LinkContainer>
           <LinkContainer to="/rules">
-            <NavItem>Rules</NavItem>
+            <NavItem>
+              <FormattedMessage
+                id="nav.rules"
+                description="Rules menu item"
+                defaultMessage="Rules"
+              />
+            </NavItem>
           </LinkContainer>
-          <NavItem href="http://forum.stockholdergame.com/">Forum</NavItem>
+          <NavItem href="http://forum.stockholdergame.com/" target="_blank">
+            <FormattedMessage
+              id="nav.forum"
+              description="Forum menu item"
+              defaultMessage="Forum"
+            />
+          </NavItem>
         </Nav>
       </Navbar.Collapse>
       <Navbar.Collapse>
         <Nav pullRight className="visible-xs">
-          <NavItem eventKey="4.1">
+          <NavItem>
             <Glyphicon glyph="ok" className="pull-right" />
             <img
               alt="US flag"
               src="/images/flags/us_flag.svg"
               style={{ width: "1.5em", verticalAlign: "baseline" }}
             />
-            <span style={{ marginLeft: "1em" }}>English (United States)</span>
+            <span style={{ marginLeft: "1em" }}>
+              <FormattedMessage
+                id="nav.lang.english.us"
+                description="English (United States) language selector in the header"
+                defaultMessage="English (United States)"
+              />
+            </span>
           </NavItem>
-          <NavItem eventKey="4.1">
+          <NavItem>
             <img
               alt="Russian flag"
               src="/images/flags/ru_flag.svg"
               style={{ width: "1.5em", verticalAlign: "baseline" }}
             />
-            <span style={{ marginLeft: "1em" }}>Russian</span>
+            <span style={{ marginLeft: "1em" }}>
+              <FormattedMessage
+                id="nav.lang.russian"
+                description="Russian language selector in the header"
+                defaultMessage="Russian"
+              />
+            </span>
           </NavItem>
         </Nav>
       </Navbar.Collapse>
@@ -147,25 +238,59 @@ const Navigation = () => (
         <Nav pullRight className="visible-xs">
           <NavItem>
             <Badge pullRight>2</Badge>
-            Invitations <Glyphicon glyph="user" />
+            <FormattedMessage
+              id="nav.burger.invitations"
+              description="Invitations menu label inside hamburger menu"
+              defaultMessage="Invitations"
+            />{" "}
+            <Glyphicon glyph="user" />
             <Glyphicon glyph="plus" />
           </NavItem>
           <NavItem>
             <Badge pullRight>3</Badge>
-            Messages <Glyphicon glyph="envelope" />
+            <FormattedMessage
+              id="nav.burger.messages"
+              description="Messages menu label inside hamburger menu"
+              defaultMessage="Messages"
+            />{" "}
+            <Glyphicon glyph="envelope" />
           </NavItem>
-          <NavDropdown eventKey="4" title={profileMenu} id="nav-dropdown">
+          <NavDropdown title={profileMenu} id="nav-dropdown">
             <LinkContainer to="/my-achievements">
-              <MenuItem>My Achievements</MenuItem>
+              <MenuItem>
+                <FormattedMessage
+                  id="nav.profile.myachievements"
+                  description="My Achievements profile menu item"
+                  defaultMessage="My Achievements"
+                />
+              </MenuItem>
             </LinkContainer>
             <LinkContainer to="/profile">
-              <MenuItem>My Profile</MenuItem>
+              <MenuItem>
+                <FormattedMessage
+                  id="nav.profile.myprofile"
+                  description="My Profile profile menu item"
+                  defaultMessage="My Profile"
+                />
+              </MenuItem>
             </LinkContainer>
             <LinkContainer to="/account">
-              <MenuItem>Account Settings</MenuItem>
+              <MenuItem>
+                <FormattedMessage
+                  id="nav.profile.accountsettings"
+                  description="Account Settings profile menu item"
+                  defaultMessage="Account Settings"
+                />
+              </MenuItem>
             </LinkContainer>
             <MenuItem divider />
-            <MenuItem eventKey="4.4">Sign Out</MenuItem>
+            <MenuItem>
+              <FormattedMessage
+                id="nav.profile.signout"
+                description="Sign Out profile menu item"
+                defaultMessage="Sign Out"
+              />
+            </MenuItem>
           </NavDropdown>
         </Nav>
       </Navbar.Collapse>

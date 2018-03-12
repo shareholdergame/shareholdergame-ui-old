@@ -2,7 +2,7 @@ import React from "react";
 import { Glyphicon, Well, Button, Row, Col } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { string, node, number } from "prop-types";
-import { FormattedPlural } from "react-intl";
+import { FormattedMessage } from "react-intl";
 
 const GameTypeSelector = props => {
   const columns =
@@ -14,23 +14,36 @@ const GameTypeSelector = props => {
   const playedMessage =
     props.currentlyPlayed > 0 ? (
       <Col sm={columns}>
-        {props.currentlyPlayed}{" "}
-        <FormattedPlural
-          value={props.invitations}
-          one="player"
-          other="players"
-        />{" "}
-        currently playing
+        <FormattedMessage
+          id="newgame.currentlyPlayed"
+          description="Currently played games message on new game page"
+          defaultMessage="{currentlyPlayed} {currentlyPlayed, plural, one {player} other {players}} currently playing"
+          values={{
+            currentlyPlayed: props.currentlyPlayed
+          }}
+        />
       </Col>
     ) : (
-      <Col>Nobody is currently playing</Col>
+      <Col>
+        <FormattedMessage
+          id="newgame.currentlyPlayedByNobody"
+          description="Nobody is currently playing message on new game page"
+          defaultMessage="Nobody is currently playing"
+        />
+      </Col>
     );
 
   const unfinishedMessage =
     props.unfinished > 0 ? (
       <Col sm={columns}>
-        You have {props.unfinished} unfinished{" "}
-        <FormattedPlural value={props.invitations} one="game" other="games" />
+        <FormattedMessage
+          id="newgame.unfinished"
+          description="Unfinished games message on new game page"
+          defaultMessage="You have {unfinished} unfinished {unfinished, plural, one {game} other {games}}"
+          values={{
+            unfinished: props.unfinished
+          }}
+        />
       </Col>
     ) : (
       ""
@@ -39,11 +52,13 @@ const GameTypeSelector = props => {
   const invitationsMessage =
     props.invitations > 0 ? (
       <Col sm={columns}>
-        You have {props.invitations}{" "}
-        <FormattedPlural
-          value={props.invitations}
-          one="invitation"
-          other="invitations"
+        <FormattedMessage
+          id="newgame.invitations"
+          description="Invitations message on new game page"
+          defaultMessage="You have {invitations} {invitations, plural, one {invitation} other {invitations}}"
+          values={{
+            invitations: props.invitations
+          }}
         />
       </Col>
     ) : (
@@ -83,7 +98,12 @@ const GameTypeSelector = props => {
                 >
                   <Button bsSize="large" bsStyle="primary" block>
                     <Glyphicon glyph="user" />
-                    <Glyphicon glyph="plus" /> Invite Player
+                    <Glyphicon glyph="plus" />{" "}
+                    <FormattedMessage
+                      id="newgame.button.inviteplayer"
+                      description="Invite player button label"
+                      defaultMessage="Invite Player"
+                    />
                   </Button>
                 </LinkContainer>
               </Col>
@@ -93,7 +113,11 @@ const GameTypeSelector = props => {
                   style={{ marginTop: "1em" }}
                 >
                   <Button bsSize="large" bsStyle="success" block>
-                    Play With Computer
+                    <FormattedMessage
+                      id="newgame.button.bot"
+                      description="Play With Computer button label"
+                      defaultMessage="Play With Computer"
+                    />
                   </Button>
                 </LinkContainer>
               </Col>
@@ -105,7 +129,11 @@ const GameTypeSelector = props => {
                 style={{ marginTop: "1em" }}
               >
                 <Button bsSize="large" bsStyle="success" block>
-                  I like experiments!
+                  <FormattedMessage
+                    id="newgame.button.experimental"
+                    description="Experimental button label"
+                    defaultMessage="I like experiments!"
+                  />
                 </Button>
               </LinkContainer>
             </Row>

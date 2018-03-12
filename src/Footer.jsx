@@ -1,6 +1,7 @@
 import React from "react";
 import { Row } from "react-bootstrap";
 import { Link } from "react-router-dom";
+import { FormattedMessage } from "react-intl";
 
 const STARTYEAR = 2013; // copyright start year
 const YEAR = new Date().getFullYear(); // current year
@@ -12,7 +13,12 @@ const App = () => (
         <ul className="nav navbar-nav pull-left">
           <li>
             <Link to="/">
-              {STARTYEAR}-{YEAR} &copy; Shareholder Game
+              {STARTYEAR}-{YEAR} &copy;{" "}
+              <FormattedMessage
+                id="footer.gametitle"
+                description="Game copyright in the footer"
+                defaultMessage="Shareholder Game"
+              />
             </Link>
           </li>
         </ul>

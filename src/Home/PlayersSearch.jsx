@@ -13,11 +13,23 @@ import {
   Label
 } from "react-bootstrap";
 import { arrayOf, number, shape, string } from "prop-types";
+import { FormattedMessage } from "react-intl";
 
 const PlayersSearch = props => (
   <Panel>
     <Panel.Heading>
-      Players <Label bsStyle="success">on-line</Label>
+      <FormattedMessage
+        id="home.playersearch.panellabel"
+        description="Players Search panel label"
+        defaultMessage="Players"
+      />{" "}
+      <Label bsStyle="success">
+        <FormattedMessage
+          id="home.playersearch.online"
+          description="Players Search on-line filter label"
+          defaultMessage="on-line"
+        />
+      </Label>
     </Panel.Heading>
     <Panel.Body style={{ padding: 0 }}>
       <FormGroup style={{ marginBottom: 0 }}>
@@ -28,7 +40,12 @@ const PlayersSearch = props => (
           />
           <InputGroup.Button>
             <Button>
-              <Glyphicon glyph="search" /> Search
+              <Glyphicon glyph="search" />{" "}
+              <FormattedMessage
+                id="home.playersearch.button"
+                description="Player search button label"
+                defaultMessage="Search"
+              />
             </Button>
           </InputGroup.Button>
         </InputGroup>
@@ -37,7 +54,7 @@ const PlayersSearch = props => (
       <Table striped style={{ margin: 0 }}>
         <tbody>
           {props.players_online.map(player => (
-            <tr>
+            <tr key={player.name}>
               <td style={{ verticalAlign: "middle" }}>
                 <Image
                   src={`/images/userpics/${player.userpic}`}
@@ -50,11 +67,21 @@ const PlayersSearch = props => (
               <td style={{ verticalAlign: "middle" }} align="right">
                 <ButtonGroup>
                   <Button bsSize="small" bsStyle="default">
-                    <Glyphicon glyph="envelope" /> Send Message
+                    <Glyphicon glyph="envelope" />{" "}
+                    <FormattedMessage
+                      id="home.playersearch.sendmessage"
+                      description="Player search send message button label"
+                      defaultMessage="Send Message"
+                    />
                   </Button>
                   <Button bsSize="small" bsStyle="primary">
                     <Glyphicon glyph="user" />
-                    <Glyphicon glyph="plus" /> Invite
+                    <Glyphicon glyph="plus" />{" "}
+                    <FormattedMessage
+                      id="home.playersearch.invite"
+                      description="Player search invitation button label"
+                      defaultMessage="Invite"
+                    />
                   </Button>
                 </ButtonGroup>
               </td>

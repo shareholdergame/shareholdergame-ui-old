@@ -4,6 +4,8 @@ import { LinkContainer } from "react-router-bootstrap";
 
 import { Button, Glyphicon, Row, Col } from "react-bootstrap";
 
+import { FormattedMessage } from "react-intl";
+
 const YourTurnActivity = props => (
   <tr>
     <td style={{ textAlign: "center", verticalAlign: "middle" }}>
@@ -14,13 +16,26 @@ const YourTurnActivity = props => (
         <Col xs={12} sm={6}>
           <b>{props.game.players.map(player => player.name).join(" vs. ")}</b>
           <p>
-            Turn {props.game.round}.{props.game.turn}: Your turn
+            <FormattedMessage
+              id="home.activity.yourturn.label"
+              description="Turn label text for your turn activity"
+              defaultMessage="Turn {round}.{turn}: Your turn"
+              values={{
+                round: props.game.round,
+                turn: props.game.turn
+              }}
+            />
           </p>
         </Col>
         <Col xs={12} sm={6} className="activity-actions">
           <LinkContainer to={`/game/${props.game.id}`}>
             <Button bsStyle="primary">
-              Make Your Move <Glyphicon glyph="log-in" />
+              <FormattedMessage
+                id="home.activity.yourturn.button"
+                description="Button label text for your turn activity"
+                defaultMessage="Make Your Move"
+              />{" "}
+              <Glyphicon glyph="log-in" />
             </Button>
           </LinkContainer>
         </Col>

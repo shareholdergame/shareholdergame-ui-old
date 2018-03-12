@@ -20,7 +20,7 @@
       },
       {
         "type": "INVITATION",
-        "timestamp": "2018-02-22T23:15:30.000Z",
+        "timestamp": "2018-02-22T23:15:31.000Z",
         "replied": true,
         "accepted": true,
         "player": {
@@ -39,7 +39,7 @@
       },
       {
         "type": "INVITATION",
-        "timestamp": "2018-02-22T23:15:30.000Z",
+        "timestamp": "2018-02-22T23:15:32.000Z",
         "replied": true,
         "accepted": false,
         "player": {
@@ -49,15 +49,15 @@
         },
         "game": {
           "options": {
-            "major": 4,
-            "minor": 6,
+            "major": 3,
+            "minor": 5,
             "players": 2
           }
         }
       },
       {
         "type": "YOUR_TURN",
-        "timestamp": "2018-02-20T23:15:30.000Z",
+        "timestamp": "2018-02-20T23:15:33.000Z",
         "game": {
           "id": 761234782134,
           "round": 4,
@@ -83,7 +83,7 @@
       },
       {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-18T23:15:30.000Z",
+        "timestamp": "2018-02-18T23:15:34.000Z",
         "winner": true,
         "game": {
           "id": 12341251,
@@ -108,7 +108,7 @@
       },
       {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-17T23:15:30.000Z",
+        "timestamp": "2018-02-17T23:15:35.000Z",
         "winner": false,
         "game": {
           "id": 12341251,
@@ -133,7 +133,7 @@
       },
       {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-16T23:15:30.000Z",
+        "timestamp": "2018-02-16T23:15:36.000Z",
         "winner": true,
         "game": {
           "id": 12341252,
@@ -158,7 +158,7 @@
       },
       {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-16T23:15:30.000Z",
+        "timestamp": "2018-02-16T23:15:37.000Z",
         "winner": true,
         "game": {
           "id": 12341253,
@@ -183,7 +183,7 @@
       },
       {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-16T23:15:30.000Z",
+        "timestamp": "2018-02-16T23:15:38.000Z",
         "winner": true,
         "game": {
           "id": 12341254,

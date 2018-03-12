@@ -9,6 +9,7 @@ import {
 } from "react-bootstrap";
 import { number, shape, string, bool } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
+import { FormattedMessage } from "react-intl";
 
 const InvitationActivity = props => {
   let action;
@@ -18,14 +19,24 @@ const InvitationActivity = props => {
       action = (
         <LinkContainer to={`/game/${props.game.id}`}>
           <Button>
-            <Glyphicon glyph="eye-open" /> You Accepted
+            <Glyphicon glyph="eye-open" />{" "}
+            <FormattedMessage
+              id="home.activity.invitation.accepted"
+              description="Acceptance label text for invitation activity"
+              defaultMessage="You Accepted"
+            />
           </Button>
         </LinkContainer>
       );
     } else {
       action = (
         <Button className="disabled">
-          <Glyphicon glyph="remove" /> You Declined
+          <Glyphicon glyph="remove" />{" "}
+          <FormattedMessage
+            id="home.activity.invitation.declined"
+            description="Declined label text for invitation activity"
+            defaultMessage="You Declined"
+          />
         </Button>
       );
     }
@@ -33,10 +44,20 @@ const InvitationActivity = props => {
     action = (
       <ButtonGroup>
         <Button bsStyle="success">
-          <Glyphicon glyph="ok" /> Accept
+          <Glyphicon glyph="ok" />{" "}
+          <FormattedMessage
+            id="home.activity.invitation.accept"
+            description="Accept button label for invitation activity"
+            defaultMessage="Accept"
+          />
         </Button>
         <Button bsStyle="danger">
-          <Glyphicon glyph="remove" /> Decline
+          <Glyphicon glyph="remove" />{" "}
+          <FormattedMessage
+            id="home.activity.invitation.decline"
+            description="Decline button label for invitation activity"
+            defaultMessage="Decline"
+          />
         </Button>
       </ButtonGroup>
     );
@@ -55,10 +76,25 @@ const InvitationActivity = props => {
       <td>
         <Row>
           <Col xs={12} sm={6}>
-            <b>{props.player.name} invites you to play</b>
+            <b>
+              {props.player.name}{" "}
+              <FormattedMessage
+                id="home.activity.invitation.invites"
+                description="Player invites you to play text for invitation activity"
+                defaultMessage="invites you to play"
+              />
+            </b>
             <p>
-              Game {props.game.options.major} x {props.game.options.minor} /{" "}
-              {props.game.options.major + props.game.options.minor} total turns
+              <FormattedMessage
+                id="home.activity.invitation.gamedescription"
+                description="Game description text for invitation activity"
+                defaultMessage="Game {major} x {minor} / {total} total turns"
+                values={{
+                  major: props.game.options.major,
+                  minor: props.game.options.minor,
+                  total: props.game.options.major + props.game.options.minor
+                }}
+              />
             </p>
           </Col>
           <Col xs={12} sm={6} className="activity-actions">
