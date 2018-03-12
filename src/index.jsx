@@ -21,6 +21,7 @@ import App from "./App";
 
 import { home, loadActivity, loadPlayersOnline } from "./store/home";
 import { i18n, setLanguage } from "./store/i18n";
+import { games } from "./store/games";
 
 import localeData from "./locales/data.json";
 
@@ -38,6 +39,7 @@ const store = createStore(
   combineReducers({
     home,
     i18n,
+    games,
     router: routerReducer
   }),
   /* eslint-disable no-underscore-dangle */

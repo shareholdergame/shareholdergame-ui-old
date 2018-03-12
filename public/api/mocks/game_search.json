@@ -1,0 +1,50 @@
+{
+  "result": {
+    "games": [
+      {
+        "id": 761234782134,
+        "round": 4,
+        "turn": 1,
+        "options": {
+          "major": 4,
+          "minor": 6,
+          "players": 2
+        },
+        "players": [
+          {
+            "id": 1,
+            "name": "Admin",
+            "userpic": "avatar_1.png"
+          },
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev",
+            "userpic": "avatar_137.jpg"
+          }
+        ]
+      },
+      {
+        "id": 761234782135,
+        "round": 3,
+        "turn": 2,
+        "options": {
+          "major": 3,
+          "minor": 5,
+          "players": 2
+        },
+        "players": [
+          {
+            "id": 7,
+            "name": "Зырянов",
+            "userpic": "avatar_7.png"
+          },
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev",
+            "userpic": "avatar_137.jpg"
+          }
+        ]
+      }
+    ]
+  }
+}
