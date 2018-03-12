@@ -13,7 +13,20 @@ import {
   Label
 } from "react-bootstrap";
 import { arrayOf, number, shape, string } from "prop-types";
-import { FormattedMessage } from "react-intl";
+import {
+  FormattedMessage,
+  injectIntl,
+  intlShape,
+  defineMessages
+} from "react-intl";
+
+const messages = defineMessages({
+  placeholder: {
+    id: "home.playersearch.placeholder",
+    description: "Player search input field placeholder",
+    defaultMessage: "type here to search players..."
+  }
+});
 
 const PlayersSearch = props => (
   <Panel>
@@ -36,7 +49,7 @@ const PlayersSearch = props => (
         <InputGroup>
           <FormControl
             type="text"
-            placeholder="type here to search players..."
+            placeholder={props.intl.formatMessage(messages.placeholder)}
           />
           <InputGroup.Button>
             <Button>
@@ -100,7 +113,8 @@ PlayersSearch.propTypes = {
       name: string.isRequired,
       id: number.isRequired
     })
-  )
+  ),
+  intl: intlShape.isRequired
 };
 
 PlayersSearch.defaultProps = {
@@ -109,4 +123,4 @@ PlayersSearch.defaultProps = {
 
 export default connect(state => ({
   players_online: state.home.players_online
-}))(PlayersSearch);
+}))(injectIntl(PlayersSearch));
