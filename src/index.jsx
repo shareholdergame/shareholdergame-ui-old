@@ -1,10 +1,11 @@
 import React from "react";
 import { render } from "react-dom";
+import { shape, string } from "prop-types";
 import "bootstrap/dist/css/bootstrap.css";
 
 import createHistory from "history/createBrowserHistory";
 import { createStore, combineReducers, applyMiddleware } from "redux";
-import { Provider } from "react-redux";
+import { Provider, connect } from "react-redux";
 import {
   ConnectedRouter,
   routerReducer,
@@ -19,6 +20,7 @@ import App from "./App";
 // import registerServiceWorker from "./registerServiceWorker";
 
 import { home, loadActivity, loadPlayersOnline } from "./store/home";
+import { i18n, setLanguage } from "./store/i18n";
 
 import localeData from "./locales/data.json";
 
@@ -35,6 +37,7 @@ const navigationMiddleware = routerMiddleware(history);
 const store = createStore(
   combineReducers({
     home,
+    i18n,
     router: routerReducer
   }),
   /* eslint-disable no-underscore-dangle */
@@ -42,41 +45,51 @@ const store = createStore(
   applyMiddleware(thunkMiddleware, navigationMiddleware)
 );
 
-store.dispatch(loadActivity());
-store.dispatch(loadPlayersOnline());
-
 addLocaleData([...en, ...ru]);
 
 // Define user's language. Different browsers have the user locale defined
 // on different fields on the `navigator` object, so we make sure to account
 // for these different by checking all of them
 
-// const language =
+// const browserLanguage =
 //   (navigator.languages && navigator.languages[0]) ||
 //   navigator.language ||
 //   navigator.userLanguage;
 
 // hard-coding for debugging purposes, will need to be a combo of browser settings and user's choice in the future
-const language = "ru_RU";
-// const language = "en_US";
+const browserLanguage = "ru_RU";
+// const browserLanguage = "en_US";
 
-// Split locales with a region code
-const languageWithoutRegionCode = language.toLowerCase().split(/[_-]+/)[0];
+store.dispatch(loadActivity());
+store.dispatch(loadPlayersOnline());
+store.dispatch(setLanguage(browserLanguage)); // set initial language on the browser
 
-// Try full locale, try locale without region code, fallback to 'en'
-const messages =
-  localeData[languageWithoutRegionCode] ||
-  localeData[language] ||
-  localeData.en;
+const I18nWrapper = props => (
+  <IntlProvider locale={props.locale} messages={props.messages}>
+    <App />
+  </IntlProvider>
+);
+
+I18nWrapper.propTypes = {
+  locale: string.isRequired,
+  messages: shape().isRequired
+};
+
+const TranslatedApp = connect(state => {
+  const { language } = state.i18n;
+  const locale = language.toLowerCase().split(/[_-]+/)[0];
+  return {
+    locale, // Split locales with a region code
+    messages: localeData[locale] || localeData[language] || localeData.en // try language first, then full locale, then fall back to basic english
+  };
+})(I18nWrapper);
 
 render(
-  <IntlProvider locale={languageWithoutRegionCode} messages={messages}>
-    <Provider store={store}>
-      <ConnectedRouter history={history}>
-        <App />
-      </ConnectedRouter>
-    </Provider>
-  </IntlProvider>,
+  <Provider store={store}>
+    <ConnectedRouter history={history}>
+      <TranslatedApp />
+    </ConnectedRouter>
+  </Provider>,
   document.getElementById("root")
 );
 
