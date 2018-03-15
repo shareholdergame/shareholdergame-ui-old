@@ -1,19 +1,22 @@
 import React from "react";
 import { Grid } from "react-bootstrap";
-import { BrowserRouter as Router, Route } from "react-router-dom";
+import { Route } from "react-router-dom";
 
-import Home from "./Home";
+import Home from "./Home/Home";
+import NewGame from "./NewGame/NewGame";
 import Navigation from "./Navigation";
 import Footer from "./Footer";
 
+import "./App.css";
+
 const App = () => (
-  <Router>
-    <Grid fluid>
-      <Navigation />
-      <Route exact path="/" component={Home} />
-      <Footer />
-    </Grid>
-  </Router>
+  <Grid fluid>
+    <Navigation />
+    <Route exact path="/" component={Home} />
+    <Route exact path="/new-game/" component={NewGame} />
+    <Route exact path="/new-game/:slug/" component={NewGame} />
+    <Footer />
+  </Grid>
 );
 
 export default App;
