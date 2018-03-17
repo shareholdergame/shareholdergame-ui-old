@@ -48,7 +48,10 @@
     "newgame.short.description2": "Good for beginners and training.",
     "newgame.custom.title": "Custom",
     "newgame.custom.description1": "Game experiments.",
-    "newgame.custom.description2": "3+ players"
+    "newgame.custom.description2": "3+ players",
+    "mygames.game.vs": " vs. ",
+    "mygames.game.started": "Started: {started}",
+    "mygames.game.type": "{major} x {minor} - {total} turns"
   },
   "ru_RU": {
     "home.activity.panellabel": "Дневник Событий",
@@ -110,6 +113,9 @@
     "newgame.short.description2": "Подходит для начинающих и для тренировки.",
     "newgame.custom.title": "Эксперимент",
     "newgame.custom.description1": "Игровые эксперименты.",
-    "newgame.custom.description2": "Для 3-х и более игроков"
+    "newgame.custom.description2": "Для 3-х и более игроков",
+    "mygames.game.vs": " - ",
+    "mygames.game.started": "Начата: {started}",
+    "mygames.game.type": "{major} x {minor} - {total} ходов"
   }
 }

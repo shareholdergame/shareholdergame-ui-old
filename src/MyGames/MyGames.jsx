@@ -13,13 +13,14 @@ import {
   Row,
   Grid,
   Col,
-  InputGroup,
-  Well
+  InputGroup
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import { func, arrayOf, shape, number } from "prop-types";
 
-import { performGameSearch } from "./store/games";
+import { performGameSearch } from "../store/games";
+
+import GameTile from "./GameTile";
 
 class MyGames extends React.Component {
   static propTypes = {
@@ -109,7 +110,7 @@ class MyGames extends React.Component {
             <Row>
               {this.props.games.map(game => (
                 <Col md="6">
-                  <Well>{game.id}</Well>
+                  <GameTile game={game} />
                 </Col>
               ))}
             </Row>

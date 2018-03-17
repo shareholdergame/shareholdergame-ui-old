@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import { connect } from "react-redux";
 import {
   Table,
@@ -66,16 +67,18 @@ const PlayersSearch = props => (
 
       <Table striped style={{ margin: 0 }}>
         <tbody>
-          {props.players_online.map(player => (
+          {props.players.map(player => (
             <tr key={player.name}>
               <td style={{ verticalAlign: "middle" }}>
-                <Image
-                  src={`/images/userpics/${player.userpic}`}
-                  width="36"
-                  height="36"
-                  circle
-                />{" "}
-                {player.name}
+                <Link to={`/players/${player.name}`}>
+                  <Image
+                    src={`/images/userpics/${player.userpic}`}
+                    width="36"
+                    height="36"
+                    circle
+                  />
+                </Link>{" "}
+                <Link to={`/players/${player.name}`}>{player.name}</Link>
               </td>
               <td style={{ verticalAlign: "middle" }} align="right">
                 <ButtonGroup>
@@ -107,7 +110,7 @@ const PlayersSearch = props => (
 );
 
 PlayersSearch.propTypes = {
-  players_online: arrayOf(
+  players: arrayOf(
     shape({
       userpic: string.isRequired,
       name: string.isRequired,
@@ -118,9 +121,9 @@ PlayersSearch.propTypes = {
 };
 
 PlayersSearch.defaultProps = {
-  players_online: []
+  players: []
 };
 
 export default connect(state => ({
-  players_online: state.home.players_online
+  players: state.home.players.filter(player => player.online)
 }))(injectIntl(PlayersSearch));
