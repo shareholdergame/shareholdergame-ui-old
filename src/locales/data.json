@@ -57,6 +57,8 @@
     "mygames.filter.all": "All",
     "mygames.filter.custom": "Custom",
     "mygames.filter.custom.short": "Custom",
+    "mygames.filter.info":
+      "Showing <strong>{showing} of {total}</strong> games.",
     "mygames.search.placeholder": "type player name here ..."
   },
   "ru_RU": {
@@ -128,6 +130,8 @@
     "mygames.filter.all": "Все",
     "mygames.filter.custom": "Эксперементы",
     "mygames.filter.custom.short": "Эксп.",
+    "mygames.filter.info":
+      "Показаны <strong>{showing} из {total}</strong> игр.",
     "mygames.search.placeholder": "введите имя игрока ..."
   }
 }

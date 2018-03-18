@@ -11,12 +11,14 @@ import {
   Row,
   Grid,
   Col,
-  InputGroup
+  InputGroup,
+  Alert
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import { func, arrayOf, shape, number } from "prop-types";
 import {
   FormattedMessage,
+  FormattedHTMLMessage,
   injectIntl,
   intlShape,
   defineMessages
@@ -70,7 +72,7 @@ class MyGames extends React.Component {
   }
 
   handleSearchChange(e) {
-    if (e.target.value) {
+    if (e && e.target.value) {
       this.setState({ filter: "", search: e.target.value });
     } else {
       this.setState({ filter: "all", search: "" });
@@ -84,6 +86,52 @@ class MyGames extends React.Component {
   }
 
   render() {
+    const filteredGames = this.props.games.filter(game => {
+      // no filter
+      if (this.state.filter === "all") {
+        return true;
+      }
+
+      // search
+      if (this.state.filter === "") {
+        return (
+          typeof game.players
+            .filter(player => player.id !== this.props.self.id)
+            .find(player => player.name.indexOf(this.state.search) >= 0) !==
+          "undefined"
+        );
+      }
+
+      if (this.state.filter === "4x6") {
+        return (
+          game.players.length === 2 &&
+          game.options.major === 4 &&
+          game.options.minor === 6
+        );
+      }
+
+      if (this.state.filter === "3x5") {
+        return (
+          game.players.length === 2 &&
+          game.options.major === 3 &&
+          game.options.minor === 5
+        );
+      }
+
+      if (this.state.filter === "custom") {
+        return (
+          game.players.length !== 2 ||
+          (game.options.major !== 3 &&
+            game.options.major !== 4 &&
+            game.options.minor !== 5 &&
+            game.options.minor !== 6)
+        );
+      }
+
+      // same as "all"
+      return true;
+    });
+
     return (
       this.props.self && (
         <Tabs defaultActiveKey="games" id="uncontrolled-tab-example">
@@ -97,7 +145,10 @@ class MyGames extends React.Component {
                     onSubmit={this.handleSearch}
                   >
                     <FormGroup controlId="quickFilter">
-                      <ControlLabel style={{ marginRight: "1em" }}>
+                      <ControlLabel
+                        style={{ marginRight: "1em" }}
+                        className="hidden-xs"
+                      >
                         <FormattedMessage
                           id="mygames.filter.quickfilter"
                           description="Game quick filter label"
@@ -189,60 +240,31 @@ class MyGames extends React.Component {
                   </Form>
                 </Col>
               </Row>
+
+              {filteredGames.length !== this.props.games.length && (
+                <Alert
+                  bsStyle="info"
+                  onClick={this.handleSearchChange}
+                  onDismiss={this.handleSearchChange}
+                >
+                  <FormattedHTMLMessage
+                    id="mygames.filter.info"
+                    description="Info message indicating that games are filtered"
+                    defaultMessage="Showing <strong>{showing} of {total}</strong> games."
+                    values={{
+                      total: this.props.games.length,
+                      showing: filteredGames.length
+                    }}
+                  />
+                </Alert>
+              )}
+
               <Row>
-                {this.props.games
-                  .filter(game => {
-                    // no filter
-                    if (this.state.filter === "all") {
-                      return true;
-                    }
-
-                    // search
-                    if (this.state.filter === "") {
-                      return (
-                        typeof game.players
-                          .filter(player => player.id !== this.props.self.id)
-                          .find(
-                            player =>
-                              player.name.indexOf(this.state.search) >= 0
-                          ) !== "undefined"
-                      );
-                    }
-
-                    if (this.state.filter === "4x6") {
-                      return (
-                        game.players.length === 2 &&
-                        game.options.major === 4 &&
-                        game.options.minor === 6
-                      );
-                    }
-
-                    if (this.state.filter === "3x5") {
-                      return (
-                        game.players.length === 2 &&
-                        game.options.major === 3 &&
-                        game.options.minor === 5
-                      );
-                    }
-
-                    if (this.state.filter === "custom") {
-                      return (
-                        game.players.length !== 2 ||
-                        (game.options.major !== 3 &&
-                          game.options.major !== 4 &&
-                          game.options.minor !== 5 &&
-                          game.options.minor !== 6)
-                      );
-                    }
-
-                    // same as "all"
-                    return true;
-                  })
-                  .map(game => (
-                    <Col md={6} key={game.id}>
-                      <GameTile game={game} self={this.props.self} />
-                    </Col>
-                  ))}
+                {filteredGames.map(game => (
+                  <Col md={6} key={game.id}>
+                    <GameTile game={game} self={this.props.self} />
+                  </Col>
+                ))}
               </Row>
             </Grid>
           </Tab>
