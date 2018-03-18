@@ -1,7 +1,7 @@
 import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
-import { string, func } from "prop-types";
+import { func, string, shape, number } from "prop-types";
 import {
   Navbar,
   NavItem,
@@ -16,20 +16,6 @@ import {
 import { LinkContainer } from "react-router-bootstrap";
 import { FormattedMessage } from "react-intl";
 import { setLanguage } from "./store/i18n";
-
-const profileMenu = (
-  <span>
-    Sergey Chernyshev
-    <Image
-      alt="Sergey Chernyshev userpic"
-      style={{ marginLeft: "0.5em" }}
-      src="/images/userpics/avatar_137.jpg"
-      width="20"
-      height="20"
-      circle
-    />
-  </span>
-);
 
 const languages = {
   en_US: {
@@ -59,6 +45,19 @@ const languages = {
 };
 
 const Navigation = props => {
+  const profileMenu = props.self && (
+    <span>
+      {props.self.name}
+      <Image
+        alt={`${props.self.name}`}
+        style={{ marginLeft: "0.5em" }}
+        src={`/images/userpics/${props.self.userpic}`}
+        width="20"
+        height="20"
+        circle
+      />
+    </span>
+  );
   const dropdownFlag = (
     <img
       src={`/images/flags/${languages[props.language].flag}`}
@@ -77,67 +76,69 @@ const Navigation = props => {
         inverse
         style={{ marginBottom: 0 }}
       >
-        <Nav pullRight>
-          <NavDropdown title={dropdownFlag} id="nav-dropdown">
-            {Object.values(languages).map(language => (
-              <MenuItem
-                key={language.locale}
-                onClick={() => setLang(language.locale)}
-              >
-                <img
-                  alt={language.flagAlt}
-                  src={`/images/flags/${language.flag}`}
-                  style={{ width: "1.5em", verticalAlign: "baseline" }}
-                />
-                <span style={{ marginLeft: "1em" }}>{language.label}</span>
-              </MenuItem>
-            ))}
-          </NavDropdown>
-          <NavItem>
-            <Glyphicon glyph="user" />
-            <Glyphicon glyph="plus" /> <Badge bsStyle="success">2</Badge>
-          </NavItem>
-          <NavItem>
-            <Glyphicon glyph="envelope" /> <Badge>3</Badge>
-          </NavItem>
-          <NavDropdown title={profileMenu} id="nav-dropdown">
-            <LinkContainer to="/my-achievements">
+        {props.self && (
+          <Nav pullRight>
+            <NavDropdown title={dropdownFlag} id="nav-dropdown">
+              {Object.values(languages).map(language => (
+                <MenuItem
+                  key={language.locale}
+                  onClick={() => setLang(language.locale)}
+                >
+                  <img
+                    alt={language.flagAlt}
+                    src={`/images/flags/${language.flag}`}
+                    style={{ width: "1.5em", verticalAlign: "baseline" }}
+                  />
+                  <span style={{ marginLeft: "1em" }}>{language.label}</span>
+                </MenuItem>
+              ))}
+            </NavDropdown>
+            <NavItem>
+              <Glyphicon glyph="user" />
+              <Glyphicon glyph="plus" /> <Badge bsStyle="success">2</Badge>
+            </NavItem>
+            <NavItem>
+              <Glyphicon glyph="envelope" /> <Badge>3</Badge>
+            </NavItem>
+            <NavDropdown title={profileMenu} id="nav-dropdown">
+              <LinkContainer to="/my-achievements">
+                <MenuItem>
+                  <FormattedMessage
+                    id="nav.profile.myachievements"
+                    description="My Achievements profile menu item"
+                    defaultMessage="My Achievements"
+                  />
+                </MenuItem>
+              </LinkContainer>
+              <LinkContainer to="/profile">
+                <MenuItem>
+                  <FormattedMessage
+                    id="nav.profile.myprofile"
+                    description="My Profile profile menu item"
+                    defaultMessage="My Profile"
+                  />
+                </MenuItem>
+              </LinkContainer>
+              <LinkContainer to="/account">
+                <MenuItem>
+                  <FormattedMessage
+                    id="nav.profile.accountsettings"
+                    description="Account Settings profile menu item"
+                    defaultMessage="Account Settings"
+                  />
+                </MenuItem>
+              </LinkContainer>
+              <MenuItem divider />
               <MenuItem>
                 <FormattedMessage
-                  id="nav.profile.myachievements"
-                  description="My Achievements profile menu item"
-                  defaultMessage="My Achievements"
+                  id="nav.profile.signout"
+                  description="Sign Out profile menu item"
+                  defaultMessage="Sign Out"
                 />
               </MenuItem>
-            </LinkContainer>
-            <LinkContainer to="/profile">
-              <MenuItem>
-                <FormattedMessage
-                  id="nav.profile.myprofile"
-                  description="My Profile profile menu item"
-                  defaultMessage="My Profile"
-                />
-              </MenuItem>
-            </LinkContainer>
-            <LinkContainer to="/account">
-              <MenuItem>
-                <FormattedMessage
-                  id="nav.profile.accountsettings"
-                  description="Account Settings profile menu item"
-                  defaultMessage="Account Settings"
-                />
-              </MenuItem>
-            </LinkContainer>
-            <MenuItem divider />
-            <MenuItem>
-              <FormattedMessage
-                id="nav.profile.signout"
-                description="Sign Out profile menu item"
-                defaultMessage="Sign Out"
-              />
-            </MenuItem>
-          </NavDropdown>
-        </Nav>
+            </NavDropdown>
+          </Nav>
+        )}
       </Navbar>
 
       <Navbar fluid>
@@ -306,12 +307,22 @@ const Navigation = props => {
 
 Navigation.propTypes = {
   language: string.isRequired,
+  self: shape({
+    id: number.isRequired,
+    name: string.isRequired,
+    userpic: string.isRequired
+  }),
   setLanguage: func.isRequired
+};
+
+Navigation.defaultProps = {
+  self: null
 };
 
 export default connect(
   state => ({
-    language: state.i18n.language
+    language: state.i18n.language,
+    self: state.self.self
   }),
   dispatch => ({
     setLanguage: language => {
