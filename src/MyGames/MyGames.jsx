@@ -15,11 +15,24 @@ import {
 } from "react-bootstrap";
 import { connect } from "react-redux";
 import { func, arrayOf, shape, number } from "prop-types";
-import { FormattedMessage } from "react-intl";
+import {
+  FormattedMessage,
+  injectIntl,
+  intlShape,
+  defineMessages
+} from "react-intl";
 
 import { performGameSearch } from "../store/games";
 
 import GameTile from "./GameTile";
+
+const messages = defineMessages({
+  placeholder: {
+    id: "mygames.search.placeholder",
+    description: "Player name placeholder on game search page",
+    defaultMessage: "type player name here ..."
+  }
+});
 
 class MyGames extends React.Component {
   static propTypes = {
@@ -31,7 +44,8 @@ class MyGames extends React.Component {
       shape({
         id: number.isRequired
       })
-    ).isRequired
+    ).isRequired,
+    intl: intlShape.isRequired
   };
 
   static defaultProps = {
@@ -103,14 +117,60 @@ class MyGames extends React.Component {
                             defaultMessage="All"
                           />
                         </ToggleButton>
-                        <ToggleButton value="4x6">4 x 6</ToggleButton>
-                        <ToggleButton value="3x5">3 x 5</ToggleButton>
-                        <ToggleButton value="custom">
-                          <FormattedMessage
-                            id="mygames.filter.custom"
-                            description="Custom filter label"
-                            defaultMessage="Custom"
-                          />
+                        <ToggleButton
+                          value="4x6"
+                          disabled={
+                            this.props.games.filter(
+                              game =>
+                                game.players.length === 2 &&
+                                game.options.major === 4 &&
+                                game.options.minor === 6
+                            ).length === 0
+                          }
+                        >
+                          4 x 6
+                        </ToggleButton>
+                        <ToggleButton
+                          value="3x5"
+                          disabled={
+                            this.props.games.filter(
+                              game =>
+                                game.players.length === 2 &&
+                                game.options.major === 3 &&
+                                game.options.minor === 5
+                            ).length === 0
+                          }
+                        >
+                          3 x 5
+                        </ToggleButton>
+
+                        <ToggleButton
+                          value="custom"
+                          disabled={
+                            this.props.games.filter(
+                              game =>
+                                game.players.length !== 2 ||
+                                (game.options.major !== 3 &&
+                                  game.options.major !== 4 &&
+                                  game.options.minor !== 5 &&
+                                  game.options.minor !== 6)
+                            ).length === 0
+                          }
+                        >
+                          <span className="hidden-xs">
+                            <FormattedMessage
+                              id="mygames.filter.custom"
+                              description="Custom filter label"
+                              defaultMessage="Custom"
+                            />
+                          </span>
+                          <span className="visible-xs-inline">
+                            <FormattedMessage
+                              id="mygames.filter.custom.short"
+                              description="Short version of custom filter label"
+                              defaultMessage="Custom"
+                            />
+                          </span>
                         </ToggleButton>
                       </ToggleButtonGroup>
                     </FormGroup>{" "}
@@ -119,7 +179,9 @@ class MyGames extends React.Component {
                         <FormControl
                           type="search"
                           value={this.state.search}
-                          placeholder="type player name here"
+                          placeholder={this.props.intl.formatMessage(
+                            messages.placeholder
+                          )}
                           onChange={this.handleSearchChange}
                         />
                       </InputGroup>
@@ -203,4 +265,4 @@ export default connect(
       dispatch(performGameSearch(keyword));
     }
   })
-)(MyGames);
+)(injectIntl(MyGames));

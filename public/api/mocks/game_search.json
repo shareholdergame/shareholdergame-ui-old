@@ -46,6 +46,34 @@
             "userpic": "avatar_137.jpg"
           }
         ]
+      },
+      {
+        "id": 761234782136,
+        "started": "2018-03-10T23:15:30.000Z",
+        "round": 5,
+        "turn": 3,
+        "options": {
+          "major": 3,
+          "minor": 5,
+          "players": 3
+        },
+        "players": [
+          {
+            "id": 5,
+            "name": "Andrew",
+            "userpic": "avatar_5.png"
+          },
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev",
+            "userpic": "avatar_137.jpg"
+          },
+          {
+            "id": 1,
+            "name": "Admin",
+            "userpic": "avatar_1.png"
+          }
+        ]
       }
     ]
   }
