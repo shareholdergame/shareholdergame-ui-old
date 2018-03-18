@@ -31,8 +31,8 @@ const YourTurnActivity = props => (
           <LinkContainer to={`/game/${props.game.id}`}>
             <Button bsStyle="primary">
               <FormattedMessage
-                id="home.activity.yourturn.button"
-                description="Button label text for your turn activity"
+                id="global.yourturn.button"
+                description="Button label text for your turn call to action"
                 defaultMessage="Make Your Move"
               />{" "}
               <Glyphicon glyph="log-in" />

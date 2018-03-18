@@ -1,9 +1,10 @@
 {
   "en_US": {
+    "global.yourturn.button": "Make Your Move",
+    "global.viewgame.button": "View Game",
     "home.activity.panellabel": "Activity",
     "home.activity.gameover.won": "Game is over. Congratulations, you won!",
     "home.activity.gameover.lost": "Game is over. You lost.",
-    "home.activity.gameover.viewgame": "View Game",
     "home.activity.invitation.accepted": "You Accepted",
     "home.activity.invitation.declined": "You Declined",
     "home.activity.invitation.accept": "Accept",
@@ -12,7 +13,6 @@
     "home.activity.invitation.gamedescription":
       "Game {major} x {minor} / {total} total turns",
     "home.activity.yourturn.label": "Turn {round}.{turn}: Your turn",
-    "home.activity.yourturn.button": "Make Your Move",
     "home.globalchat.panellabel": "Global Chat",
     "home.globalchat.placeholder": "type your message here ...",
     "home.startnewgame": "Start New Game",
@@ -48,13 +48,21 @@
     "newgame.short.description2": "Good for beginners and training.",
     "newgame.custom.title": "Custom",
     "newgame.custom.description1": "Game experiments.",
-    "newgame.custom.description2": "3+ players"
+    "newgame.custom.description2": "3+ players",
+    "mygames.game.vs": " vs. ",
+    "mygames.game.started": "Started:",
+    "mygames.game.type": "{major} x {minor} - {total} turns",
+    "mygames.gametile.turn": "Move {round}.{turn}",
+    "mygames.filter.quickfilter": "Quick Filter",
+    "mygames.filter.all": "All",
+    "mygames.filter.custom": "Custom"
   },
   "ru_RU": {
+    "global.yourturn.button": "Ваш Ход",
+    "global.viewgame.button": "Просмотреть Игру",
     "home.activity.panellabel": "Дневник Событий",
     "home.activity.gameover.won": "Игра окончена. Вы выиграли!",
     "home.activity.gameover.lost": "Игра окончена, вы проиграли.",
-    "home.activity.gameover.viewgame": "Просмотреть Игру",
     "home.activity.invitation.accepted": "Вы приняли приглашение",
     "home.activity.invitation.declined": "Вы отклонили приглашение",
     "home.activity.invitation.accept": "Принять",
@@ -63,7 +71,6 @@
     "home.activity.invitation.gamedescription":
       "Игра {major} x {minor} / {total} ходов",
     "home.activity.yourturn.label": "Ход {round}.{turn}: Ваш ход",
-    "home.activity.yourturn.button": "Сделайте Свой Ход",
     "home.globalchat.panellabel": "Глобальный Чат",
     "home.globalchat.placeholder": "наишите ваше сообщение...",
     "home.startnewgame": "Начать Новую Игру",
@@ -110,6 +117,13 @@
     "newgame.short.description2": "Подходит для начинающих и для тренировки.",
     "newgame.custom.title": "Эксперимент",
     "newgame.custom.description1": "Игровые эксперименты.",
-    "newgame.custom.description2": "Для 3-х и более игроков"
+    "newgame.custom.description2": "Для 3-х и более игроков",
+    "mygames.game.vs": " - ",
+    "mygames.game.started": "Игра началась:",
+    "mygames.game.type": "{major} x {minor} - {total} ходов",
+    "mygames.gametile.turn": "Ход {round}.{turn}",
+    "mygames.filter.quickfilter": "Быстрый Фильтр",
+    "mygames.filter.all": "Все",
+    "mygames.filter.custom": "Эксперементы"
   }
 }

@@ -11,6 +11,7 @@
           "userpic": "avatar_7.jpg"
         },
         "game": {
+          "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
             "minor": 6,
@@ -30,6 +31,7 @@
         },
         "game": {
           "id": 273,
+          "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
             "minor": 6,
@@ -48,6 +50,7 @@
           "userpic": "avatar_8.jpg"
         },
         "game": {
+          "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 3,
             "minor": 5,
@@ -60,6 +63,7 @@
         "timestamp": "2018-02-20T23:15:33.000Z",
         "game": {
           "id": 761234782134,
+          "started": "2018-02-21T23:15:30.000Z",
           "round": 4,
           "turn": 1,
           "options": {
@@ -87,6 +91,7 @@
         "winner": true,
         "game": {
           "id": 12341251,
+          "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
             "minor": 6,
@@ -112,6 +117,7 @@
         "winner": false,
         "game": {
           "id": 12341251,
+          "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
             "minor": 6,
@@ -137,6 +143,7 @@
         "winner": true,
         "game": {
           "id": 12341252,
+          "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
             "minor": 6,
@@ -162,6 +169,7 @@
         "winner": true,
         "game": {
           "id": 12341253,
+          "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
             "minor": 6,
@@ -187,6 +195,7 @@
         "winner": true,
         "game": {
           "id": 12341254,
+          "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
             "minor": 6,

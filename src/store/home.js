@@ -3,8 +3,8 @@ import axios from "axios";
 export const LOAD_ACTIVITY = "LOAD_ACTIVITY";
 export const ACTIVITY_LOADED = "ACTIVITY_LOADED";
 
-export const LOAD_PLAYERS_ONLINE = "LOAD_PLAYERS_ONLINE";
-export const PLAYERS_ONLINE_LOADED = "PLAYERS_ONLINE_LOADED";
+export const LOAD_PLAYERS = "LOAD_PLAYERS";
+export const PLAYERS_LOADED = "PLAYERS_LOADED";
 
 export function loadActivity() {
   return dispatch => {
@@ -25,20 +25,20 @@ export function loadActivity() {
   };
 }
 
-export function loadPlayersOnline() {
+export function loadPlayers() {
   return dispatch => {
     dispatch({
-      type: LOAD_PLAYERS_ONLINE
+      type: LOAD_PLAYERS
     });
 
     axios
-      .get("/api/mocks/players_online.json", {
+      .get("/api/mocks/players.json", {
         responseType: "json"
       })
       .then(response =>
         dispatch({
-          players_online: response.data.result.players_online,
-          type: PLAYERS_ONLINE_LOADED
+          players: response.data.result.players,
+          type: PLAYERS_LOADED
         })
       );
   };
@@ -51,9 +51,9 @@ export function home(state, action) {
       activity_loading: false,
       activity_initialized: false,
 
-      players_online: [],
-      players_online_loading: false,
-      players_online_initialized: false
+      players: [],
+      players_loading: false,
+      players_initialized: false
     };
   }
 
@@ -68,15 +68,15 @@ export function home(state, action) {
         activity_loading: false,
         activity_initialized: true
       });
-    case LOAD_PLAYERS_ONLINE:
+    case LOAD_PLAYERS:
       return Object.assign({}, state, {
-        players_online_loading: true
+        players_loading: true
       });
-    case PLAYERS_ONLINE_LOADED:
+    case PLAYERS_LOADED:
       return Object.assign({}, state, {
-        players_online: action.players_online,
-        players_online_loading: false,
-        players_online_initialized: true
+        players: action.players,
+        players_loading: false,
+        players_initialized: true
       });
     default:
       return state;

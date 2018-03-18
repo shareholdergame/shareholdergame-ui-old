@@ -1,13 +1,15 @@
 import React from "react";
+import { connect } from "react-redux";
 import { Button, Row, Col } from "react-bootstrap";
 import { LinkContainer } from "react-router-bootstrap";
 import { FormattedMessage } from "react-intl";
+import { string, shape, number } from "prop-types";
 
 import Activity from "./Activity/Activity";
 import PlayersSearch from "./PlayersSearch";
 import GlobalChat from "./GlobalChat";
 
-const Home = () => (
+const Home = props => (
   <div>
     <Row style={{ paddingBottom: "1em" }}>
       <Col xs={12} md={7}>
@@ -54,7 +56,7 @@ const Home = () => (
 
     <Row>
       <Col xs={12} md={7}>
-        <Activity />
+        {props.self && <Activity />}
       </Col>
 
       <Col xs={12} md={5}>
@@ -65,4 +67,18 @@ const Home = () => (
   </div>
 );
 
-export default Home;
+Home.propTypes = {
+  self: shape({
+    id: number.isRequired,
+    name: string.isRequired,
+    userpic: string.isRequired
+  })
+};
+
+Home.defaultProps = {
+  self: null
+};
+
+export default connect(state => ({
+  self: state.self.self
+}))(Home);

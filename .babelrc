@@ -1,6 +1,7 @@
 {
   "presets": ["env", "react-app"],
   "plugins": [
+    "transform-class-properties",
     [
       "react-intl",
       {

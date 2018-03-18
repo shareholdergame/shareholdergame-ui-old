@@ -1,0 +1,39 @@
+{
+  "result": {
+    "players": [
+      {
+        "id": 42,
+        "name": "Михаил",
+        "userpic": "avatar_42.jpg",
+        "online": true
+      },
+      {
+        "id": 10,
+        "name": "Alkonaft",
+        "userpic": "default_avatar.png",
+        "online": true
+      },
+      {
+        "id": 5,
+        "name": "Andrew",
+        "userpic": "avatar_5.png",
+        "online": true
+      },
+      {
+        "id": 5678,
+        "name": "Sergey Chernyshev",
+        "userpic": "avatar_137.jpg"
+      },
+      {
+        "id": 1,
+        "name": "Admin",
+        "userpic": "avatar_1.png"
+      },
+      {
+        "id": 7,
+        "name": "Зырянов",
+        "userpic": "avatar_7.jpg"
+      }
+    ]
+  }
+}

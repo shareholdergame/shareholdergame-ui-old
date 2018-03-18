@@ -19,9 +19,10 @@ import ru from "react-intl/locale-data/ru";
 import App from "./App";
 // import registerServiceWorker from "./registerServiceWorker";
 
-import { home, loadActivity, loadPlayersOnline } from "./store/home";
+import { home, loadActivity, loadPlayers } from "./store/home";
 import { i18n, setLanguage } from "./store/i18n";
-
+import { performGameSearch, games } from "./store/games";
+import { self, loadSelf } from "./store/self";
 import localeData from "./locales/data.json";
 
 // Create a history of your choosing (we're using a browser history in this case)
@@ -38,6 +39,8 @@ const store = createStore(
   combineReducers({
     home,
     i18n,
+    games,
+    self,
     router: routerReducer
   }),
   /* eslint-disable no-underscore-dangle */
@@ -60,9 +63,11 @@ addLocaleData([...en, ...ru]);
 const browserLanguage = "ru_RU";
 // const browserLanguage = "en_US";
 
-store.dispatch(loadActivity());
-store.dispatch(loadPlayersOnline());
 store.dispatch(setLanguage(browserLanguage)); // set initial language on the browser
+store.dispatch(loadActivity());
+store.dispatch(loadPlayers());
+store.dispatch(loadSelf());
+store.dispatch(performGameSearch()); // load player's games
 
 const I18nWrapper = props => (
   <IntlProvider
