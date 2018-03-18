@@ -63,10 +63,10 @@ addLocaleData([...en, ...ru]);
 const browserLanguage = "ru_RU";
 // const browserLanguage = "en_US";
 
+store.dispatch(setLanguage(browserLanguage)); // set initial language on the browser
 store.dispatch(loadActivity());
 store.dispatch(loadPlayers());
 store.dispatch(loadSelf());
-store.dispatch(setLanguage(browserLanguage)); // set initial language on the browser
 store.dispatch(performGameSearch()); // load player's games
 
 const I18nWrapper = props => (
