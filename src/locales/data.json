@@ -1,10 +1,10 @@
 {
   "en_US": {
     "global.yourturn.button": "Make Your Move",
+    "global.viewgame.button": "View Game",
     "home.activity.panellabel": "Activity",
     "home.activity.gameover.won": "Game is over. Congratulations, you won!",
     "home.activity.gameover.lost": "Game is over. You lost.",
-    "home.activity.gameover.viewgame": "View Game",
     "home.activity.invitation.accepted": "You Accepted",
     "home.activity.invitation.declined": "You Declined",
     "home.activity.invitation.accept": "Accept",
@@ -51,14 +51,18 @@
     "newgame.custom.description2": "3+ players",
     "mygames.game.vs": " vs. ",
     "mygames.game.started": "Started:",
-    "mygames.game.type": "{major} x {minor} - {total} turns"
+    "mygames.game.type": "{major} x {minor} - {total} turns",
+    "mygames.gametile.turn": "Move {round}.{turn}",
+    "mygames.filter.quickfilter": "Quick Filter",
+    "mygames.filter.all": "All",
+    "mygames.filter.custom": "Custom"
   },
   "ru_RU": {
     "global.yourturn.button": "Ваш Ход",
+    "global.viewgame.button": "Просмотреть Игру",
     "home.activity.panellabel": "Дневник Событий",
     "home.activity.gameover.won": "Игра окончена. Вы выиграли!",
     "home.activity.gameover.lost": "Игра окончена, вы проиграли.",
-    "home.activity.gameover.viewgame": "Просмотреть Игру",
     "home.activity.invitation.accepted": "Вы приняли приглашение",
     "home.activity.invitation.declined": "Вы отклонили приглашение",
     "home.activity.invitation.accept": "Принять",
@@ -116,6 +120,10 @@
     "newgame.custom.description2": "Для 3-х и более игроков",
     "mygames.game.vs": " - ",
     "mygames.game.started": "Игра началась:",
-    "mygames.game.type": "{major} x {minor} - {total} ходов"
+    "mygames.game.type": "{major} x {minor} - {total} ходов",
+    "mygames.gametile.turn": "Ход {round}.{turn}",
+    "mygames.filter.quickfilter": "Быстрый Фильтр",
+    "mygames.filter.all": "Все",
+    "mygames.filter.custom": "Эксперементы"
   }
 }

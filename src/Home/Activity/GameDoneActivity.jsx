@@ -37,8 +37,8 @@ const GameDoneActivity = props => (
             <Button>
               <Glyphicon glyph="eye-open" />{" "}
               <FormattedMessage
-                id="home.activity.gameover.viewgame"
-                description="View game button label for game over activity"
+                id="global.viewgame.button"
+                description="View game button label"
                 defaultMessage="View Game"
               />
             </Button>
