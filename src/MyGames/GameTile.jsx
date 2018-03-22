@@ -56,7 +56,7 @@ const GameTile = props => (
         .reduce((players, player) => {
           players.push(player);
 
-          if (props.game.players.length > players.length) {
+          if (props.game.players.length * 2 - 1 > players.length) {
             players.push(
               <span key={`${player.id}_separator`}>
                 <FormattedMessage

@@ -55,7 +55,11 @@
     "mygames.gametile.turn": "Move {round}.{turn}",
     "mygames.filter.quickfilter": "Quick Filter",
     "mygames.filter.all": "All",
-    "mygames.filter.custom": "Custom"
+    "mygames.filter.custom": "Custom",
+    "mygames.filter.custom.short": "Custom",
+    "mygames.filter.info":
+      "Showing <strong>{showing} of {total}</strong> games.",
+    "mygames.search.placeholder": "type player name here ..."
   },
   "ru_RU": {
     "global.yourturn.button": "Ваш Ход",
@@ -124,6 +128,10 @@
     "mygames.gametile.turn": "Ход {round}.{turn}",
     "mygames.filter.quickfilter": "Быстрый Фильтр",
     "mygames.filter.all": "Все",
-    "mygames.filter.custom": "Эксперементы"
+    "mygames.filter.custom": "Эксперементы",
+    "mygames.filter.custom.short": "Эксп.",
+    "mygames.filter.info":
+      "Показаны <strong>{showing} из {total}</strong> игр.",
+    "mygames.search.placeholder": "введите имя игрока ..."
   }
 }

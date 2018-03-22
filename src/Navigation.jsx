@@ -328,5 +328,9 @@ export default connect(
     setLanguage: language => {
       dispatch(setLanguage(language));
     }
-  })
+  }),
+  null,
+  {
+    pure: false
+  }
 )(Navigation);
