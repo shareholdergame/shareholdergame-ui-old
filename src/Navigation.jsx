@@ -240,66 +240,68 @@ const Navigation = props => {
             ))}
           </Nav>
         </Navbar.Collapse>
-        <Navbar.Collapse>
-          <Nav pullRight className="visible-xs">
-            <NavItem>
-              <Badge pullRight>2</Badge>
-              <FormattedMessage
-                id="nav.burger.invitations"
-                description="Invitations menu label inside hamburger menu"
-                defaultMessage="Invitations"
-              />{" "}
-              <Glyphicon glyph="user" />
-              <Glyphicon glyph="plus" />
-            </NavItem>
-            <NavItem>
-              <Badge pullRight>3</Badge>
-              <FormattedMessage
-                id="nav.burger.messages"
-                description="Messages menu label inside hamburger menu"
-                defaultMessage="Messages"
-              />{" "}
-              <Glyphicon glyph="envelope" />
-            </NavItem>
-            <NavDropdown title={profileMenu} id="nav-dropdown">
-              <LinkContainer to="/my-achievements">
-                <MenuItem>
-                  <FormattedMessage
-                    id="nav.profile.myachievements"
-                    description="My Achievements profile menu item"
-                    defaultMessage="My Achievements"
-                  />
-                </MenuItem>
-              </LinkContainer>
-              <LinkContainer to="/profile">
-                <MenuItem>
-                  <FormattedMessage
-                    id="nav.profile.myprofile"
-                    description="My Profile profile menu item"
-                    defaultMessage="My Profile"
-                  />
-                </MenuItem>
-              </LinkContainer>
-              <LinkContainer to="/account">
-                <MenuItem>
-                  <FormattedMessage
-                    id="nav.profile.accountsettings"
-                    description="Account Settings profile menu item"
-                    defaultMessage="Account Settings"
-                  />
-                </MenuItem>
-              </LinkContainer>
-              <MenuItem divider />
-              <MenuItem>
+        {props.self && (
+          <Navbar.Collapse>
+            <Nav pullRight className="visible-xs">
+              <NavItem>
+                <Badge pullRight>2</Badge>
                 <FormattedMessage
-                  id="nav.profile.signout"
-                  description="Sign Out profile menu item"
-                  defaultMessage="Sign Out"
-                />
-              </MenuItem>
-            </NavDropdown>
-          </Nav>
-        </Navbar.Collapse>
+                  id="nav.burger.invitations"
+                  description="Invitations menu label inside hamburger menu"
+                  defaultMessage="Invitations"
+                />{" "}
+                <Glyphicon glyph="user" />
+                <Glyphicon glyph="plus" />
+              </NavItem>
+              <NavItem>
+                <Badge pullRight>3</Badge>
+                <FormattedMessage
+                  id="nav.burger.messages"
+                  description="Messages menu label inside hamburger menu"
+                  defaultMessage="Messages"
+                />{" "}
+                <Glyphicon glyph="envelope" />
+              </NavItem>
+              <NavDropdown title={profileMenu} id="nav-dropdown">
+                <LinkContainer to="/my-achievements">
+                  <MenuItem>
+                    <FormattedMessage
+                      id="nav.profile.myachievements"
+                      description="My Achievements profile menu item"
+                      defaultMessage="My Achievements"
+                    />
+                  </MenuItem>
+                </LinkContainer>
+                <LinkContainer to="/profile">
+                  <MenuItem>
+                    <FormattedMessage
+                      id="nav.profile.myprofile"
+                      description="My Profile profile menu item"
+                      defaultMessage="My Profile"
+                    />
+                  </MenuItem>
+                </LinkContainer>
+                <LinkContainer to="/account">
+                  <MenuItem>
+                    <FormattedMessage
+                      id="nav.profile.accountsettings"
+                      description="Account Settings profile menu item"
+                      defaultMessage="Account Settings"
+                    />
+                  </MenuItem>
+                </LinkContainer>
+                <MenuItem divider />
+                <MenuItem>
+                  <FormattedMessage
+                    id="nav.profile.signout"
+                    description="Sign Out profile menu item"
+                    defaultMessage="Sign Out"
+                  />
+                </MenuItem>
+              </NavDropdown>
+            </Nav>
+          </Navbar.Collapse>
+        )}
       </Navbar>
     </Row>
   );

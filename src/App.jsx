@@ -7,6 +7,7 @@ import NewGame from "./NewGame/NewGame";
 import Navigation from "./Navigation";
 import PlayerProfile from "./PlayerProfile";
 import MyGames from "./MyGames/MyGames";
+import Archive from "./Archive/Archive";
 import PlayersList from "./PlayersList/PlayersList";
 
 import "./App.css";
@@ -18,6 +19,7 @@ const App = () => (
     <Route exact path="/new-game" component={NewGame} />
     <Route exact path="/new-game/:slug" component={NewGame} />
     <Route exact path="/my-games" component={MyGames} />
+    <Route exact path="/archive" component={Archive} />
     <Route exact path="/players" component={PlayersList} />
     <Route exact path="/players/:name" component={PlayerProfile} />
   </Grid>

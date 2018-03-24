@@ -1,0 +1,163 @@
+{
+  "result": {
+    "sets": [
+      {
+        "id": 761234782134,
+        "finished": "2018-02-21T23:15:30.000Z",
+        "options": {
+          "major": 4,
+          "minor": 6
+        },
+        "players": [
+          {
+            "id": 1,
+            "name": "Admin",
+            "userpic": "avatar_1.png",
+            "wongames": [2, 1],
+            "winner": true,
+            "wonmoney": 234566
+          },
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev",
+            "userpic": "avatar_137.jpg",
+            "wongames": [0, 1]
+          }
+        ]
+      },
+      {
+        "id": 761234782136,
+        "finished": "2018-03-10T23:15:30.000Z",
+        "options": {
+          "major": 3,
+          "minor": 5
+        },
+        "players": [
+          {
+            "id": 7,
+            "name": "Зырянов",
+            "userpic": "avatar_7.jpg",
+            "wongames": [1, 1, 0, 0]
+          },
+          {
+            "id": 5,
+            "name": "Andrew",
+            "userpic": "avatar_5.png",
+            "wongames": [1, 0, 0, 1]
+          },
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev",
+            "userpic": "avatar_137.jpg",
+            "wongames": [0, 3, 0, 2],
+            "wonmoney": 23414,
+            "winner": true
+          },
+          {
+            "id": 1,
+            "name": "Admin",
+            "userpic": "avatar_1.png",
+            "wongames": [0, 1, 0, 0]
+          }
+        ]
+      },
+
+      {
+        "id": 761234782137,
+        "finished": "2018-03-10T23:15:30.000Z",
+        "options": {
+          "major": 3,
+          "minor": 5
+        },
+        "players": [
+          {
+            "id": 7,
+            "name": "Зырянов",
+            "userpic": "avatar_7.jpg",
+            "wongames": [1, 1, 0, 0]
+          },
+          {
+            "id": 5,
+            "name": "Andrew",
+            "userpic": "avatar_5.png",
+            "wongames": [1, 2, 0, 1],
+            "wonmoney": 23414,
+            "winner": true
+          },
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev",
+            "userpic": "avatar_137.jpg",
+            "wongames": [0, 1, 0, 2]
+          },
+          {
+            "id": 1,
+            "name": "Admin",
+            "userpic": "avatar_1.png",
+            "wongames": [0, 1, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 761234782138,
+        "finished": "2018-03-10T23:15:30.000Z",
+        "options": {
+          "major": 3,
+          "minor": 5
+        },
+        "players": [
+          {
+            "id": 7,
+            "name": "Зырянов",
+            "userpic": "avatar_7.jpg",
+            "wongames": [1, 1, 0, 0]
+          },
+          {
+            "id": 5,
+            "name": "Andrew",
+            "userpic": "avatar_5.png",
+            "wongames": [1, 2, 0, 1]
+          },
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev",
+            "userpic": "avatar_137.jpg",
+            "wongames": [0, 3, 0, 2],
+            "wonmoney": 23414,
+            "winner": true
+          },
+          {
+            "id": 1,
+            "name": "Admin",
+            "userpic": "avatar_1.png",
+            "wongames": [0, 1, 0, 0]
+          }
+        ]
+      },
+      {
+        "id": 761234782139,
+        "finished": "2018-02-21T23:15:30.000Z",
+        "options": {
+          "major": 4,
+          "minor": 6
+        },
+        "players": [
+          {
+            "id": 1,
+            "name": "Admin",
+            "userpic": "avatar_1.png",
+            "wongames": [2, 1]
+          },
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev",
+            "userpic": "avatar_137.jpg",
+            "wongames": [0, 1],
+            "winner": true,
+            "wonmoney": 234566
+          }
+        ]
+      }
+    ]
+  }
+}

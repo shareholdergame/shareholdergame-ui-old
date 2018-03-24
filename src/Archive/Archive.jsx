@@ -26,7 +26,7 @@ import {
 
 import { performGameSearch } from "../store/games";
 
-import GameTile from "./GameTile";
+import SetTile from "./SetTile";
 
 const messages = defineMessages({
   placeholder: {
@@ -34,19 +34,19 @@ const messages = defineMessages({
     description: "Player name placeholder on game search page",
     defaultMessage: "type player name here ..."
   },
-  gameslabel: {
-    id: "mygames.tabs.games",
-    description: "Games tab label on my games page",
-    defaultMessage: "Games"
+  mygameslabel: {
+    id: "archive.tabs.mygames",
+    description: "My games tab label on archive page",
+    defaultMessage: "My Games"
   },
-  invitationslabel: {
-    id: "mygames.tabs.invitations",
-    description: "Invitations tab label on archive page",
-    defaultMessage: "Invitations"
+  othergameslabel: {
+    id: "archive.tabs.othergames",
+    description: "Other games tab label on archive page",
+    defaultMessage: "Other Games"
   }
 });
 
-class MyGames extends React.Component {
+class Archive extends React.Component {
   static propTypes = {
     performGameSearch: func.isRequired,
     self: shape({
@@ -147,7 +147,7 @@ class MyGames extends React.Component {
         <Tabs defaultActiveKey="games" id="uncontrolled-tab-example">
           <Tab
             eventKey="games"
-            title={this.props.intl.formatMessage(messages.gameslabel)}
+            title={this.props.intl.formatMessage(messages.mygameslabel)}
           >
             <Grid fluid>
               <Row>
@@ -275,17 +275,18 @@ class MyGames extends React.Component {
               <Row>
                 {filteredGames.map(game => (
                   <Col md={6} key={game.id}>
-                    <GameTile game={game} self={this.props.self} />
+                    <SetTile game={game} self={this.props.self} />
                   </Col>
                 ))}
               </Row>
             </Grid>
           </Tab>
+
           <Tab
-            eventKey="invitations"
-            title={this.props.intl.formatMessage(messages.invitationslabel)}
+            eventKey="other"
+            title={this.props.intl.formatMessage(messages.othergameslabel)}
           >
-            <i>... Invitations will show up here ...</i>
+            <i>... other games show up here ...</i>
           </Tab>
         </Tabs>
       )
@@ -295,7 +296,7 @@ class MyGames extends React.Component {
 
 export default connect(
   state => ({
-    games: state.games.found_games,
+    games: state.games.game_archive,
     self: state.self.self
   }),
   dispatch => ({
@@ -303,4 +304,4 @@ export default connect(
       dispatch(performGameSearch(keyword));
     }
   })
-)(injectIntl(MyGames));
+)(injectIntl(Archive));
