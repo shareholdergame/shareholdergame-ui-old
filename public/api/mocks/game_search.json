@@ -8,8 +8,7 @@
         "turn": 1,
         "options": {
           "major": 4,
-          "minor": 6,
-          "players": 2
+          "minor": 6
         },
         "players": [
           {
@@ -31,8 +30,7 @@
         "turn": 2,
         "options": {
           "major": 3,
-          "minor": 5,
-          "players": 2
+          "minor": 5
         },
         "players": [
           {
@@ -54,8 +52,7 @@
         "turn": 3,
         "options": {
           "major": 3,
-          "minor": 5,
-          "players": 3
+          "minor": 5
         },
         "players": [
           {

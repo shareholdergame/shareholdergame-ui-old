@@ -24,7 +24,7 @@ const GameTile = props => (
           />
         </span>
         <span className="pull-right">
-          <span style={{ whiteSpace: "nowrap" }}>
+          <span style={{ whiteSpace: "nowrap" }} className="hidden-xs">
             <FormattedMessage
               id="mygames.game.started"
               description="props.game started time text on props.game tile"
@@ -38,27 +38,33 @@ const GameTile = props => (
       </Col>
     </Row>
 
-    <p style={{ fontSize: "x-large", textAlign: "center", margin: "1em 0" }}>
+    <p style={{ fontSize: "large", textAlign: "center", margin: "1em 0" }}>
       {props.game.players
-        .map(player => (
-          <span key={player.id} style={{ whiteSpace: "nowrap" }}>
-            <Link to={`/players/${player.name}`}>
-              <Image
-                src={`/images/userpics/${player.userpic}`}
-                width="38"
-                height="38"
-                circle
-              />
-            </Link>{" "}
-            <Link to={`/players/${player.name}`}>{player.name}</Link>
-          </span>
-        ))
+        .map(player => ({
+          player,
+          component: (
+            <span
+              key={player.id}
+              style={{ whiteSpace: "nowrap", overflow: "hidden" }}
+            >
+              <Link to={`/players/${player.name}`}>
+                <Image
+                  src={`/images/userpics/${player.userpic}`}
+                  width="38"
+                  height="38"
+                  circle
+                />
+              </Link>{" "}
+              <Link to={`/players/${player.name}`}>{player.name}</Link>
+            </span>
+          )
+        }))
         .reduce((players, player) => {
-          players.push(player);
+          players.push(player.component);
 
           if (props.game.players.length * 2 - 1 > players.length) {
             players.push(
-              <span key={`${player.id}_separator`}>
+              <span key={`${player.player.id}_separator`}>
                 <FormattedMessage
                   id="mygames.game.vs"
                   description="Versus separator between player names props.game tile"
@@ -72,7 +78,7 @@ const GameTile = props => (
         }, [])}
     </p>
 
-    <p style={{ fontSize: "x-large", textAlign: "center" }}>
+    <p style={{ fontSize: "large", textAlign: "center" }}>
       <span style={{ marginRight: "2em" }}>
         Game {gameLetters[props.game.turn - 1]}
       </span>
