@@ -33,6 +33,16 @@ const messages = defineMessages({
     id: "mygames.search.placeholder",
     description: "Player name placeholder on game search page",
     defaultMessage: "type player name here ..."
+  },
+  gameslabel: {
+    id: "mygames.tabs.games",
+    description: "Games tab label on my games page",
+    defaultMessage: "Games"
+  },
+  invitationslabel: {
+    id: "mygames.tabs.invitations",
+    description: "Invitations tab label on archive page",
+    defaultMessage: "Invitations"
   }
 });
 
@@ -135,7 +145,10 @@ class MyGames extends React.Component {
     return (
       this.props.self && (
         <Tabs defaultActiveKey="games" id="uncontrolled-tab-example">
-          <Tab eventKey="games" title="Games">
+          <Tab
+            eventKey="games"
+            title={this.props.intl.formatMessage(messages.gameslabel)}
+          >
             <Grid fluid>
               <Row>
                 <Col>
@@ -268,7 +281,10 @@ class MyGames extends React.Component {
               </Row>
             </Grid>
           </Tab>
-          <Tab eventKey="invitations" title="Invitations">
+          <Tab
+            eventKey="invitations"
+            title={this.props.intl.formatMessage(messages.invitationslabel)}
+          >
             <i>... Invitations will show up here ...</i>
           </Tab>
         </Tabs>

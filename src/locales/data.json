@@ -61,6 +61,8 @@
     "mygames.filter.info":
       "Showing <strong>{showing} of {total}</strong> games.",
     "mygames.search.placeholder": "type player name here ...",
+    "mygames.tabs.games": "Games",
+    "mygames.tabs.invitations": "Invitations",
     "archive.game.finished": "Finished: ",
     "archive.game.total": "Total",
     "archive.tabs.mygames": "My Games",
@@ -139,6 +141,8 @@
     "mygames.filter.info":
       "Показаны <strong>{showing} из {total}</strong> игр.",
     "mygames.search.placeholder": "введите имя игрока ...",
+    "mygames.tabs.games": "Игры",
+    "mygames.tabs.invitations": "Приглашения",
     "archive.game.finished": "Закончена: ",
     "archive.game.total": "Счет",
     "archive.tabs.mygames": "Мои Игры",
