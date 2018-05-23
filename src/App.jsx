@@ -5,7 +5,7 @@ import { Route } from "react-router-dom";
 import Home from "./Home/Home";
 import NewGame from "./NewGame/NewGame";
 import Navigation from "./Navigation";
-import PlayerProfile from "./PlayerProfile";
+import PlayerProfile from "./PlayerProfile/PlayerProfile";
 import MyGames from "./MyGames/MyGames";
 import Archive from "./Archive/Archive";
 import PlayersList from "./PlayersList/PlayersList";

@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import {
   ButtonGroup,
   Button,
@@ -77,7 +78,9 @@ const InvitationActivity = props => {
         <Row>
           <Col xs={12} sm={6}>
             <b>
-              {props.player.name}{" "}
+              <Link to={`/players/${props.player.name}`}>
+                {props.player.name}
+              </Link>{" "}
               <FormattedMessage
                 id="home.activity.invitation.invites"
                 description="Player invites you to play text for invitation activity"

@@ -14,6 +14,11 @@
         "online": true
       },
       {
+        "id": 1234,
+        "name": "Governor",
+        "userpic": "avatar_8.jpg"
+      },
+      {
         "id": 5,
         "name": "Andrew",
         "userpic": "avatar_5.png",
@@ -27,7 +32,24 @@
       {
         "id": 1,
         "name": "Admin",
-        "userpic": "avatar_1.png"
+        "userpic": "avatar_1.png",
+        "stats": { "total": 25, "won": 25, "lost": 2, "bankruptcies": 1 },
+        "profile": {
+          "birthday": "9 July 1980",
+          "country": "Spain",
+          "state": "-",
+          "city": "Madrid",
+          "facebook": {
+            "id": "sergey.chernyshev",
+            "slug": "sergey.chernyshev"
+          },
+          "twitter": {
+            "handle": "sergeyche"
+          },
+          "googleplus": {
+            "handle": "SergeyChernyshev"
+          }
+        }
       },
       {
         "id": 7,

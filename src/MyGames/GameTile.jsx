@@ -66,9 +66,9 @@ const GameTile = props => (
             players.push(
               <span key={`${player.player.id}_separator`}>
                 <FormattedMessage
-                  id="mygames.game.vs"
-                  description="Versus separator between player names props.game tile"
-                  defaultMessage=" - "
+                  id="global.vs"
+                  description="Versus separator between player names"
+                  defaultMessage=" vs. "
                 />
               </span>
             );
