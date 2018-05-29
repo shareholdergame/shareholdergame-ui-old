@@ -27,7 +27,23 @@
       {
         "id": 5678,
         "name": "Sergey Chernyshev",
-        "userpic": "avatar_137.jpg"
+        "userpic": "avatar_137.jpg",
+        "profile": {
+          "birthday": "31 March 1976",
+          "country": "USA",
+          "state": "NJ",
+          "city": "River Edge",
+          "facebook": {
+            "id": "sergey.chernyshev",
+            "slug": "sergey.chernyshev"
+          },
+          "twitter": {
+            "handle": "sergeyche"
+          },
+          "googleplus": {
+            "slug": "SergeyChernyshev"
+          }
+        }
       },
       {
         "id": 1,
@@ -38,17 +54,7 @@
           "birthday": "9 July 1980",
           "country": "Spain",
           "state": "-",
-          "city": "Madrid",
-          "facebook": {
-            "id": "sergey.chernyshev",
-            "slug": "sergey.chernyshev"
-          },
-          "twitter": {
-            "handle": "sergeyche"
-          },
-          "googleplus": {
-            "handle": "SergeyChernyshev"
-          }
+          "city": "Madrid"
         }
       },
       {

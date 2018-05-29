@@ -13,7 +13,10 @@ import {
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 
-import TwitterFieldRenderer from "./TwitterFieldRenderer";
+import TwitterField from "./TwitterField";
+import FacebookField from "./FacebookField";
+import GooglePlusField from "./GooglePlusField";
+import WebsiteField from "./WebsiteField";
 
 const stats = [
   {
@@ -42,36 +45,39 @@ const fields = [
   {
     slug: "facebook",
     title: "Facebook",
-    value: { id: "sergey.chernyshev", slug: "sergey.chernyshev" }
+    value: {
+      id: "sergey.chernyshev",
+      slug: "sergey.chernyshev"
+    }
   },
   {
     slug: "twitter",
     title: "Twitter",
-    value: "sergeyche"
+    value: {
+      handle: "sergeyche"
+    }
   },
   {
     slug: "googleplus",
     title: "Google+",
-    value: "SergeyChernyshev"
+    value: {
+      slug: "SergeyChernyshev"
+    }
   },
   {
     slug: "website",
     title: "Website",
-    value: "https://www.sergeychernyshev.com/"
+    value: {
+      url: "https://www.sergeychernyshev.com/"
+    }
   }
 ];
 
 const renderers = {
-  facebook: value => (
-    <a
-      href={`https://www.facebook.com/${value.slug}`}
-      target="_blank"
-      rel="noopener noreferrer"
-    >
-      {value.id}
-    </a>
-  ),
-  twitter: TwitterFieldRenderer
+  facebook: FacebookField,
+  twitter: TwitterField,
+  googleplus: GooglePlusField,
+  website: WebsiteField
 };
 
 const PlayerProfile = props =>
@@ -156,13 +162,16 @@ const PlayerProfile = props =>
                 }}
               >
                 {fields.reduce((components, field) => {
-                  let { value } = field;
+                  let value = props.player.profile[field.slug];
+
+                  if (!value) {
+                    return components;
+                  }
+
                   const Renderer = renderers[field.slug];
 
-                  // console.log(Renderer);
-
                   if (Renderer) {
-                    value = <Renderer value={value} />;
+                    value = <Renderer {...value} />;
                   }
 
                   components.push(
@@ -199,7 +208,8 @@ PlayerProfile.propTypes = {
   player: shape({
     id: number.isRequired,
     name: string.isRequired,
-    userpic: string.isRequired
+    userpic: string.isRequired,
+    profile: shape
   })
 };
 
