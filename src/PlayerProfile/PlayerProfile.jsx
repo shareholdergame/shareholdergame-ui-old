@@ -68,33 +68,36 @@ const PlayerProfile = props =>
               circle
             />
             <h1>{props.player.name}</h1>
-            <ButtonGroup block vertical>
-              <Button>
-                <Glyphicon glyph="heart-empty" />{" "}
-                <FormattedMessage
-                  id="profile.addfriend"
-                  description="Add friend button label on profile page"
-                  defaultMessage="Add as friend"
-                />
-              </Button>
-              <Button>
-                <Glyphicon glyph="user" />
-                <Glyphicon glyph="plus" />{" "}
-                <FormattedMessage
-                  id="home.playersearch.invite"
-                  description="Player search invitation button label"
-                  defaultMessage="Invite"
-                />
-              </Button>
-              <Button>
-                <Glyphicon glyph="envelope" />{" "}
-                <FormattedMessage
-                  id="home.playersearch.sendmessage"
-                  description="Player search send message button label"
-                  defaultMessage="Send Message"
-                />
-              </Button>
-            </ButtonGroup>
+            {props.self &&
+              props.self.id !== props.player.id && (
+                <ButtonGroup block vertical>
+                  <Button>
+                    <Glyphicon glyph="heart-empty" />{" "}
+                    <FormattedMessage
+                      id="profile.addfriend"
+                      description="Add friend button label on profile page"
+                      defaultMessage="Add as friend"
+                    />
+                  </Button>
+                  <Button>
+                    <Glyphicon glyph="user" />
+                    <Glyphicon glyph="plus" />{" "}
+                    <FormattedMessage
+                      id="home.playersearch.invite"
+                      description="Player search invitation button label"
+                      defaultMessage="Invite"
+                    />
+                  </Button>
+                  <Button>
+                    <Glyphicon glyph="envelope" />{" "}
+                    <FormattedMessage
+                      id="home.playersearch.sendmessage"
+                      description="Player search send message button label"
+                      defaultMessage="Send Message"
+                    />
+                  </Button>
+                </ButtonGroup>
+              )}
           </div>
 
           <blockquote style={{ margin: "1em 0" }}>
@@ -108,15 +111,14 @@ const PlayerProfile = props =>
 
             <dl className="dl-horizontal">
               {stats.reduce((components, stat) => {
-                components.push(
-                  <dt key={`${stat.slug}_dt`}>{stat.title}</dt>
-                );
+                components.push(<dt key={`${stat.slug}_dt`}>{stat.title}</dt>);
 
-                const value = props.player.stats && props.player.stats[stat.slug] ? props.player.stats[stat.slug] : 0;
+                const value =
+                  props.player.stats && props.player.stats[stat.slug]
+                    ? props.player.stats[stat.slug]
+                    : 0;
 
-                components.push(
-                  <dd key={`${stat.slug}_dd`}>{value}</dd>
-                );
+                components.push(<dd key={`${stat.slug}_dd`}>{value}</dd>);
 
                 return components;
               }, [])}
@@ -192,15 +194,20 @@ PlayerProfile.propTypes = {
       lost: number,
       bankruptcies: number
     })
+  }),
+  self: shape({
+    id: number.isRequired
   })
 };
 
 PlayerProfile.defaultProps = {
-  player: null
+  player: null,
+  self: null
 };
 
 export default connect((state, ownProps) => ({
   player: state.home.players.find(
     player => player.name === ownProps.match.params.name
-  )
+  ),
+  self: state.self.self
 }))(PlayerProfile);
