@@ -1,5 +1,5 @@
 import React from "react";
-import { string, number, shape } from "prop-types";
+import { string, number, shape, bool } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
 
 import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
@@ -68,36 +68,35 @@ const PlayerProfile = props =>
               circle
             />
             <h1>{props.player.name}</h1>
-            {props.self &&
-              props.self.id !== props.player.id && (
-                <ButtonGroup block vertical>
-                  <Button>
-                    <Glyphicon glyph="heart-empty" />{" "}
-                    <FormattedMessage
-                      id="profile.addfriend"
-                      description="Add friend button label on profile page"
-                      defaultMessage="Add as friend"
-                    />
-                  </Button>
-                  <Button>
-                    <Glyphicon glyph="user" />
-                    <Glyphicon glyph="plus" />{" "}
-                    <FormattedMessage
-                      id="home.playersearch.invite"
-                      description="Player search invitation button label"
-                      defaultMessage="Invite"
-                    />
-                  </Button>
-                  <Button>
-                    <Glyphicon glyph="envelope" />{" "}
-                    <FormattedMessage
-                      id="home.playersearch.sendmessage"
-                      description="Player search send message button label"
-                      defaultMessage="Send Message"
-                    />
-                  </Button>
-                </ButtonGroup>
-              )}
+            {!props.isSelf && (
+              <ButtonGroup block vertical>
+                <Button>
+                  <Glyphicon glyph="heart-empty" />{" "}
+                  <FormattedMessage
+                    id="profile.addfriend"
+                    description="Add friend button label on profile page"
+                    defaultMessage="Add as friend"
+                  />
+                </Button>
+                <Button>
+                  <Glyphicon glyph="user" />
+                  <Glyphicon glyph="plus" />{" "}
+                  <FormattedMessage
+                    id="home.playersearch.invite"
+                    description="Player search invitation button label"
+                    defaultMessage="Invite"
+                  />
+                </Button>
+                <Button>
+                  <Glyphicon glyph="envelope" />{" "}
+                  <FormattedMessage
+                    id="home.playersearch.sendmessage"
+                    description="Player search send message button label"
+                    defaultMessage="Send Message"
+                  />
+                </Button>
+              </ButtonGroup>
+            )}
           </div>
 
           <blockquote style={{ margin: "1em 0" }}>
@@ -168,9 +167,11 @@ const PlayerProfile = props =>
               <Button>Achievements</Button>
             </LinkContainer>
 
-            <LinkContainer to={`/players/${props.player.id}/achievements`}>
-              <Button>Games Shared With Me</Button>
-            </LinkContainer>
+            {!props.isSelf && (
+              <LinkContainer to={`/players/${props.player.id}/achievements`}>
+                <Button>Games Shared With Me</Button>
+              </LinkContainer>
+            )}
           </ButtonGroup>
         </Well>
       </Col>
@@ -195,19 +196,16 @@ PlayerProfile.propTypes = {
       bankruptcies: number
     })
   }),
-  self: shape({
-    id: number.isRequired
-  })
+  isSelf: bool.isRequired
 };
 
 PlayerProfile.defaultProps = {
-  player: null,
-  self: null
+  player: null
 };
 
 export default connect((state, ownProps) => ({
   player: state.home.players.find(
     player => player.name === ownProps.match.params.name
   ),
-  self: state.self.self
+  isSelf: state.self.self && state.self.self.name === ownProps.match.params.name
 }))(PlayerProfile);
