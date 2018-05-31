@@ -95,7 +95,7 @@ const PlayersSearch = props => (
                     <Glyphicon glyph="plus" />{" "}
                     <FormattedMessage
                       id="home.playersearch.invite"
-                      description="Player search invitation button label"
+                      description="Player invitation button label"
                       defaultMessage="Invite"
                     />
                   </Button>
