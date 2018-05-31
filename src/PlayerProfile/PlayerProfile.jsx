@@ -1,15 +1,15 @@
 import React from "react";
 import { string, number, shape } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
-import {
-  ButtonGroup,
-  Button,
-  Glyphicon,
-  Well,
-  Image,
-  Row,
-  Col
-} from "react-bootstrap";
+
+import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
+import Button from "react-bootstrap/lib/Button";
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Well from "react-bootstrap/lib/Well";
+import Image from "react-bootstrap/lib/Image";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
+
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
 

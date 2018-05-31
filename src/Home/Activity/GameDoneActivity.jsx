@@ -1,5 +1,10 @@
 import React from "react";
-import { Button, Glyphicon, Row, Col } from "react-bootstrap";
+
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Button from "react-bootstrap/lib/Button";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
+
 import { arrayOf, number, shape, string, bool } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";

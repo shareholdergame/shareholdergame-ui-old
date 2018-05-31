@@ -1,5 +1,10 @@
 import React from "react";
-import { Panel, Glyphicon, FormControl, Well } from "react-bootstrap";
+
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Panel from "react-bootstrap/lib/Panel";
+import Well from "react-bootstrap/lib/Well";
+import FormControl from "react-bootstrap/lib/FormControl";
+
 import {
   FormattedMessage,
   injectIntl,

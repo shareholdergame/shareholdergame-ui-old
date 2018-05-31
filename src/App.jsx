@@ -1,5 +1,5 @@
 import React from "react";
-import { Grid } from "react-bootstrap";
+import Grid from "react-bootstrap/lib/Grid";
 import { Route } from "react-router-dom";
 
 import Home from "./Home/Home";

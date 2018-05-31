@@ -1,19 +1,19 @@
 import React from "react";
-import {
-  Form,
-  FormGroup,
-  ControlLabel,
-  FormControl,
-  Tabs,
-  Tab,
-  ToggleButton,
-  ToggleButtonGroup,
-  Row,
-  Grid,
-  Col,
-  InputGroup,
-  Alert
-} from "react-bootstrap";
+
+import Form from "react-bootstrap/lib/Form";
+import FormGroup from "react-bootstrap/lib/FormGroup";
+import ControlLabel from "react-bootstrap/lib/ControlLabel";
+import FormControl from "react-bootstrap/lib/FormControl";
+import Tabs from "react-bootstrap/lib/Tabs";
+import Tab from "react-bootstrap/lib/Tab";
+import ToggleButton from "react-bootstrap/lib/ToggleButton";
+import ToggleButtonGroup from "react-bootstrap/lib/ToggleButtonGroup";
+import Row from "react-bootstrap/lib/Row";
+import Grid from "react-bootstrap/lib/Grid";
+import Col from "react-bootstrap/lib/Col";
+import InputGroup from "react-bootstrap/lib/InputGroup";
+import Alert from "react-bootstrap/lib/Alert";
+
 import { connect } from "react-redux";
 import { func, arrayOf, shape, number } from "prop-types";
 import {

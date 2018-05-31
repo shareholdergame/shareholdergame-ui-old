@@ -3,7 +3,10 @@ import { arrayOf, number, shape, string } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
 import { Link } from "react-router-dom";
 
-import { Button, Glyphicon, Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/lib/Button";
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
 
 import { FormattedMessage } from "react-intl";
 

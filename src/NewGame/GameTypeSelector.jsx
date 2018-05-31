@@ -1,5 +1,11 @@
 import React from "react";
-import { Glyphicon, Well, Button, Row, Col } from "react-bootstrap";
+
+import Well from "react-bootstrap/lib/Well";
+import Button from "react-bootstrap/lib/Button";
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
+
 import { LinkContainer } from "react-router-bootstrap";
 import { string, node, number } from "prop-types";
 import { FormattedMessage } from "react-intl";

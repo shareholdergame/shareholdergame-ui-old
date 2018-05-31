@@ -1,6 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
-import { Button, Row, Col } from "react-bootstrap";
+
+import Button from "react-bootstrap/lib/Button";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
+
 import { LinkContainer } from "react-router-bootstrap";
 import { FormattedMessage } from "react-intl";
 import { string, shape, number } from "prop-types";

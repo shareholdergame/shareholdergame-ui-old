@@ -1,5 +1,5 @@
 import React from "react";
-import { PageHeader } from "react-bootstrap";
+import PageHeader from "react-bootstrap/lib/PageHeader";
 import { shape, string } from "prop-types";
 import { FormattedMessage } from "react-intl";
 

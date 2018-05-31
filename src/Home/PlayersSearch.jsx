@@ -1,18 +1,18 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  Table,
-  Panel,
-  ButtonGroup,
-  Button,
-  Glyphicon,
-  Image,
-  FormGroup,
-  InputGroup,
-  FormControl,
-  Label
-} from "react-bootstrap";
+
+import Label from "react-bootstrap/lib/Label";
+import FormGroup from "react-bootstrap/lib/FormGroup";
+import Table from "react-bootstrap/lib/Table";
+import FormControl from "react-bootstrap/lib/FormControl";
+import Panel from "react-bootstrap/lib/Panel";
+import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
+import Button from "react-bootstrap/lib/Button";
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Image from "react-bootstrap/lib/Image";
+import InputGroup from "react-bootstrap/lib/InputGroup";
+
 import { arrayOf, number, shape, string } from "prop-types";
 import {
   FormattedMessage,
