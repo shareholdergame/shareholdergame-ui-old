@@ -49,7 +49,7 @@
         "id": 1,
         "name": "Admin",
         "userpic": "avatar_1.png",
-        "stats": { "total": 25, "won": 25, "lost": 2, "bankruptcies": 1 },
+        "stats": { "total": 27, "won": 25, "lost": 2, "bankruptcies": 1 },
         "profile": {
           "birthday": "9 July 1980",
           "country": "Spain",

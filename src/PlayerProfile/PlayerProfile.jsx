@@ -32,7 +32,7 @@ const stats = [
     title: "Games Lost"
   },
   {
-    slug: "bancruptcies",
+    slug: "bankruptcies",
     title: "Bankruptcies"
   }
 ];
@@ -42,35 +42,10 @@ const fields = [
   { slug: "country", title: "Country" },
   { slug: "state", title: "Province / State" },
   { slug: "city", title: "City" },
-  {
-    slug: "facebook",
-    title: "Facebook",
-    value: {
-      id: "sergey.chernyshev",
-      slug: "sergey.chernyshev"
-    }
-  },
-  {
-    slug: "twitter",
-    title: "Twitter",
-    value: {
-      handle: "sergeyche"
-    }
-  },
-  {
-    slug: "googleplus",
-    title: "Google+",
-    value: {
-      slug: "SergeyChernyshev"
-    }
-  },
-  {
-    slug: "website",
-    title: "Website",
-    value: {
-      url: "https://www.sergeychernyshev.com/"
-    }
-  }
+  { slug: "facebook", title: "Facebook" },
+  { slug: "twitter", title: "Twitter" },
+  { slug: "googleplus", title: "Google+" },
+  { slug: "website", title: "Website" }
 ];
 
 const renderers = {
@@ -126,26 +101,27 @@ const PlayerProfile = props =>
             I am a cool gamer!
           </blockquote>
 
-          {props.player.stats && (
-            <section>
-              <h4>
-                <Glyphicon glyph="stats" /> Player Statistics
-              </h4>
+          <section>
+            <h4>
+              <Glyphicon glyph="stats" /> Player Statistics
+            </h4>
 
-              <dl className="dl-horizontal">
-                {stats.reduce((components, stat) => {
-                  components.push(
-                    <dt key={`${stat.slug}_dt`}>{stat.title}</dt>
-                  );
-                  components.push(
-                    <dd key={`${stat.slug}_dd`}>{stat.value}</dd>
-                  );
+            <dl className="dl-horizontal">
+              {stats.reduce((components, stat) => {
+                components.push(
+                  <dt key={`${stat.slug}_dt`}>{stat.title}</dt>
+                );
 
-                  return components;
-                }, [])}
-              </dl>
-            </section>
-          )}
+                const value = props.player.stats && props.player.stats[stat.slug] ? props.player.stats[stat.slug] : 0;
+
+                components.push(
+                  <dd key={`${stat.slug}_dd`}>{value}</dd>
+                );
+
+                return components;
+              }, [])}
+            </dl>
+          </section>
 
           {props.player.profile && (
             <section>
@@ -209,7 +185,13 @@ PlayerProfile.propTypes = {
     id: number.isRequired,
     name: string.isRequired,
     userpic: string.isRequired,
-    profile: shape
+    profile: shape(),
+    stats: shape({
+      total: number,
+      won: number,
+      lost: number,
+      bankruptcies: number
+    })
   })
 };
 
