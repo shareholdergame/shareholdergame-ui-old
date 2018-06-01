@@ -11,7 +11,13 @@ import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 import Panel from "react-bootstrap/lib/Panel";
 
-import { FormattedMessage } from "react-intl";
+import {
+  FormattedMessage,
+  injectIntl,
+  intlShape,
+  defineMessages
+} from "react-intl";
+
 import { connect } from "react-redux";
 
 import TwitterField from "./TwitterField";
@@ -20,34 +26,80 @@ import GooglePlusField from "./GooglePlusField";
 import WebsiteField from "./WebsiteField";
 import PlayersList from "../PlayersList";
 
-const stats = [
-  {
-    slug: "total",
-    title: "Total Played"
+const messages = defineMessages({
+  total: {
+    id: "profile.stats.total",
+    description: "Total games played stat label",
+    defaultMessage: "Total Played"
   },
-  {
-    slug: "won",
-    title: "Games Won"
+  won: {
+    id: "profile.stats.won",
+    description: "Games won stat label",
+    defaultMessage: "Games Won"
   },
-  {
-    slug: "lost",
-    title: "Games Lost"
+  lost: {
+    id: "profile.stats.lost",
+    description: "Games lost stat label",
+    defaultMessage: "Games Lost"
   },
-  {
-    slug: "bankruptcies",
-    title: "Bankruptcies"
+  bankruptcies: {
+    id: "profile.stats.bankruptcies",
+    description: "Bankruptcies stat label",
+    defaultMessage: "Bankruptcies"
+  },
+  birthday: {
+    id: "profile.field.birthday",
+    description: "Birthday field label",
+    defaultMessage: "Birthday"
+  },
+  country: {
+    id: "profile.field.country",
+    description: "Country field label",
+    defaultMessage: "Country"
+  },
+  state: {
+    id: "profile.field.state",
+    description: "State field label",
+    defaultMessage: "Province / State"
+  },
+  city: {
+    id: "profile.field.city",
+    description: "City field label",
+    defaultMessage: "City"
+  },
+  facebook: {
+    id: "profile.field.facebook",
+    description: "Facebook field label",
+    defaultMessage: "Facebook"
+  },
+  twitter: {
+    id: "profile.field.twitter",
+    description: "Twitter field label",
+    defaultMessage: "Twitter"
+  },
+  googleplus: {
+    id: "profile.field.googleplus",
+    description: "Google+ field label",
+    defaultMessage: "Google+"
+  },
+  website: {
+    id: "profile.field.website",
+    description: "Website field label",
+    defaultMessage: "Website"
   }
-];
+});
+
+const stats = ["total", "won", "lost", "bankruptcies"];
 
 const fields = [
-  { slug: "birthday", title: "Birthday" },
-  { slug: "country", title: "Country" },
-  { slug: "state", title: "Province / State" },
-  { slug: "city", title: "City" },
-  { slug: "facebook", title: "Facebook" },
-  { slug: "twitter", title: "Twitter" },
-  { slug: "googleplus", title: "Google+" },
-  { slug: "website", title: "Website" }
+  "birthday",
+  "country",
+  "state",
+  "city",
+  "facebook",
+  "twitter",
+  "googleplus",
+  "website"
 ];
 
 const renderers = {
@@ -70,8 +122,8 @@ const PlayerProfile = props =>
               circle
             />
             <h1>{props.player.name}</h1>
-            {!props.isSelf && (
-              <ButtonGroup block vertical>
+            <ButtonGroup block vertical>
+              {!props.isSelf && (
                 <Button bsStyle="success">
                   <Glyphicon glyph="heart-empty" />{" "}
                   <FormattedMessage
@@ -80,6 +132,8 @@ const PlayerProfile = props =>
                     defaultMessage="Add as friend"
                   />
                 </Button>
+              )}
+              {!props.isSelf && (
                 <Button bsStyle="primary">
                   <Glyphicon glyph="user" />
                   <Glyphicon glyph="plus" />{" "}
@@ -89,6 +143,8 @@ const PlayerProfile = props =>
                     defaultMessage="Invite"
                   />
                 </Button>
+              )}
+              {!props.isSelf && (
                 <Button>
                   <Glyphicon glyph="envelope" />{" "}
                   <FormattedMessage
@@ -97,29 +153,52 @@ const PlayerProfile = props =>
                     defaultMessage="Send Message"
                   />
                 </Button>
-              </ButtonGroup>
-            )}
+              )}
+
+              {props.isSelf && (
+                <Button>
+                  <Glyphicon glyph="pencil" />{" "}
+                  <FormattedMessage
+                    id="profile.edit"
+                    description="Edit profile button label"
+                    defaultMessage="Edit profile"
+                  />
+                </Button>
+              )}
+            </ButtonGroup>
           </div>
 
-          <blockquote style={{ margin: "1em 0" }}>
-            I am a cool gamer!
-          </blockquote>
+          {props.player.profile &&
+            props.player.profile.description && (
+              <blockquote style={{ margin: "1em 0" }}>
+                {props.player.profile.description}
+              </blockquote>
+            )}
 
           <section>
             <h4>
-              <Glyphicon glyph="stats" /> Player Statistics
+              <Glyphicon glyph="stats" />{" "}
+              <FormattedMessage
+                id="profile.statsheader"
+                description="Player statistics header"
+                defaultMessage="Player Statistics"
+              />
             </h4>
 
             <dl className="dl-horizontal">
-              {stats.reduce((components, stat) => {
-                components.push(<dt key={`${stat.slug}_dt`}>{stat.title}</dt>);
+              {stats.reduce((components, statSlug) => {
+                components.push(
+                  <dt key={`${statSlug}_dt`}>
+                    {props.intl.formatMessage(messages[statSlug])}
+                  </dt>
+                );
 
                 const value =
-                  props.player.stats && props.player.stats[stat.slug]
-                    ? props.player.stats[stat.slug]
+                  props.player.stats && props.player.stats[statSlug]
+                    ? props.player.stats[statSlug]
                     : 0;
 
-                components.push(<dd key={`${stat.slug}_dd`}>{value}</dd>);
+                components.push(<dd key={`${statSlug}_dd`}>{value}</dd>);
 
                 return components;
               }, [])}
@@ -129,7 +208,12 @@ const PlayerProfile = props =>
           {props.player.profile && (
             <section>
               <h4>
-                <Glyphicon glyph="user" /> Profile information
+                <Glyphicon glyph="user" />{" "}
+                <FormattedMessage
+                  id="profile.infoheader"
+                  description="Profile information header"
+                  defaultMessage="Profile information"
+                />
               </h4>
 
               <dl
@@ -140,23 +224,25 @@ const PlayerProfile = props =>
                   textOverflow: "ellipsis"
                 }}
               >
-                {fields.reduce((components, field) => {
-                  let value = props.player.profile[field.slug];
+                {fields.reduce((components, fieldSlug) => {
+                  let value = props.player.profile[fieldSlug];
 
                   if (!value) {
                     return components;
                   }
 
-                  const Renderer = renderers[field.slug];
+                  const Renderer = renderers[fieldSlug];
 
                   if (Renderer) {
                     value = <Renderer {...value} />;
                   }
 
                   components.push(
-                    <dt key={`${field.slug}_dt`}>{field.title}</dt>
+                    <dt key={`${fieldSlug}_dt`}>
+                      {props.intl.formatMessage(messages[fieldSlug])}
+                    </dt>
                   );
-                  components.push(<dd key={`${field.slug}_dd`}>{value}</dd>);
+                  components.push(<dd key={`${fieldSlug}_dd`}>{value}</dd>);
 
                   return components;
                 }, [])}
@@ -166,12 +252,24 @@ const PlayerProfile = props =>
 
           <ButtonGroup block vertical>
             <LinkContainer to={`/players/${props.player.id}/achievements`}>
-              <Button>Achievements</Button>
+              <Button>
+                <FormattedMessage
+                  id="profile.achievements"
+                  description="Achievements button label"
+                  defaultMessage="Achievements"
+                />
+              </Button>
             </LinkContainer>
 
             {!props.isSelf && (
               <LinkContainer to={`/players/${props.player.id}/achievements`}>
-                <Button>Games Shared With Me</Button>
+                <Button>
+                  <FormattedMessage
+                    id="profile.gamesshared"
+                    description="Games Shared With Me button label"
+                    defaultMessage="Games Shared With Me"
+                  />
+                </Button>
               </LinkContainer>
             )}
           </ButtonGroup>
@@ -229,7 +327,8 @@ PlayerProfile.propTypes = {
   }),
   isSelf: bool.isRequired,
   friends: arrayOf(shape()).isRequired,
-  friendRequests: arrayOf(shape()).isRequired
+  friendRequests: arrayOf(shape()).isRequired,
+  intl: intlShape.isRequired
 };
 
 PlayerProfile.defaultProps = {
@@ -264,4 +363,4 @@ export default connect((state, ownProps) => {
     isSelf:
       state.self.self && state.self.self.name === ownProps.match.params.name
   };
-})(PlayerProfile);
+})(injectIntl(PlayerProfile));
