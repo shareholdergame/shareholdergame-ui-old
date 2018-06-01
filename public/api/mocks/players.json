@@ -5,7 +5,13 @@
         "id": 42,
         "name": "Михаил",
         "userpic": "avatar_42.jpg",
-        "online": true
+        "online": true,
+        "friends": [
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev"
+          }
+        ]
       },
       {
         "id": 10,
@@ -22,7 +28,13 @@
         "id": 5,
         "name": "Andrew",
         "userpic": "avatar_5.png",
-        "online": true
+        "online": true,
+        "friends": [
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev"
+          }
+        ]
       },
       {
         "id": 5678,
@@ -43,7 +55,23 @@
           "googleplus": {
             "slug": "SergeyChernyshev"
           }
-        }
+        },
+        "friends": [
+          {
+            "id": 5,
+            "name": "Andrew"
+          },
+          {
+            "id": 42,
+            "name": "Михаил"
+          }
+        ],
+        "friendRequests": [
+          {
+            "id": 10,
+            "name": "Alkonaft"
+          }
+        ]
       },
       {
         "id": 1,

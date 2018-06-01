@@ -1,5 +1,5 @@
 import React from "react";
-import { string, number, shape, bool } from "prop-types";
+import { arrayOf, string, number, shape, bool } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
 
 import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
@@ -9,6 +9,7 @@ import Well from "react-bootstrap/lib/Well";
 import Image from "react-bootstrap/lib/Image";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
+import Panel from "react-bootstrap/lib/Panel";
 
 import { FormattedMessage } from "react-intl";
 import { connect } from "react-redux";
@@ -17,6 +18,7 @@ import TwitterField from "./TwitterField";
 import FacebookField from "./FacebookField";
 import GooglePlusField from "./GooglePlusField";
 import WebsiteField from "./WebsiteField";
+import PlayersList from "../PlayersList";
 
 const stats = [
   {
@@ -70,7 +72,7 @@ const PlayerProfile = props =>
             <h1>{props.player.name}</h1>
             {!props.isSelf && (
               <ButtonGroup block vertical>
-                <Button>
+                <Button bsStyle="success">
                   <Glyphicon glyph="heart-empty" />{" "}
                   <FormattedMessage
                     id="profile.addfriend"
@@ -78,7 +80,7 @@ const PlayerProfile = props =>
                     defaultMessage="Add as friend"
                   />
                 </Button>
-                <Button>
+                <Button bsStyle="primary">
                   <Glyphicon glyph="user" />
                   <Glyphicon glyph="plus" />{" "}
                   <FormattedMessage
@@ -176,7 +178,36 @@ const PlayerProfile = props =>
         </Well>
       </Col>
       <Col sm={6}>
-        <h2>Friend Requests</h2>
+        {props.isSelf &&
+          props.friendRequests.length > 0 && (
+            <Panel>
+              <Panel.Heading>
+                <FormattedMessage
+                  id="profile.friends.requestsheader"
+                  description="Friend Requests section header"
+                  defaultMessage="Friend Requests"
+                />
+              </Panel.Heading>
+              <Panel.Body style={{ padding: 0 }}>
+                <PlayersList players={props.friendRequests} befriend />
+              </Panel.Body>
+            </Panel>
+          )}
+
+        {props.friends.length > 0 && (
+          <Panel>
+            <Panel.Heading>
+              <FormattedMessage
+                id="profile.friends.header"
+                description="Friends section header"
+                defaultMessage="Friends"
+              />
+            </Panel.Heading>
+            <Panel.Body style={{ padding: 0 }}>
+              <PlayersList players={props.friends} message invite />
+            </Panel.Body>
+          </Panel>
+        )}
       </Col>
     </Row>
   ) : (
@@ -196,16 +227,41 @@ PlayerProfile.propTypes = {
       bankruptcies: number
     })
   }),
-  isSelf: bool.isRequired
+  isSelf: bool.isRequired,
+  friends: arrayOf(shape()).isRequired,
+  friendRequests: arrayOf(shape()).isRequired
 };
 
 PlayerProfile.defaultProps = {
   player: null
 };
 
-export default connect((state, ownProps) => ({
-  player: state.home.players.find(
+export default connect((state, ownProps) => {
+  const thisPlayer = state.home.players.find(
     player => player.name === ownProps.match.params.name
-  ),
-  isSelf: state.self.self && state.self.self.name === ownProps.match.params.name
-}))(PlayerProfile);
+  );
+
+  const friends =
+    thisPlayer && thisPlayer.friends
+      ? thisPlayer.friends.map(friend =>
+          state.home.players.find(player => player.name === friend.name)
+        )
+      : [];
+
+  const friendRequests =
+    thisPlayer && thisPlayer.friendRequests
+      ? thisPlayer.friendRequests.map(friendRequestor =>
+          state.home.players.find(
+            player => player.name === friendRequestor.name
+          )
+        )
+      : [];
+
+  return {
+    player: thisPlayer,
+    friends,
+    friendRequests,
+    isSelf:
+      state.self.self && state.self.self.name === ownProps.match.params.name
+  };
+})(PlayerProfile);
