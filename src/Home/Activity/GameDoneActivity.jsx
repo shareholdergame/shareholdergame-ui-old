@@ -1,7 +1,13 @@
 import React from "react";
-import { Button, Glyphicon, Row, Col } from "react-bootstrap";
+
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Button from "react-bootstrap/lib/Button";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
+
 import { arrayOf, number, shape, string, bool } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 
 const GameDoneActivity = props => (
@@ -15,7 +21,29 @@ const GameDoneActivity = props => (
     <td>
       <Row>
         <Col xs={12} sm={6}>
-          <b>{props.game.players.map(player => player.name).join(" vs. ")}</b>
+          <b>
+            {props.game.players.reduce((players, player) => {
+              players.push(
+                <Link key={player.id} to={`/players/${player.name}`}>
+                  {player.name}
+                </Link>
+              );
+
+              if (props.game.players.length * 2 - 1 > players.length) {
+                players.push(
+                  <span key={`${player.id}_separator`}>
+                    <FormattedMessage
+                      id="global.vs"
+                      description="Versus separator between player names"
+                      defaultMessage=" vs. "
+                    />
+                  </span>
+                );
+              }
+
+              return players;
+            }, [])}
+          </b>
           <p>
             {props.winner ? (
               <FormattedMessage

@@ -1,12 +1,13 @@
 import React from "react";
-import {
-  ButtonGroup,
-  Button,
-  Glyphicon,
-  Image,
-  Row,
-  Col
-} from "react-bootstrap";
+import { Link } from "react-router-dom";
+
+import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
+import Button from "react-bootstrap/lib/Button";
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Image from "react-bootstrap/lib/Image";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
+
 import { number, shape, string, bool } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
 import { FormattedMessage } from "react-intl";
@@ -77,7 +78,9 @@ const InvitationActivity = props => {
         <Row>
           <Col xs={12} sm={6}>
             <b>
-              {props.player.name}{" "}
+              <Link to={`/players/${props.player.name}`}>
+                {props.player.name}
+              </Link>{" "}
               <FormattedMessage
                 id="home.activity.invitation.invites"
                 description="Player invites you to play text for invitation activity"

@@ -1,8 +1,12 @@
 import React from "react";
 import { arrayOf, number, shape, string } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
+import { Link } from "react-router-dom";
 
-import { Button, Glyphicon, Row, Col } from "react-bootstrap";
+import Button from "react-bootstrap/lib/Button";
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
 
 import { FormattedMessage } from "react-intl";
 
@@ -14,7 +18,29 @@ const YourTurnActivity = props => (
     <td>
       <Row>
         <Col xs={12} sm={6}>
-          <b>{props.game.players.map(player => player.name).join(" vs. ")}</b>
+          <b>
+            {props.game.players.reduce((players, player) => {
+              players.push(
+                <Link key={player.id} to={`/players/${player.name}`}>
+                  {player.name}
+                </Link>
+              );
+
+              if (props.game.players.length * 2 - 1 > players.length) {
+                players.push(
+                  <span key={`${player.id}_separator`}>
+                    <FormattedMessage
+                      id="global.vs"
+                      description="Versus separator between player names"
+                      defaultMessage=" vs. "
+                    />
+                  </span>
+                );
+              }
+
+              return players;
+            }, [])}
+          </b>
           <p>
             <FormattedMessage
               id="home.activity.yourturn.label"

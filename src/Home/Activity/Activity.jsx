@@ -1,8 +1,10 @@
 import React from "react";
 import { connect } from "react-redux";
 import { arrayOf, shape, string } from "prop-types";
-import { Table, Panel } from "react-bootstrap";
 import { FormattedMessage } from "react-intl";
+
+import Table from "react-bootstrap/lib/Table";
+import Panel from "react-bootstrap/lib/Panel";
 
 import InvitationActivity from "./InvitationActivity";
 import YourTurnActivity from "./YourTurnActivity";

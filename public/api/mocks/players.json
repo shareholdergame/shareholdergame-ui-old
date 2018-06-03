@@ -5,7 +5,13 @@
         "id": 42,
         "name": "Михаил",
         "userpic": "avatar_42.jpg",
-        "online": true
+        "online": true,
+        "friends": [
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev"
+          }
+        ]
       },
       {
         "id": 10,
@@ -14,20 +20,71 @@
         "online": true
       },
       {
+        "id": 1234,
+        "name": "Governor",
+        "userpic": "avatar_8.jpg"
+      },
+      {
         "id": 5,
         "name": "Andrew",
         "userpic": "avatar_5.png",
-        "online": true
+        "online": true,
+        "friends": [
+          {
+            "id": 5678,
+            "name": "Sergey Chernyshev"
+          }
+        ]
       },
       {
         "id": 5678,
         "name": "Sergey Chernyshev",
-        "userpic": "avatar_137.jpg"
+        "userpic": "avatar_137.jpg",
+        "profile": {
+          "description": "I love playing cards!",
+          "birthday": "31 March 1976",
+          "country": "USA",
+          "state": "NJ",
+          "city": "River Edge",
+          "facebook": {
+            "id": "sergey.chernyshev",
+            "slug": "sergey.chernyshev"
+          },
+          "twitter": {
+            "handle": "sergeyche"
+          },
+          "googleplus": {
+            "slug": "SergeyChernyshev"
+          }
+        },
+        "friends": [
+          {
+            "id": 5,
+            "name": "Andrew"
+          },
+          {
+            "id": 42,
+            "name": "Михаил"
+          }
+        ],
+        "friendRequests": [
+          {
+            "id": 10,
+            "name": "Alkonaft"
+          }
+        ]
       },
       {
         "id": 1,
         "name": "Admin",
-        "userpic": "avatar_1.png"
+        "userpic": "avatar_1.png",
+        "stats": { "total": 27, "won": 25, "lost": 2, "bankruptcies": 1 },
+        "profile": {
+          "birthday": "9 July 1980",
+          "country": "Spain",
+          "state": "-",
+          "city": "Madrid"
+        }
       },
       {
         "id": 7,
