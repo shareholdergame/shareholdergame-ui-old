@@ -1,18 +1,14 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import { connect } from "react-redux";
-import {
-  Table,
-  Panel,
-  ButtonGroup,
-  Button,
-  Glyphicon,
-  Image,
-  FormGroup,
-  InputGroup,
-  FormControl,
-  Label
-} from "react-bootstrap";
+
+import Label from "react-bootstrap/lib/Label";
+import FormGroup from "react-bootstrap/lib/FormGroup";
+import FormControl from "react-bootstrap/lib/FormControl";
+import Panel from "react-bootstrap/lib/Panel";
+import Button from "react-bootstrap/lib/Button";
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import InputGroup from "react-bootstrap/lib/InputGroup";
+
 import { arrayOf, number, shape, string } from "prop-types";
 import {
   FormattedMessage,
@@ -20,6 +16,8 @@ import {
   intlShape,
   defineMessages
 } from "react-intl";
+
+import PlayersList from "../PlayersList";
 
 const messages = defineMessages({
   placeholder: {
@@ -65,46 +63,7 @@ const PlayersSearch = props => (
         </InputGroup>
       </FormGroup>
 
-      <Table striped style={{ margin: 0 }}>
-        <tbody>
-          {props.players.map(player => (
-            <tr key={player.name}>
-              <td style={{ verticalAlign: "middle" }}>
-                <Link to={`/players/${player.name}`}>
-                  <Image
-                    src={`/images/userpics/${player.userpic}`}
-                    width="36"
-                    height="36"
-                    circle
-                  />
-                </Link>{" "}
-                <Link to={`/players/${player.name}`}>{player.name}</Link>
-              </td>
-              <td style={{ verticalAlign: "middle" }} align="right">
-                <ButtonGroup>
-                  <Button bsSize="small" bsStyle="default">
-                    <Glyphicon glyph="envelope" />{" "}
-                    <FormattedMessage
-                      id="home.playersearch.sendmessage"
-                      description="Player search send message button label"
-                      defaultMessage="Send Message"
-                    />
-                  </Button>
-                  <Button bsSize="small" bsStyle="primary">
-                    <Glyphicon glyph="user" />
-                    <Glyphicon glyph="plus" />{" "}
-                    <FormattedMessage
-                      id="home.playersearch.invite"
-                      description="Player search invitation button label"
-                      defaultMessage="Invite"
-                    />
-                  </Button>
-                </ButtonGroup>
-              </td>
-            </tr>
-          ))}
-        </tbody>
-      </Table>
+      <PlayersList players={props.players} message invite />
     </Panel.Body>
   </Panel>
 );
@@ -116,12 +75,8 @@ PlayersSearch.propTypes = {
       name: string.isRequired,
       id: number.isRequired
     })
-  ),
+  ).isRequired,
   intl: intlShape.isRequired
-};
-
-PlayersSearch.defaultProps = {
-  players: []
 };
 
 export default connect(state => ({

@@ -1,6 +1,13 @@
 import React from "react";
 import { Link } from "react-router-dom";
-import { Row, Col, Glyphicon, Button, Image, Well } from "react-bootstrap";
+
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Button from "react-bootstrap/lib/Button";
+import Image from "react-bootstrap/lib/Image";
+import Well from "react-bootstrap/lib/Well";
+import Row from "react-bootstrap/lib/Row";
+import Col from "react-bootstrap/lib/Col";
+
 import { FormattedRelative, FormattedMessage } from "react-intl";
 import { arrayOf, shape, number, string } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
@@ -66,9 +73,9 @@ const GameTile = props => (
             players.push(
               <span key={`${player.player.id}_separator`}>
                 <FormattedMessage
-                  id="mygames.game.vs"
-                  description="Versus separator between player names props.game tile"
-                  defaultMessage=" - "
+                  id="global.vs"
+                  description="Versus separator between player names"
+                  defaultMessage=" vs. "
                 />
               </span>
             );

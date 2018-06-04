@@ -2,17 +2,17 @@ import React from "react";
 import { connect } from "react-redux";
 import { Link } from "react-router-dom";
 import { func, string, shape, number } from "prop-types";
-import {
-  Navbar,
-  NavItem,
-  Nav,
-  NavDropdown,
-  MenuItem,
-  Badge,
-  Glyphicon,
-  Image,
-  Row
-} from "react-bootstrap";
+
+import Navbar from "react-bootstrap/lib/Navbar";
+import NavItem from "react-bootstrap/lib/NavItem";
+import Nav from "react-bootstrap/lib/Nav";
+import NavDropdown from "react-bootstrap/lib/NavDropdown";
+import MenuItem from "react-bootstrap/lib/MenuItem";
+import Badge from "react-bootstrap/lib/Badge";
+import Glyphicon from "react-bootstrap/lib/Glyphicon";
+import Image from "react-bootstrap/lib/Image";
+import Row from "react-bootstrap/lib/Row";
+
 import { LinkContainer } from "react-router-bootstrap";
 import { FormattedMessage } from "react-intl";
 import { setLanguage } from "./store/i18n";
