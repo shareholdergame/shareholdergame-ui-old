@@ -14,12 +14,11 @@ import Image from "react-bootstrap/lib/Image";
 import Row from "react-bootstrap/lib/Row";
 
 import ProgressBar from "react-line-progress";
+import "react-line-progress/src/index.css";
 
 import { LinkContainer } from "react-router-bootstrap";
 import { FormattedMessage } from "react-intl";
 import { setLanguage } from "./store/i18n";
-
-import "./react-line-progress.css";
 
 const languages = {
   en_US: {
@@ -88,7 +87,7 @@ const Navigation = props => {
               transitionDelay: "3s"
             }}
           >
-            {props.alert ? props.alert.message : "xxx"}
+            {props.status ? props.status.message : ""}
           </NavItem>
         </Nav>
         {props.self && (
@@ -156,7 +155,7 @@ const Navigation = props => {
         )}
       </Navbar>
       <Row>
-        <ProgressBar percent={10} spinner={false} />
+        <ProgressBar percent={props.status.progress} spinner={false} />
       </Row>
       <Navbar fluid>
         <Navbar.Header>
@@ -332,21 +331,22 @@ Navigation.propTypes = {
     userpic: string.isRequired
   }),
   setLanguage: func.isRequired,
-  alert: shape({
-    message: string.isRequired
+  status: shape({
+    message: string,
+    progress: number
   })
 };
 
 Navigation.defaultProps = {
   self: null,
-  alert: null
+  status: null
 };
 
 export default connect(
   state => ({
     language: state.i18n.language,
     self: state.self.self,
-    alert: state.activity.alert
+    status: state.status
   }),
   dispatch => ({
     setLanguage: language => {
