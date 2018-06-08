@@ -23,7 +23,7 @@ import { home, loadActivity, loadPlayers } from "./store/home";
 import { i18n, setLanguage } from "./store/i18n";
 import { performGameSearch, loadArchive, games } from "./store/games";
 import { self, loadSelf } from "./store/self";
-import { status, sendStatus } from "./store/status";
+import { status } from "./store/status";
 import localeData from "./locales/data.json";
 
 // Create a history of your choosing (we're using a browser history in this case)
