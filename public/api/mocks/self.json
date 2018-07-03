@@ -3,7 +3,17 @@
     "self": {
       "id": 5678,
       "name": "Sergey Chernyshev",
-      "userpic": "avatar_137.jpg"
+      "userpic": "avatar_137.jpg",
+      "friends": [
+        {
+          "id": 5,
+          "name": "Andrew"
+        },
+        {
+          "id": 42,
+          "name": "Михаил"
+        }
+      ]
     }
   }
 }

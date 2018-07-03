@@ -54,6 +54,17 @@ export function setProgress(progress) {
     });
   };
 }
+
+export function completeProgress() {
+  return dispatch => {
+    dispatch(setProgress(100));
+
+    setTimeout(() => {
+      dispatch(resetProgress());
+    }, 2000);
+  };
+}
+
 export function startProgress(tick = 1000, increment = 10) {
   return dispatch => {
     dispatch(stopProgress());
