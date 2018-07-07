@@ -13,6 +13,9 @@ import Glyphicon from "react-bootstrap/lib/Glyphicon";
 import Image from "react-bootstrap/lib/Image";
 import Row from "react-bootstrap/lib/Row";
 
+import ProgressBar from "react-line-progress";
+import "react-line-progress/src/index.css";
+
 import { LinkContainer } from "react-router-bootstrap";
 import { FormattedMessage } from "react-intl";
 import { setLanguage } from "./store/i18n";
@@ -76,6 +79,17 @@ const Navigation = props => {
         inverse
         style={{ marginBottom: 0 }}
       >
+        <Nav>
+          <NavItem
+            style={{
+              opacity: 1,
+              transition: "opacity 0.2 linear",
+              transitionDelay: "3s"
+            }}
+          >
+            {props.status ? props.status.message : ""}
+          </NavItem>
+        </Nav>
         {props.self && (
           <Nav pullRight>
             <NavDropdown title={dropdownFlag} id="nav-dropdown">
@@ -140,7 +154,9 @@ const Navigation = props => {
           </Nav>
         )}
       </Navbar>
-
+      <Row>
+        <ProgressBar percent={props.status.progress} spinner={false} />
+      </Row>
       <Navbar fluid>
         <Navbar.Header>
           <Navbar.Brand>
@@ -314,17 +330,23 @@ Navigation.propTypes = {
     name: string.isRequired,
     userpic: string.isRequired
   }),
-  setLanguage: func.isRequired
+  setLanguage: func.isRequired,
+  status: shape({
+    message: string,
+    progress: number
+  })
 };
 
 Navigation.defaultProps = {
-  self: null
+  self: null,
+  status: null
 };
 
 export default connect(
   state => ({
     language: state.i18n.language,
-    self: state.self.self
+    self: state.self.self,
+    status: state.status
   }),
   dispatch => ({
     setLanguage: language => {

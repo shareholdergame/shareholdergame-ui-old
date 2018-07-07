@@ -1,5 +1,5 @@
 import React from "react";
-import { arrayOf, string, number, shape, bool } from "prop-types";
+import { arrayOf, string, number, shape, bool, func } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
 
 import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
@@ -25,6 +25,8 @@ import FacebookField from "./FacebookField";
 import GooglePlusField from "./GooglePlusField";
 import WebsiteField from "./WebsiteField";
 import PlayersList from "../PlayersList";
+
+import { addFriend } from "../store/home";
 
 const messages = defineMessages({
   total: {
@@ -123,16 +125,22 @@ const PlayerProfile = props =>
             />
             <h1>{props.player.name}</h1>
             <ButtonGroup block vertical>
-              {!props.isSelf && (
-                <Button bsStyle="success">
-                  <Glyphicon glyph="heart-empty" />{" "}
-                  <FormattedMessage
-                    id="profile.addfriend"
-                    description="Add friend button label on profile page"
-                    defaultMessage="Add as friend"
-                  />
-                </Button>
-              )}
+              {!props.isSelf &&
+                !props.isFriend && (
+                  <Button
+                    bsStyle="success"
+                    onClick={() => {
+                      props.addFriend(props.self, props.player);
+                    }}
+                  >
+                    <Glyphicon glyph="heart-empty" />{" "}
+                    <FormattedMessage
+                      id="profile.addfriend"
+                      description="Add friend button label on profile page"
+                      defaultMessage="Add as friend"
+                    />
+                  </Button>
+                )}
               {!props.isSelf && (
                 <Button bsStyle="primary">
                   <Glyphicon glyph="user" />
@@ -325,42 +333,63 @@ PlayerProfile.propTypes = {
       bankruptcies: number
     })
   }),
-  isSelf: bool.isRequired,
+  isSelf: bool,
+  isFriend: bool,
+  self: shape({
+    name: string.isRequired
+  }),
   friends: arrayOf(shape()).isRequired,
   friendRequests: arrayOf(shape()).isRequired,
-  intl: intlShape.isRequired
+  intl: intlShape.isRequired,
+  addFriend: func.isRequired
 };
 
 PlayerProfile.defaultProps = {
-  player: null
+  player: null,
+  self: null,
+  isSelf: false,
+  isFriend: false
 };
 
-export default connect((state, ownProps) => {
-  const thisPlayer = state.home.players.find(
-    player => player.name === ownProps.match.params.name
-  );
+export default connect(
+  (state, ownProps) => {
+    const thisPlayer = state.home.players.find(
+      player => player.name === ownProps.match.params.name
+    );
 
-  const friends =
-    thisPlayer && thisPlayer.friends
-      ? thisPlayer.friends.map(friend =>
-          state.home.players.find(player => player.name === friend.name)
-        )
-      : [];
-
-  const friendRequests =
-    thisPlayer && thisPlayer.friendRequests
-      ? thisPlayer.friendRequests.map(friendRequestor =>
-          state.home.players.find(
-            player => player.name === friendRequestor.name
+    const friends =
+      thisPlayer && thisPlayer.friends
+        ? thisPlayer.friends.map(friend =>
+            state.home.players.find(player => player.name === friend.name)
           )
-        )
-      : [];
+        : [];
 
-  return {
-    player: thisPlayer,
-    friends,
-    friendRequests,
-    isSelf:
-      state.self.self && state.self.self.name === ownProps.match.params.name
-  };
-})(injectIntl(PlayerProfile));
+    const friendRequests =
+      thisPlayer && thisPlayer.friendRequests
+        ? thisPlayer.friendRequests.map(friendRequestor =>
+            state.home.players.find(
+              player => player.name === friendRequestor.name
+            )
+          )
+        : [];
+
+    return {
+      player: thisPlayer,
+      friends,
+      friendRequests,
+      self: state.self.self,
+      isFriend:
+        thisPlayer &&
+        state.self.self &&
+        state.self.self.friends &&
+        state.self.self.friends.find(friend => friend.name === thisPlayer.name),
+      isSelf:
+        state.self.self && state.self.self.name === ownProps.match.params.name
+    };
+  },
+  dispatch => ({
+    addFriend: (self, friend) => {
+      dispatch(addFriend(self, friend));
+    }
+  })
+)(injectIntl(PlayerProfile));
