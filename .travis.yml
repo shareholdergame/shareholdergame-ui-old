@@ -4,5 +4,5 @@ node_js:
 
 install:
   - npm install
-  
- script: echo "npm test temporarily disabled" 
+
+script: echo "npm test temporarily disabled" 
