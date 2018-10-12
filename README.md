@@ -1,5 +1,7 @@
 # Shareholder Game UI
 
+[![Build Status](https://travis-ci.org/shareholdergame/shareholdergame-ui.svg?branch=master)](https://travis-ci.org/shareholdergame/shareholdergame-ui)
+
 This is a new UI interface for a Shareholder game that can be seen at http://shareholdergame.com/
 
 # New UI Development plan
