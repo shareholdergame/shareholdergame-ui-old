@@ -93,6 +93,17 @@ Install corresponding plugins for you text editor to enable automated style erro
 
 On a todo list is to enable [automated formatting upon commit](/REACT-APP.md#formatting-code-automatically).
 
+# Terminology
+
+* Game - one game between two or more players which results in one winner, games are named with a number and a letter, e.g. 1234-A where A indicates that it's one of the games withing 1234 set and same players might be playing another game 1234-B, for example.
+* Set - a set of games played between two or more with change in the order of turns (commonly used as this game somewhat favors last player giving them more ability to affect final outcome). Games within the same set are distinguished by adding a letter to set number, e.g. 1234-A, 1234-B.
+* Round - a sequence of turns by each player, rounds are denoted by a number and the total number of rounds equals the total number of cards dealt to each player, e.g. 10 for 4+6 format
+* Turn - individual player's move in the game that consists of 3 steps
+* Steps - 3 distinct steps
+  * first buy/sell, before playing a card
+  * playing a card to change stock prices and apply write-offs/compensations
+  * last buy/sell. after playing a card
+
 # Lincese
 
 This project is licensed under [MIT](/LICENSE) license

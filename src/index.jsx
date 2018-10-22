@@ -21,7 +21,12 @@ import App from "./App";
 
 import { home, loadActivity, loadPlayers } from "./store/home";
 import { i18n, setLanguage } from "./store/i18n";
-import { performGameSearch, loadArchive, games } from "./store/games";
+import {
+  performGameSearch,
+  loadArchive,
+  loadGameSet,
+  games
+} from "./store/games";
 import { self, loadSelf } from "./store/self";
 import { status } from "./store/status";
 import localeData from "./locales/data.json";
@@ -71,6 +76,7 @@ store.dispatch(loadActivity());
 store.dispatch(loadPlayers());
 store.dispatch(performGameSearch()); // load player's games
 store.dispatch(loadArchive()); // load games archive
+store.dispatch(loadGameSet(761234782134)); // load games archive
 
 const I18nWrapper = props => (
   <IntlProvider

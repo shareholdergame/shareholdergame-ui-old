@@ -3,6 +3,7 @@
     "global.yourturn.button": "Make Your Move",
     "global.viewgame.button": "View Game",
     "global.sharegame.button": "Share Game",
+    "global.numbersign": "#",
     "home.activity.panellabel": "Activity",
     "home.activity.gameover.won": "Game is over. Congratulations, you won!",
     "home.activity.gameover.lost": "Game is over. You lost.",
@@ -86,12 +87,14 @@
     "profile.field.facebook": "Facebook",
     "profile.field.twitter": "Twitter",
     "profile.field.googleplus": "Google+",
-    "profile.field.website": "Website"
+    "profile.field.website": "Website",
+    "game.header.prefix": "Game"
   },
   "ru_RU": {
     "global.yourturn.button": "Ваш Ход",
     "global.viewgame.button": "Просмотреть Игру",
     "global.sharegame.button": "Поделиться",
+    "global.numbersign": "№",
     "home.activity.panellabel": "Дневник Событий",
     "home.activity.gameover.won": "Игра окончена. Вы выиграли!",
     "home.activity.gameover.lost": "Игра окончена, вы проиграли.",
@@ -186,6 +189,7 @@
     "profile.field.facebook": "Facebook",
     "profile.field.twitter": "Twitter",
     "profile.field.googleplus": "Google+",
-    "profile.field.website": "Веб-сайт"
+    "profile.field.website": "Веб-сайт",
+    "game.header.prefix": "Игра"
   }
 }
