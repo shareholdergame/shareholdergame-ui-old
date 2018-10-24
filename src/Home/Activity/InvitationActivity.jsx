@@ -18,7 +18,7 @@ const InvitationActivity = props => {
   if (props.replied) {
     if (props.accepted) {
       action = (
-        <LinkContainer to={`/game/${props.game.id}`}>
+        <LinkContainer to={`/game/${props.game.id}/${props.game.letter}`}>
           <Button>
             <Glyphicon glyph="eye-open" />{" "}
             <FormattedMessage

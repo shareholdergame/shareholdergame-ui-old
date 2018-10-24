@@ -31,6 +31,7 @@
         },
         "game": {
           "id": 273,
+          "letter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -63,6 +64,7 @@
         "timestamp": "2018-02-20T23:15:33.000Z",
         "game": {
           "id": 761234782134,
+          "letter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "round": 4,
           "turn": 1,
@@ -91,6 +93,7 @@
         "winner": true,
         "game": {
           "id": 12341251,
+          "letter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -117,6 +120,7 @@
         "winner": false,
         "game": {
           "id": 12341251,
+          "letter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -143,6 +147,7 @@
         "winner": true,
         "game": {
           "id": 12341252,
+          "letter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -169,6 +174,7 @@
         "winner": true,
         "game": {
           "id": 12341253,
+          "letter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -195,6 +201,7 @@
         "winner": true,
         "game": {
           "id": 12341254,
+          "letter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,

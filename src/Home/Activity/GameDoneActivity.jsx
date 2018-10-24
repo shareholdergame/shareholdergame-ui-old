@@ -61,7 +61,7 @@ const GameDoneActivity = props => (
           </p>
         </Col>
         <Col xs={12} sm={6} className="activity-actions">
-          <LinkContainer to={`/game/${props.game.id}`}>
+          <LinkContainer to={`/game/${props.game.id}/${props.game.letter}`}>
             <Button>
               <Glyphicon glyph="eye-open" />{" "}
               <FormattedMessage

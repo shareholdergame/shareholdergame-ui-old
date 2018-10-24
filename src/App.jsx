@@ -19,7 +19,7 @@ const App = () => (
     <Route exact path="/" component={Home} />
     <Route exact path="/new-game" component={NewGame} />
     <Route exact path="/new-game/:slug" component={NewGame} />
-    <Route exact path="/game/:slug" component={Game} />
+    <Route exact path="/game/:setSlug/:gameLetter" component={Game} />
     <Route exact path="/my-games" component={MyGames} />
     <Route exact path="/archive" component={Archive} />
     <Route exact path="/players" component={PlayersList} />

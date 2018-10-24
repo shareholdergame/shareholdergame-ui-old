@@ -9,10 +9,7 @@ import { number, shape } from "prop-types";
 
 import { FormattedMessage } from "react-intl";
 
-import GameScore from "./GameScore";
-import GameBoard from "./GameBoard";
-
-const Game = ({ gameSet, game }) =>
+const Set = ({ gameSet }) =>
   gameSet && (
     <div>
       <Row>
@@ -29,8 +26,7 @@ const Game = ({ gameSet, game }) =>
                 description="Number sign"
                 defaultMessage="#"
               />
-              {gameSet.gameSetId}-
-              {game.letter}
+              {Set.SetId}
             </small>
           </h1>
         </Col>
@@ -39,40 +35,30 @@ const Game = ({ gameSet, game }) =>
       <h2>Score</h2>
       <Row>
         <Col xs={12}>
-          <GameScore gameSet={gameSet} game={game} />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col xs={12}>
-          <GameBoard game={game} />
+          <GameScore Set={Set} game={game} />
         </Col>
       </Row>
     </div>
   );
 
-Game.propTypes = {
-  gameSet: shape({
+Set.propTypes = {
+  Set: shape({
     id: number
   })
 };
 
-Game.defaultProps = {
-  gameSet: null
+Set.defaultProps = {
+  Set: null
 };
 
 export default connect((state, ownProps) => {
-  const gameSet = state.games.sets.find(
-    set => `${set.gameSetId}` === ownProps.match.params.setSlug
+  const Set = state.games.sets.find(
+    set => `${set.SetId}` === ownProps.match.params.setSlug
   );
 
-  if (!gameSet || gameSet.loading) {
+  if (!Set || Set.loading) {
     return {};
   }
 
-  const game = gameSet.games.find(
-    gameInSet => gameInSet.letter === ownProps.match.params.gameLetter
-  );
-
-  return { gameSet, game };
-})(Game);
+  return { Set };
+})(Set);

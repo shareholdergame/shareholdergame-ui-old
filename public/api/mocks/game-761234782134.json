@@ -17,14 +17,14 @@
     "players": [
       {
         "id": 123,
-        "name": "Player 1",
+        "name": "Admin",
         "bot": false,
         "initiator": false,
         "avatar": "123.jpg"
       },
       {
         "id": 456,
-        "name": "Player 2",
+        "name": "Sergey Chernyshev",
         "bot": false,
         "initiator": true,
         "avatar": "456.jpg"
@@ -74,7 +74,7 @@
         ]
       },
       {
-        "id": 1367471006,
+        "id": 234523452346,
         "letter": "B",
         "result": [
           {
