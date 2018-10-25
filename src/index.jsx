@@ -76,7 +76,8 @@ store.dispatch(loadActivity());
 store.dispatch(loadPlayers());
 store.dispatch(performGameSearch()); // load player's games
 store.dispatch(loadArchive()); // load games archive
-store.dispatch(loadGameSet(761234782134)); // load games archive
+store.dispatch(loadGameSet(761234782134)); // load 4x6 game set
+store.dispatch(loadGameSet(761234782135)); // load 3x5 game set
 
 const I18nWrapper = props => (
   <IntlProvider
