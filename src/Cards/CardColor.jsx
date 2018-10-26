@@ -33,7 +33,7 @@ export const RED = new CardColor(
     <FormattedMessage
       id="card.colors.letter.red"
       description="Card color letter for red cards"
-      defaultMessage="Red"
+      defaultMessage="r"
     />
   ),
   (
