@@ -1,19 +1,51 @@
 import React from "react";
 
-import { number, shape } from "prop-types";
+import Color from "color";
 
-const colors = ["blue", "red", "yellow", "green"];
+import { bool, number, shape } from "prop-types";
 
-const GameTurn = ({ turn, turnIndex, roundsPerTurn }) => {
+import { allColors } from "../Cards/CardColor";
+
+const THICK_BORDER = "2px solid grey";
+
+const GameTurn = ({
+  turn,
+  turnIndex,
+  roundsPerTurn,
+  firstEmptyRow = false,
+  lastRow = false
+}) => {
   let tableCells = [];
   let bank = 0;
+
+  const bankCellStyle = {
+    borderLeft: THICK_BORDER,
+    borderRight: THICK_BORDER,
+    textAlign: "left"
+  };
+
+  const cardCellStyle = {
+    borderLeft: THICK_BORDER,
+    borderRight: THICK_BORDER
+  };
+
+  if (lastRow) {
+    bankCellStyle.borderBottom = THICK_BORDER;
+    cardCellStyle.borderBottom = THICK_BORDER;
+  }
 
   if (turnIndex === 0) {
     tableCells.push(
       <th
         key="roundNumber"
         rowSpan={roundsPerTurn}
-        style={{ width: "2em", fontSize: "large" }}
+        style={{
+          width: "2em",
+          fontSize: "large",
+          textAlign: "center",
+          verticalAlign: "middle",
+          border: THICK_BORDER
+        }}
       >
         {turn.round}
       </th>
@@ -26,7 +58,9 @@ const GameTurn = ({ turn, turnIndex, roundsPerTurn }) => {
         cells.push(
           <td
             key={`first_${share.id}`}
-            style={{ borderTop: `3px solid ${colors[index]}` }}
+            style={{
+              backgroundColor: Color(allColors[index].style).alpha(0.1)
+            }}
           >
             {share.amount}
           </td>
@@ -42,23 +76,42 @@ const GameTurn = ({ turn, turnIndex, roundsPerTurn }) => {
   if (firstStepCells.length > 0) {
     tableCells = tableCells.concat(firstStepCells);
   } else {
-    tableCells.push(<td key="emptyFirst" colSpan={4} />);
+    tableCells.push(
+      <td
+        style={firstEmptyRow ? { borderTop: THICK_BORDER } : {}}
+        key="emptyFirst"
+        colSpan={4}
+      />
+    );
   }
 
-  tableCells.push(<td key="card">{turn.appliedCardId}</td>);
+  tableCells.push(
+    <td style={cardCellStyle} key="card">
+      {turn.appliedCardId}
+    </td>
+  );
 
   tableCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "PRICE_CHANGE_STEP") {
-      step.sharePrices.sort((a, b) => a.id - b.id).forEach((share, index) =>
+      step.sharePrices.sort((a, b) => a.id - b.id).forEach((share, index) => {
+        const priceCellStyle = {
+          backgroundColor: Color(allColors[index].style).alpha(0.1)
+        };
+
+        if (index === allColors.length - 1) {
+          priceCellStyle.borderRight = THICK_BORDER;
+        }
+
+        if (lastRow) {
+          priceCellStyle.borderBottom = THICK_BORDER;
+        }
+
         cells.push(
-          <td
-            key={`price_${share.id}`}
-            style={{ borderTop: `3px solid ${colors[index]}` }}
-          >
+          <td key={`price_${share.id}`} style={priceCellStyle}>
             {share.price}
           </td>
-        )
-      );
+        );
+      });
     }
 
     bank = step.cashValue;
@@ -72,7 +125,9 @@ const GameTurn = ({ turn, turnIndex, roundsPerTurn }) => {
         cells.push(
           <td
             key={`last_${share.id}`}
-            style={{ borderTop: `3px solid ${colors[index]}` }}
+            style={{
+              backgroundColor: Color(allColors[index].style).alpha(0.1)
+            }}
           >
             {share.amount}
           </td>
@@ -88,11 +143,23 @@ const GameTurn = ({ turn, turnIndex, roundsPerTurn }) => {
   if (lastStepCells.length > 0) {
     tableCells = tableCells.concat(lastStepCells);
   } else {
-    tableCells.push(<td key="emptyLast" colSpan={4} />);
+    tableCells.push(
+      <td
+        style={
+          firstEmptyRow
+            ? {
+                borderTop: THICK_BORDER
+              }
+            : {}
+        }
+        key="emptyLast"
+        colSpan={4}
+      />
+    );
   }
 
   tableCells.push(
-    <td key="bank" style={{ textAlign: "left" }}>
+    <td key="bank" style={bankCellStyle}>
       {bank}
     </td>
   );
@@ -101,8 +168,16 @@ const GameTurn = ({ turn, turnIndex, roundsPerTurn }) => {
 };
 
 GameTurn.propTypes = {
+  firstEmptyRow: bool,
+  lastRow: bool,
   turnIndex: number.isRequired,
   roundsPerTurn: number.isRequired,
   turn: shape({ turn: number.isRequired, round: number.isRequired }).isRequired
 };
+
+GameTurn.defaultProps = {
+  firstEmptyRow: false,
+  lastRow: false
+};
+
 export default GameTurn;
