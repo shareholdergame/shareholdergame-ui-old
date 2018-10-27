@@ -104,23 +104,23 @@
               "playerCards": [
                 {
                   "applied": true,
+                  "cardId": 12,
+                  "id": 42067
+                },
+                {
+                  "applied": true,
+                  "cardId": 4,
+                  "id": 42062
+                },
+                {
+                  "applied": true,
                   "cardId": 15,
                   "id": 42060
                 },
                 {
                   "applied": true,
-                  "cardId": 30,
-                  "id": 42063
-                },
-                {
-                  "applied": true,
                   "cardId": 25,
                   "id": 42061
-                },
-                {
-                  "applied": true,
-                  "cardId": 16,
-                  "id": 42064
                 },
                 {
                   "applied": true,
@@ -150,6 +150,11 @@
               "playerCards": [
                 {
                   "applied": true,
+                  "cardId": 7,
+                  "id": 42072
+                },
+                {
+                  "applied": true,
                   "cardId": 28,
                   "id": 42073
                 },
@@ -157,11 +162,6 @@
                   "applied": true,
                   "cardId": 22,
                   "id": 42068
-                },
-                {
-                  "applied": true,
-                  "cardId": 9,
-                  "id": 42070
                 },
                 {
                   "applied": true,
@@ -490,62 +490,6 @@
                   "finishedTime": "Mon Dec 26 21:22:38 MSK 2016",
                   "steps": [
                     {
-                      "shares": [
-                        {
-                          "amount": 141,
-                          "buySellAmount": 106,
-                          "id": 4
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": -10,
-                          "id": 1
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": -14,
-                          "id": 2
-                        },
-                        {
-                          "amount": 100,
-                          "buySellAmount": 0,
-                          "id": 3
-                        }
-                      ],
-                      "compensations": [],
-                      "stepType": "FIRST_BUY_SELL_STEP",
-                      "cashValue": 30,
-                      "sharePrices": []
-                    },
-                    {
-                      "shares": [
-                        {
-                          "amount": 106,
-                          "buySellAmount": -35,
-                          "id": 4
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": 0,
-                          "id": 1
-                        },
-                        {
-                          "amount": 15,
-                          "buySellAmount": 15,
-                          "id": 2
-                        },
-                        {
-                          "amount": 200,
-                          "buySellAmount": 100,
-                          "id": 3
-                        }
-                      ],
-                      "compensations": [],
-                      "stepType": "LAST_BUY_SELL_STEP",
-                      "cashValue": 980,
-                      "sharePrices": []
-                    },
-                    {
                       "shares": [],
                       "compensations": [],
                       "stepType": "PRICE_CHANGE_STEP",
@@ -579,62 +523,6 @@
                   "appliedCardId": 42072,
                   "finishedTime": "Mon Dec 26 21:18:22 MSK 2016",
                   "steps": [
-                    {
-                      "shares": [
-                        {
-                          "amount": 13,
-                          "buySellAmount": 13,
-                          "id": 1
-                        },
-                        {
-                          "amount": 37,
-                          "buySellAmount": 37,
-                          "id": 4
-                        },
-                        {
-                          "amount": 34,
-                          "buySellAmount": 0,
-                          "id": 2
-                        },
-                        {
-                          "amount": 119,
-                          "buySellAmount": 119,
-                          "id": 3
-                        }
-                      ],
-                      "compensations": [],
-                      "stepType": "LAST_BUY_SELL_STEP",
-                      "cashValue": 0,
-                      "sharePrices": []
-                    },
-                    {
-                      "shares": [
-                        {
-                          "amount": 0,
-                          "buySellAmount": -44,
-                          "id": 4
-                        },
-                        {
-                          "amount": 34,
-                          "buySellAmount": 34,
-                          "id": 2
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": -89,
-                          "id": 3
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": 0,
-                          "id": 1
-                        }
-                      ],
-                      "compensations": [],
-                      "stepType": "FIRST_BUY_SELL_STEP",
-                      "cashValue": 70,
-                      "sharePrices": []
-                    },
                     {
                       "shares": [],
                       "compensations": [],

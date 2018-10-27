@@ -23,14 +23,15 @@ const Game = ({ gameSet, game }) =>
               description="Word game preceding game number"
               defaultMessage="Game"
             />{" "}
+            <FormattedMessage
+              id="global.numbersign"
+              description="Number sign"
+              defaultMessage="#"
+            />
+            {gameSet.gameSetId}-
+            {game.letter}{" "}
             <small>
-              <FormattedMessage
-                id="global.numbersign"
-                description="Number sign"
-                defaultMessage="#"
-              />
-              {gameSet.gameSetId}-
-              {game.letter}
+              ({gameSet.options.cards.major}x{gameSet.options.cards.minor})
             </small>
           </h1>
         </Col>
