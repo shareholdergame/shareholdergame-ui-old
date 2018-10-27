@@ -5,7 +5,8 @@ node_js:
 install:
   - npm install
 
-script: npm build
+script:
+  - npm run build 
 
 addons:
   artifacts:
