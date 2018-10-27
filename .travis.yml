@@ -9,6 +9,8 @@ script: npm build
 
 addons:
   artifacts:
+    paths: 
+     - build
     target_paths:
      - /com.shareholdergame/ui/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER
     debug: true 
