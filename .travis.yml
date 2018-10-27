@@ -12,3 +12,7 @@ addons:
     target_paths:
      - /com.shareholdergame/ui/$TRAVIS_BUILD_NUMBER/$TRAVIS_JOB_NUMBER
     debug: true 
+
+notifications:
+  email:
+    - admin@stockholdergame.com    
