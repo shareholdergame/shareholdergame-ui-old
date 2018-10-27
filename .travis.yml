@@ -3,9 +3,9 @@ node_js:
   - "node"
 
 install:
-  - npm build
+  - npm install
 
-script: echo "npm test temporarily disabled" 
+script: npm build
 
 addons:
   artifacts:
