@@ -95,7 +95,22 @@ const GameTurn = ({
   tableCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "PRICE_CHANGE_STEP") {
       step.sharePrices.sort((a, b) => a.id - b.id).forEach((share, index) => {
+        const priceIncrease =
+          (share.priceOperationId && share.priceOperationId < 6) ||
+          share.priceOperationId === 12;
+
+        const priceDecrease =
+          share.priceOperationId &&
+          share.priceOperationId >= 6 &&
+          share.priceOperationId !== 12;
+
         const priceCellStyle = {
+          color:
+            priceIncrease || priceDecrease
+              ? "black"
+              : Color(allColors[index].style)
+                  .darken(0.5)
+                  .alpha(0.2),
           backgroundColor: Color(allColors[index].style).alpha(0.1)
         };
 
@@ -165,7 +180,11 @@ const GameTurn = ({
     </td>
   );
 
-  return <tr>{tableCells}</tr>;
+  return (
+    <tr style={turn.turn === 1 ? { borderTop: THICK_BORDER } : {}}>
+      {tableCells}
+    </tr>
+  );
 };
 
 GameTurn.propTypes = {

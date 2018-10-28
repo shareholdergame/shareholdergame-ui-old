@@ -44,7 +44,7 @@ const GameBoard = ({ game }) => {
       <Table bordered style={{ textAlign: "center" }}>
         <thead>
           <tr>
-            <th />
+            <th style={{ borderBottom: THICK_BORDER }} />
             {allColors.map(color => (
               <th
                 key={color.style}
@@ -124,7 +124,7 @@ const GameBoard = ({ game }) => {
                   }
                   key={`turn_${round.round}_${turn.turn}`}
                   turn={turn}
-                  turnHitstory={previousTurns}
+                  previousTurns={previousTurns}
                   turnIndex={index}
                   roundsPerTurn={visibleTurns.length}
                 />
