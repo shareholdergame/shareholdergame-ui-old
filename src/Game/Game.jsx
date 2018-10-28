@@ -5,15 +5,18 @@ import { connect } from "react-redux";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 
-import { number, shape } from "prop-types";
+import { number, shape, string } from "prop-types";
 
 import { FormattedMessage } from "react-intl";
 
 import GameScore from "./GameScore";
 import GameBoard from "./GameBoard";
 
+import { makeGetGameSet, makeGetGame } from "./gameSelectors";
+
 const Game = ({ gameSet, game }) =>
-  gameSet && (
+  gameSet &&
+  game && (
     <div>
       <Row>
         <Col xs={12}>
@@ -28,8 +31,7 @@ const Game = ({ gameSet, game }) =>
               description="Number sign"
               defaultMessage="#"
             />
-            {gameSet.gameSetId}-
-            {game.letter}{" "}
+            {gameSet.gameSetId}-{game.letter}{" "}
             <small>
               ({gameSet.options.cards.major}x{gameSet.options.cards.minor})
             </small>
@@ -54,26 +56,19 @@ const Game = ({ gameSet, game }) =>
 
 Game.propTypes = {
   gameSet: shape({
-    id: number
+    id: number.isRequired
+  }),
+  game: shape({
+    letter: string.isRequired
   })
 };
 
 Game.defaultProps = {
-  gameSet: null
+  gameSet: null,
+  game: null
 };
 
-export default connect((state, ownProps) => {
-  const gameSet = state.games.sets.find(
-    set => `${set.gameSetId}` === ownProps.match.params.setSlug
-  );
-
-  if (!gameSet || gameSet.loading) {
-    return {};
-  }
-
-  const game = gameSet.games.find(
-    gameInSet => gameInSet.letter === ownProps.match.params.gameLetter
-  );
-
-  return { gameSet, game };
-})(Game);
+export default connect((state, props) => ({
+  gameSet: makeGetGameSet()(state, props),
+  game: makeGetGame()(state, props)
+}))(Game);
