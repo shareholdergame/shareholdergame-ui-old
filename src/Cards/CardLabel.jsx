@@ -1,5 +1,5 @@
 import React from "react";
-import { shape, string } from "prop-types";
+import { node, string } from "prop-types";
 import Color from "color";
 
 const CardLabel = ({ color, children }) => (
@@ -18,7 +18,7 @@ const CardLabel = ({ color, children }) => (
 
 CardLabel.propTypes = {
   color: string.isRequired,
-  children: shape().isRequired
+  children: node.isRequired
 };
 
 export default CardLabel;

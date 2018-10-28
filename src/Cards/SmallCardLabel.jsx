@@ -1,5 +1,5 @@
 import React from "react";
-import { number, shape, string } from "prop-types";
+import { number, shape, string, node } from "prop-types";
 
 import CardLabel from "./CardLabel";
 
@@ -13,7 +13,7 @@ const SmallCardLabel = ({ card }) => (
 SmallCardLabel.propTypes = {
   card: shape({
     color: shape({
-      letter: string.isRequired,
+      letter: node.isRequired,
       style: string.isRequired
     }).isRequired,
     value: number.isRequired

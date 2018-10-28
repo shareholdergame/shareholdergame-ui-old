@@ -1,5 +1,5 @@
 import React from "react";
-import { shape, string } from "prop-types";
+import { shape, string, node } from "prop-types";
 import CardLabel from "./CardLabel";
 
 const MultiplyBy2CardLabel = ({ card }) => (
@@ -9,7 +9,7 @@ const MultiplyBy2CardLabel = ({ card }) => (
 MultiplyBy2CardLabel.propTypes = {
   card: shape({
     color: shape({
-      letter: string.isRequired,
+      letter: node.isRequired,
       style: string.isRequired
     }).isRequired
   }).isRequired

@@ -25,86 +25,111 @@ const GameBoard = ({ game }) => {
     return newCards;
   }, {});
 
+  // sorted rounds, including 0th round (e.g. initial state)
+  const sortedRounds = game.report.rounds.sort((a, b) => a.round - b.round);
+
+  const allTurns = sortedRounds.reduce((turns, round) => {
+    const sortedTurns = round.turns.sort((a, b) => a.turn - b.turn);
+
+    sortedTurns.forEach(turn => {
+      turns.push(turn);
+    });
+
+    return turns;
+  }, []);
+
   return (
     <div>
       <h2>Turns</h2>
       <Table bordered style={{ textAlign: "center" }}>
         <thead>
-          <th />
-          {allColors.map(color => (
+          <tr>
+            <th />
+            {allColors.map(color => (
+              <th
+                key={color.style}
+                style={{
+                  border: THICK_BORDER,
+                  backgroundColor: Color(color.style).alpha(0.2),
+                  padding: "0.5em",
+                  textAlign: "center"
+                }}
+              >
+                {color.columnLabel}
+              </th>
+            ))}
             <th
               style={{
-                border: THICK_BORDER,
-                backgroundColor: Color(color.style).alpha(0.2),
-                padding: "0.5em",
-                textAlign: "center"
+                borderBottom: THICK_BORDER
               }}
-            >
-              {color.columnLabel}
-            </th>
-          ))}
-          <th
-            style={{
-              borderBottom: THICK_BORDER
-            }}
-          />
-          {allColors.map(color => (
+            />
+            {allColors.map(color => (
+              <th
+                key={color.style}
+                style={{
+                  border: THICK_BORDER,
+                  backgroundColor: Color(color.style).alpha(0.2),
+                  padding: "0.5em",
+                  textAlign: "center"
+                }}
+              >
+                {color.columnLabel}
+              </th>
+            ))}
+            {allColors.map(color => (
+              <th
+                key={color.style}
+                style={{
+                  border: THICK_BORDER,
+                  backgroundColor: Color(color.style).alpha(0.2),
+                  padding: "0.5em",
+                  textAlign: "center"
+                }}
+              >
+                {color.columnLabel}
+              </th>
+            ))}
             <th
               style={{
-                border: THICK_BORDER,
-                backgroundColor: Color(color.style).alpha(0.2),
-                padding: "0.5em",
-                textAlign: "center"
+                borderBottom: THICK_BORDER
               }}
-            >
-              {color.columnLabel}
-            </th>
-          ))}
-          {allColors.map(color => (
-            <th
-              style={{
-                border: THICK_BORDER,
-                backgroundColor: Color(color.style).alpha(0.2),
-                padding: "0.5em",
-                textAlign: "center"
-              }}
-            >
-              {color.columnLabel}
-            </th>
-          ))}
-          <th
-            style={{
-              borderBottom: THICK_BORDER
-            }}
-          />
+            />
+          </tr>
         </thead>
         <tbody>
-          {game.report.rounds
-            .filter(round => round.round > 0)
-            .sort((a, b) => a.round - b.round)
-            .map(round => {
-              const visibleTurns = round.turns.filter(turn => turn.turn > 0);
+          {sortedRounds.filter(round => round.round > 0).map(round => {
+            const sortedTurns = round.turns.sort((a, b) => a.turn - b.turn);
+            const visibleTurns = sortedTurns.filter(turn => turn.turn > 0);
 
-              return visibleTurns
-                .sort((a, b) => a.turn - b.turn)
-                .map((turn, index) => (
-                  <GameTurn
-                    cardMap={cardMap}
-                    firstEmptyRow={
-                      round.round === game.report.rounds.length - 1 &&
-                      turn.turn === 1
-                    }
-                    lastRow={
-                      round.round === game.report.rounds.length - 1 &&
-                      turn.turn === visibleTurns.length
-                    }
-                    key={`turn_${round.round}_${turn.turn}`}
-                    turn={turn}
-                    turnIndex={index}
-                    roundsPerTurn={visibleTurns.length}
-                  />
-                ));
-            })}
+            return visibleTurns.map((turn, index) => {
+              const previousTurns = allTurns.filter(
+                otherTurn =>
+                  (otherTurn.round === turn.round &&
+                    otherTurn.turn < turn.turn) ||
+                  (otherTurn.round === turn.round - 1 &&
+                    otherTurn.turn >= turn.turn)
+              );
+
+              return (
+                <GameTurn
+                  cardMap={cardMap}
+                  firstEmptyRow={
+                    round.round === game.report.rounds.length - 1 &&
+                    turn.turn === 1
+                  }
+                  lastRow={
+                    round.round === game.report.rounds.length - 1 &&
+                    turn.turn === visibleTurns.length
+                  }
+                  key={`turn_${round.round}_${turn.turn}`}
+                  turn={turn}
+                  turnHitstory={previousTurns}
+                  turnIndex={index}
+                  roundsPerTurn={visibleTurns.length}
+                />
+              );
+            });
+          })}
         </tbody>
       </Table>
 
@@ -115,9 +140,11 @@ const GameBoard = ({ game }) => {
             <tr key={player.playerId}>
               <td>Player {index}</td>
               <td>
-                {player.playerCards.map(
-                  cardData => cardMap[cardData.id].cardLabel
-                )}
+                {player.playerCards.map(cardData => (
+                  <span key={cardData.id}>
+                    {cardMap[cardData.id].cardLabel}
+                  </span>
+                ))}
               </td>
             </tr>
           ))}

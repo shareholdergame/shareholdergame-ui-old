@@ -88,7 +88,15 @@
     "profile.field.twitter": "Twitter",
     "profile.field.googleplus": "Google+",
     "profile.field.website": "Website",
-    "game.header.prefix": "Game"
+    "game.header.prefix": "Game",
+    "card.colors.column.blue": "Blue",
+    "card.colors.column.red": "Red",
+    "card.colors.column.yellow": "Yellow",
+    "card.colors.column.green": "Green",
+    "card.colors.letter.blue": "b",
+    "card.colors.letter.red": "r",
+    "card.colors.letter.yellow": "y",
+    "card.colors.letter.green": "g"
   },
   "ru_RU": {
     "global.yourturn.button": "Ваш Ход",
@@ -190,6 +198,14 @@
     "profile.field.twitter": "Twitter",
     "profile.field.googleplus": "Google+",
     "profile.field.website": "Веб-сайт",
-    "game.header.prefix": "Игра"
+    "game.header.prefix": "Игра",
+    "card.colors.column.blue": "Синий",
+    "card.colors.column.red": "Красный",
+    "card.colors.column.yellow": "Желтый",
+    "card.colors.column.green": "Зеленый",
+    "card.colors.letter.blue": "с",
+    "card.colors.letter.red": "к",
+    "card.colors.letter.yellow": "ж",
+    "card.colors.letter.green": "з"
   }
 }
