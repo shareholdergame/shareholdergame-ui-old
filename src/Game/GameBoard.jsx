@@ -104,6 +104,7 @@ const GameBoard = ({ game }) => {
             return visibleTurns.map((turn, index) => {
               const previousTurns = allTurns.filter(
                 otherTurn =>
+                  (otherTurn.round === 0 && turn.round === 1) ||
                   (otherTurn.round === turn.round &&
                     otherTurn.turn < turn.turn) ||
                   (otherTurn.round === turn.round - 1 &&
