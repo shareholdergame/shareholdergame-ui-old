@@ -16,6 +16,7 @@ import { makeGetGameSet, makeGetGame } from "./gameSelectors";
 
 const Game = ({ gameSet, game }) =>
   gameSet &&
+  !gameSet.loading &&
   game && (
     <div>
       <Row>
@@ -56,7 +57,13 @@ const Game = ({ gameSet, game }) =>
 
 Game.propTypes = {
   gameSet: shape({
-    id: number.isRequired
+    gameSetId: number.isRequired,
+    options: shape({
+      cards: shape({
+        major: number.isRequired,
+        minor: number.isRequired
+      }).isRequired
+    })
   }),
   game: shape({
     letter: string.isRequired
