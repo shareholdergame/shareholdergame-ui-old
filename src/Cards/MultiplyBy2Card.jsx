@@ -9,6 +9,7 @@ class MultiplyBy2Card extends BigCard {
     super(color);
 
     this.cardLabel = <MultiplyBy2CardLabel card={this} />;
+    this.sortOrder = 24;
   }
 }
 

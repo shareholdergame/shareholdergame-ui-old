@@ -2,10 +2,11 @@ import React from "react";
 import { FormattedMessage } from "react-intl";
 
 class CardColor {
-  constructor(letter, columnLabel, style) {
+  constructor(letter, columnLabel, style, sortOrder) {
     this.letter = letter;
     this.columnLabel = columnLabel;
     this.style = style;
+    this.sortOrder = sortOrder;
   }
 }
 
@@ -26,7 +27,8 @@ export const BLUE = new CardColor(
       defaultMessage="Blue"
     />
   ),
-  "blue"
+  "blue",
+  400
 );
 export const RED = new CardColor(
   (
@@ -43,7 +45,8 @@ export const RED = new CardColor(
       defaultMessage="Red"
     />
   ),
-  "red"
+  "red",
+  300
 );
 export const YELLOW = new CardColor(
   (
@@ -60,7 +63,8 @@ export const YELLOW = new CardColor(
       defaultMessage="Yellow"
     />
   ),
-  "yellow"
+  "yellow",
+  200
 );
 export const GREEN = new CardColor(
   (
@@ -77,7 +81,8 @@ export const GREEN = new CardColor(
       defaultMessage="Green"
     />
   ),
-  "green"
+  "green",
+  100
 );
 
 export const allColors = [BLUE, RED, YELLOW, GREEN];

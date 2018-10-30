@@ -9,6 +9,7 @@ class DivideBy2Card extends BigCard {
     super(color);
 
     this.cardLabel = <DivideBy2CardLabel card={this} />;
+    this.sortOrder = 24;
   }
 }
 

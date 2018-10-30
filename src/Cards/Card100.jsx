@@ -9,6 +9,7 @@ class Card100 extends BigCard {
     super(color);
 
     this.cardLabel = <Card100Label card={this} />;
+    this.sortOrder = 25;
   }
 }
 

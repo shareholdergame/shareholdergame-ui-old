@@ -63,9 +63,9 @@ export const makeGetGame = () => {
         const newPlayer = { ...player };
 
         // override cardData structures with card objects
-        newPlayer.playerCards = newPlayer.playerCards.map(
-          cardData => cardMap[cardData.id]
-        );
+        newPlayer.playerCards = newPlayer.playerCards
+          .map(cardData => cardMap[cardData.id])
+          .sort((a, b) => b.card.getSortOrder() - a.card.getSortOrder());
 
         newPlayer.player = playerMap[newPlayer.playerId];
 

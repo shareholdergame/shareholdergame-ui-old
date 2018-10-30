@@ -10,6 +10,10 @@ class SmallCard extends Card {
     this.value = value;
     this.cardLabel = <SmallCardLabel card={this} />;
   }
+
+  getSortOrder() {
+    return super.getSortOrder() + this.value / 10 + 6;
+  }
 }
 
 export default SmallCard;

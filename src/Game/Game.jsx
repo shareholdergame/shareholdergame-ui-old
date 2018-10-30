@@ -40,7 +40,6 @@ const Game = ({ gameSet, game }) =>
         </Col>
       </Row>
 
-      <h2>Score</h2>
       <Row>
         <Col xs={12}>
           <GameScore game={game} />
