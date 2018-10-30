@@ -71,22 +71,20 @@ const GameBoard = ({ game }) => (
         </tr>
       </thead>
       <tbody>
-        {game.report.rounds
+        {game.rounds
           .filter(round => round.round > 0)
           .map(round =>
             round.visibleTurns.map((turn, index) => (
               <GameTurn
                 firstEmptyRow={
-                  round.round === game.report.rounds.length - 1 &&
-                  turn.turn === 1
+                  round.round === game.rounds.length - 1 && turn.turn === 1
                 }
                 lastRow={
-                  round.round === game.report.rounds.length - 1 &&
+                  round.round === game.rounds.length - 1 &&
                   turn.turn === round.visibleTurns.length
                 }
                 key={`turn_${round.round}_${turn.turn}`}
                 turn={turn}
-                previousTurns={turn.previousTurns}
                 turnIndex={index}
                 roundsPerTurn={round.visibleTurns.length}
               />
@@ -94,37 +92,19 @@ const GameBoard = ({ game }) => (
           )}
       </tbody>
     </Table>
-
-    <h2>Cards</h2>
-    <Table bordered>
-      <tbody>
-        {game.report.players.map((player, index) => (
-          <tr key={player.playerId}>
-            <td>Player {index}</td>
-            <td>
-              {player.playerCards.map(dealtCard => (
-                <span key={dealtCard.id}>{dealtCard.card.cardLabel}</span>
-              ))}
-            </td>
-          </tr>
-        ))}
-      </tbody>
-    </Table>
   </div>
 );
 
 GameBoard.propTypes = {
   game: shape({
-    report: shape({
-      players: arrayOf(
-        shape({
-          name: string,
-          userpic: string,
-          winner: bool,
-          wonmoney: number
-        })
-      ).isRequired
-    }).isRequired
+    rounds: arrayOf(
+      shape({
+        name: string,
+        userpic: string,
+        winner: bool,
+        wonmoney: number
+      })
+    ).isRequired
   }).isRequired
 };
 

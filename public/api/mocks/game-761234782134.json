@@ -87,7 +87,7 @@
             "bankrupt": false
           },
           {
-            "turn": 2,
+            "turnOrder": 2,
             "winner": false,
             "totalPoints": 0,
             "playerId": 456,

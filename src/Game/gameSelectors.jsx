@@ -26,8 +26,6 @@ export const makeGetGame = () => {
         return newPlayers;
       }, {});
 
-      console.log(playerMap);
-
       const game = {
         ...gameSet.games.find(gameInSet => gameInSet.letter === letter)
       };
@@ -35,13 +33,22 @@ export const makeGetGame = () => {
       game.result = game.result.map(result => {
         const newResult = { ...result };
         newResult.player = playerMap[newResult.playerId];
+
+        newResult.playerCards = game.report.players.find(
+          player => player.playerId === newResult.playerId
+        ).playerCards;
+
         return newResult;
       });
 
-      const cardMap = game.report.players.reduce((cards, player) => {
+      game.rounds = game.report.rounds;
+
+      delete game.report;
+
+      const cardMap = game.result.reduce((cards, result) => {
         const newCards = cards;
 
-        player.playerCards.forEach(cardData => {
+        result.playerCards.forEach(cardData => {
           newCards[cardData.id] = new DealtCard(
             cardData.id,
             Deck.get(cardData.cardId)
@@ -52,7 +59,7 @@ export const makeGetGame = () => {
       }, {});
 
       // cloning user object and overriding their playerCards object
-      game.report.players = game.report.players.map(player => {
+      game.result = game.result.map(player => {
         const newPlayer = { ...player };
 
         // override cardData structures with card objects
@@ -60,46 +67,46 @@ export const makeGetGame = () => {
           cardData => cardMap[cardData.id]
         );
 
+        newPlayer.player = playerMap[newPlayer.playerId];
+
         return newPlayer;
       });
 
       const allTurns = [];
 
       // sorted rounds, including 0th round (e.g. initial state)
-      game.report.rounds = game.report.rounds
-        .sort((a, b) => a.round - b.round)
-        .map(round => {
-          const newRound = { ...round };
+      game.rounds = game.rounds.sort((a, b) => a.round - b.round).map(round => {
+        const newRound = { ...round };
 
-          newRound.turns = newRound.turns.sort((a, b) => a.turn - b.turn);
-          newRound.turns.forEach(turn => {
-            // assemble collection of turns made so far
-            allTurns.push(turn);
-          });
-
-          newRound.visibleTurns = newRound.turns
-            .filter(turn => turn.turn > 0)
-            .map(turn => {
-              const newTurn = { ...turn };
-
-              newTurn.previousTurns = allTurns.filter(
-                otherTurn =>
-                  (otherTurn.round === 0 && turn.round === 1) ||
-                  (otherTurn.round === turn.round &&
-                    otherTurn.turn < turn.turn) ||
-                  (otherTurn.round === turn.round - 1 &&
-                    otherTurn.turn >= turn.turn)
-              );
-
-              newTurn.appliedCard = cardMap[newTurn.appliedCardId];
-
-              return newTurn;
-            });
-
-          return newRound;
+        newRound.turns = newRound.turns.sort((a, b) => a.turn - b.turn);
+        newRound.turns.forEach(turn => {
+          // assemble collection of turns made so far
+          allTurns.push(turn);
         });
 
-      game.report.rounds.forEach(round => {
+        newRound.visibleTurns = newRound.turns
+          .filter(turn => turn.turn > 0)
+          .map(turn => {
+            const newTurn = { ...turn };
+
+            newTurn.previousTurns = allTurns.filter(
+              otherTurn =>
+                (otherTurn.round === 0 && turn.round === 1) ||
+                (otherTurn.round === turn.round &&
+                  otherTurn.turn < turn.turn) ||
+                (otherTurn.round === turn.round - 1 &&
+                  otherTurn.turn >= turn.turn)
+            );
+
+            newTurn.appliedCard = cardMap[newTurn.appliedCardId];
+
+            return newTurn;
+          });
+
+        return newRound;
+      });
+
+      game.rounds.forEach(round => {
         const newRound = { ...round };
 
         newRound.visibleTurns = newRound.turns.filter(turn => turn.turn > 0);
