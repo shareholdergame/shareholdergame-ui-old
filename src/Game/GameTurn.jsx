@@ -6,6 +6,8 @@ import { bool, number, shape } from "prop-types";
 
 import { allColors } from "../Cards/CardColor";
 
+import ShareCell from "./ShareCell";
+
 const THICK_BORDER = "2px solid grey";
 
 const GameTurn = ({
@@ -54,18 +56,13 @@ const GameTurn = ({
 
   const firstStepCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "FIRST_BUY_SELL_STEP") {
-      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
-        cells.push(
-          <td
-            key={`first_${share.id}`}
-            style={{
-              backgroundColor: Color(allColors[index].style).alpha(0.1)
-            }}
-          >
-            {share.amount}
-          </td>
-        )
-      );
+      step.shares
+        .sort((a, b) => a.id - b.id)
+        .forEach((share, index) =>
+          cells.push(
+            <ShareCell key={share.id} share={share} color={allColors[index]} />
+          )
+        );
     }
 
     bank = step.cashValue;
@@ -136,18 +133,13 @@ const GameTurn = ({
 
   const lastStepCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "LAST_BUY_SELL_STEP") {
-      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
-        cells.push(
-          <td
-            key={`last_${share.id}`}
-            style={{
-              backgroundColor: Color(allColors[index].style).alpha(0.1)
-            }}
-          >
-            {share.amount}
-          </td>
-        )
-      );
+      step.shares
+        .sort((a, b) => a.id - b.id)
+        .forEach((share, index) =>
+          cells.push(
+            <ShareCell key={share.id} share={share} color={allColors[index]} />
+          )
+        );
     }
 
     bank = step.cashValue;
