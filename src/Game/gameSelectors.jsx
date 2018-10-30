@@ -19,7 +19,24 @@ export const makeGetGame = () => {
         return null;
       }
 
-      const game = gameSet.games.find(gameInSet => gameInSet.letter === letter);
+      const playerMap = gameSet.players.reduce((players, player) => {
+        const newPlayers = players;
+        newPlayers[player.id] = player;
+
+        return newPlayers;
+      }, {});
+
+      console.log(playerMap);
+
+      const game = {
+        ...gameSet.games.find(gameInSet => gameInSet.letter === letter)
+      };
+
+      game.result = game.result.map(result => {
+        const newResult = { ...result };
+        newResult.player = playerMap[newResult.playerId];
+        return newResult;
+      });
 
       const cardMap = game.report.players.reduce((cards, player) => {
         const newCards = cards;

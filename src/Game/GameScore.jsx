@@ -2,20 +2,15 @@ import React from "react";
 
 import Table from "react-bootstrap/lib/Table";
 
-import { bool, number, arrayOf, shape, string } from "prop-types";
+import { number, arrayOf, shape } from "prop-types";
 
-const GameScore = ({ gameSet, game }) => (
+const GameScore = ({ game }) => (
   <Table bordered>
     <tbody>
-      {gameSet.players.map((player, index) => (
-        <tr key={player.id}>
-          <td>{player.name}</td>
-          <td>
-            {
-              game.result.sort((a, b) => a.turnOrder - b.turnOrder)[index]
-                .totalFunds
-            }
-          </td>
+      {game.result.sort((a, b) => a.turnOrder - b.turnOrder).map(result => (
+        <tr key={result.player.id}>
+          <td>{result.player.name}</td>
+          <td>{result.totalFunds}</td>
         </tr>
       ))}
     </tbody>
@@ -23,16 +18,6 @@ const GameScore = ({ gameSet, game }) => (
 );
 
 GameScore.propTypes = {
-  gameSet: shape({
-    players: arrayOf(
-      shape({
-        name: string,
-        userpic: string,
-        winner: bool,
-        wonmoney: number
-      })
-    ).isRequired
-  }).isRequired,
   game: shape({
     result: arrayOf(
       shape({

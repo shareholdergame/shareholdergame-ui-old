@@ -43,7 +43,7 @@ const Game = ({ gameSet, game }) =>
       <h2>Score</h2>
       <Row>
         <Col xs={12}>
-          <GameScore gameSet={gameSet} game={game} />
+          <GameScore game={game} />
         </Col>
       </Row>
 
