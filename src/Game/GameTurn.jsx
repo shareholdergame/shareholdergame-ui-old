@@ -9,7 +9,6 @@ import { allColors } from "../Cards/CardColor";
 const THICK_BORDER = "2px solid grey";
 
 const GameTurn = ({
-  cardMap,
   turn,
   turnIndex,
   roundsPerTurn,
@@ -88,7 +87,7 @@ const GameTurn = ({
 
   tableCells.push(
     <td style={cardCellStyle} key="card">
-      {cardMap[turn.appliedCardId].cardLabel}
+      {turn.appliedCard.card.cardLabel}
     </td>
   );
 
@@ -188,7 +187,6 @@ const GameTurn = ({
 };
 
 GameTurn.propTypes = {
-  cardMap: shape().isRequired,
   firstEmptyRow: bool,
   lastRow: bool,
   turnIndex: number.isRequired,
