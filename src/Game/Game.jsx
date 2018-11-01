@@ -12,6 +12,9 @@ import { FormattedMessage } from "react-intl";
 import GameScore from "./GameScore";
 import GameBoard from "./GameBoard";
 
+import GameScoreCompact from "./GameScoreCompact";
+import GameBoardCompact from "./GameBoardCompact";
+
 import { makeGetGameSet, makeGetGame } from "./gameSelectors";
 
 const Game = ({ gameSet, game }) =>
@@ -40,17 +43,31 @@ const Game = ({ gameSet, game }) =>
         </Col>
       </Row>
 
-      <Row>
-        <Col xs={12}>
-          <GameScore game={game} />
-        </Col>
-      </Row>
-
-      <Row>
-        <Col xs={12}>
-          <GameBoard game={game} />
-        </Col>
-      </Row>
+      {window.innerWidth < 1076
+        ? [
+            <Row>
+              <Col xs={12}>
+                <GameScoreCompact game={game} />
+              </Col>
+            </Row>,
+            <Row>
+              <Col xs={12}>
+                <GameBoardCompact game={game} />
+              </Col>
+            </Row>
+          ]
+        : [
+            <Row>
+              <Col xs={12}>
+                <GameScore game={game} />
+              </Col>
+            </Row>,
+            <Row>
+              <Col xs={12}>
+                <GameBoard game={game} />
+              </Col>
+            </Row>
+          ]}
     </div>
   );
 
