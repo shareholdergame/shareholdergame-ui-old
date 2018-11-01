@@ -2,6 +2,8 @@ import React from "react";
 
 import { connect } from "react-redux";
 
+import Media from "react-media";
+
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 
@@ -43,31 +45,35 @@ const Game = ({ gameSet, game }) =>
         </Col>
       </Row>
 
-      {window.innerWidth < 1076
-        ? [
-            <Row>
-              <Col xs={12}>
-                <GameScoreCompact game={game} />
-              </Col>
-            </Row>,
-            <Row>
-              <Col xs={12}>
-                <GameBoardCompact game={game} />
-              </Col>
-            </Row>
-          ]
-        : [
-            <Row>
-              <Col xs={12}>
-                <GameScore game={game} />
-              </Col>
-            </Row>,
-            <Row>
-              <Col xs={12}>
-                <GameBoard game={game} />
-              </Col>
-            </Row>
-          ]}
+      <Media query="(max-width: 1076px)">
+        {matches =>
+          matches
+            ? [
+                <Row>
+                  <Col xs={12}>
+                    <GameScoreCompact game={game} />
+                  </Col>
+                </Row>,
+                <Row>
+                  <Col xs={12}>
+                    <GameBoardCompact game={game} />
+                  </Col>
+                </Row>
+              ]
+            : [
+                <Row>
+                  <Col xs={12}>
+                    <GameScore game={game} />
+                  </Col>
+                </Row>,
+                <Row>
+                  <Col xs={12}>
+                    <GameBoard game={game} />
+                  </Col>
+                </Row>
+              ]
+        }
+      </Media>
     </div>
   );
 
