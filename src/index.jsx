@@ -76,8 +76,11 @@ store.dispatch(loadActivity());
 store.dispatch(loadPlayers());
 store.dispatch(performGameSearch()); // load player's games
 store.dispatch(loadArchive()); // load games archive
-store.dispatch(loadGameSet(761234782134)); // load 4x6 game set
-store.dispatch(loadGameSet(761234782135)); // load 3x5 game set
+
+// 4x5 (incomplete), 3x5 (incomplete), 4x5, 3x5
+[761234782134, 761234782135, 12341251].forEach(gameSetId =>
+  store.dispatch(loadGameSet(gameSetId))
+);
 
 const I18nWrapper = props => (
   <IntlProvider

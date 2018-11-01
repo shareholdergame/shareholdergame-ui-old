@@ -1,6 +1,7 @@
 import React from "react";
 
 import Table from "react-bootstrap/lib/Table";
+import Image from "react-bootstrap/lib/Image";
 
 import { number, arrayOf, shape } from "prop-types";
 
@@ -10,7 +11,16 @@ const GameScoreCompact = ({ game }) => (
       <tbody>
         {game.result.sort((a, b) => a.turnOrder - b.turnOrder).map(result => [
           <tr key={result.player.id}>
-            <td>{result.player.name}</td>
+            <td>
+              <Image
+                src={`/images/userpics/${result.player.avatar}`}
+                width="36"
+                height="36"
+                circle
+                style={{ marginRight: "1em" }}
+              />
+              {result.player.name}
+            </td>
             <td>{result.totalFunds}</td>
           </tr>,
           <tr key={`${result.player.id}_cards`}>

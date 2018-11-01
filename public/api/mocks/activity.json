@@ -58,6 +58,33 @@
         }
       },
       {
+        "type": "GAME_DONE",
+        "timestamp": "2018-02-18T23:15:34.000Z",
+        "winner": true,
+        "game": {
+          "id": 12341251,
+          "letter": "B",
+          "started": "2018-02-21T23:15:30.000Z",
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            },
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            }
+          ]
+        }
+      },
+      {
         "type": "INVITATION",
         "timestamp": "2018-02-21T23:15:30.000Z",
         "replied": false,
@@ -113,33 +140,6 @@
             "minor": 5,
             "players": 2
           }
-        }
-      },
-      {
-        "type": "GAME_DONE",
-        "timestamp": "2018-02-18T23:15:34.000Z",
-        "winner": true,
-        "game": {
-          "id": 12341251,
-          "letter": "B",
-          "started": "2018-02-21T23:15:30.000Z",
-          "options": {
-            "major": 4,
-            "minor": 6,
-            "players": 2
-          },
-          "players": [
-            {
-              "id": 1234,
-              "name": "Governor",
-              "userpic": "avatar_8.jpg"
-            },
-            {
-              "id": 5678,
-              "name": "Sergey Chernyshev",
-              "userpic": "avatar_137.jpg"
-            }
-          ]
         }
       },
       {

@@ -20,14 +20,14 @@
         "name": "Admin",
         "bot": false,
         "initiator": false,
-        "avatar": "123.jpg"
+        "avatar": "avatar_1.png"
       },
       {
         "id": 456,
         "name": "Sergey Chernyshev",
         "bot": false,
         "initiator": true,
-        "avatar": "456.jpg"
+        "avatar": "avatar_137.jpg"
       }
     ],
     "gameSetResult": [
