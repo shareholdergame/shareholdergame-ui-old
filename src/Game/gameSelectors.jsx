@@ -16,7 +16,7 @@ export const makeGetGame = () => {
     [getGameSet, (state, props) => props.match.params.gameLetter],
     (gameSet, letter) => {
       if (!gameSet.games) {
-        return null;
+        return { loading: true, letter };
       }
 
       const playerMap = gameSet.players.reduce((players, player) => {
@@ -26,8 +26,13 @@ export const makeGetGame = () => {
         return newPlayers;
       }, {});
 
+      // move some gameSet-only properties down to game so it can be self-sufficient
       const game = {
-        ...gameSet.games.find(gameInSet => gameInSet.letter === letter)
+        ...gameSet.games.find(gameInSet => gameInSet.letter === letter),
+        options: gameSet.options,
+        gameSetId: gameSet.gameSetId,
+        loading: false,
+        letter
       };
 
       game.result = game.result.map(result => {
@@ -113,6 +118,33 @@ export const makeGetGame = () => {
 
         return newRound;
       });
+
+      const totalGameRounds =
+        game.options.cards.major + game.options.cards.minor;
+
+      const lastRoundPlayedNumber = game.rounds.length - 1;
+      const lastRoundPlayed = game.rounds[lastRoundPlayedNumber];
+      const lastTurnPlayedNumber = lastRoundPlayed.turns.length;
+
+      const incompleteLastRound =
+        lastTurnPlayedNumber < game.options.playersNumber;
+
+      if (lastRoundPlayedNumber < totalGameRounds || incompleteLastRound) {
+        const currentTurnNumber = incompleteLastRound
+          ? lastTurnPlayedNumber + 1
+          : 1;
+        const currentRoundNumber = incompleteLastRound
+          ? lastRoundPlayedNumber
+          : lastRoundPlayedNumber + 1;
+
+        game.progress = {
+          complete: false,
+          round: currentRoundNumber,
+          turn: currentTurnNumber
+        };
+      } else {
+        game.progress = { complete: true };
+      }
 
       return game;
     }

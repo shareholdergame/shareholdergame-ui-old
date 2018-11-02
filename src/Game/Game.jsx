@@ -7,7 +7,7 @@ import Media from "react-media";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 
-import { number, shape, string } from "prop-types";
+import { bool, shape, string } from "prop-types";
 
 import { FormattedMessage } from "react-intl";
 
@@ -17,12 +17,10 @@ import GameBoard from "./GameBoard";
 import GameScoreCompact from "./GameScoreCompact";
 import GameBoardCompact from "./GameBoardCompact";
 
-import { makeGetGameSet, makeGetGame } from "./gameSelectors";
+import { makeGetGame } from "./gameSelectors";
 
-const Game = ({ gameSet, game }) =>
-  gameSet &&
-  !gameSet.loading &&
-  game && (
+const Game = ({ game }) =>
+  !game.loading && (
     <div>
       <Row>
         <Col xs={12}>
@@ -37,9 +35,9 @@ const Game = ({ gameSet, game }) =>
               description="Number sign"
               defaultMessage="#"
             />
-            {gameSet.gameSetId}-{game.letter}{" "}
+            {game.gameSetId}-{game.letter}{" "}
             <small>
-              ({gameSet.options.cards.major}x{gameSet.options.cards.minor})
+              ({game.options.cards.major}x{game.options.cards.minor})
             </small>
           </h1>
         </Col>
@@ -78,26 +76,16 @@ const Game = ({ gameSet, game }) =>
   );
 
 Game.propTypes = {
-  gameSet: shape({
-    gameSetId: number.isRequired,
-    options: shape({
-      cards: shape({
-        major: number.isRequired,
-        minor: number.isRequired
-      }).isRequired
-    })
-  }),
   game: shape({
+    loading: bool.isRequired,
     letter: string.isRequired
-  })
+  }).isRequired
 };
 
 Game.defaultProps = {
-  gameSet: null,
   game: null
 };
 
 export default connect((state, props) => ({
-  gameSet: makeGetGameSet()(state, props),
   game: makeGetGame()(state, props)
 }))(Game);
