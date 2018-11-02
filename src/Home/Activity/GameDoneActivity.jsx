@@ -7,19 +7,14 @@ import Col from "react-bootstrap/lib/Col";
 
 import { arrayOf, number, shape, string, bool } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
-import { withRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 
 const GameDoneActivity = props => {
   const gameURL = `/game/${props.game.id}/${props.game.letter}`;
 
   return (
-    <tr
-      onClick={() => {
-        props.history.push(gameURL);
-      }}
-      style={{ cursor: "pointer" }}
-    >
+    <tr>
       <td style={{ textAlign: "center", verticalAlign: "middle" }}>
         <Glyphicon
           style={{
@@ -98,12 +93,11 @@ GameDoneActivity.propTypes = {
         name: string.isRequired
       })
     ).isRequired
-  }).isRequired,
-  history: shape().isRequired
+  }).isRequired
 };
 
 GameDoneActivity.defaultProps = {
   winner: false
 };
 
-export default withRouter(GameDoneActivity);
+export default GameDoneActivity;

@@ -1,7 +1,7 @@
 import React from "react";
 import { arrayOf, number, shape, string } from "prop-types";
 import { LinkContainer } from "react-router-bootstrap";
-import { withRouter, Link } from "react-router-dom";
+import { Link } from "react-router-dom";
 
 import Button from "react-bootstrap/lib/Button";
 import Glyphicon from "react-bootstrap/lib/Glyphicon";
@@ -14,12 +14,7 @@ const YourTurnActivity = props => {
   const gameURL = `/game/${props.game.id}/${props.game.letter}`;
 
   return (
-    <tr
-      onClick={() => {
-        props.history.push(gameURL);
-      }}
-      style={{ cursor: "pointer" }}
-    >
+    <tr>
       <td style={{ textAlign: "center", verticalAlign: "middle" }}>
         <Glyphicon style={{ fontSize: "xx-large" }} glyph="log-in" />
       </td>
@@ -89,8 +84,7 @@ YourTurnActivity.propTypes = {
         name: string.isRequired
       })
     ).isRequired
-  }).isRequired,
-  history: shape().isRequired
+  }).isRequired
 };
 
-export default withRouter(YourTurnActivity);
+export default YourTurnActivity;
