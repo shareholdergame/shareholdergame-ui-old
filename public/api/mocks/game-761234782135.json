@@ -32,7 +32,7 @@
     ],
     "gameSetResult": [
       {
-        "playerId": 123,
+        "playerId": 456,
         "winner": true,
         "totalPoints": 2,
         "totalFunds": 553080,
@@ -40,7 +40,7 @@
         "bankrupt": false
       },
       {
-        "playerId": 456,
+        "playerId": 123,
         "winner": false,
         "totalPoints": 0,
         "totalFunds": 92080,
@@ -57,7 +57,7 @@
             "turnOrder": 1,
             "winner": false,
             "totalPoints": 0,
-            "playerId": 456,
+            "playerId": 123,
             "totalFunds": 54980,
             "fundsDifference": -452240,
             "bankrupt": false
@@ -66,7 +66,7 @@
             "turnOrder": 2,
             "winner": true,
             "totalPoints": 1,
-            "playerId": 123,
+            "playerId": 456,
             "totalFunds": 507220,
             "fundsDifference": 452240,
             "bankrupt": false
@@ -81,7 +81,7 @@
             "turnOrder": 1,
             "winner": true,
             "totalPoints": 1,
-            "playerId": 123,
+            "playerId": 456,
             "totalFunds": 45860,
             "fundsDifference": 8760,
             "bankrupt": false
@@ -90,7 +90,7 @@
             "turn": 2,
             "winner": false,
             "totalPoints": 0,
-            "playerId": 456,
+            "playerId": 123,
             "totalFunds": 37100,
             "fundsDifference": -8760,
             "bankrupt": false
@@ -100,7 +100,7 @@
           "players": [
             {
               "turnOrder": 2,
-              "playerId": 456,
+              "playerId": 123,
               "playerCards": [
                 {
                   "applied": true,
@@ -124,11 +124,6 @@
                 },
                 {
                   "applied": true,
-                  "cardId": 26,
-                  "id": 42066
-                },
-                {
-                  "applied": true,
                   "cardId": 4,
                   "id": 42059
                 },
@@ -136,23 +131,13 @@
                   "applied": true,
                   "cardId": 17,
                   "id": 42058
-                },
-                {
-                  "applied": true,
-                  "cardId": 11,
-                  "id": 42065
                 }
               ]
             },
             {
               "turnOrder": 1,
-              "playerId": 123,
+              "playerId": 456,
               "playerCards": [
-                {
-                  "applied": true,
-                  "cardId": 7,
-                  "id": 42072
-                },
                 {
                   "applied": true,
                   "cardId": 28,
@@ -182,11 +167,6 @@
                   "applied": true,
                   "cardId": 42,
                   "id": 42076
-                },
-                {
-                  "applied": true,
-                  "cardId": 36,
-                  "id": 42069
                 }
               ]
             }
@@ -475,276 +455,6 @@
                       "compensations": [],
                       "stepType": "ZERO_STEP",
                       "cashValue": 0
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "round": 8,
-              "turns": [
-                {
-                  "turn": 2,
-                  "round": 8,
-                  "appliedCardId": 42065,
-                  "finishedTime": "Mon Dec 26 21:22:38 MSK 2016",
-                  "steps": [
-                    {
-                      "shares": [],
-                      "compensations": [],
-                      "stepType": "PRICE_CHANGE_STEP",
-                      "cashValue": 30,
-                      "sharePrices": [
-                        {
-                          "price": 120,
-                          "id": 1
-                        },
-                        {
-                          "price": 20,
-                          "id": 3
-                        },
-                        {
-                          "price": 130,
-                          "id": 2,
-                          "priceOperationId": 13
-                        },
-                        {
-                          "price": 140,
-                          "id": 4,
-                          "priceOperationId": 12
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "turn": 1,
-                  "round": 8,
-                  "appliedCardId": 42072,
-                  "finishedTime": "Mon Dec 26 21:18:22 MSK 2016",
-                  "steps": [
-                    {
-                      "shares": [],
-                      "compensations": [],
-                      "stepType": "PRICE_CHANGE_STEP",
-                      "cashValue": 6530,
-                      "sharePrices": [
-                        {
-                          "price": 120,
-                          "id": 1
-                        },
-                        {
-                          "price": 20,
-                          "id": 3
-                        },
-                        {
-                          "price": 70,
-                          "id": 4,
-                          "priceOperationId": 13
-                        },
-                        {
-                          "price": 250,
-                          "id": 2,
-                          "priceOperationId": 12
-                        }
-                      ]
-                    }
-                  ]
-                }
-              ]
-            },
-            {
-              "round": 7,
-              "turns": [
-                {
-                  "turn": 1,
-                  "round": 7,
-                  "appliedCardId": 42069,
-                  "finishedTime": "Mon Dec 26 21:14:28 MSK 2016",
-                  "steps": [
-                    {
-                      "shares": [
-                        {
-                          "amount": 0,
-                          "buySellAmount": 0,
-                          "id": 1
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": -8,
-                          "id": 2
-                        },
-                        {
-                          "amount": 109,
-                          "buySellAmount": 89,
-                          "id": 3
-                        },
-                        {
-                          "amount": 20,
-                          "buySellAmount": 0,
-                          "id": 4
-                        }
-                      ],
-                      "compensations": [],
-                      "stepType": "FIRST_BUY_SELL_STEP",
-                      "cashValue": 10,
-                      "sharePrices": []
-                    },
-                    {
-                      "shares": [],
-                      "compensations": [],
-                      "stepType": "PRICE_CHANGE_STEP",
-                      "cashValue": 810,
-                      "sharePrices": [
-                        {
-                          "price": 90,
-                          "id": 4,
-                          "priceOperationId": 8
-                        },
-                        {
-                          "price": 70,
-                          "id": 3,
-                          "priceOperationId": 3
-                        },
-                        {
-                          "price": 120,
-                          "id": 1
-                        },
-                        {
-                          "price": 220,
-                          "id": 2
-                        }
-                      ]
-                    },
-                    {
-                      "shares": [
-                        {
-                          "amount": 0,
-                          "buySellAmount": 0,
-                          "id": 1
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": 0,
-                          "id": 2
-                        },
-                        {
-                          "amount": 44,
-                          "buySellAmount": 24,
-                          "id": 4
-                        },
-                        {
-                          "amount": 89,
-                          "buySellAmount": -20,
-                          "id": 3
-                        }
-                      ],
-                      "compensations": [],
-                      "stepType": "LAST_BUY_SELL_STEP",
-                      "cashValue": 50,
-                      "sharePrices": []
-                    }
-                  ]
-                },
-                {
-                  "turn": 2,
-                  "round": 7,
-                  "appliedCardId": 42066,
-                  "finishedTime": "Mon Dec 26 21:17:01 MSK 2016",
-                  "steps": [
-                    {
-                      "shares": [],
-                      "compensations": [],
-                      "stepType": "PRICE_CHANGE_STEP",
-                      "cashValue": 0,
-                      "sharePrices": [
-                        {
-                          "price": 220,
-                          "id": 2
-                        },
-                        {
-                          "price": 130,
-                          "id": 4,
-                          "priceOperationId": 4
-                        },
-                        {
-                          "price": 20,
-                          "id": 3,
-                          "priceOperationId": 7
-                        },
-                        {
-                          "price": 120,
-                          "id": 1
-                        }
-                      ]
-                    },
-                    {
-                      "shares": [
-                        {
-                          "amount": 35,
-                          "buySellAmount": -49,
-                          "id": 4
-                        },
-                        {
-                          "amount": 100,
-                          "buySellAmount": 100,
-                          "id": 3
-                        },
-                        {
-                          "amount": 10,
-                          "buySellAmount": 10,
-                          "id": 1
-                        },
-                        {
-                          "amount": 14,
-                          "buySellAmount": 14,
-                          "id": 2
-                        }
-                      ],
-                      "compensations": [],
-                      "stepType": "LAST_BUY_SELL_STEP",
-                      "cashValue": 90,
-                      "sharePrices": []
-                    },
-                    {
-                      "shares": [],
-                      "compensations": [
-                        {
-                          "sum": 2660,
-                          "id": 2
-                        }
-                      ],
-                      "stepType": "COMPENSATION_STEP",
-                      "cashValue": 2750,
-                      "sharePrices": []
-                    },
-                    {
-                      "shares": [
-                        {
-                          "amount": 0,
-                          "buySellAmount": -14,
-                          "id": 3
-                        },
-                        {
-                          "amount": 84,
-                          "buySellAmount": 28,
-                          "id": 4
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": -7,
-                          "id": 2
-                        },
-                        {
-                          "amount": 0,
-                          "buySellAmount": 0,
-                          "id": 1
-                        }
-                      ],
-                      "compensations": [],
-                      "stepType": "FIRST_BUY_SELL_STEP",
-                      "cashValue": 0,
-                      "sharePrices": []
                     }
                   ]
                 }
