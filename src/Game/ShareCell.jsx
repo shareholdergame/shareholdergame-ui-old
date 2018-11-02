@@ -1,31 +1,34 @@
 import React from "react";
 
-import { string, number, shape } from "prop-types";
+import { node, string, shape, bool } from "prop-types";
 
 import Color from "color";
 
-const ShareCell = ({ share, color }) => (
+const ShareCell = ({ color, children, style, current }) => (
   <td
     style={{
-      color: share.amount
-        ? "black"
-        : Color(color.style)
-            .darken(0.5)
-            .alpha(0.2),
-      backgroundColor: Color(color.style).alpha(0.1)
+      ...style,
+      backgroundColor: Color(color.style)
+        .alpha(0.1)
+        .darken(current ? 0.5 : 0)
     }}
   >
-    {share.amount}
+    {children}
   </td>
 );
 
 ShareCell.propTypes = {
-  share: shape({
-    amount: number.isRequired
-  }).isRequired,
   color: shape({
     style: string.isRequired
-  }).isRequired
+  }).isRequired,
+  children: node.isRequired,
+  style: shape(),
+  current: bool
+};
+
+ShareCell.defaultProps = {
+  style: {},
+  current: false
 };
 
 export default ShareCell;

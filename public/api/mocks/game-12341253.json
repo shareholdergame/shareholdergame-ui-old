@@ -1,0 +1,2071 @@
+{
+  "result": {
+    "gameSetId": 12341253,
+    "options": {
+      "cards": {
+        "major": 4,
+        "minor": 6
+      },
+      "playersNumber": 2
+    },
+    "createdTime": "Mon Dec 26 00:02:14 MSK 2016",
+    "startedTime": "Mon Dec 26 00:02:14 MSK 2016",
+    "finishedTime": "Mon Dec 26 21:48:24 MSK 2016",
+    "gameStatus": "FINISHED",
+    "label": "Player 1 - Player 2 - 10",
+    "published": false,
+    "players": [
+      {
+        "id": 1234,
+        "name": "Governor",
+        "bot": false,
+        "initiator": false,
+        "avatar": "avatar_8.jpg"
+      },
+      {
+        "id": 456,
+        "name": "Sergey Chernyshev",
+        "bot": false,
+        "initiator": true,
+        "avatar": "avatar_137.jpg"
+      }
+    ],
+    "gameSetResult": [
+      {
+        "playerId": 1234,
+        "winner": true,
+        "totalPoints": 2,
+        "totalFunds": 553080,
+        "fundsDifference": 461000,
+        "bankrupt": false
+      },
+      {
+        "playerId": 456,
+        "winner": false,
+        "totalPoints": 0,
+        "totalFunds": 92080,
+        "fundsDifference": -461000,
+        "bankrupt": false
+      }
+    ],
+    "games": [
+      {
+        "id": -905381166,
+        "letter": "A",
+        "result": [
+          {
+            "turnOrder": 1,
+            "winner": false,
+            "totalPoints": 0,
+            "playerId": 456,
+            "totalFunds": 54980,
+            "fundsDifference": -452240,
+            "bankrupt": false
+          },
+          {
+            "turnOrder": 2,
+            "winner": true,
+            "totalPoints": 1,
+            "playerId": 1234,
+            "totalFunds": 507220,
+            "fundsDifference": 452240,
+            "bankrupt": false
+          }
+        ]
+      },
+      {
+        "id": 234523452346,
+        "letter": "B",
+        "result": [
+          {
+            "turnOrder": 1,
+            "winner": true,
+            "totalPoints": 1,
+            "playerId": 1234,
+            "totalFunds": 45860,
+            "fundsDifference": 8760,
+            "bankrupt": false
+          },
+          {
+            "turnOrder": 2,
+            "winner": false,
+            "totalPoints": 0,
+            "playerId": 456,
+            "totalFunds": 37100,
+            "fundsDifference": -8760,
+            "bankrupt": false
+          }
+        ],
+        "report": {
+          "players": [
+            {
+              "turnOrder": 2,
+              "playerId": 456,
+              "playerCards": [
+                {
+                  "applied": true,
+                  "cardId": 12,
+                  "id": 42067
+                },
+                {
+                  "applied": true,
+                  "cardId": 4,
+                  "id": 42062
+                },
+                {
+                  "applied": true,
+                  "cardId": 15,
+                  "id": 42060
+                },
+                {
+                  "applied": true,
+                  "cardId": 25,
+                  "id": 42061
+                },
+                {
+                  "applied": true,
+                  "cardId": 16,
+                  "id": 42064
+                },
+                {
+                  "applied": true,
+                  "cardId": 26,
+                  "id": 42066
+                },
+                {
+                  "applied": true,
+                  "cardId": 4,
+                  "id": 42059
+                },
+                {
+                  "applied": true,
+                  "cardId": 17,
+                  "id": 42058
+                },
+                {
+                  "applied": true,
+                  "cardId": 11,
+                  "id": 42065
+                }
+              ]
+            },
+            {
+              "turnOrder": 1,
+              "playerId": 1234,
+              "playerCards": [
+                {
+                  "applied": true,
+                  "cardId": 7,
+                  "id": 42072
+                },
+                {
+                  "applied": true,
+                  "cardId": 14,
+                  "id": 42074
+                },
+                {
+                  "applied": true,
+                  "cardId": 28,
+                  "id": 42073
+                },
+                {
+                  "applied": true,
+                  "cardId": 22,
+                  "id": 42068
+                },
+                {
+                  "applied": true,
+                  "cardId": 9,
+                  "id": 42070
+                },
+                {
+                  "applied": true,
+                  "cardId": 1,
+                  "id": 42077
+                },
+                {
+                  "applied": true,
+                  "cardId": 2,
+                  "id": 42075
+                },
+                {
+                  "applied": true,
+                  "cardId": 34,
+                  "id": 42071
+                },
+                {
+                  "applied": true,
+                  "cardId": 42,
+                  "id": 42076
+                },
+                {
+                  "applied": true,
+                  "cardId": 36,
+                  "id": 42069
+                }
+              ]
+            }
+          ],
+          "rounds": [
+            {
+              "round": 6,
+              "turns": [
+                {
+                  "turn": 2,
+                  "round": 6,
+                  "appliedCardId": 42062,
+                  "finishedTime": "Mon Dec 26 21:13:11 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 14,
+                          "buySellAmount": 14,
+                          "id": 3
+                        },
+                        {
+                          "amount": 56,
+                          "buySellAmount": -14,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 7,
+                          "buySellAmount": 7,
+                          "id": 2
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": -12,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -3,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -3,
+                          "id": 1
+                        },
+                        {
+                          "amount": 70,
+                          "buySellAmount": 56,
+                          "id": 4
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 0,
+                      "sharePrices": [
+                        {
+                          "price": 130,
+                          "id": 4,
+                          "priceOperationId": 1
+                        },
+                        {
+                          "price": 20,
+                          "id": 3,
+                          "priceOperationId": 11
+                        },
+                        {
+                          "price": 120,
+                          "id": 1,
+                          "priceOperationId": 10
+                        },
+                        {
+                          "price": 220,
+                          "id": 2,
+                          "priceOperationId": 9
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "turn": 1,
+                  "round": 6,
+                  "appliedCardId": 42075,
+                  "finishedTime": "Mon Dec 26 21:07:00 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": -18,
+                          "id": 4
+                        },
+                        {
+                          "amount": 11,
+                          "buySellAmount": 8,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -9,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 40,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 480,
+                      "sharePrices": [
+                        {
+                          "price": 30,
+                          "id": 3,
+                          "priceOperationId": 10
+                        },
+                        {
+                          "price": 30,
+                          "id": 4,
+                          "priceOperationId": 9
+                        },
+                        {
+                          "price": 140,
+                          "id": 1,
+                          "priceOperationId": 11
+                        },
+                        {
+                          "price": 250,
+                          "id": 2,
+                          "priceOperationId": 1
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 8,
+                          "buySellAmount": -3,
+                          "id": 2
+                        },
+                        {
+                          "amount": 20,
+                          "buySellAmount": 20,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 20,
+                          "buySellAmount": 20,
+                          "id": 4
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 30,
+                      "sharePrices": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 0,
+              "turns": [
+                {
+                  "turn": 0,
+                  "round": 0,
+                  "steps": [
+                    {
+                      "stepType": "ZERO_STEP",
+                      "sharePrices": [
+                        {
+                          "price": 100,
+                          "id": 4
+                        },
+                        {
+                          "price": 100,
+                          "id": 3
+                        },
+                        {
+                          "price": 100,
+                          "id": 1
+                        },
+                        {
+                          "price": 100,
+                          "id": 2
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "turn": 1,
+                  "round": 0,
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 3
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 4
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 2
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "ZERO_STEP",
+                      "cashValue": 0
+                    }
+                  ]
+                },
+                {
+                  "turn": 2,
+                  "round": 0,
+                  "finishedTime": "Mon Dec 26 00:02:14 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 4
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "ZERO_STEP",
+                      "cashValue": 0
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 8,
+              "turns": [
+                {
+                  "turn": 2,
+                  "round": 8,
+                  "appliedCardId": 42065,
+                  "finishedTime": "Mon Dec 26 21:22:38 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 141,
+                          "buySellAmount": 106,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -10,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -14,
+                          "id": 2
+                        },
+                        {
+                          "amount": 100,
+                          "buySellAmount": 0,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 30,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 106,
+                          "buySellAmount": -35,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 15,
+                          "buySellAmount": 15,
+                          "id": 2
+                        },
+                        {
+                          "amount": 200,
+                          "buySellAmount": 100,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 980,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 30,
+                      "sharePrices": [
+                        {
+                          "price": 120,
+                          "id": 1
+                        },
+                        {
+                          "price": 20,
+                          "id": 3
+                        },
+                        {
+                          "price": 130,
+                          "id": 2,
+                          "priceOperationId": 13
+                        },
+                        {
+                          "price": 140,
+                          "id": 4,
+                          "priceOperationId": 12
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "turn": 1,
+                  "round": 8,
+                  "appliedCardId": 42072,
+                  "finishedTime": "Mon Dec 26 21:18:22 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 13,
+                          "buySellAmount": 13,
+                          "id": 1
+                        },
+                        {
+                          "amount": 37,
+                          "buySellAmount": 37,
+                          "id": 4
+                        },
+                        {
+                          "amount": 34,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 119,
+                          "buySellAmount": 119,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": -44,
+                          "id": 4
+                        },
+                        {
+                          "amount": 34,
+                          "buySellAmount": 34,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -89,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 70,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 6530,
+                      "sharePrices": [
+                        {
+                          "price": 120,
+                          "id": 1
+                        },
+                        {
+                          "price": 20,
+                          "id": 3
+                        },
+                        {
+                          "price": 70,
+                          "id": 4,
+                          "priceOperationId": 13
+                        },
+                        {
+                          "price": 250,
+                          "id": 2,
+                          "priceOperationId": 12
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 10,
+              "turns": [
+                {
+                  "turn": 1,
+                  "round": 10,
+                  "appliedCardId": 42074,
+                  "finishedTime": "Mon Dec 26 21:48:11 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 558,
+                          "buySellAmount": 0,
+                          "id": 3
+                        },
+                        {
+                          "amount": 68,
+                          "buySellAmount": 0,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 2
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 0,
+                      "sharePrices": [
+                        {
+                          "price": 70,
+                          "id": 2
+                        },
+                        {
+                          "price": 70,
+                          "id": 3,
+                          "priceOperationId": 5
+                        },
+                        {
+                          "price": 100,
+                          "id": 4
+                        },
+                        {
+                          "price": 60,
+                          "id": 1,
+                          "priceOperationId": 6
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 7,
+              "turns": [
+                {
+                  "turn": 1,
+                  "round": 7,
+                  "appliedCardId": 42069,
+                  "finishedTime": "Mon Dec 26 21:14:28 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -8,
+                          "id": 2
+                        },
+                        {
+                          "amount": 109,
+                          "buySellAmount": 89,
+                          "id": 3
+                        },
+                        {
+                          "amount": 20,
+                          "buySellAmount": 0,
+                          "id": 4
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 10,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 810,
+                      "sharePrices": [
+                        {
+                          "price": 90,
+                          "id": 4,
+                          "priceOperationId": 8
+                        },
+                        {
+                          "price": 70,
+                          "id": 3,
+                          "priceOperationId": 3
+                        },
+                        {
+                          "price": 120,
+                          "id": 1
+                        },
+                        {
+                          "price": 220,
+                          "id": 2
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 44,
+                          "buySellAmount": 24,
+                          "id": 4
+                        },
+                        {
+                          "amount": 89,
+                          "buySellAmount": -20,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 50,
+                      "sharePrices": []
+                    }
+                  ]
+                },
+                {
+                  "turn": 2,
+                  "round": 7,
+                  "appliedCardId": 42066,
+                  "finishedTime": "Mon Dec 26 21:17:01 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 0,
+                      "sharePrices": [
+                        {
+                          "price": 220,
+                          "id": 2
+                        },
+                        {
+                          "price": 130,
+                          "id": 4,
+                          "priceOperationId": 4
+                        },
+                        {
+                          "price": 20,
+                          "id": 3,
+                          "priceOperationId": 7
+                        },
+                        {
+                          "price": 120,
+                          "id": 1
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 35,
+                          "buySellAmount": -49,
+                          "id": 4
+                        },
+                        {
+                          "amount": 100,
+                          "buySellAmount": 100,
+                          "id": 3
+                        },
+                        {
+                          "amount": 10,
+                          "buySellAmount": 10,
+                          "id": 1
+                        },
+                        {
+                          "amount": 14,
+                          "buySellAmount": 14,
+                          "id": 2
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 90,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [
+                        {
+                          "sum": 2660,
+                          "id": 2
+                        }
+                      ],
+                      "stepType": "COMPENSATION_STEP",
+                      "cashValue": 2750,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": -14,
+                          "id": 3
+                        },
+                        {
+                          "amount": 84,
+                          "buySellAmount": 28,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -7,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 1,
+              "turns": [
+                {
+                  "turn": 2,
+                  "round": 1,
+                  "appliedCardId": 42061,
+                  "finishedTime": "Mon Dec 26 18:26:57 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 2,
+                          "buySellAmount": -1,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 1,
+                          "id": 4
+                        },
+                        {
+                          "amount": 2,
+                          "buySellAmount": 1,
+                          "id": 1
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 40,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 3,
+                          "buySellAmount": 2,
+                          "id": 3
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 4
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 40,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 40,
+                      "sharePrices": [
+                        {
+                          "price": 50,
+                          "id": 1
+                        },
+                        {
+                          "price": 90,
+                          "id": 4,
+                          "priceOperationId": 7
+                        },
+                        {
+                          "price": 100,
+                          "id": 2
+                        },
+                        {
+                          "price": 140,
+                          "id": 3,
+                          "priceOperationId": 4
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "turn": 1,
+                  "round": 1,
+                  "appliedCardId": 42068,
+                  "finishedTime": "Mon Dec 26 11:28:57 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 3
+                        },
+                        {
+                          "amount": 2,
+                          "buySellAmount": 1,
+                          "id": 4
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 1
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 0,
+                      "sharePrices": [
+                        {
+                          "price": 100,
+                          "id": 2
+                        },
+                        {
+                          "price": 50,
+                          "id": 1,
+                          "priceOperationId": 7
+                        },
+                        {
+                          "price": 140,
+                          "id": 4,
+                          "priceOperationId": 4
+                        },
+                        {
+                          "price": 100,
+                          "id": 3
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 4,
+                          "buySellAmount": 4,
+                          "id": 1
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 3
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": -1,
+                          "id": 4
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 40,
+                      "sharePrices": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 3,
+              "turns": [
+                {
+                  "turn": 2,
+                  "round": 3,
+                  "appliedCardId": 42059,
+                  "finishedTime": "Mon Dec 26 20:48:22 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 30,
+                      "sharePrices": [
+                        {
+                          "price": 110,
+                          "id": 1,
+                          "priceOperationId": 9
+                        },
+                        {
+                          "price": 170,
+                          "id": 4,
+                          "priceOperationId": 1
+                        },
+                        {
+                          "price": 80,
+                          "id": 2,
+                          "priceOperationId": 11
+                        },
+                        {
+                          "price": 80,
+                          "id": 3,
+                          "priceOperationId": 10
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": -3,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -3,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 9,
+                          "buySellAmount": 8,
+                          "id": 4
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 30,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 8,
+                          "buySellAmount": -1,
+                          "id": 4
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 1,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 1,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 40,
+                      "sharePrices": []
+                    }
+                  ]
+                },
+                {
+                  "turn": 1,
+                  "round": 3,
+                  "appliedCardId": 42071,
+                  "finishedTime": "Mon Dec 26 20:44:07 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 60,
+                      "sharePrices": [
+                        {
+                          "price": 140,
+                          "id": 1,
+                          "priceOperationId": 3
+                        },
+                        {
+                          "price": 90,
+                          "id": 2
+                        },
+                        {
+                          "price": 100,
+                          "id": 3,
+                          "priceOperationId": 8
+                        },
+                        {
+                          "price": 70,
+                          "id": 4
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 4,
+                          "buySellAmount": 3,
+                          "id": 2
+                        },
+                        {
+                          "amount": 3,
+                          "buySellAmount": 3,
+                          "id": 3
+                        },
+                        {
+                          "amount": 3,
+                          "buySellAmount": 0,
+                          "id": 4
+                        },
+                        {
+                          "amount": 4,
+                          "buySellAmount": -4,
+                          "id": 1
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 50,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 3,
+                          "buySellAmount": 0,
+                          "id": 4
+                        },
+                        {
+                          "amount": 8,
+                          "buySellAmount": 4,
+                          "id": 1
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -3,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 60,
+                      "sharePrices": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 4,
+              "turns": [
+                {
+                  "turn": 1,
+                  "round": 4,
+                  "appliedCardId": 42073,
+                  "finishedTime": "Mon Dec 26 20:55:42 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 8,
+                          "buySellAmount": 5,
+                          "id": 4
+                        },
+                        {
+                          "amount": 4,
+                          "buySellAmount": -4,
+                          "id": 1
+                        },
+                        {
+                          "amount": 2,
+                          "buySellAmount": 2,
+                          "id": 2
+                        },
+                        {
+                          "amount": 2,
+                          "buySellAmount": 0,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 160,
+                      "sharePrices": [
+                        {
+                          "price": 150,
+                          "id": 1,
+                          "priceOperationId": 4
+                        },
+                        {
+                          "price": 80,
+                          "id": 3
+                        },
+                        {
+                          "price": 120,
+                          "id": 4,
+                          "priceOperationId": 7
+                        },
+                        {
+                          "price": 80,
+                          "id": 2
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 3,
+                          "buySellAmount": 0,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -4,
+                          "id": 2
+                        },
+                        {
+                          "amount": 2,
+                          "buySellAmount": -1,
+                          "id": 3
+                        },
+                        {
+                          "amount": 8,
+                          "buySellAmount": 4,
+                          "id": 1
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 10,
+                      "sharePrices": []
+                    }
+                  ]
+                },
+                {
+                  "turn": 2,
+                  "round": 4,
+                  "appliedCardId": 42067,
+                  "finishedTime": "Mon Dec 26 21:01:20 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 2,
+                          "buySellAmount": 0,
+                          "id": 4
+                        },
+                        {
+                          "amount": 2,
+                          "buySellAmount": 2,
+                          "id": 3
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 1,
+                          "id": 1
+                        },
+                        {
+                          "amount": 10,
+                          "buySellAmount": -1,
+                          "id": 2
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 10,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 2,
+                          "buySellAmount": -6,
+                          "id": 4
+                        },
+                        {
+                          "amount": 11,
+                          "buySellAmount": 10,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 40,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 160,
+                      "sharePrices": [
+                        {
+                          "price": 80,
+                          "id": 3
+                        },
+                        {
+                          "price": 60,
+                          "id": 4,
+                          "priceOperationId": 13
+                        },
+                        {
+                          "price": 160,
+                          "id": 2,
+                          "priceOperationId": 12
+                        },
+                        {
+                          "price": 150,
+                          "id": 1
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 9,
+              "turns": [
+                {
+                  "turn": 1,
+                  "round": 9,
+                  "appliedCardId": 42070,
+                  "finishedTime": "Mon Dec 26 21:23:41 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 558,
+                          "buySellAmount": -119,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 68,
+                          "buySellAmount": 68,
+                          "id": 4
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 0,
+                      "sharePrices": [
+                        {
+                          "price": 120,
+                          "id": 1
+                        },
+                        {
+                          "price": 40,
+                          "id": 3,
+                          "priceOperationId": 12
+                        },
+                        {
+                          "price": 70,
+                          "id": 4,
+                          "priceOperationId": 13
+                        },
+                        {
+                          "price": 130,
+                          "id": 2
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": -37,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -13,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -34,
+                          "id": 2
+                        },
+                        {
+                          "amount": 677,
+                          "buySellAmount": 558,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    }
+                  ]
+                },
+                {
+                  "turn": 2,
+                  "round": 9,
+                  "appliedCardId": 42064,
+                  "finishedTime": "Mon Dec 26 21:47:00 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 106,
+                          "buySellAmount": 0,
+                          "id": 4
+                        },
+                        {
+                          "amount": 200,
+                          "buySellAmount": 0,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 22,
+                          "buySellAmount": 7,
+                          "id": 2
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 70,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 231,
+                          "buySellAmount": 209,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -106,
+                          "id": 4
+                        },
+                        {
+                          "amount": 134,
+                          "buySellAmount": -66,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 1390,
+                      "sharePrices": [
+                        {
+                          "price": 40,
+                          "id": 3
+                        },
+                        {
+                          "price": 120,
+                          "id": 1
+                        },
+                        {
+                          "price": 70,
+                          "id": 2,
+                          "priceOperationId": 6
+                        },
+                        {
+                          "price": 100,
+                          "id": 4,
+                          "priceOperationId": 5
+                        }
+                      ]
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 5,
+              "turns": [
+                {
+                  "turn": 1,
+                  "round": 5,
+                  "appliedCardId": 42076,
+                  "finishedTime": "Mon Dec 26 21:03:28 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 26,
+                          "buySellAmount": 18,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -2,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -4,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -2,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 3,
+                          "buySellAmount": 3,
+                          "id": 2
+                        },
+                        {
+                          "amount": 18,
+                          "buySellAmount": -8,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 9,
+                          "buySellAmount": 9,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 30,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 0,
+                      "sharePrices": [
+                        {
+                          "price": 150,
+                          "id": 1
+                        },
+                        {
+                          "price": 50,
+                          "id": 3,
+                          "priceOperationId": 9
+                        },
+                        {
+                          "price": 160,
+                          "id": 2
+                        },
+                        {
+                          "price": 120,
+                          "id": 4,
+                          "priceOperationId": 2
+                        }
+                      ]
+                    }
+                  ]
+                },
+                {
+                  "turn": 2,
+                  "round": 5,
+                  "appliedCardId": 42060,
+                  "finishedTime": "Mon Dec 26 21:05:12 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [],
+                      "compensations": [
+                        {
+                          "sum": 120,
+                          "id": 2
+                        }
+                      ],
+                      "stepType": "COMPENSATION_STEP",
+                      "cashValue": 150,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 20,
+                      "sharePrices": [
+                        {
+                          "price": 50,
+                          "id": 3
+                        },
+                        {
+                          "price": 150,
+                          "id": 1
+                        },
+                        {
+                          "price": 60,
+                          "id": 4,
+                          "priceOperationId": 6
+                        },
+                        {
+                          "price": 190,
+                          "id": 2,
+                          "priceOperationId": 5
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 3,
+                          "buySellAmount": -10,
+                          "id": 2
+                        },
+                        {
+                          "amount": 3,
+                          "buySellAmount": 3,
+                          "id": 1
+                        },
+                        {
+                          "amount": 14,
+                          "buySellAmount": 14,
+                          "id": 4
+                        },
+                        {
+                          "amount": 12,
+                          "buySellAmount": 12,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 30,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": -2,
+                          "id": 3
+                        },
+                        {
+                          "amount": 13,
+                          "buySellAmount": 3,
+                          "id": 2
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -2,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 1
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 20,
+                      "sharePrices": []
+                    }
+                  ]
+                }
+              ]
+            },
+            {
+              "round": 2,
+              "turns": [
+                {
+                  "turn": 1,
+                  "round": 2,
+                  "appliedCardId": 42077,
+                  "finishedTime": "Mon Dec 26 19:24:16 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 3
+                        },
+                        {
+                          "amount": 8,
+                          "buySellAmount": 4,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 4
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 2
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 30,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 30,
+                      "sharePrices": [
+                        {
+                          "price": 90,
+                          "id": 2,
+                          "priceOperationId": 11
+                        },
+                        {
+                          "price": 110,
+                          "id": 3,
+                          "priceOperationId": 9
+                        },
+                        {
+                          "price": 70,
+                          "id": 4,
+                          "priceOperationId": 10
+                        },
+                        {
+                          "price": 150,
+                          "id": 1,
+                          "priceOperationId": 1
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 3,
+                          "buySellAmount": 3,
+                          "id": 4
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 1,
+                          "id": 2
+                        },
+                        {
+                          "amount": 4,
+                          "buySellAmount": -4,
+                          "id": 1
+                        },
+                        {
+                          "amount": 3,
+                          "buySellAmount": 3,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 0,
+                      "sharePrices": []
+                    }
+                  ]
+                },
+                {
+                  "turn": 2,
+                  "round": 2,
+                  "appliedCardId": 42058,
+                  "finishedTime": "Mon Dec 26 20:30:44 MSK 2016",
+                  "steps": [
+                    {
+                      "shares": [],
+                      "compensations": [],
+                      "stepType": "PRICE_CHANGE_STEP",
+                      "cashValue": 80,
+                      "sharePrices": [
+                        {
+                          "price": 90,
+                          "id": 2
+                        },
+                        {
+                          "price": 70,
+                          "id": 4
+                        },
+                        {
+                          "price": 140,
+                          "id": 3,
+                          "priceOperationId": 5
+                        },
+                        {
+                          "price": 90,
+                          "id": 1,
+                          "priceOperationId": 6
+                        }
+                      ]
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 1
+                        },
+                        {
+                          "amount": 3,
+                          "buySellAmount": 3,
+                          "id": 2
+                        },
+                        {
+                          "amount": 1,
+                          "buySellAmount": 1,
+                          "id": 4
+                        },
+                        {
+                          "amount": 3,
+                          "buySellAmount": -2,
+                          "id": 3
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "LAST_BUY_SELL_STEP",
+                      "cashValue": 20,
+                      "sharePrices": []
+                    },
+                    {
+                      "shares": [
+                        {
+                          "amount": 0,
+                          "buySellAmount": 0,
+                          "id": 2
+                        },
+                        {
+                          "amount": 5,
+                          "buySellAmount": 3,
+                          "id": 3
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -2,
+                          "id": 1
+                        },
+                        {
+                          "amount": 0,
+                          "buySellAmount": -1,
+                          "id": 4
+                        }
+                      ],
+                      "compensations": [],
+                      "stepType": "FIRST_BUY_SELL_STEP",
+                      "cashValue": 80,
+                      "sharePrices": []
+                    }
+                  ]
+                }
+              ]
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

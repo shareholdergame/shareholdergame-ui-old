@@ -56,13 +56,23 @@ const GameTurn = ({
 
   const firstStepCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "FIRST_BUY_SELL_STEP") {
-      step.shares
-        .sort((a, b) => a.id - b.id)
-        .forEach((share, index) =>
-          cells.push(
-            <ShareCell key={share.id} share={share} color={allColors[index]} />
-          )
-        );
+      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
+        cells.push(
+          <ShareCell key={share.id} color={allColors[index]}>
+            <span
+              style={{
+                color: share.amount
+                  ? "black"
+                  : Color(allColors[index].style)
+                      .darken(0.5)
+                      .alpha(0.2)
+              }}
+            >
+              {share.amount}
+            </span>
+          </ShareCell>
+        )
+      );
     }
 
     bank = step.cashValue;
@@ -133,13 +143,23 @@ const GameTurn = ({
 
   const lastStepCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "LAST_BUY_SELL_STEP") {
-      step.shares
-        .sort((a, b) => a.id - b.id)
-        .forEach((share, index) =>
-          cells.push(
-            <ShareCell key={share.id} share={share} color={allColors[index]} />
-          )
-        );
+      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
+        cells.push(
+          <ShareCell key={share.id} color={allColors[index]}>
+            <span
+              style={{
+                color: share.amount
+                  ? "black"
+                  : Color(allColors[index].style)
+                      .darken(0.5)
+                      .alpha(0.2)
+              }}
+            >
+              {share.amount}
+            </span>
+          </ShareCell>
+        )
+      );
     }
 
     bank = step.cashValue;
@@ -172,9 +192,7 @@ const GameTurn = ({
   );
 
   return (
-    <tr style={turn.turn === 1 ? { borderTop: THICK_BORDER } : {}}>
-      {tableCells}
-    </tr>
+    <tr style={!turnIndex ? { borderTop: THICK_BORDER } : {}}>{tableCells}</tr>
   );
 };
 
@@ -183,12 +201,13 @@ GameTurn.propTypes = {
   lastRow: bool,
   turnIndex: number.isRequired,
   roundsPerTurn: number.isRequired,
-  turn: shape({ turn: number.isRequired, round: number.isRequired }).isRequired
+  turn: shape({ turn: number.isRequired, round: number.isRequired })
 };
 
 GameTurn.defaultProps = {
   firstEmptyRow: false,
-  lastRow: false
+  lastRow: false,
+  turn: null
 };
 
 export default GameTurn;

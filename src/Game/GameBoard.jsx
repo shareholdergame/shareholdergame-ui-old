@@ -6,7 +6,11 @@ import Table from "react-bootstrap/lib/Table";
 
 import { bool, number, arrayOf, shape, string } from "prop-types";
 
+import range from "range-inclusive";
+
 import GameTurn from "./GameTurn";
+import CurrentTurn from "./CurrentTurn";
+import EmptyTurn from "./EmptyTurn";
 
 import { allColors } from "../Cards/CardColor";
 
@@ -74,19 +78,48 @@ const GameBoard = ({ game }) => (
         .map(round =>
           round.visibleTurns.map((turn, index) => (
             <GameTurn
+              turn={turn}
               firstEmptyRow={
                 round.round === game.rounds.length - 1 && turn.turn === 1
               }
               lastRow={
-                round.round === game.rounds.length - 1 &&
+                round.round === game.totalGameRounds &&
                 turn.turn === round.visibleTurns.length
               }
               key={`turn_${round.round}_${turn.turn}`}
-              turn={turn}
               turnIndex={index}
-              roundsPerTurn={round.visibleTurns.length}
+              roundsPerTurn={game.options.playersNumber}
             />
           ))
+        )}
+      {!game.progress.complete && (
+        <CurrentTurn
+          lastRow={game.progress.round === game.totalGameRounds}
+          key={`turn_${game.progress.round}_${game.progress.turn}`}
+          roundNumber={game.progress.round}
+          turnIndex={game.progress.turn - 1}
+          roundsPerTurn={game.options.playersNumber}
+        />
+      )}
+      {game.progress.nextRound &&
+        range(game.progress.nextRound, game.totalGameRounds).reduce(
+          (cells, round) => {
+            const turnLowerBound =
+              round === game.progress.nextRound ? game.progress.nextTurn : 1;
+            return cells.concat(
+              range(turnLowerBound, game.options.playersNumber).map(turn => (
+                <EmptyTurn
+                  lastRow={round === game.totalGameRounds}
+                  firstEmptyRow={round === game.totalGameRounds && turn === 1}
+                  key={`turn_${round}_${turn}`}
+                  roundsPerTurn={game.options.playersNumber}
+                  roundNumber={round}
+                  turnIndex={turn - 1}
+                />
+              ))
+            );
+          },
+          []
         )}
     </tbody>
   </Table>

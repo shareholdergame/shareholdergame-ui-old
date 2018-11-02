@@ -78,7 +78,7 @@ store.dispatch(performGameSearch()); // load player's games
 store.dispatch(loadArchive()); // load games archive
 
 // 4x5 (incomplete), 3x5 (incomplete), 4x5, 3x5
-[761234782134, 761234782135, 12341251].forEach(gameSetId =>
+[761234782134, 761234782135, 12341251, 12341252, 12341253].forEach(gameSetId =>
   store.dispatch(loadGameSet(gameSetId))
 );
 

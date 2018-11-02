@@ -8,8 +8,8 @@
           "id": 761234782134,
           "letter": "B",
           "started": "2018-02-21T23:15:30.000Z",
-          "round": 4,
-          "turn": 1,
+          "round": 6,
+          "turn": 2,
           "options": {
             "major": 4,
             "minor": 6,
@@ -36,7 +36,7 @@
           "id": 761234782135,
           "letter": "B",
           "started": "2018-02-21T23:15:30.000Z",
-          "round": 5,
+          "round": 7,
           "turn": 1,
           "options": {
             "major": 3,
@@ -45,14 +45,70 @@
           },
           "players": [
             {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            },
+            {
               "id": 1,
               "name": "Admin",
               "userpic": "avatar_1.png"
-            },
+            }
+          ]
+        }
+      },
+      {
+        "type": "YOUR_TURN",
+        "timestamp": "2018-02-22T23:15:33.000Z",
+        "game": {
+          "id": 12341252,
+          "letter": "B",
+          "started": "2018-02-21T23:15:30.000Z",
+          "round": 10,
+          "turn": 1,
+          "options": {
+            "major": 3,
+            "minor": 5,
+            "players": 2
+          },
+          "players": [
             {
               "id": 5678,
               "name": "Sergey Chernyshev",
               "userpic": "avatar_137.jpg"
+            },
+            {
+              "id": 1,
+              "name": "Admin",
+              "userpic": "avatar_1.png"
+            }
+          ]
+        }
+      },
+      {
+        "type": "YOUR_TURN",
+        "timestamp": "2018-02-22T23:15:33.000Z",
+        "game": {
+          "id": 12341253,
+          "letter": "B",
+          "started": "2018-02-21T23:15:30.000Z",
+          "round": 10,
+          "turn": 2,
+          "options": {
+            "major": 3,
+            "minor": 5,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            },
+            {
+              "id": 1,
+              "name": "Admin",
+              "userpic": "avatar_1.png"
             }
           ]
         }

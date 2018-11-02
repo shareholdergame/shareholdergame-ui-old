@@ -119,9 +119,10 @@ export const makeGetGame = () => {
         return newRound;
       });
 
-      const totalGameRounds =
+      game.totalGameRounds =
         game.options.cards.major + game.options.cards.minor;
 
+      // calculating in-progress state values
       const lastRoundPlayedNumber = game.rounds.length - 1;
       const lastRoundPlayed = game.rounds[lastRoundPlayedNumber];
       const lastTurnPlayedNumber = lastRoundPlayed.turns.length;
@@ -129,19 +130,28 @@ export const makeGetGame = () => {
       const incompleteLastRound =
         lastTurnPlayedNumber < game.options.playersNumber;
 
-      if (lastRoundPlayedNumber < totalGameRounds || incompleteLastRound) {
-        const currentTurnNumber = incompleteLastRound
-          ? lastTurnPlayedNumber + 1
-          : 1;
-        const currentRoundNumber = incompleteLastRound
+      if (lastRoundPlayedNumber < game.totalGameRounds || incompleteLastRound) {
+        game.progress = {
+          complete: false
+        };
+        game.progress.turn = incompleteLastRound ? lastTurnPlayedNumber + 1 : 1;
+        game.progress.round = incompleteLastRound
           ? lastRoundPlayedNumber
           : lastRoundPlayedNumber + 1;
 
-        game.progress = {
-          complete: false,
-          round: currentRoundNumber,
-          turn: currentTurnNumber
-        };
+        // if current turn is not last one in the game, calculate incomplete turns
+        if (
+          game.progress.round !== game.totalGameRounds ||
+          game.progress.turn !== game.options.playersNumber
+        ) {
+          game.progress.nextTurn = game.progress.turn + 1;
+          game.progress.nextRound = game.progress.round;
+
+          if (game.progress.nextTurn > game.options.playersNumber) {
+            game.progress.nextTurn = 1;
+            game.progress.nextRound += 1;
+          }
+        }
       } else {
         game.progress = { complete: true };
       }
