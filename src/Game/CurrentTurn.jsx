@@ -1,19 +1,20 @@
 import React from "react";
 
-import { bool, number } from "prop-types";
+import { bool, number, arrayOf, shape } from "prop-types";
 
-import { BLUE, RED, YELLOW, GREEN } from "../Cards/CardColor";
+import { allColors } from "../Cards/CardColor";
 import ShareCell from "./ShareCell";
 
 const THICK_BORDER = "2px solid grey";
 
 const CurrentTurn = ({
+  previousTurns,
   roundNumber,
   turnIndex,
   roundsPerTurn,
   lastRow = false
 }) => {
-  const tableCells = [];
+  let tableCells = [];
 
   if (turnIndex === 0) {
     tableCells.push(
@@ -37,88 +38,93 @@ const CurrentTurn = ({
     backgroundColor: "#efefef"
   };
 
+  const myPreviousTurn = previousTurns[0];
+  const myPreviousSellStep = myPreviousTurn.steps.find(
+    step => step.stepType === "LAST_BUY_SELL_STEP"
+  );
+  const myPreviousStocks = myPreviousSellStep.shares.map(share => share.amount);
+
   if (lastRow) {
     tableCells.push(<td colSpan={4} style={selectedRowStyle} />);
   } else {
-    tableCells.push(
-      <ShareCell key="last_blue" color={BLUE} current>
-        Input
-      </ShareCell>
-    );
-    tableCells.push(
-      <ShareCell key="last_red" color={RED} current>
-        Input
-      </ShareCell>
-    );
-    tableCells.push(
-      <ShareCell key="last_yellow" color={YELLOW} current>
-        Input
-      </ShareCell>
-    );
-    tableCells.push(
-      <ShareCell key="last_green" color={GREEN} current>
-        Input
-      </ShareCell>
+    tableCells = tableCells.concat(
+      allColors.map((color, index) => (
+        <ShareCell key={`first_${color.letter}`} color={color} current>
+          <input
+            type="number"
+            min={0}
+            step={1}
+            className="input"
+            style={{ width: "100%", textAlign: "center" }}
+            value={myPreviousStocks[index]}
+          />
+        </ShareCell>
+      ))
     );
   }
 
   tableCells.push(
-    <td style={{ ...selectedRowStyle, border: THICK_BORDER }}>Card</td>
+    <td style={{ ...selectedRowStyle, border: THICK_BORDER }}>
+      <select>
+        <option />
+        <option>+30r</option>
+        <option>100g</option>
+        <option>+30r</option>
+        <option>+30r</option>
+        <option>+30r</option>
+        <option>+30r</option>
+        <option>+30r</option>
+      </select>
+    </td>
   );
 
-  tableCells.push(
-    <ShareCell key="price_blue" color={BLUE} current>
-      Price
-    </ShareCell>
+  const immediatelyPreviousTurn = previousTurns[previousTurns.length - 1];
+  const previousPrices = immediatelyPreviousTurn.steps
+    .find(step => step.stepType === "PRICE_CHANGE_STEP")
+    .sharePrices.map(price => price.price);
+
+  tableCells = tableCells.concat(
+    allColors.map((color, index) => (
+      <ShareCell key={`price_${color.letter}`} color={color} current>
+        {previousPrices[index]}
+      </ShareCell>
+    ))
   );
+
+  if (lastRow) {
+    tableCells.push(<td colSpan={4} style={selectedRowStyle} />);
+  } else {
+    tableCells = tableCells.concat(
+      allColors.map((color, index) => (
+        <ShareCell
+          key={`last_${color.letter}`}
+          color={color}
+          current
+          style={index ? {} : { borderLeft: THICK_BORDER }}
+        >
+          <input
+            type="number"
+            min={0}
+            step={1}
+            className="input"
+            style={{ width: "100%", textAlign: "center" }}
+            value={myPreviousStocks[index]}
+          />
+        </ShareCell>
+      ))
+    );
+  }
+
   tableCells.push(
-    <ShareCell key="price_red" color={RED} current>
-      Price
-    </ShareCell>
-  );
-  tableCells.push(
-    <ShareCell key="price_yellow" color={YELLOW} current>
-      Price
-    </ShareCell>
-  );
-  tableCells.push(
-    <ShareCell
-      key="price_green"
-      color={GREEN}
-      style={{ borderRight: THICK_BORDER }}
-      current
+    <td
+      style={{
+        ...selectedRowStyle,
+        textAlign: "left",
+        border: THICK_BORDER
+      }}
     >
-      Price
-    </ShareCell>
-  );
-
-  if (lastRow) {
-    tableCells.push(<td colSpan={4} style={selectedRowStyle} />);
-  } else {
-    tableCells.push(
-      <ShareCell key="last_blue" color={BLUE} current>
-        Input
-      </ShareCell>
-    );
-    tableCells.push(
-      <ShareCell key="last_red" color={RED} current>
-        Input
-      </ShareCell>
-    );
-    tableCells.push(
-      <ShareCell key="last_yellow" color={YELLOW} current>
-        Input
-      </ShareCell>
-    );
-    tableCells.push(
-      <ShareCell key="last_green" color={GREEN} current>
-        Input
-      </ShareCell>
-    );
-  }
-
-  tableCells.push(
-    <td style={{ ...selectedRowStyle, border: THICK_BORDER }}>Bank</td>
+      {myPreviousTurn.bank}
+    </td>
   );
 
   return (
@@ -129,6 +135,7 @@ const CurrentTurn = ({
 };
 
 CurrentTurn.propTypes = {
+  previousTurns: arrayOf(shape()).isRequired,
   roundNumber: number.isRequired,
   lastRow: bool,
   turnIndex: number.isRequired,

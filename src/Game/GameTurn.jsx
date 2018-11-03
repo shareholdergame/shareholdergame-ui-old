@@ -18,7 +18,6 @@ const GameTurn = ({
   lastRow = false
 }) => {
   let tableCells = [];
-  let bank = 0;
 
   const bankCellStyle = {
     borderLeft: THICK_BORDER,
@@ -74,8 +73,6 @@ const GameTurn = ({
         )
       );
     }
-
-    bank = step.cashValue;
 
     return cells;
   }, []);
@@ -136,8 +133,6 @@ const GameTurn = ({
       });
     }
 
-    bank = step.cashValue;
-
     return cells;
   }, tableCells);
 
@@ -162,8 +157,6 @@ const GameTurn = ({
       );
     }
 
-    bank = step.cashValue;
-
     return cells;
   }, []);
 
@@ -187,7 +180,7 @@ const GameTurn = ({
 
   tableCells.push(
     <td key="bank" style={bankCellStyle}>
-      {bank}
+      {turn.bank}
     </td>
   );
 

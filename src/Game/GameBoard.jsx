@@ -94,6 +94,7 @@ const GameBoard = ({ game }) => (
         )}
       {!game.progress.complete && (
         <CurrentTurn
+          previousTurns={game.progress.previousTurns}
           lastRow={game.progress.round === game.totalGameRounds}
           key={`turn_${game.progress.round}_${game.progress.turn}`}
           roundNumber={game.progress.round}

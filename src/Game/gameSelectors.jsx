@@ -3,6 +3,13 @@ import { createSelector } from "reselect";
 import Deck from "../Cards/Deck";
 import DealtCard from "../Cards/DealtCard";
 
+const gameStepSequence = {
+  PRICE_CHANGE_STEP: 0,
+  FIRST_BUY_SELL_STEP: 1,
+  LAST_BUY_SELL_STEP: 2,
+  COMPENSATION_STEP: 3
+};
+
 export const makeGetGameSet = () =>
   createSelector(
     [state => state.games.sets, (state, props) => props.match.params.setSlug],
@@ -83,7 +90,21 @@ export const makeGetGame = () => {
       game.rounds = game.rounds.sort((a, b) => a.round - b.round).map(round => {
         const newRound = { ...round };
 
-        newRound.turns = newRound.turns.sort((a, b) => a.turn - b.turn);
+        newRound.turns = newRound.turns
+          .sort((a, b) => a.turn - b.turn)
+          .map(turn => {
+            const newTurn = { ...turn };
+
+            newTurn.bank = newTurn.steps
+              .sort(
+                (a, b) =>
+                  gameStepSequence[a.stepType] - gameStepSequence[b.stepType]
+              )
+              .reduce((accumulator, step) => step.cashValue, 0);
+
+            return newTurn;
+          });
+
         newRound.turns.forEach(turn => {
           // assemble collection of turns made so far
           allTurns.push(turn);
@@ -138,6 +159,15 @@ export const makeGetGame = () => {
         game.progress.round = incompleteLastRound
           ? lastRoundPlayedNumber
           : lastRoundPlayedNumber + 1;
+
+        game.progress.previousTurns = allTurns.filter(
+          otherTurn =>
+            (otherTurn.round === 0 && game.progress.round === 1) ||
+            (otherTurn.round === game.progress.round &&
+              otherTurn.turn < game.progress.turn) ||
+            (otherTurn.round === game.progress.round - 1 &&
+              otherTurn.turn >= game.progress.turn)
+        );
 
         // if current turn is not last one in the game, calculate incomplete turns
         if (
