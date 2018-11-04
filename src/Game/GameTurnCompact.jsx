@@ -51,13 +51,23 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
 
   const firstStepCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "FIRST_BUY_SELL_STEP") {
-      step.shares
-        .sort((a, b) => a.id - b.id)
-        .forEach((share, index) =>
-          cells.push(
-            <ShareCell key={share.id} share={share} color={allColors[index]} />
-          )
-        );
+      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
+        cells.push(
+          <ShareCell key={share.id} share={share} color={allColors[index]}>
+            <span
+              style={{
+                color: share.amount
+                  ? "black"
+                  : Color(allColors[index].style)
+                      .darken(0.5)
+                      .alpha(0.2)
+              }}
+            >
+              {share.amount}
+            </span>
+          </ShareCell>
+        )
+      );
     }
 
     bank = step.cashValue;
@@ -118,13 +128,23 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
 
   const lastStepCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "LAST_BUY_SELL_STEP") {
-      step.shares
-        .sort((a, b) => a.id - b.id)
-        .forEach((share, index) =>
-          cells.push(
-            <ShareCell key={share.id} share={share} color={allColors[index]} />
-          )
-        );
+      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
+        cells.push(
+          <ShareCell key={share.id} share={share} color={allColors[index]}>
+            <span
+              style={{
+                color: share.amount
+                  ? "black"
+                  : Color(allColors[index].style)
+                      .darken(0.5)
+                      .alpha(0.2)
+              }}
+            >
+              {share.amount}
+            </span>
+          </ShareCell>
+        )
+      );
     }
 
     bank = step.cashValue;
