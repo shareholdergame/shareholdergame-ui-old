@@ -109,13 +109,33 @@
                 },
                 {
                   "applied": true,
+                  "cardId": 4,
+                  "id": 42062
+                },
+                {
+                  "applied": true,
                   "cardId": 15,
                   "id": 42060
                 },
                 {
                   "applied": true,
+                  "cardId": 30,
+                  "id": 42063
+                },
+                {
+                  "applied": true,
                   "cardId": 25,
                   "id": 42061
+                },
+                {
+                  "applied": true,
+                  "cardId": 16,
+                  "id": 42064
+                },
+                {
+                  "applied": true,
+                  "cardId": 26,
+                  "id": 42066
                 },
                 {
                   "applied": true,
@@ -126,6 +146,11 @@
                   "applied": true,
                   "cardId": 17,
                   "id": 42058
+                },
+                {
+                  "applied": true,
+                  "cardId": 11,
+                  "id": 42065
                 }
               ]
             },
@@ -135,6 +160,16 @@
               "playerCards": [
                 {
                   "applied": true,
+                  "cardId": 7,
+                  "id": 42072
+                },
+                {
+                  "applied": true,
+                  "cardId": 14,
+                  "id": 42074
+                },
+                {
+                  "applied": true,
                   "cardId": 28,
                   "id": 42073
                 },
@@ -142,6 +177,11 @@
                   "applied": true,
                   "cardId": 22,
                   "id": 42068
+                },
+                {
+                  "applied": true,
+                  "cardId": 9,
+                  "id": 42070
                 },
                 {
                   "applied": true,
@@ -162,6 +202,11 @@
                   "applied": true,
                   "cardId": 42,
                   "id": 42076
+                },
+                {
+                  "applied": true,
+                  "cardId": 36,
+                  "id": 42069
                 }
               ]
             }
