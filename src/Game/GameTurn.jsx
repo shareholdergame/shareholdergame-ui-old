@@ -13,7 +13,7 @@ const THICK_BORDER = "2px solid grey";
 const GameTurn = ({
   turn,
   turnIndex,
-  roundsPerTurn,
+  turnsPerRound,
   firstEmptyRow = false,
   lastRow = false
 }) => {
@@ -39,7 +39,7 @@ const GameTurn = ({
     tableCells.push(
       <th
         key="roundNumber"
-        rowSpan={roundsPerTurn}
+        rowSpan={turnsPerRound}
         style={{
           width: "2em",
           fontSize: "large",
@@ -193,7 +193,7 @@ GameTurn.propTypes = {
   firstEmptyRow: bool,
   lastRow: bool,
   turnIndex: number.isRequired,
-  roundsPerTurn: number.isRequired,
+  turnsPerRound: number.isRequired,
   turn: shape({ turn: number.isRequired, round: number.isRequired })
 };
 

@@ -88,7 +88,7 @@ const GameBoard = ({ game }) => (
               }
               key={`turn_${round.round}_${turn.turn}`}
               turnIndex={index}
-              roundsPerTurn={game.options.playersNumber}
+              turnsPerRound={game.options.playersNumber}
             />
           ))
         )}
@@ -99,7 +99,7 @@ const GameBoard = ({ game }) => (
           key={`turn_${game.progress.round}_${game.progress.turn}`}
           roundNumber={game.progress.round}
           turnIndex={game.progress.turn - 1}
-          roundsPerTurn={game.options.playersNumber}
+          turnsPerRound={game.options.playersNumber}
         />
       )}
       {game.progress.nextRound &&
@@ -113,7 +113,7 @@ const GameBoard = ({ game }) => (
                   lastRow={round === game.totalGameRounds}
                   firstEmptyRow={round === game.totalGameRounds && turn === 1}
                   key={`turn_${round}_${turn}`}
-                  roundsPerTurn={game.options.playersNumber}
+                  turnsPerRound={game.options.playersNumber}
                   roundNumber={round}
                   turnIndex={turn - 1}
                 />

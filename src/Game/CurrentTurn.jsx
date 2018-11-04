@@ -11,7 +11,7 @@ const CurrentTurn = ({
   previousTurns,
   roundNumber,
   turnIndex,
-  roundsPerTurn,
+  turnsPerRound,
   lastRow = false
 }) => {
   let tableCells = [];
@@ -20,7 +20,7 @@ const CurrentTurn = ({
     tableCells.push(
       <th
         key="roundNumber"
-        rowSpan={roundsPerTurn}
+        rowSpan={turnsPerRound}
         style={{
           width: "2em",
           fontSize: "large",
@@ -139,7 +139,7 @@ CurrentTurn.propTypes = {
   roundNumber: number.isRequired,
   lastRow: bool,
   turnIndex: number.isRequired,
-  roundsPerTurn: number.isRequired
+  turnsPerRound: number.isRequired
 };
 
 CurrentTurn.defaultProps = {
