@@ -4,8 +4,11 @@ import Table from "react-bootstrap/lib/Table";
 
 import { bool, number, arrayOf, shape, string } from "prop-types";
 
+import range from "range-inclusive";
+
 import GameTurnCompact from "./GameTurnCompact";
 import CurrentTurnCompact from "./CurrentTurnCompact";
+import EmptyTurnCompact from "./EmptyTurnCompact";
 
 const GameBoardCompact = ({ game }) => (
   <Table style={{ textAlign: "center" }}>
@@ -36,6 +39,26 @@ const GameBoardCompact = ({ game }) => (
           turnsPerRound={game.options.playersNumber}
         />
       )}
+      {game.progress.nextRound &&
+        range(game.progress.nextRound, game.totalGameRounds).reduce(
+          (cells, round) => {
+            const turnLowerBound =
+              round === game.progress.nextRound ? game.progress.nextTurn : 1;
+            return cells.concat(
+              range(turnLowerBound, game.options.playersNumber).map(turn => (
+                <EmptyTurnCompact
+                  lastRow={round === game.totalGameRounds}
+                  firstEmptyRow={round === game.totalGameRounds && turn === 1}
+                  key={`turn_${round}_${turn}`}
+                  turnsPerRound={game.options.playersNumber}
+                  roundNumber={round}
+                  turnIndex={turn - 1}
+                />
+              ))
+            );
+          },
+          []
+        )}
     </tbody>
   </Table>
 );
