@@ -14,9 +14,6 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
   const rowsPerTurn = lastRound ? 1 : 3;
 
   const prefixCells = [];
-  let priceCells = [];
-
-  let bank = 0;
 
   const cardCellStyle = {
     border: THICK_BORDER,
@@ -70,24 +67,10 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
       );
     }
 
-    bank = step.cashValue;
-
     return cells;
   }, []);
 
-  const bankCellStyle = {
-    border: THICK_BORDER,
-    textAlign: "left",
-    verticalAlign: "middle"
-  };
-
-  const bankCell = (
-    <td key="bank" style={bankCellStyle} rowSpan={rowsPerTurn}>
-      {bank}
-    </td>
-  );
-
-  priceCells = turn.steps.reduce((cells, step) => {
+  const priceCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "PRICE_CHANGE_STEP") {
       step.sharePrices.sort((a, b) => a.id - b.id).forEach((share, index) => {
         const priceIncrease =
@@ -121,10 +104,8 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
       });
     }
 
-    bank = step.cashValue;
-
     return cells;
-  }, priceCells);
+  }, []);
 
   const lastStepCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "LAST_BUY_SELL_STEP") {
@@ -147,10 +128,22 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
       );
     }
 
-    bank = step.cashValue;
-
     return cells;
   }, []);
+
+  const bankCell = (
+    <td
+      key="bank"
+      style={{
+        border: THICK_BORDER,
+        textAlign: "left",
+        verticalAlign: "middle"
+      }}
+      rowSpan={rowsPerTurn}
+    >
+      {turn.bank}
+    </td>
+  );
 
   return lastRound ? (
     <tr style={{ border: THICK_BORDER }}>
