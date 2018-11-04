@@ -10,7 +10,7 @@ const THICK_BORDER = "2px solid grey";
 const EmptyTurn = ({
   roundNumber,
   turnIndex,
-  turnsPerRound,
+  roundsPerTurn,
   lastRow = false,
   firstEmptyRow = false
 }) => {
@@ -20,7 +20,7 @@ const EmptyTurn = ({
     tableCells.push(
       <th
         key="roundNumber"
-        rowSpan={turnsPerRound}
+        rowSpan={roundsPerTurn}
         style={{
           width: "2em",
           fontSize: "large",
@@ -97,7 +97,7 @@ EmptyTurn.propTypes = {
   lastRow: bool,
   firstEmptyRow: bool,
   turnIndex: number.isRequired,
-  turnsPerRound: number.isRequired
+  roundsPerTurn: number.isRequired
 };
 
 EmptyTurn.defaultProps = {
