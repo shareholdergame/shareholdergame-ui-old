@@ -50,6 +50,8 @@ export const makeGetGame = () => {
           player => player.playerId === newResult.playerId
         ).playerCards;
 
+        newResult.appliedCards = [];
+
         return newResult;
       });
 
@@ -83,6 +85,8 @@ export const makeGetGame = () => {
 
         return newPlayer;
       });
+
+      const playerSet = game.result.sort((a, b) => a.turnOrder - b.turnOrder);
 
       const allTurns = [];
 
@@ -126,6 +130,11 @@ export const makeGetGame = () => {
 
             newTurn.appliedCard = cardMap[newTurn.appliedCardId];
 
+            if (newTurn.appliedCard) {
+              playerSet[newTurn.turn - 1].appliedCards.push(
+                newTurn.appliedCard
+              );
+            }
             return newTurn;
           });
 

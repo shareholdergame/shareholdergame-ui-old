@@ -5,7 +5,7 @@ import Image from "react-bootstrap/lib/Image";
 
 import { number, arrayOf, shape } from "prop-types";
 
-const GameScore = ({ game }) => (
+const GameScore = ({ game, self }) => (
   <div>
     <Table bordered>
       <tbody>
@@ -23,8 +23,13 @@ const GameScore = ({ game }) => (
             </td>
             <td>{result.totalFunds}</td>
             <td>
-              {result.playerCards.map(dealtCard => (
-                <span key={dealtCard.id}>{dealtCard.card.cardLabel}</span>
+              {(self.id === result.player.id
+                ? result.playerCards
+                : result.appliedCards
+              ).map(displayedCard => (
+                <span key={displayedCard.id}>
+                  {displayedCard.card.cardLabel}
+                </span>
               ))}
             </td>
           </tr>
@@ -41,7 +46,14 @@ GameScore.propTypes = {
         totalFunds: number.isRequired
       }).isRequired
     ).isRequired
-  }).isRequired
+  }).isRequired,
+  self: shape({
+    id: number
+  })
+};
+
+GameScore.defaultProps = {
+  self: null
 };
 
 export default GameScore;

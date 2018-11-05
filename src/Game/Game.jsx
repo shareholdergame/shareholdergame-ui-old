@@ -7,7 +7,7 @@ import Media from "react-media";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 
-import { bool, shape, string } from "prop-types";
+import { bool, shape, string, number } from "prop-types";
 
 import { FormattedMessage } from "react-intl";
 
@@ -19,7 +19,7 @@ import GameBoardCompact from "./GameBoardCompact";
 
 import { makeGetGame } from "./gameSelectors";
 
-const Game = ({ game }) =>
+const Game = ({ game, self }) =>
   !game.loading && (
     <div>
       <Row>
@@ -49,7 +49,7 @@ const Game = ({ game }) =>
             ? [
                 <Row>
                   <Col xs={12}>
-                    <GameScoreCompact game={game} />
+                    <GameScoreCompact game={game} self={self} />
                   </Col>
                 </Row>,
                 <Row>
@@ -61,7 +61,7 @@ const Game = ({ game }) =>
             : [
                 <Row>
                   <Col xs={12}>
-                    <GameScore game={game} />
+                    <GameScore game={game} self={self} />
                   </Col>
                 </Row>,
                 <Row>
@@ -79,13 +79,18 @@ Game.propTypes = {
   game: shape({
     loading: bool.isRequired,
     letter: string.isRequired
-  }).isRequired
+  }).isRequired,
+  self: shape({
+    id: number
+  })
 };
 
 Game.defaultProps = {
-  game: null
+  game: null,
+  self: null
 };
 
 export default connect((state, props) => ({
-  game: makeGetGame()(state, props)
+  game: makeGetGame()(state, props),
+  self: state.self.self
 }))(Game);
