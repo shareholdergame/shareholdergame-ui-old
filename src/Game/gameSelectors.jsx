@@ -146,7 +146,7 @@ export const makeGetGame = () => {
       for (let i = 0; i < game.result.length; i += 1) {
         game.result[i].outstandingCards = game.result[i].playerCards.filter(
           dealtCard =>
-            game.result[i].appliedCards.find(
+            !game.result[i].appliedCards.find(
               appliedCard => appliedCard.id === dealtCard.id
             )
         );

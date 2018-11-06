@@ -1,6 +1,7 @@
 import React from "react";
 
 import { bool, number, arrayOf, shape } from "prop-types";
+import { injectIntl, intlShape } from "react-intl";
 
 import { allColors } from "../Cards/CardColor";
 import ShareCell from "./ShareCell";
@@ -13,7 +14,8 @@ const CurrentTurnCompact = ({
   turnIndex,
   turnsPerRound,
   lastRound,
-  outstandingCards
+  outstandingCards,
+  intl
 }) => {
   const rowsPerTurn = lastRound ? 1 : 3;
 
@@ -52,8 +54,11 @@ const CurrentTurnCompact = ({
     >
       <select>
         <option />
-        {outstandingCards.map(card => (
-          <option key={card.cardString}>{card.cardString}</option>
+        {outstandingCards.map(outstandingCard => (
+          <option key={outstandingCard.id}>
+            {outstandingCard.card.cardString}
+            {intl.formatMessage(outstandingCard.card.color.letter)}
+          </option>
         ))}
       </select>
     </td>
@@ -146,11 +151,12 @@ CurrentTurnCompact.propTypes = {
   lastRound: bool,
   turnIndex: number.isRequired,
   turnsPerRound: number.isRequired,
-  outstandingCards: arrayOf(shape()).isRequired
+  outstandingCards: arrayOf(shape()).isRequired,
+  intl: intlShape.isRequired
 };
 
 CurrentTurnCompact.defaultProps = {
   lastRound: false
 };
 
-export default CurrentTurnCompact;
+export default injectIntl(CurrentTurnCompact);
