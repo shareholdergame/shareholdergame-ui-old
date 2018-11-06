@@ -37,6 +37,7 @@ const GameBoardCompact = ({ game }) => (
           roundNumber={game.progress.round}
           turnIndex={game.progress.turn - 1}
           turnsPerRound={game.options.playersNumber}
+          outstandingCards={game.result[game.progress.turn - 1].appliedCards}
         />
       )}
       {game.progress.nextRound &&

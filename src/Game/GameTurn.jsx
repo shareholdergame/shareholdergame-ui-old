@@ -22,12 +22,14 @@ const GameTurn = ({
   const bankCellStyle = {
     borderLeft: THICK_BORDER,
     borderRight: THICK_BORDER,
-    textAlign: "left"
+    textAlign: "left",
+    verticalAlign: "middle"
   };
 
   const cardCellStyle = {
     borderLeft: THICK_BORDER,
-    borderRight: THICK_BORDER
+    borderRight: THICK_BORDER,
+    verticalAlign: "middle"
   };
 
   if (lastRow) {
@@ -114,7 +116,8 @@ const GameTurn = ({
               : Color(allColors[index].style)
                   .darken(0.5)
                   .alpha(0.2),
-          backgroundColor: Color(allColors[index].style).alpha(0.1)
+          backgroundColor: Color(allColors[index].style).alpha(0.1),
+          verticalAlign: "middle"
         };
 
         if (index === allColors.length - 1) {
@@ -185,7 +188,15 @@ const GameTurn = ({
   );
 
   return (
-    <tr style={!turnIndex ? { borderTop: THICK_BORDER } : {}}>{tableCells}</tr>
+    <tr
+      style={
+        !turnIndex
+          ? { borderTop: THICK_BORDER, verticalAlign: "middle" }
+          : { verticalAlign: "middle" }
+      }
+    >
+      {tableCells}
+    </tr>
   );
 };
 

@@ -146,14 +146,14 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
   );
 
   return lastRound ? (
-    <tr style={{ border: THICK_BORDER }}>
+    <tr style={{ border: THICK_BORDER, verticalAlign: "middle" }}>
       {prefixCells}
       {priceCells}
       {bankCell}
     </tr>
   ) : (
     [
-      <tr style={{ borderTop: THICK_BORDER }}>
+      <tr style={{ borderTop: THICK_BORDER, verticalAlign: "middle" }}>
         {prefixCells}
         {firstStepCells}
         {bankCell}

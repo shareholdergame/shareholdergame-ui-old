@@ -2,13 +2,14 @@ import React from "react";
 
 import BigCard from "./BigCard";
 
-import MultiplyBy2CardLabel from "./MultiplyBy2CardLabel";
+import BigCardLabel from "./BigCardLabel";
 
 class MultiplyBy2Card extends BigCard {
-  constructor(color) {
-    super(color);
+  constructor({ color }) {
+    super({ color });
 
-    this.cardLabel = <MultiplyBy2CardLabel card={this} />;
+    this.cardString = "x2";
+    this.cardLabel = <BigCardLabel card={this} />;
     this.sortOrder = 24;
   }
 }

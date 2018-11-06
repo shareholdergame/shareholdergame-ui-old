@@ -2,52 +2,53 @@ import { BLUE, RED, YELLOW, GREEN } from "./CardColor";
 
 import SmallCard from "./SmallCard";
 
-const smallCards = [];
-
 class SmallDeck {
-  static get(id) {
-    return smallCards[id];
+  constructor() {
+    this.smallCards = [];
+    // +30 & -60
+    this.smallCards[13] = new SmallCard({ color: BLUE, value: +30 });
+    this.smallCards[14] = new SmallCard({ color: BLUE, value: -60 });
+    this.smallCards[15] = new SmallCard({ color: RED, value: +30 });
+    this.smallCards[16] = new SmallCard({ color: RED, value: -60 });
+    this.smallCards[17] = new SmallCard({ color: YELLOW, value: +30 });
+    this.smallCards[18] = new SmallCard({ color: YELLOW, value: -60 });
+    this.smallCards[19] = new SmallCard({ color: GREEN, value: +30 });
+    this.smallCards[20] = new SmallCard({ color: GREEN, value: -60 });
+
+    // +40 & -50
+    this.smallCards[21] = new SmallCard({ color: BLUE, value: +40 });
+    this.smallCards[22] = new SmallCard({ color: BLUE, value: -50 });
+    this.smallCards[23] = new SmallCard({ color: RED, value: +40 });
+    this.smallCards[24] = new SmallCard({ color: RED, value: -50 });
+    this.smallCards[25] = new SmallCard({ color: YELLOW, value: +40 });
+    this.smallCards[26] = new SmallCard({ color: YELLOW, value: -50 });
+    this.smallCards[27] = new SmallCard({ color: GREEN, value: +40 });
+    this.smallCards[28] = new SmallCard({ color: GREEN, value: -50 });
+
+    // +50 & -40
+    this.smallCards[29] = new SmallCard({ color: BLUE, value: +50 });
+    this.smallCards[30] = new SmallCard({ color: BLUE, value: -40 });
+    this.smallCards[31] = new SmallCard({ color: RED, value: +50 });
+    this.smallCards[32] = new SmallCard({ color: RED, value: -40 });
+    this.smallCards[33] = new SmallCard({ color: YELLOW, value: +50 });
+    this.smallCards[34] = new SmallCard({ color: YELLOW, value: -40 });
+    this.smallCards[35] = new SmallCard({ color: GREEN, value: +50 });
+    this.smallCards[36] = new SmallCard({ color: GREEN, value: -40 });
+
+    // +60 & -30
+    this.smallCards[37] = new SmallCard({ color: BLUE, value: +60 });
+    this.smallCards[38] = new SmallCard({ color: BLUE, value: -30 });
+    this.smallCards[39] = new SmallCard({ color: RED, value: +60 });
+    this.smallCards[40] = new SmallCard({ color: RED, value: -30 });
+    this.smallCards[41] = new SmallCard({ color: YELLOW, value: +60 });
+    this.smallCards[42] = new SmallCard({ color: YELLOW, value: -30 });
+    this.smallCards[43] = new SmallCard({ color: GREEN, value: +60 });
+    this.smallCards[44] = new SmallCard({ color: GREEN, value: -30 });
+  }
+
+  get(id) {
+    return this.smallCards[id];
   }
 }
-
-// +30 & -60
-smallCards[13] = new SmallCard(BLUE, +30);
-smallCards[14] = new SmallCard(BLUE, -60);
-smallCards[15] = new SmallCard(RED, +30);
-smallCards[16] = new SmallCard(RED, -60);
-smallCards[17] = new SmallCard(YELLOW, +30);
-smallCards[18] = new SmallCard(YELLOW, -60);
-smallCards[19] = new SmallCard(GREEN, +30);
-smallCards[20] = new SmallCard(GREEN, -60);
-
-// +40 & -50
-smallCards[21] = new SmallCard(BLUE, +40);
-smallCards[22] = new SmallCard(BLUE, -50);
-smallCards[23] = new SmallCard(RED, +40);
-smallCards[24] = new SmallCard(RED, -50);
-smallCards[25] = new SmallCard(YELLOW, +40);
-smallCards[26] = new SmallCard(YELLOW, -50);
-smallCards[27] = new SmallCard(GREEN, +40);
-smallCards[28] = new SmallCard(GREEN, -50);
-
-// +50 & -40
-smallCards[29] = new SmallCard(BLUE, +50);
-smallCards[30] = new SmallCard(BLUE, -40);
-smallCards[31] = new SmallCard(RED, +50);
-smallCards[32] = new SmallCard(RED, -40);
-smallCards[33] = new SmallCard(YELLOW, +50);
-smallCards[34] = new SmallCard(YELLOW, -40);
-smallCards[35] = new SmallCard(GREEN, +50);
-smallCards[36] = new SmallCard(GREEN, -40);
-
-// +60 & -30
-smallCards[37] = new SmallCard(BLUE, +60);
-smallCards[38] = new SmallCard(BLUE, -30);
-smallCards[39] = new SmallCard(RED, +60);
-smallCards[40] = new SmallCard(RED, -30);
-smallCards[41] = new SmallCard(YELLOW, +60);
-smallCards[42] = new SmallCard(YELLOW, -30);
-smallCards[43] = new SmallCard(GREEN, +60);
-smallCards[44] = new SmallCard(GREEN, -30);
 
 export default SmallDeck;

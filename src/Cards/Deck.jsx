@@ -2,8 +2,13 @@ import SmallDeck from "./SmallDeck";
 import BigDeck from "./BigDeck";
 
 class Deck {
-  static get(id) {
-    return SmallDeck.get(id) || BigDeck.get(id);
+  constructor() {
+    this.small = new SmallDeck();
+    this.big = new BigDeck();
+  }
+
+  get(id) {
+    return this.small.get(id) || this.big.get(id);
   }
 }
 

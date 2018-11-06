@@ -8,6 +8,7 @@ const ShareCell = ({ color, children, style, current }) => (
   <td
     style={{
       ...style,
+      verticalAlign: "middle",
       backgroundColor: Color(color.style)
         .alpha(0.1)
         .darken(current ? 0.5 : 0)

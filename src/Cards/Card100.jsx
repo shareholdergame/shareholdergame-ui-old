@@ -2,13 +2,14 @@ import React from "react";
 
 import BigCard from "./BigCard";
 
-import Card100Label from "./Card100Label";
+import BigCardLabel from "./BigCardLabel";
 
 class Card100 extends BigCard {
-  constructor(color) {
-    super(color);
+  constructor({ color }) {
+    super({ color });
 
-    this.cardLabel = <Card100Label card={this} />;
+    this.cardString = "100";
+    this.cardLabel = <BigCardLabel card={this} />;
     this.sortOrder = 25;
   }
 }

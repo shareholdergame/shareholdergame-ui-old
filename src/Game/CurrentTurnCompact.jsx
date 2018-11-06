@@ -12,7 +12,8 @@ const CurrentTurnCompact = ({
   roundNumber,
   turnIndex,
   turnsPerRound,
-  lastRound
+  lastRound,
+  outstandingCards
 }) => {
   const rowsPerTurn = lastRound ? 1 : 3;
 
@@ -51,13 +52,9 @@ const CurrentTurnCompact = ({
     >
       <select>
         <option />
-        <option>+30r</option>
-        <option>100g</option>
-        <option>+30r</option>
-        <option>+30r</option>
-        <option>+30r</option>
-        <option>+30r</option>
-        <option>+30r</option>
+        {outstandingCards.map(card => (
+          <option key={card.cardString}>{card.cardString}</option>
+        ))}
       </select>
     </td>
   );
@@ -125,14 +122,14 @@ const CurrentTurnCompact = ({
   );
 
   return lastRound ? (
-    <tr style={{ border: THICK_BORDER }}>
+    <tr style={{ border: THICK_BORDER, verticalAlign: "middle" }}>
       {prefixCells}
       {priceCells}
       {bankCell}
     </tr>
   ) : (
     [
-      <tr style={{ borderTop: THICK_BORDER }}>
+      <tr style={{ borderTop: THICK_BORDER, verticalAlign: "middle" }}>
         {prefixCells}
         {firstStepCells}
         {bankCell}
@@ -148,7 +145,8 @@ CurrentTurnCompact.propTypes = {
   roundNumber: number.isRequired,
   lastRound: bool,
   turnIndex: number.isRequired,
-  turnsPerRound: number.isRequired
+  turnsPerRound: number.isRequired,
+  outstandingCards: arrayOf(shape()).isRequired
 };
 
 CurrentTurnCompact.defaultProps = {

@@ -8,6 +8,8 @@ import { bool, number, arrayOf, shape, string } from "prop-types";
 
 import range from "range-inclusive";
 
+import { injectIntl, intlShape } from "react-intl";
+
 import GameTurn from "./GameTurn";
 import CurrentTurn from "./CurrentTurn";
 import EmptyTurn from "./EmptyTurn";
@@ -16,7 +18,7 @@ import { allColors } from "../Cards/CardColor";
 
 const THICK_BORDER = "2px solid grey";
 
-const GameBoard = ({ game }) => (
+const GameBoard = ({ game, intl }) => (
   <Table bordered style={{ textAlign: "center" }}>
     <thead>
       <tr>
@@ -31,7 +33,7 @@ const GameBoard = ({ game }) => (
               textAlign: "center"
             }}
           >
-            {color.columnLabel}
+            {intl.formatMessage(color.columnLabel)}
           </th>
         ))}
         <th
@@ -49,7 +51,7 @@ const GameBoard = ({ game }) => (
               textAlign: "center"
             }}
           >
-            {color.columnLabel}
+            {intl.formatMessage(color.columnLabel)}
           </th>
         ))}
         {allColors.map(color => (
@@ -62,7 +64,7 @@ const GameBoard = ({ game }) => (
               textAlign: "center"
             }}
           >
-            {color.columnLabel}
+            {intl.formatMessage(color.columnLabel)}
           </th>
         ))}
         <th
@@ -100,6 +102,7 @@ const GameBoard = ({ game }) => (
           roundNumber={game.progress.round}
           turnIndex={game.progress.turn - 1}
           turnsPerRound={game.options.playersNumber}
+          outstandingCards={game.result[game.progress.turn - 1].appliedCards}
         />
       )}
       {game.progress.nextRound &&
@@ -136,7 +139,8 @@ GameBoard.propTypes = {
         wonmoney: number
       })
     ).isRequired
-  }).isRequired
+  }).isRequired,
+  intl: intlShape.isRequired
 };
 
-export default GameBoard;
+export default injectIntl(GameBoard);

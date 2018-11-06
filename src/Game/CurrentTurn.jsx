@@ -1,6 +1,7 @@
 import React from "react";
 
 import { bool, number, arrayOf, shape } from "prop-types";
+import { injectIntl, intlShape } from "react-intl";
 
 import { allColors } from "../Cards/CardColor";
 import ShareCell from "./ShareCell";
@@ -12,7 +13,9 @@ const CurrentTurn = ({
   roundNumber,
   turnIndex,
   turnsPerRound,
-  lastRow = false
+  lastRow = false,
+  outstandingCards,
+  intl
 }) => {
   let tableCells = [];
 
@@ -67,13 +70,12 @@ const CurrentTurn = ({
     <td style={{ ...selectedRowStyle, border: THICK_BORDER }}>
       <select>
         <option />
-        <option>+30r</option>
-        <option>100g</option>
-        <option>+30r</option>
-        <option>+30r</option>
-        <option>+30r</option>
-        <option>+30r</option>
-        <option>+30r</option>
+        {outstandingCards.map(outstandingCard => (
+          <option key={outstandingCard.id}>
+            {outstandingCard.card.cardString}
+            {intl.formatMessage(outstandingCard.card.color.letter)}
+          </option>
+        ))}
       </select>
     </td>
   );
@@ -128,7 +130,13 @@ const CurrentTurn = ({
   );
 
   return (
-    <tr style={{ borderTop: THICK_BORDER, borderBottom: THICK_BORDER }}>
+    <tr
+      style={{
+        borderTop: THICK_BORDER,
+        borderBottom: THICK_BORDER,
+        verticalAlign: "middle"
+      }}
+    >
       {tableCells}
     </tr>
   );
@@ -139,11 +147,13 @@ CurrentTurn.propTypes = {
   roundNumber: number.isRequired,
   lastRow: bool,
   turnIndex: number.isRequired,
-  turnsPerRound: number.isRequired
+  turnsPerRound: number.isRequired,
+  outstandingCards: arrayOf(shape()).isRequired,
+  intl: intlShape.isRequired
 };
 
 CurrentTurn.defaultProps = {
   lastRow: false
 };
 
-export default CurrentTurn;
+export default injectIntl(CurrentTurn);

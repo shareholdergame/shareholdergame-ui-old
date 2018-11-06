@@ -2,13 +2,14 @@ import React from "react";
 
 import BigCard from "./BigCard";
 
-import DivideBy2CardLabel from "./DivideBy2CardLabel";
+import BigCardLabel from "./BigCardLabel";
 
 class DivideBy2Card extends BigCard {
-  constructor(color) {
-    super(color);
+  constructor({ color }) {
+    super({ color });
 
-    this.cardLabel = <DivideBy2CardLabel card={this} />;
+    this.cardString = ":2";
+    this.cardLabel = <BigCardLabel card={this} />;
     this.sortOrder = 24;
   }
 }

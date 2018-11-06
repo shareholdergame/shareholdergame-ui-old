@@ -10,6 +10,8 @@ const gameStepSequence = {
   COMPENSATION_STEP: 3
 };
 
+const deck = new Deck();
+
 export const makeGetGameSet = () =>
   createSelector(
     [state => state.games.sets, (state, props) => props.match.params.setSlug],
@@ -65,28 +67,28 @@ export const makeGetGame = () => {
         result.playerCards.forEach(cardData => {
           newCards[cardData.id] = new DealtCard(
             cardData.id,
-            Deck.get(cardData.cardId)
+            deck.get(cardData.cardId)
           );
         });
 
         return newCards;
       }, {});
 
-      // cloning user object and overriding their playerCards object
-      game.result = game.result.map(player => {
-        const newPlayer = { ...player };
+      // cloning player object and overriding their playerCards object
+      game.result = game.result
+        .map(player => {
+          const newPlayer = { ...player };
 
-        // override cardData structures with card objects
-        newPlayer.playerCards = newPlayer.playerCards
-          .map(cardData => cardMap[cardData.id])
-          .sort((a, b) => b.card.getSortOrder() - a.card.getSortOrder());
+          // override cardData structures with card objects
+          newPlayer.playerCards = newPlayer.playerCards
+            .map(cardData => cardMap[cardData.id])
+            .sort((a, b) => b.card.getSortOrder() - a.card.getSortOrder());
 
-        newPlayer.player = playerMap[newPlayer.playerId];
+          newPlayer.player = playerMap[newPlayer.playerId];
 
-        return newPlayer;
-      });
-
-      const playerSet = game.result.sort((a, b) => a.turnOrder - b.turnOrder);
+          return newPlayer;
+        })
+        .sort((a, b) => a.turnOrder - b.turnOrder);
 
       const allTurns = [];
 
@@ -131,7 +133,7 @@ export const makeGetGame = () => {
             newTurn.appliedCard = cardMap[newTurn.appliedCardId];
 
             if (newTurn.appliedCard) {
-              playerSet[newTurn.turn - 1].appliedCards.push(
+              game.result[newTurn.turn - 1].appliedCards.push(
                 newTurn.appliedCard
               );
             }
@@ -140,6 +142,15 @@ export const makeGetGame = () => {
 
         return newRound;
       });
+
+      for (let i = 0; i < game.result.length; i += 1) {
+        game.result[i].outstandingCards = game.result[i].playerCards.filter(
+          dealtCard =>
+            game.result[i].appliedCards.find(
+              appliedCard => appliedCard.id === dealtCard.id
+            )
+        );
+      }
 
       game.rounds.forEach(round => {
         const newRound = { ...round };

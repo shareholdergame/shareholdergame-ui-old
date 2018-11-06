@@ -1,5 +1,4 @@
-import React from "react";
-import { FormattedMessage } from "react-intl";
+import { defineMessages } from "react-intl";
 
 class CardColor {
   constructor(letter, columnLabel, style, sortOrder) {
@@ -12,75 +11,73 @@ class CardColor {
 
 export default CardColor;
 
+const colorLetters = defineMessages({
+  blue: {
+    id: "card.colors.letter.blue",
+    description: "Card color letter for blue cards",
+    defaultMessage: "b"
+  },
+  red: {
+    id: "card.colors.letter.red",
+    description: "Card color letter for red cards",
+    defaultMessage: "r"
+  },
+  yellow: {
+    id: "card.colors.letter.yellow",
+    description: "Card, color letter for yellow cards",
+    defaultMessage: "y"
+  },
+  green: {
+    id: "card.colors.letter.green",
+    description: "Card color letter for green cards",
+    defaultMessage: "g"
+  }
+});
+
+const colorColumnLabels = defineMessages({
+  blue: {
+    id: "card.colors.column.blue",
+    description: "Card color column label for blue cards",
+    defaultMessage: "Blue"
+  },
+  red: {
+    id: "card.colors.column.red",
+    description: "Card color column label for red cards",
+    defaultMessage: "Red"
+  },
+  yellow: {
+    id: "card.colors.column.yellow",
+    description: "Card, color column label for yellow cards",
+    defaultMessage: "Yellow"
+  },
+  green: {
+    id: "card.colors.column.green",
+    description: "Card color column label for green cards",
+    defaultMessage: "Green"
+  }
+});
+
 export const BLUE = new CardColor(
-  (
-    <FormattedMessage
-      id="card.colors.letter.blue"
-      description="Card color letter for blue cards"
-      defaultMessage="b"
-    />
-  ),
-  (
-    <FormattedMessage
-      id="card.colors.column.blue"
-      description="Card color column label for blue cards"
-      defaultMessage="Blue"
-    />
-  ),
+  colorLetters.blue,
+  colorColumnLabels.blue,
   "blue",
   400
 );
 export const RED = new CardColor(
-  (
-    <FormattedMessage
-      id="card.colors.letter.red"
-      description="Card color letter for red cards"
-      defaultMessage="r"
-    />
-  ),
-  (
-    <FormattedMessage
-      id="card.colors.column.red"
-      description="Card color column label for red cards"
-      defaultMessage="Red"
-    />
-  ),
+  colorLetters.red,
+  colorColumnLabels.red,
   "red",
   300
 );
 export const YELLOW = new CardColor(
-  (
-    <FormattedMessage
-      id="card.colors.letter.yellow"
-      description="Card color letter for yellow cards"
-      defaultMessage="y"
-    />
-  ),
-  (
-    <FormattedMessage
-      id="card.colors.column.yellow"
-      description="Card color column label for yellow cards"
-      defaultMessage="Yellow"
-    />
-  ),
+  colorLetters.yellow,
+  colorColumnLabels.yellow,
   "yellow",
   200
 );
 export const GREEN = new CardColor(
-  (
-    <FormattedMessage
-      id="card.colors.letter.green"
-      description="Card color letter for green cards"
-      defaultMessage="g"
-    />
-  ),
-  (
-    <FormattedMessage
-      id="card.colors.column.green"
-      description="Card color column label for green cards"
-      defaultMessage="Green"
-    />
-  ),
+  colorLetters.green,
+  colorColumnLabels.green,
   "green",
   100
 );
