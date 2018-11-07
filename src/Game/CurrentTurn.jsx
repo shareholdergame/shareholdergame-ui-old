@@ -94,7 +94,15 @@ const CurrentTurn = ({
   );
 
   if (lastRow) {
-    tableCells.push(<td colSpan={4} style={selectedRowStyle} />);
+    tableCells.push(
+      <td
+        colSpan={4}
+        style={{
+          borderLeft: THICK_BORDER,
+          ...selectedRowStyle
+        }}
+      />
+    );
   } else {
     tableCells = tableCells.concat(
       allColors.map((color, index) => (
