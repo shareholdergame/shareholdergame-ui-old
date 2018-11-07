@@ -144,6 +144,10 @@ export const makeGetGame = () => {
       });
 
       for (let i = 0; i < game.result.length; i += 1) {
+        game.result[i].appliedCards = game.result[i].appliedCards.sort(
+          (a, b) => b.card.getSortOrder() - a.card.getSortOrder()
+        );
+
         game.result[i].outstandingCards = game.result[i].playerCards.filter(
           dealtCard =>
             !game.result[i].appliedCards.find(

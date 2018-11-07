@@ -16,35 +16,35 @@
     "published": false,
     "players": [
       {
-        "id": 1234,
-        "name": "Governor",
-        "bot": false,
-        "initiator": false,
-        "avatar": "avatar_8.jpg"
-      },
-      {
         "id": 456,
         "name": "Sergey Chernyshev",
         "bot": false,
         "initiator": true,
         "avatar": "avatar_137.jpg"
+      },
+      {
+        "id": 1234,
+        "name": "Governor",
+        "bot": false,
+        "initiator": false,
+        "avatar": "avatar_8.jpg"
       }
     ],
     "gameSetResult": [
-      {
-        "playerId": 1234,
-        "winner": true,
-        "totalPoints": 2,
-        "totalFunds": 553080,
-        "fundsDifference": 461000,
-        "bankrupt": false
-      },
       {
         "playerId": 456,
         "winner": false,
         "totalPoints": 0,
         "totalFunds": 92080,
         "fundsDifference": -461000,
+        "bankrupt": false
+      },
+      {
+        "playerId": 1234,
+        "winner": true,
+        "totalPoints": 2,
+        "totalFunds": 553080,
+        "fundsDifference": 461000,
         "bankrupt": false
       }
     ],
@@ -54,7 +54,7 @@
         "letter": "A",
         "result": [
           {
-            "turnOrder": 1,
+            "turnOrder": 2,
             "winner": false,
             "totalPoints": 0,
             "playerId": 456,
@@ -63,7 +63,7 @@
             "bankrupt": false
           },
           {
-            "turnOrder": 2,
+            "turnOrder": 1,
             "winner": true,
             "totalPoints": 1,
             "playerId": 1234,
@@ -78,7 +78,7 @@
         "letter": "B",
         "result": [
           {
-            "turnOrder": 1,
+            "turnOrder": 2,
             "winner": true,
             "totalPoints": 1,
             "playerId": 1234,
@@ -87,7 +87,7 @@
             "bankrupt": false
           },
           {
-            "turnOrder": 2,
+            "turnOrder": 1,
             "winner": false,
             "totalPoints": 0,
             "playerId": 456,

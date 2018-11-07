@@ -78,9 +78,9 @@
               "userpic": "avatar_137.jpg"
             },
             {
-              "id": 1,
-              "name": "Admin",
-              "userpic": "avatar_1.png"
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
             }
           ]
         }
@@ -101,14 +101,14 @@
           },
           "players": [
             {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            },
+            {
               "id": 5678,
               "name": "Sergey Chernyshev",
               "userpic": "avatar_137.jpg"
-            },
-            {
-              "id": 1,
-              "name": "Admin",
-              "userpic": "avatar_1.png"
             }
           ]
         }
