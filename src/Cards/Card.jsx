@@ -1,3 +1,4 @@
+export const CARD_RADIUS = "0.3em";
 class Card {
   constructor({ color }) {
     this.color = color;

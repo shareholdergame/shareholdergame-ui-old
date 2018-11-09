@@ -4,25 +4,27 @@ import { injectIntl, intlShape } from "react-intl";
 
 import Color from "color";
 
+import { CARD_RADIUS } from "./Card";
+
 const SmallCardLabel = ({ card, intl }) => {
   const style = {
     backgroundColor: "white",
-    padding: "0 0.5em",
+    padding: "0.3em 1em",
     margin: "0 0.5em",
-    border: `1px solid silver`,
+    border: `1px solid grey`,
     display: "block",
     textAlign: "center"
   };
 
   const upper = {
-    borderTopLeftRadius: "0.5em",
-    borderTopRightRadius: "0.5em",
-    borderBottom: "1px solid silver"
+    borderTopLeftRadius: CARD_RADIUS,
+    borderTopRightRadius: CARD_RADIUS,
+    borderBottom: "1px solid grey"
   };
 
   const lower = {
-    borderBottomLeftRadius: "0.5em",
-    borderBottomRightRadius: "0.5em",
+    borderBottomLeftRadius: CARD_RADIUS,
+    borderBottomRightRadius: CARD_RADIUS,
     borderTop: "0"
   };
 
