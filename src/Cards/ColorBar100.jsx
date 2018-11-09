@@ -29,7 +29,8 @@ const getBarStyle = (barNumber, colorStyle) => ({
 
 const barNumberStyle = {
   display: "inline-block",
-  marginTop: "0.8em"
+  marginTop: "0.8em",
+  width: "2em"
 };
 
 const barBoxStyle = { fontSize: "0.8em", position: "relative" };

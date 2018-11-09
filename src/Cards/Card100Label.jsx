@@ -5,8 +5,6 @@ import Color from "color";
 
 import { CARD_RADIUS } from "./Card";
 
-import { RED, BLUE, YELLOW } from "./CardColor";
-
 import ColorBar100, { MINUS_10, MINUS_20, MINUS_30 } from "./ColorBar100";
 
 const Card100Label = ({ card, intl }) => (
@@ -14,7 +12,7 @@ const Card100Label = ({ card, intl }) => (
     style={{
       borderTopLeftRadius: CARD_RADIUS,
       borderTopRightRadius: CARD_RADIUS,
-      margin: "0.2em 0.2em",
+      margin: "0.2em",
       display: "inline-block",
       minWidth: "7.5em"
     }}
@@ -41,9 +39,9 @@ const Card100Label = ({ card, intl }) => (
         borderBottomRightRadius: CARD_RADIUS
       }}
     >
-      <ColorBar100 color={RED} barNumber={MINUS_30} />
-      <ColorBar100 color={BLUE} barNumber={MINUS_20} />
-      <ColorBar100 color={YELLOW} barNumber={MINUS_10} />
+      <ColorBar100 barNumber={MINUS_30} />
+      <ColorBar100 barNumber={MINUS_20} />
+      <ColorBar100 barNumber={MINUS_10} />
     </div>
   </span>
 );
