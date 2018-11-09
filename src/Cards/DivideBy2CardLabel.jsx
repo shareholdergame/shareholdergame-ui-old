@@ -1,5 +1,5 @@
 import React from "react";
-import { shape, string, node } from "prop-types";
+import { shape, string } from "prop-types";
 import { injectIntl, intlShape } from "react-intl";
 import Color from "color";
 
@@ -48,7 +48,7 @@ const DivideBy2CardLabel = ({ card, intl }) => (
 DivideBy2CardLabel.propTypes = {
   card: shape({
     color: shape({
-      letter: node.isRequired,
+      letter: shape().isRequired,
       style: string.isRequired
     }).isRequired,
     cardString: string.isRequired

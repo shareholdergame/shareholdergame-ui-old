@@ -1,13 +1,14 @@
 import React from "react";
 
 import { number } from "prop-types";
+import { injectIntl, intlShape } from "react-intl";
 
 import { allColors } from "../Cards/CardColor";
 import ShareCell from "./ShareCell";
 
 const THICK_BORDER = "2px solid grey";
 
-const EmptyTurnCompact = ({ roundNumber, turnIndex, turnsPerRound }) => {
+const EmptyTurnCompact = ({ roundNumber, turnIndex, turnsPerRound, intl }) => {
   const prefixCells = [];
 
   if (turnIndex === 0) {
@@ -30,6 +31,7 @@ const EmptyTurnCompact = ({ roundNumber, turnIndex, turnsPerRound }) => {
 
   prefixCells.push(
     <td
+      key="card"
       style={{
         border: THICK_BORDER,
         verticalAlign: "middle"
@@ -38,7 +40,10 @@ const EmptyTurnCompact = ({ roundNumber, turnIndex, turnsPerRound }) => {
   );
 
   const colorCells = allColors.map(color => (
-    <ShareCell key={`price_${color.letter}`} color={color} />
+    <ShareCell
+      key={`price_${intl.formatMessage(color.letter)}`}
+      color={color}
+    />
   ));
 
   const bankCell = (
@@ -65,7 +70,8 @@ const EmptyTurnCompact = ({ roundNumber, turnIndex, turnsPerRound }) => {
 EmptyTurnCompact.propTypes = {
   roundNumber: number.isRequired,
   turnIndex: number.isRequired,
-  turnsPerRound: number.isRequired
+  turnsPerRound: number.isRequired,
+  intl: intlShape.isRequired
 };
 
-export default EmptyTurnCompact;
+export default injectIntl(EmptyTurnCompact);

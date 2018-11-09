@@ -1,5 +1,5 @@
 import React from "react";
-import { number, shape, string, node } from "prop-types";
+import { number, shape, string } from "prop-types";
 import { injectIntl, intlShape } from "react-intl";
 
 import Color from "color";
@@ -70,7 +70,7 @@ const SmallCardLabel = ({ card, intl }) => {
 SmallCardLabel.propTypes = {
   card: shape({
     color: shape({
-      letter: node.isRequired,
+      letter: shape().isRequired,
       style: string.isRequired
     }).isRequired,
     value: number.isRequired,

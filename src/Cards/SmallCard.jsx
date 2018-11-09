@@ -8,7 +8,7 @@ class SmallCard extends Card {
     super({ color });
 
     this.value = value;
-    this.cardString = this.value > 0 ? `+${this.value}` : this.value;
+    this.cardString = this.value > 0 ? `+${this.value}` : `${this.value}`;
 
     this.oppositeValue = this.value > 0 ? this.value - 70 : 70 + this.value;
     this.oppositeString =

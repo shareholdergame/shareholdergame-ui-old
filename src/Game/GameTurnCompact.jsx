@@ -50,7 +50,11 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
     if (step.stepType === "FIRST_BUY_SELL_STEP") {
       step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
         cells.push(
-          <ShareCell key={share.id} share={share} color={allColors[index]}>
+          <ShareCell
+            key={`first_${share.id}`}
+            share={share}
+            color={allColors[index]}
+          >
             <span
               style={{
                 color: share.amount
@@ -111,7 +115,11 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
     if (step.stepType === "LAST_BUY_SELL_STEP") {
       step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
         cells.push(
-          <ShareCell key={share.id} share={share} color={allColors[index]}>
+          <ShareCell
+            key={`last_${share.id}`}
+            share={share}
+            color={allColors[index]}
+          >
             <span
               style={{
                 color: share.amount
@@ -146,20 +154,31 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
   );
 
   return lastRound ? (
-    <tr style={{ border: THICK_BORDER, verticalAlign: "middle" }}>
+    <tr
+      key={`round_${turn.round}_${turn.turn}`}
+      style={{ border: THICK_BORDER, verticalAlign: "middle" }}
+    >
       {prefixCells}
       {priceCells}
       {bankCell}
     </tr>
   ) : (
     [
-      <tr style={{ borderTop: THICK_BORDER, verticalAlign: "middle" }}>
+      <tr
+        key={`first_${turn.round}_${turn.turn}`}
+        style={{ borderTop: THICK_BORDER, verticalAlign: "middle" }}
+      >
         {prefixCells}
         {firstStepCells}
         {bankCell}
       </tr>,
-      <tr>{priceCells}</tr>,
-      <tr style={{ borderBottom: THICK_BORDER }}>{lastStepCells}</tr>
+      <tr key={`price_${turn.round}_${turn.turn}`}>{priceCells}</tr>,
+      <tr
+        key={`last_${turn.round}_${turn.turn}`}
+        style={{ borderBottom: THICK_BORDER }}
+      >
+        {lastStepCells}
+      </tr>
     ]
   );
 };

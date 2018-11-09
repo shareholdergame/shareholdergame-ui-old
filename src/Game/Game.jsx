@@ -45,31 +45,33 @@ const Game = ({ game, self }) =>
 
       <Media query="(max-width: 1076px)">
         {matches =>
-          matches
-            ? [
-                <Row>
-                  <Col xs={12}>
-                    <GameScoreCompact game={game} self={self} />
-                  </Col>
-                </Row>,
-                <Row>
-                  <Col xs={12}>
-                    <GameBoardCompact game={game} />
-                  </Col>
-                </Row>
-              ]
-            : [
-                <Row>
-                  <Col xs={12}>
-                    <GameScore game={game} self={self} />
-                  </Col>
-                </Row>,
-                <Row>
-                  <Col xs={12}>
-                    <GameBoard game={game} />
-                  </Col>
-                </Row>
-              ]
+          matches ? (
+            <div>
+              <Row>
+                <Col xs={12}>
+                  <GameScoreCompact game={game} self={self} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12}>
+                  <GameBoardCompact game={game} />
+                </Col>
+              </Row>
+            </div>
+          ) : (
+            <div>
+              <Row>
+                <Col xs={12}>
+                  <GameScore game={game} self={self} />
+                </Col>
+              </Row>
+              <Row>
+                <Col xs={12}>
+                  <GameBoard game={game} />
+                </Col>
+              </Row>
+            </div>
+          )
         }
       </Media>
     </div>

@@ -1,5 +1,5 @@
 import React from "react";
-import { shape, string, node, number } from "prop-types";
+import { shape, string, number } from "prop-types";
 import { injectIntl, intlShape } from "react-intl";
 import Color from "color";
 
@@ -49,8 +49,8 @@ const ColorBar100 = ({ barNumber, color, intl }) => (
 
 ColorBar100.propTypes = {
   color: shape({
-    letter: node.isRequired,
-    style: string.isRequired
+    letter: shape(),
+    style: string
   }),
   barNumber: number.isRequired,
   intl: intlShape.isRequired

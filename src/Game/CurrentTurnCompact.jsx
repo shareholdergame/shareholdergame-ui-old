@@ -45,6 +45,7 @@ const CurrentTurnCompact = ({
 
   prefixCells.push(
     <td
+      key="card"
       rowSpan={rowsPerTurn}
       style={{
         ...selectedRowStyle,
@@ -71,8 +72,13 @@ const CurrentTurnCompact = ({
   const myPreviousStocks = myPreviousSellStep.shares.map(share => share.amount);
 
   const firstStepCells = allColors.map((color, index) => (
-    <ShareCell key={`first_${color.letter}`} color={color} current>
+    <ShareCell
+      key={`first_${intl.formatMessage(color.letter)}`}
+      color={color}
+      current
+    >
       <input
+        readOnly
         type="number"
         min={0}
         step={1}
@@ -89,19 +95,24 @@ const CurrentTurnCompact = ({
     .sharePrices.map(price => price.price);
 
   const priceCells = allColors.map((color, index) => (
-    <ShareCell key={`price_${color.letter}`} color={color} current>
+    <ShareCell
+      key={`price_${intl.formatMessage(color.letter)}`}
+      color={color}
+      current
+    >
       {previousPrices[index]}
     </ShareCell>
   ));
 
   const lastStepCells = allColors.map((color, index) => (
     <ShareCell
-      key={`last_${color.letter}`}
+      key={`last_${intl.formatMessage(color.letter)}`}
       color={color}
       current
       style={index ? {} : { borderLeft: THICK_BORDER }}
     >
       <input
+        readOnly
         type="number"
         min={0}
         step={1}
@@ -127,20 +138,28 @@ const CurrentTurnCompact = ({
   );
 
   return lastRound ? (
-    <tr style={{ border: THICK_BORDER, verticalAlign: "middle" }}>
+    <tr
+      key="current_turn_last_round"
+      style={{ border: THICK_BORDER, verticalAlign: "middle" }}
+    >
       {prefixCells}
       {priceCells}
       {bankCell}
     </tr>
   ) : (
     [
-      <tr style={{ borderTop: THICK_BORDER, verticalAlign: "middle" }}>
+      <tr
+        key="current_turn_first"
+        style={{ borderTop: THICK_BORDER, verticalAlign: "middle" }}
+      >
         {prefixCells}
         {firstStepCells}
         {bankCell}
       </tr>,
-      <tr>{priceCells}</tr>,
-      <tr style={{ borderBottom: THICK_BORDER }}>{lastStepCells}</tr>
+      <tr key="current_turn_price">{priceCells}</tr>,
+      <tr key="current_turn_last" style={{ borderBottom: THICK_BORDER }}>
+        {lastStepCells}
+      </tr>
     ]
   );
 };

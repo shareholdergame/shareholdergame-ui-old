@@ -59,7 +59,7 @@ const GameTurn = ({
     if (step.stepType === "FIRST_BUY_SELL_STEP") {
       step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
         cells.push(
-          <ShareCell key={share.id} color={allColors[index]}>
+          <ShareCell key={`first_${share.id}`} color={allColors[index]}>
             <span
               style={{
                 color: share.amount
@@ -143,7 +143,7 @@ const GameTurn = ({
     if (step.stepType === "LAST_BUY_SELL_STEP") {
       step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
         cells.push(
-          <ShareCell key={share.id} color={allColors[index]}>
+          <ShareCell key={`last_${share.id}`} color={allColors[index]}>
             <span
               style={{
                 color: share.amount
@@ -189,6 +189,7 @@ const GameTurn = ({
 
   return (
     <tr
+      key={`turn_${turn.round}_${turn.turn}`}
       style={
         !turnIndex
           ? { borderTop: THICK_BORDER, verticalAlign: "middle" }

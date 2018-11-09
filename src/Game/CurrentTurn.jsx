@@ -52,8 +52,13 @@ const CurrentTurn = ({
   } else {
     tableCells = tableCells.concat(
       allColors.map((color, index) => (
-        <ShareCell key={`first_${color.letter}`} color={color} current>
+        <ShareCell
+          key={`first_${intl.formatMessage(color.letter)}`}
+          color={color}
+          current
+        >
           <input
+            readOnly
             type="number"
             min={0}
             step={1}
@@ -67,7 +72,7 @@ const CurrentTurn = ({
   }
 
   tableCells.push(
-    <td style={{ ...selectedRowStyle, border: THICK_BORDER }}>
+    <td key="card" style={{ ...selectedRowStyle, border: THICK_BORDER }}>
       <select>
         <option />
         {outstandingCards.map(outstandingCard => (
@@ -87,7 +92,11 @@ const CurrentTurn = ({
 
   tableCells = tableCells.concat(
     allColors.map((color, index) => (
-      <ShareCell key={`price_${color.letter}`} color={color} current>
+      <ShareCell
+        key={`price_${intl.formatMessage(color.letter)}`}
+        color={color}
+        current
+      >
         {previousPrices[index]}
       </ShareCell>
     ))
@@ -107,12 +116,13 @@ const CurrentTurn = ({
     tableCells = tableCells.concat(
       allColors.map((color, index) => (
         <ShareCell
-          key={`last_${color.letter}`}
+          key={`last_${intl.formatMessage(color.letter)}`}
           color={color}
           current
           style={index ? {} : { borderLeft: THICK_BORDER }}
         >
           <input
+            readOnly
             type="number"
             min={0}
             step={1}
@@ -127,6 +137,7 @@ const CurrentTurn = ({
 
   tableCells.push(
     <td
+      key="bank"
       style={{
         ...selectedRowStyle,
         textAlign: "left",

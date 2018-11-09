@@ -35,12 +35,12 @@ const EmptyTurn = ({
   }
 
   if (lastRow) {
-    tableCells.push(<td colSpan={4} />);
+    tableCells.push(<td key="first" colSpan={4} />);
   } else {
-    tableCells.push(<ShareCell key="last_blue" color={BLUE} />);
-    tableCells.push(<ShareCell key="last_red" color={RED} />);
-    tableCells.push(<ShareCell key="last_yellow" color={YELLOW} />);
-    tableCells.push(<ShareCell key="last_green" color={GREEN} />);
+    tableCells.push(<ShareCell key="first_blue" color={BLUE} />);
+    tableCells.push(<ShareCell key="first_red" color={RED} />);
+    tableCells.push(<ShareCell key="first_yellow" color={YELLOW} />);
+    tableCells.push(<ShareCell key="first_green" color={GREEN} />);
   }
 
   const cardAndPriceStyle =
@@ -75,7 +75,7 @@ const EmptyTurn = ({
   );
 
   if (lastRow) {
-    tableCells.push(<td colSpan={4} />);
+    tableCells.push(<td key="last" colSpan={4} />);
   } else {
     tableCells.push(<ShareCell key="last_blue" color={BLUE} />);
     tableCells.push(<ShareCell key="last_red" color={RED} />);
@@ -83,7 +83,11 @@ const EmptyTurn = ({
     tableCells.push(<ShareCell key="last_green" color={GREEN} />);
   }
 
-  tableCells.push(<td style={{ border: THICK_BORDER }}>&nbsp;</td>);
+  tableCells.push(
+    <td key="bank" style={{ border: THICK_BORDER }}>
+      &nbsp;
+    </td>
+  );
 
   return (
     <tr style={turnIndex === 0 ? { borderTop: THICK_BORDER } : {}}>

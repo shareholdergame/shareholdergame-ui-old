@@ -22,14 +22,15 @@ ShareCell.propTypes = {
   color: shape({
     style: string.isRequired
   }).isRequired,
-  children: node.isRequired,
+  children: node,
   style: shape(),
   current: bool
 };
 
 ShareCell.defaultProps = {
   style: {},
-  current: false
+  current: false,
+  children: null
 };
 
 export default ShareCell;
