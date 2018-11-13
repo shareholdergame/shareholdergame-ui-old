@@ -8,6 +8,7 @@ import range from "range-inclusive";
 
 import GameTurnCompact from "./GameTurnCompact";
 import CurrentTurnCompact from "./CurrentTurnCompact";
+import CurrentTurnState from "./CurrentTurnState";
 import EmptyTurnCompact from "./EmptyTurnCompact";
 
 const GameBoardCompact = ({ game }) => (
@@ -30,17 +31,22 @@ const GameBoardCompact = ({ game }) => (
           ))
         )}
       {!game.progress.complete && (
-        <CurrentTurnCompact
-          previousTurns={game.progress.previousTurns}
-          lastRound={game.progress.round === game.totalGameRounds}
-          key={`turn_${game.progress.round}_${game.progress.turn}`}
-          roundNumber={game.progress.round}
-          turnIndex={game.progress.turn - 1}
-          turnsPerRound={game.options.playersNumber}
-          outstandingCards={
-            game.result[game.progress.turn - 1].outstandingCards
-          }
-        />
+        <CurrentTurnState>
+          {onUpdateTurn => (
+            <CurrentTurnCompact
+              previousTurns={game.progress.previousTurns}
+              lastRound={game.progress.round === game.totalGameRounds}
+              key={`turn_${game.progress.round}_${game.progress.turn}`}
+              roundNumber={game.progress.round}
+              turnIndex={game.progress.turn - 1}
+              turnsPerRound={game.options.playersNumber}
+              outstandingCards={
+                game.result[game.progress.turn - 1].outstandingCards
+              }
+              onUpdateTurn={onUpdateTurn}
+            />
+          )}
+        </CurrentTurnState>
       )}
       {game.progress.nextRound &&
         range(game.progress.nextRound, game.totalGameRounds).reduce(

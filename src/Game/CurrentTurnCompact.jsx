@@ -1,10 +1,14 @@
 import React from "react";
 
-import { bool, number, arrayOf, shape } from "prop-types";
 import { injectIntl, intlShape } from "react-intl";
 
 import { allColors } from "../Cards/CardColor";
 import ShareCell from "./ShareCell";
+
+import {
+  CurrentTurnPropTypes,
+  CurrentTurnDefaultProps
+} from "./CurrentTurnPropTypes";
 
 const THICK_BORDER = "2px solid grey";
 
@@ -15,6 +19,7 @@ const CurrentTurnCompact = ({
   turnsPerRound,
   lastRound,
   outstandingCards,
+  onUpdateTurn,
   intl
 }) => {
   const rowsPerTurn = lastRound ? 1 : 3;
@@ -78,7 +83,7 @@ const CurrentTurnCompact = ({
       current
     >
       <input
-        readOnly
+        onChange={event => onUpdateTurn(true, index, event.target.value)}
         type="number"
         min={0}
         step={1}
@@ -112,7 +117,7 @@ const CurrentTurnCompact = ({
       style={index ? {} : { borderLeft: THICK_BORDER }}
     >
       <input
-        readOnly
+        onChange={event => onUpdateTurn(false, index, event.target.value)}
         type="number"
         min={0}
         step={1}
@@ -165,17 +170,10 @@ const CurrentTurnCompact = ({
 };
 
 CurrentTurnCompact.propTypes = {
-  previousTurns: arrayOf(shape()).isRequired,
-  roundNumber: number.isRequired,
-  lastRound: bool,
-  turnIndex: number.isRequired,
-  turnsPerRound: number.isRequired,
-  outstandingCards: arrayOf(shape()).isRequired,
+  ...CurrentTurnPropTypes,
   intl: intlShape.isRequired
 };
 
-CurrentTurnCompact.defaultProps = {
-  lastRound: false
-};
+CurrentTurnCompact.defaultProps = CurrentTurnDefaultProps;
 
 export default injectIntl(CurrentTurnCompact);

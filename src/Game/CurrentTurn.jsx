@@ -1,8 +1,11 @@
 import React from "react";
 
-import { bool, number, arrayOf, shape } from "prop-types";
 import { injectIntl, intlShape } from "react-intl";
 
+import {
+  CurrentTurnPropTypes,
+  CurrentTurnDefaultProps
+} from "./CurrentTurnPropTypes";
 import { allColors } from "../Cards/CardColor";
 import ShareCell from "./ShareCell";
 
@@ -15,6 +18,7 @@ const CurrentTurn = ({
   turnsPerRound,
   lastRow = false,
   outstandingCards,
+  onUpdateTurn,
   intl
 }) => {
   let tableCells = [];
@@ -58,7 +62,7 @@ const CurrentTurn = ({
           current
         >
           <input
-            readOnly
+            onChange={event => onUpdateTurn(true, index, event.target.value)}
             type="number"
             min={0}
             step={1}
@@ -122,7 +126,7 @@ const CurrentTurn = ({
           style={index ? {} : { borderLeft: THICK_BORDER }}
         >
           <input
-            readOnly
+            onChange={event => onUpdateTurn(false, index, event.target.value)}
             type="number"
             min={0}
             step={1}
@@ -162,17 +166,10 @@ const CurrentTurn = ({
 };
 
 CurrentTurn.propTypes = {
-  previousTurns: arrayOf(shape()).isRequired,
-  roundNumber: number.isRequired,
-  lastRow: bool,
-  turnIndex: number.isRequired,
-  turnsPerRound: number.isRequired,
-  outstandingCards: arrayOf(shape()).isRequired,
+  ...CurrentTurnPropTypes,
   intl: intlShape.isRequired
 };
 
-CurrentTurn.defaultProps = {
-  lastRow: false
-};
+CurrentTurn.defaultProps = CurrentTurnDefaultProps;
 
 export default injectIntl(CurrentTurn);
