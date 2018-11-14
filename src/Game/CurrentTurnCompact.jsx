@@ -13,13 +13,16 @@ import {
 const THICK_BORDER = "2px solid grey";
 
 const CurrentTurnCompact = ({
-  previousTurns,
+  first,
+  last,
+  previousPrices,
+  bank,
+  onUpdateTurn,
   roundNumber,
   turnIndex,
   turnsPerRound,
   lastRound,
   outstandingCards,
-  onUpdateTurn,
   intl
 }) => {
   const rowsPerTurn = lastRound ? 1 : 3;
@@ -70,12 +73,6 @@ const CurrentTurnCompact = ({
     </td>
   );
 
-  const myPreviousTurn = previousTurns[0];
-  const myPreviousSellStep = myPreviousTurn.steps.find(
-    step => step.stepType === "LAST_BUY_SELL_STEP"
-  );
-  const myPreviousStocks = myPreviousSellStep.shares.map(share => share.amount);
-
   const firstStepCells = allColors.map((color, index) => (
     <ShareCell
       key={`first_${intl.formatMessage(color.letter)}`}
@@ -89,15 +86,10 @@ const CurrentTurnCompact = ({
         step={1}
         className="input"
         style={{ width: "100%", textAlign: "center" }}
-        value={myPreviousStocks[index]}
+        value={first[index]}
       />
     </ShareCell>
   ));
-
-  const immediatelyPreviousTurn = previousTurns[previousTurns.length - 1];
-  const previousPrices = immediatelyPreviousTurn.steps
-    .find(step => step.stepType === "PRICE_CHANGE_STEP")
-    .sharePrices.map(price => price.price);
 
   const priceCells = allColors.map((color, index) => (
     <ShareCell
@@ -123,7 +115,7 @@ const CurrentTurnCompact = ({
         step={1}
         className="input"
         style={{ width: "100%", textAlign: "center" }}
-        value={myPreviousStocks[index]}
+        value={last[index]}
       />
     </ShareCell>
   ));
@@ -138,7 +130,7 @@ const CurrentTurnCompact = ({
       }}
       rowSpan={rowsPerTurn}
     >
-      {myPreviousTurn.bank}
+      {bank}
     </td>
   );
 

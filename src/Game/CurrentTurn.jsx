@@ -12,13 +12,16 @@ import ShareCell from "./ShareCell";
 const THICK_BORDER = "2px solid grey";
 
 const CurrentTurn = ({
-  previousTurns,
+  first,
+  last,
+  previousPrices,
+  bank,
+  onUpdateTurn,
   roundNumber,
   turnIndex,
   turnsPerRound,
   lastRow = false,
   outstandingCards,
-  onUpdateTurn,
   intl
 }) => {
   let tableCells = [];
@@ -45,12 +48,6 @@ const CurrentTurn = ({
     backgroundColor: "#efefef"
   };
 
-  const myPreviousTurn = previousTurns[0];
-  const myPreviousSellStep = myPreviousTurn.steps.find(
-    step => step.stepType === "LAST_BUY_SELL_STEP"
-  );
-  const myPreviousStocks = myPreviousSellStep.shares.map(share => share.amount);
-
   if (lastRow) {
     tableCells.push(<td colSpan={4} style={selectedRowStyle} />);
   } else {
@@ -68,7 +65,7 @@ const CurrentTurn = ({
             step={1}
             className="input"
             style={{ width: "100%", textAlign: "center" }}
-            value={myPreviousStocks[index]}
+            value={first[index]}
           />
         </ShareCell>
       ))
@@ -88,11 +85,6 @@ const CurrentTurn = ({
       </select>
     </td>
   );
-
-  const immediatelyPreviousTurn = previousTurns[previousTurns.length - 1];
-  const previousPrices = immediatelyPreviousTurn.steps
-    .find(step => step.stepType === "PRICE_CHANGE_STEP")
-    .sharePrices.map(price => price.price);
 
   tableCells = tableCells.concat(
     allColors.map((color, index) => (
@@ -132,7 +124,7 @@ const CurrentTurn = ({
             step={1}
             className="input"
             style={{ width: "100%", textAlign: "center" }}
-            value={myPreviousStocks[index]}
+            value={last[index]}
           />
         </ShareCell>
       ))
@@ -148,7 +140,7 @@ const CurrentTurn = ({
         border: THICK_BORDER
       }}
     >
-      {myPreviousTurn.bank}
+      {bank}
     </td>
   );
 

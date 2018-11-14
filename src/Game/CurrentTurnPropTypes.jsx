@@ -1,13 +1,16 @@
-import { bool, number, arrayOf, shape, func } from "prop-types";
+import { bool, number, arrayOf, shape } from "prop-types";
+
+import CurrentTurnStatePropTypes from "./CurrentTurnStatePropTypes";
 
 export const CurrentTurnPropTypes = {
-  previousTurns: arrayOf(shape()).isRequired,
+  ...CurrentTurnStatePropTypes,
+
+  // from board
   roundNumber: number.isRequired,
   lastRow: bool,
   turnIndex: number.isRequired,
   turnsPerRound: number.isRequired,
-  outstandingCards: arrayOf(shape()).isRequired,
-  onUpdateTurn: func.isRequired
+  outstandingCards: arrayOf(shape()).isRequired
 };
 
 export const CurrentTurnDefaultProps = {

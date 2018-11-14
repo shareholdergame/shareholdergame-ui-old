@@ -4,22 +4,29 @@ import Color from "color";
 
 import Table from "react-bootstrap/lib/Table";
 
-import { bool, number, arrayOf, shape, string } from "prop-types";
-
 import range from "range-inclusive";
 
 import { injectIntl, intlShape } from "react-intl";
 
 import GameTurn from "./GameTurn";
 import CurrentTurn from "./CurrentTurn";
-import CurrentTurnState from "./CurrentTurnState";
 import EmptyTurn from "./EmptyTurn";
 
 import { allColors } from "../Cards/CardColor";
 
+import GameBoardPropTypes from "./GameBoardPropTypes";
+
 const THICK_BORDER = "2px solid grey";
 
-const GameBoard = ({ game, intl }) => (
+const GameBoard = ({
+  game,
+  first,
+  last,
+  previousPrices,
+  bank,
+  onUpdateTurn,
+  intl
+}) => (
   <Table bordered style={{ textAlign: "center" }}>
     <thead>
       <tr>
@@ -96,22 +103,21 @@ const GameBoard = ({ game, intl }) => (
           ))
         )}
       {!game.progress.complete && (
-        <CurrentTurnState>
-          {onUpdateTurn => (
-            <CurrentTurn
-              previousTurns={game.progress.previousTurns}
-              lastRow={game.progress.round === game.totalGameRounds}
-              key={`turn_${game.progress.round}_${game.progress.turn}`}
-              roundNumber={game.progress.round}
-              turnIndex={game.progress.turn - 1}
-              turnsPerRound={game.options.playersNumber}
-              outstandingCards={
-                game.result[game.progress.turn - 1].outstandingCards
-              }
-              onUpdateTurn={onUpdateTurn}
-            />
-          )}
-        </CurrentTurnState>
+        <CurrentTurn
+          lastRow={game.progress.round === game.totalGameRounds}
+          key={`turn_${game.progress.round}_${game.progress.turn}`}
+          roundNumber={game.progress.round}
+          turnIndex={game.progress.turn - 1}
+          turnsPerRound={game.options.playersNumber}
+          outstandingCards={
+            game.result[game.progress.turn - 1].outstandingCards
+          }
+          first={first}
+          last={last}
+          previousPrices={previousPrices}
+          bank={bank}
+          onUpdateTurn={onUpdateTurn}
+        />
       )}
       {game.progress.nextRound &&
         range(game.progress.nextRound, game.totalGameRounds).reduce(
@@ -138,16 +144,7 @@ const GameBoard = ({ game, intl }) => (
 );
 
 GameBoard.propTypes = {
-  game: shape({
-    rounds: arrayOf(
-      shape({
-        name: string,
-        userpic: string,
-        winner: bool,
-        wonmoney: number
-      })
-    ).isRequired
-  }).isRequired,
+  ...GameBoardPropTypes,
   intl: intlShape.isRequired
 };
 

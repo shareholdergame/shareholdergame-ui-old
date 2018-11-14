@@ -7,7 +7,7 @@ import Media from "react-media";
 import Row from "react-bootstrap/lib/Row";
 import Col from "react-bootstrap/lib/Col";
 
-import { bool, shape, string, number } from "prop-types";
+import { bool, number, shape, string } from "prop-types";
 
 import { FormattedMessage } from "react-intl";
 
@@ -18,6 +18,8 @@ import GameScoreCompact from "./GameScoreCompact";
 import GameBoardCompact from "./GameBoardCompact";
 
 import { makeGetGame } from "./gameSelectors";
+
+import CurrentTurnState from "./CurrentTurnState";
 
 const Game = ({ game, self }) =>
   !game.loading && (
@@ -43,37 +45,55 @@ const Game = ({ game, self }) =>
         </Col>
       </Row>
 
-      <Media query="(max-width: 1076px)">
-        {matches =>
-          matches ? (
-            <div>
-              <Row>
-                <Col xs={12}>
-                  <GameScoreCompact game={game} self={self} />
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <GameBoardCompact game={game} />
-                </Col>
-              </Row>
-            </div>
-          ) : (
-            <div>
-              <Row>
-                <Col xs={12}>
-                  <GameScore game={game} self={self} />
-                </Col>
-              </Row>
-              <Row>
-                <Col xs={12}>
-                  <GameBoard game={game} />
-                </Col>
-              </Row>
-            </div>
-          )
-        }
-      </Media>
+      <CurrentTurnState previousTurns={game.progress.previousTurns}>
+        {({ first, last, previousPrices, bank, onUpdateTurn }) => (
+          <Media query="(max-width: 1076px)">
+            {matches =>
+              matches ? (
+                <div>
+                  <Row>
+                    <Col xs={12}>
+                      <GameScoreCompact game={game} self={self} />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={12}>
+                      <GameBoardCompact
+                        game={game}
+                        first={first}
+                        last={last}
+                        previousPrices={previousPrices}
+                        bank={bank}
+                        onUpdateTurn={onUpdateTurn}
+                      />
+                    </Col>
+                  </Row>
+                </div>
+              ) : (
+                <div>
+                  <Row>
+                    <Col xs={12}>
+                      <GameScore game={game} self={self} />
+                    </Col>
+                  </Row>
+                  <Row>
+                    <Col xs={12}>
+                      <GameBoard
+                        game={game}
+                        first={first}
+                        last={last}
+                        previousPrices={previousPrices}
+                        bank={bank}
+                        onUpdateTurn={onUpdateTurn}
+                      />
+                    </Col>
+                  </Row>
+                </div>
+              )
+            }
+          </Media>
+        )}
+      </CurrentTurnState>
     </div>
   );
 
