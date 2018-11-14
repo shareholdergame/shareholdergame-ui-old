@@ -36,7 +36,13 @@ class CurrentTurnState extends React.Component {
     const first = myPreviousSellStep.shares.map(share => `${share.amount}`);
     const last = first.map(amount => amount);
 
+    const totalCapital =
+      previousPrices
+        .map((price, index) => first[index] * price)
+        .reduce((total, stockCapital) => total + stockCapital, 0) + bank;
+
     this.state = {
+      totalCapital,
       previousPrices,
       first,
       last,
@@ -45,13 +51,27 @@ class CurrentTurnState extends React.Component {
   }
 
   onUpdateTurn = (isFirst, colorIndex, value) => {
-    const newVal = isFirst ? this.state.first : this.state.last;
+    const newVal = (isFirst ? this.state.first : this.state.last).slice();
     newVal[colorIndex] = `${parseInt(value, 10) || 0}`;
 
-    if (isFirst) {
-      this.setState({ first: newVal });
+    const newBank =
+      this.state.totalCapital -
+      this.state.previousPrices
+        .map((price, index) => newVal[index] * price)
+        .reduce((total, stockCapital) => total + stockCapital, 0);
+
+    if (newBank >= 0) {
+      if (isFirst) {
+        this.setState({ first: newVal, bank: newBank });
+      } else {
+        this.setState({ last: newVal, bank: newBank });
+      }
     } else {
-      this.setState({ last: newVal });
+      this.setState({
+        first: this.state.first,
+        last: this.state.last,
+        bank: this.state.bank
+      });
     }
   };
 
