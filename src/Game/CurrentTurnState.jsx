@@ -30,7 +30,8 @@ class CurrentTurnState extends React.Component {
 
     const previousPrices = immediatelyPreviousTurn.steps
       .find(step => step.stepType === "PRICE_CHANGE_STEP")
-      .sharePrices.map(price => price.price);
+      .sharePrices.sort((a, b) => a.id - b.id)
+      .map(price => price.price);
 
     // store numbers as strings so they get properly compared when displaying the values
     const first = myPreviousSellStep.shares.map(share => `${share.amount}`);
