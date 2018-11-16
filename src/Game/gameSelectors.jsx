@@ -132,10 +132,23 @@ export const makeGetGame = () => {
 
             newTurn.appliedCard = cardMap[newTurn.appliedCardId];
 
-            if (newTurn.appliedCard) {
-              game.result[newTurn.turn - 1].appliedCards.push(
-                newTurn.appliedCard
-              );
+            const priceChangeStep = newTurn.steps.find(
+              step => step.stepType === "PRICE_CHANGE_STEP"
+            );
+
+            if (priceChangeStep) {
+              const priceChangeOperationIds = priceChangeStep.sharePrices
+                .sort((a, b) => a.id - b.id)
+                .map(price => price.priceOperationId);
+
+              if (newTurn.appliedCard) {
+                newTurn.appliedCard.setPriceChangeOperationIds(
+                  priceChangeOperationIds
+                );
+                game.result[newTurn.turn - 1].appliedCards.push(
+                  newTurn.appliedCard
+                );
+              }
             }
             return newTurn;
           });
@@ -151,7 +164,7 @@ export const makeGetGame = () => {
         game.result[i].outstandingCards = game.result[i].playerCards.filter(
           dealtCard =>
             !game.result[i].appliedCards.find(
-              appliedCard => appliedCard.id === dealtCard.id
+              appliedCard => appliedCard.card.id === dealtCard.id
             )
         );
       }
