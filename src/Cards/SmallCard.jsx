@@ -13,9 +13,11 @@ class SmallCard extends Card {
     this.oppositeValue = this.value > 0 ? this.value - 70 : 70 + this.value;
     this.oppositeString =
       this.oppositeValue > 0 ? `+${this.oppositeValue}` : this.oppositeValue;
-
-    this.cardLabel = <SmallCardLabel card={this} />;
   }
+
+  getCardLabel = operationIds => (
+    <SmallCardLabel card={this} operationIds={operationIds} />
+  );
 
   getSortOrder() {
     return super.getSortOrder() + this.value / 10 + 6;

@@ -7,8 +7,6 @@ export const MINUS_10 = -10;
 export const MINUS_20 = -20;
 export const MINUS_30 = -30;
 
-const defaultBarColor = "silver";
-
 const bottomStyle = {
   display: "inline-block",
   textAlign: "center",
@@ -50,14 +48,10 @@ const ColorBar100 = ({ barNumber, color, intl }) => (
 ColorBar100.propTypes = {
   color: shape({
     letter: shape(),
-    style: string
-  }),
+    style: string.isRequired
+  }).isRequired,
   barNumber: number.isRequired,
   intl: intlShape.isRequired
-};
-
-ColorBar100.defaultProps = {
-  color: { style: defaultBarColor }
 };
 
 export default injectIntl(ColorBar100);

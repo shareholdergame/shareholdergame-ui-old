@@ -93,7 +93,9 @@ const GameTurn = ({
 
   tableCells.push(
     <td style={cardCellStyle} key="card">
-      {turn.appliedCard.card.cardLabel}
+      {turn.appliedCard.card.getCardLabel(
+        turn.appliedCard.priceChangeOperationIds
+      )}
     </td>
   );
 

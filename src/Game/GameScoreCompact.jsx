@@ -30,7 +30,9 @@ const GameScoreCompact = ({ game, self }) => (
                 : result.appliedCards
               ).map(displayedCard => (
                 <span key={displayedCard.id}>
-                  {displayedCard.card.cardLabel}
+                  {displayedCard.card.getCardLabel(
+                    displayedCard.priceChangeOperationIds
+                  )}
                 </span>
               ))}
             </td>

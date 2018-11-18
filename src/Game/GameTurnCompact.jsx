@@ -42,7 +42,9 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
 
   prefixCells.push(
     <td style={cardCellStyle} rowSpan={rowsPerTurn} key="card">
-      {turn.appliedCard.card.cardLabel}
+      {turn.appliedCard.card.getCardLabel(
+        turn.appliedCard.priceChangeOperationIds
+      )}
     </td>
   );
 

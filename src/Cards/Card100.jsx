@@ -9,9 +9,12 @@ class Card100 extends BigCard {
     super({ color });
 
     this.cardString = "100";
-    this.cardLabel = <Card100Label card={this} />;
     this.sortOrder = 25;
   }
+
+  getCardLabel = operationIds => (
+    <Card100Label card={this} operationIds={operationIds} />
+  );
 }
 
 export default Card100;

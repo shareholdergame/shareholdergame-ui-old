@@ -9,9 +9,12 @@ class DivideBy2Card extends BigCard {
     super({ color });
 
     this.cardString = ":2";
-    this.cardLabel = <DivideBy2CardLabel card={this} />;
     this.sortOrder = 24;
   }
+
+  getCardLabel = operationIds => (
+    <DivideBy2CardLabel card={this} operationIds={operationIds} />
+  );
 }
 
 export default DivideBy2Card;
