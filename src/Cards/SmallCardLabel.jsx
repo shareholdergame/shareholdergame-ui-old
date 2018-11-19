@@ -4,7 +4,11 @@ import { injectIntl, intlShape } from "react-intl";
 
 import Color from "color";
 
+import { UNKNOWN } from "../Cards/CardColor";
+
 import { CARD_RADIUS } from "./Card";
+
+import ColorArrow from "./ColorArrow";
 
 const SmallCardLabel = ({ card, intl }) => {
   const style = {
@@ -13,7 +17,7 @@ const SmallCardLabel = ({ card, intl }) => {
     margin: "0 0.5em",
     border: `1px solid grey`,
     display: "block",
-    textAlign: "center"
+    textAlign: "left"
   };
 
   const upper = {
@@ -34,14 +38,34 @@ const SmallCardLabel = ({ card, intl }) => {
   };
 
   const upperLabel =
-    card.value > 0
-      ? `${card.cardString}${intl.formatMessage(card.color.letter)}`
-      : `${card.oppositeString}?`;
+    card.value > 0 ? (
+      <span
+        /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
+          __html: `${card.cardHTML}${intl.formatMessage(card.color.letter)}`
+        }}
+      />
+    ) : (
+      <span
+        /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
+          __html: `${card.oppositeHTML}?`
+        }}
+      />
+    );
 
   const lowerLabel =
-    card.value < 0
-      ? `${card.cardString}${intl.formatMessage(card.color.letter)}`
-      : `${card.oppositeString}??`;
+    card.value < 0 ? (
+      <span
+        /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
+          __html: `${card.cardHTML}${intl.formatMessage(card.color.letter)}`
+        }}
+      />
+    ) : (
+      <span
+        /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
+          __html: `${card.oppositeHTML}?`
+        }}
+      />
+    );
 
   return (
     <span style={{ display: "inline-block" }}>
@@ -52,6 +76,7 @@ const SmallCardLabel = ({ card, intl }) => {
             : { ...style, ...upper }
         }
       >
+        <ColorArrow color={card.value > 0 ? card.color : UNKNOWN} isUp />
         {upperLabel}
       </span>
       <span
@@ -61,6 +86,7 @@ const SmallCardLabel = ({ card, intl }) => {
             : { ...style, ...lower }
         }
       >
+        <ColorArrow color={card.value < 0 ? card.color : UNKNOWN} />
         {lowerLabel}
       </span>
     </span>
@@ -74,7 +100,8 @@ SmallCardLabel.propTypes = {
       style: string.isRequired
     }).isRequired,
     value: number.isRequired,
-    cardString: string.isRequired
+    cardHTML: string.isRequired,
+    oppositeHTML: string.isRequired
   }).isRequired,
   intl: intlShape.isRequired
 };

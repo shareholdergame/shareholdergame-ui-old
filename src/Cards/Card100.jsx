@@ -8,7 +8,7 @@ class Card100 extends BigCard {
   constructor({ color }) {
     super({ color });
 
-    this.cardString = "100";
+    this.cardHTML = "100";
     this.sortOrder = 25;
   }
 

@@ -31,6 +31,11 @@ const colorLetters = defineMessages({
     id: "card.colors.letter.green",
     description: "Card color letter for green cards",
     defaultMessage: "g"
+  },
+  unknown: {
+    id: "card.colors.letter.unknown",
+    description: "Card color letter for unknown color cards",
+    defaultMessage: "?"
   }
 });
 
@@ -54,6 +59,12 @@ const colorColumnLabels = defineMessages({
     id: "card.colors.column.green",
     description: "Card color column label for green cards",
     defaultMessage: "Green"
+  },
+  unknown: {
+    id: "card.colors.column.unknown",
+    description:
+      "Card color column label for unknown color cards (not really used)",
+    defaultMessage: "Unknown"
   }
 });
 
@@ -75,11 +86,19 @@ export const YELLOW = new CardColor(
   "yellow",
   200
 );
+
 export const GREEN = new CardColor(
   colorLetters.green,
   colorColumnLabels.green,
   "green",
   100
+);
+
+export const UNKNOWN = new CardColor(
+  colorLetters.unknown,
+  colorColumnLabels.unknown,
+  "silver",
+  0
 );
 
 export const allColors = [BLUE, RED, YELLOW, GREEN];

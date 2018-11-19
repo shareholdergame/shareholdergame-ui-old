@@ -7,14 +7,12 @@ import { CARD_RADIUS } from "./Card";
 
 import ColorBar100, { MINUS_10, MINUS_20, MINUS_30 } from "./ColorBar100";
 
-import { allColors } from "../Cards/CardColor";
-
-const defaultBarColor = { style: "silver" };
+import { UNKNOWN, allColors } from "../Cards/CardColor";
 
 const Card100Label = ({ card, operationIds, intl }) => {
-  let minus30color = defaultBarColor;
-  let minus20color = defaultBarColor;
-  let minus10color = defaultBarColor;
+  let minus30color = UNKNOWN;
+  let minus20color = UNKNOWN;
+  let minus10color = UNKNOWN;
 
   if (operationIds) {
     operationIds.forEach((value, index) => {
@@ -52,7 +50,11 @@ const Card100Label = ({ card, operationIds, intl }) => {
           borderBottom: "0"
         }}
       >
-        {card.cardString}
+        <span
+          /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
+            __html: card.cardHTML
+          }}
+        />
         {intl.formatMessage(card.color.letter)}
       </div>
       <div
@@ -76,7 +78,7 @@ Card100Label.propTypes = {
       letter: shape().isRequired,
       style: string.isRequired
     }).isRequired,
-    cardString: string.isRequired
+    cardHTML: string.isRequired
   }).isRequired,
   operationIds: arrayOf(number),
   intl: intlShape.isRequired

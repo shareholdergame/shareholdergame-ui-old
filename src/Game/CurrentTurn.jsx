@@ -77,10 +77,14 @@ const CurrentTurn = ({
       <select>
         <option />
         {outstandingCards.map(outstandingCard => (
-          <option key={outstandingCard.id}>
-            {outstandingCard.card.cardString}
-            {intl.formatMessage(outstandingCard.card.color.letter)}
-          </option>
+          <option
+            key={outstandingCard.id}
+            /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
+              __html: `${outstandingCard.card.cardHTML}${intl.formatMessage(
+                outstandingCard.card.color.letter
+              )}`
+            }}
+          />
         ))}
       </select>
     </td>

@@ -4,11 +4,13 @@ import BigCard from "./BigCard";
 
 import DivideBy2CardLabel from "./DivideBy2CardLabel";
 
+export const divideBy2CardPrefixHTML = "&divide;2";
+
 class DivideBy2Card extends BigCard {
   constructor({ color }) {
     super({ color });
 
-    this.cardString = ":2";
+    this.cardHTML = divideBy2CardPrefixHTML;
     this.sortOrder = 24;
   }
 
