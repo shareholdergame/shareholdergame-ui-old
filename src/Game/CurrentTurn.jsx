@@ -49,7 +49,9 @@ const CurrentTurn = ({
   };
 
   if (lastRow) {
-    tableCells.push(<td colSpan={4} style={selectedRowStyle} />);
+    tableCells.push(
+      <td key="first_empty" colSpan={4} style={selectedRowStyle} />
+    );
   } else {
     tableCells = tableCells.concat(
       allColors.map((color, index) => (
@@ -105,6 +107,7 @@ const CurrentTurn = ({
   if (lastRow) {
     tableCells.push(
       <td
+        key="last_empty"
         colSpan={4}
         style={{
           borderLeft: THICK_BORDER,
