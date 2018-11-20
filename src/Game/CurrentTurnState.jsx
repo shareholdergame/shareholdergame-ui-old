@@ -2,6 +2,8 @@ import React from "react";
 
 import { func, shape, arrayOf, string } from "prop-types";
 
+import applyRules from "./rules/rules";
+
 class CurrentTurnState extends React.Component {
   static propTypes = {
     children: func.isRequired,
@@ -34,8 +36,11 @@ class CurrentTurnState extends React.Component {
       .map(price => price.price);
 
     // store numbers as strings so they get properly compared when displaying the values
-    const first = myPreviousSellStep.shares.map(share => `${share.amount}`);
-    const last = first.map(amount => amount);
+    const previousShares = myPreviousSellStep.shares.map(
+      share => `${share.amount}`
+    );
+    const first = previousShares.slice();
+    const last = previousShares.slice();
 
     const totalCapital =
       previousPrices
@@ -44,6 +49,7 @@ class CurrentTurnState extends React.Component {
 
     this.state = {
       totalCapital,
+      previousShares,
       previousPrices,
       first,
       last,
@@ -52,27 +58,28 @@ class CurrentTurnState extends React.Component {
   }
 
   onUpdateTurn = (isFirst, colorIndex, value) => {
-    const newVal = (isFirst ? this.state.first : this.state.last).slice();
-    newVal[colorIndex] = `${parseInt(value, 10) || 0}`;
+    let newState = false;
 
-    const newBank =
-      this.state.totalCapital -
-      this.state.previousPrices
-        .map((price, index) => newVal[index] * price)
-        .reduce((total, stockCapital) => total + stockCapital, 0);
+    if (isFirst) {
+      const newFirstStocks = this.state.first.slice();
+      newFirstStocks[colorIndex] = `${parseInt(value, 10) || 0}`;
 
-    if (newBank >= 0) {
-      if (isFirst) {
-        this.setState({ first: newVal, bank: newBank });
-      } else {
-        this.setState({ last: newVal, bank: newBank });
-      }
-    } else {
-      this.setState({
-        first: this.state.first,
-        last: this.state.last,
-        bank: this.state.bank
+      newState = applyRules(this.state, {
+        first: newFirstStocks
       });
+    } else {
+      const newLastStocks = this.state.last.slice();
+      newLastStocks[colorIndex] = `${parseInt(value, 10) || 0}`;
+
+      newState = applyRules(this.state, {
+        last: newLastStocks
+      });
+    }
+
+    if (newState) {
+      this.setState(newState);
+    } else {
+      this.setState(this.state);
     }
   };
 
