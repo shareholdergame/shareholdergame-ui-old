@@ -46,7 +46,14 @@ const Game = ({ game, self }) =>
       </Row>
 
       <CurrentTurnState previousTurns={game.progress.previousTurns}>
-        {({ first, last, previousPrices, bank, onUpdateTurn }) => (
+        {({
+          first,
+          last,
+          previousPrices,
+          bank,
+          onUpdateStockAmount,
+          onUpdateCard
+        }) => (
           <Media query="(max-width: 1076px)">
             {matches =>
               matches ? (
@@ -64,7 +71,8 @@ const Game = ({ game, self }) =>
                         last={last}
                         previousPrices={previousPrices}
                         bank={bank}
-                        onUpdateTurn={onUpdateTurn}
+                        onUpdateStockAmount={onUpdateStockAmount}
+                        onUpdateCard={onUpdateCard}
                       />
                     </Col>
                   </Row>
@@ -84,7 +92,8 @@ const Game = ({ game, self }) =>
                         last={last}
                         previousPrices={previousPrices}
                         bank={bank}
-                        onUpdateTurn={onUpdateTurn}
+                        onUpdateStockAmount={onUpdateStockAmount}
+                        onUpdateCard={onUpdateCard}
                       />
                     </Col>
                   </Row>

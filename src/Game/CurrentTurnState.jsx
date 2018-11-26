@@ -53,11 +53,22 @@ class CurrentTurnState extends React.Component {
       previousPrices,
       first,
       last,
-      bank
+      bank,
+      isCardSelected: false,
+      areAllPricesUpdated: false,
+      isComplete: false
     };
   }
 
-  onUpdateTurn = (isFirst, colorIndex, value) => {
+  onUpdateCard = selectedCard => {
+    const newState = applyRules(this.state, {
+      selectedCard
+    });
+
+    this.updateState(newState);
+  };
+
+  onUpdateStockAmount = (isFirst, colorIndex, value) => {
     let newState = false;
 
     if (isFirst) {
@@ -76,6 +87,10 @@ class CurrentTurnState extends React.Component {
       });
     }
 
+    this.updateState(newState);
+  };
+
+  updateState = newState => {
     if (newState) {
       this.setState(newState);
     } else {
@@ -91,8 +106,11 @@ class CurrentTurnState extends React.Component {
       last,
       previousPrices,
       bank,
-      onUpdateTurn: (isFirst, colorIndex, value) => {
-        this.onUpdateTurn(isFirst, colorIndex, value);
+      onUpdateCard: card => {
+        this.onUpdateCard(card);
+      },
+      onUpdateStockAmount: (isFirst, colorIndex, value) => {
+        this.onUpdateStockAmount(isFirst, colorIndex, value);
       }
     });
   };

@@ -6,7 +6,8 @@ const CurrentTurnStatePropTypes = {
   last: arrayOf(string).isRequired,
   previousPrices: arrayOf(number).isRequired,
   bank: number.isRequired,
-  onUpdateTurn: func.isRequired
+  onUpdateStockAmount: func.isRequired,
+  onUpdateCard: func.isRequired
 };
 
 export default CurrentTurnStatePropTypes;

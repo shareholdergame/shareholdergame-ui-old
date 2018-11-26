@@ -1,7 +1,9 @@
 import positiveBalanceAfterFirstBuySell from "./positiveBalanceAfterFirstBuySell";
+import isCardSelected from "./isCardSelected";
 
 const rules = [
-  positiveBalanceAfterFirstBuySell
+  positiveBalanceAfterFirstBuySell,
+  isCardSelected
   // allPricesUpdated
 ];
 
@@ -13,15 +15,29 @@ const applyRules = (state, updates) => {
   //   (but still valid, e.g. incomplete card assignment)
   // - turn is not complete until one of the steps sets isComplete to true
   const resultTuple = rules.reduce(
-    ({ isValid, isLastRuleApplied = false, updatedState }, rule) =>
-      !isLastRuleApplied && isValid
-        ? rule.apply(updatedState)
-        : { isValid, isLastRuleApplied, updatedState },
+    ({ isValid = true, isLastRuleApplied = false, updatedState }, rule) => {
+      let outcome = { isValid, isLastRuleApplied, updatedState };
+
+      if (!isLastRuleApplied && isValid) {
+        outcome = rule.apply(updatedState);
+      }
+
+      if (typeof outcome.isValid === "undefined") {
+        outcome.isValid = true;
+      }
+
+      if (typeof outcome.isLastRuleApplied === "undefined") {
+        outcome.isLastRuleApplied = false;
+      }
+
+      return outcome;
+    },
     {
       isValid: true,
       isLastRuleApplied: false,
       updatedState: Object.assign({}, state, updates, {
-        isBankrupt: false,
+        isCardSelected: false,
+        areAllPricesUpdated: false,
         isComplete: false
       })
     }

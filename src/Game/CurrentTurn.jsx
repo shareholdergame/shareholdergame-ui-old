@@ -16,7 +16,8 @@ const CurrentTurn = ({
   last,
   previousPrices,
   bank,
-  onUpdateTurn,
+  onUpdateStockAmount,
+  onUpdateCard,
   roundNumber,
   turnIndex,
   turnsPerRound,
@@ -61,7 +62,9 @@ const CurrentTurn = ({
           current
         >
           <input
-            onChange={event => onUpdateTurn(true, index, event.target.value)}
+            onChange={event =>
+              onUpdateStockAmount(true, index, event.target.value)
+            }
             type="number"
             min={0}
             step={1}
@@ -76,11 +79,21 @@ const CurrentTurn = ({
 
   tableCells.push(
     <td key="card" style={{ ...selectedRowStyle, border: THICK_BORDER }}>
-      <select>
+      <select
+        onChange={event =>
+          onUpdateCard(
+            outstandingCards.find(
+              outstandingCard =>
+                `${outstandingCard.id}` === `${event.target.value}`
+            )
+          )
+        }
+      >
         <option />
         {outstandingCards.map(outstandingCard => (
           <option
             key={outstandingCard.id}
+            value={outstandingCard.id}
             /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
               __html: `${outstandingCard.card.cardHTML}${intl.formatMessage(
                 outstandingCard.card.color.letter
@@ -125,7 +138,9 @@ const CurrentTurn = ({
           style={index ? {} : { borderLeft: THICK_BORDER }}
         >
           <input
-            onChange={event => onUpdateTurn(false, index, event.target.value)}
+            onChange={event =>
+              onUpdateStockAmount(false, index, event.target.value)
+            }
             type="number"
             min={0}
             step={1}

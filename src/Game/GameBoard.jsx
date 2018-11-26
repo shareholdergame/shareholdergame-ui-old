@@ -24,7 +24,8 @@ const GameBoard = ({
   last,
   previousPrices,
   bank,
-  onUpdateTurn,
+  onUpdateStockAmount,
+  onUpdateCard,
   intl
 }) => (
   <Table bordered style={{ textAlign: "center" }}>
@@ -116,7 +117,8 @@ const GameBoard = ({
           last={last}
           previousPrices={previousPrices}
           bank={bank}
-          onUpdateTurn={onUpdateTurn}
+          onUpdateStockAmount={onUpdateStockAmount}
+          onUpdateCard={onUpdateCard}
         />
       )}
       {game.progress.nextRound &&
