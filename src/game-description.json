@@ -1,0 +1,879 @@
+{
+  "name": "game.variant.classic",
+  "priceScale": {
+    "stepSize": 10,
+    "minPrice": 10,
+    "maxPrice": 250
+  },
+  "shares": [
+    {
+      "id": 1,
+      "color": "BLUE",
+      "initPrice": 100,
+      "initNumber": 1
+    },
+    {
+      "id": 2,
+      "color": "RED",
+      "initPrice": 100,
+      "initNumber": 1
+    },
+    {
+      "id": 3,
+      "color": "YELLOW",
+      "initPrice": 100,
+      "initNumber": 1
+    },
+    {
+      "id": 4,
+      "color": "GREEN",
+      "initPrice": 100,
+      "initNumber": 1
+    }
+  ],
+  "playerInitialCash": 0,
+  "cardSet": [
+    {
+      "groupName": "card.group.big",
+      "cards": [
+        {
+          "cardOperations": [
+            {
+              "shareId": 1,
+              "priceOperationId": 1,
+              "operation": "+",
+              "operandValue": 100
+            },
+            {
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            },
+            {
+              "priceOperationId": 10,
+              "operation": "-",
+              "operandValue": 20
+            },
+            {
+              "priceOperationId": 11,
+              "operation": "-",
+              "operandValue": 10
+            }
+          ],
+          "quantity": 3,
+          "displayOrder": 1,
+          "id": 1
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 2,
+              "priceOperationId": 1,
+              "operation": "+",
+              "operandValue": 100
+            },
+            {
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            },
+            {
+              "priceOperationId": 10,
+              "operation": "-",
+              "operandValue": 20
+            },
+            {
+              "priceOperationId": 11,
+              "operation": "-",
+              "operandValue": 10
+            }
+          ],
+          "quantity": 3,
+          "displayOrder": 2,
+          "id": 2
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 3,
+              "priceOperationId": 1,
+              "operation": "+",
+              "operandValue": 100
+            },
+            {
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            },
+            {
+              "priceOperationId": 10,
+              "operation": "-",
+              "operandValue": 20
+            },
+            {
+              "priceOperationId": 11,
+              "operation": "-",
+              "operandValue": 10
+            }
+          ],
+          "quantity": 3,
+          "displayOrder": 3,
+          "id": 3
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 4,
+              "priceOperationId": 1,
+              "operation": "+",
+              "operandValue": 100
+            },
+            {
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            },
+            {
+              "priceOperationId": 10,
+              "operation": "-",
+              "operandValue": 20
+            },
+            {
+              "priceOperationId": 11,
+              "operation": "-",
+              "operandValue": 10
+            }
+          ],
+          "quantity": 3,
+          "displayOrder": 4,
+          "id": 4
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 1,
+              "priceOperationId": 12,
+              "operation": "x",
+              "operandValue": 2
+            },
+            {
+              "priceOperationId": 13,
+              "operation": ":",
+              "operandValue": 2
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 5,
+          "id": 5
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 2,
+              "priceOperationId": 12,
+              "operation": "x",
+              "operandValue": 2
+            },
+            {
+              "priceOperationId": 13,
+              "operation": ":",
+              "operandValue": 2
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 6,
+          "id": 7
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 3,
+              "priceOperationId": 12,
+              "operation": "x",
+              "operandValue": 2
+            },
+            {
+              "priceOperationId": 13,
+              "operation": ":",
+              "operandValue": 2
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 7,
+          "id": 9
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 4,
+              "priceOperationId": 12,
+              "operation": "x",
+              "operandValue": 2
+            },
+            {
+              "priceOperationId": 13,
+              "operation": ":",
+              "operandValue": 2
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 8,
+          "id": 11
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 12,
+              "operation": "x",
+              "operandValue": 2
+            },
+            {
+              "shareId": 1,
+              "priceOperationId": 13,
+              "operation": ":",
+              "operandValue": 2
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 9,
+          "id": 6
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 12,
+              "operation": "x",
+              "operandValue": 2
+            },
+            {
+              "shareId": 2,
+              "priceOperationId": 13,
+              "operation": ":",
+              "operandValue": 2
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 10,
+          "id": 8
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 12,
+              "operation": "x",
+              "operandValue": 2
+            },
+            {
+              "shareId": 3,
+              "priceOperationId": 13,
+              "operation": ":",
+              "operandValue": 2
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 11,
+          "id": 10
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 12,
+              "operation": "x",
+              "operandValue": 2
+            },
+            {
+              "shareId": 4,
+              "priceOperationId": 13,
+              "operation": ":",
+              "operandValue": 2
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 12,
+          "id": 12
+        }
+      ]
+    },
+    {
+      "groupName": "card.group.minor",
+      "cards": [
+        {
+          "cardOperations": [
+            {
+              "shareId": 1,
+              "priceOperationId": 5,
+              "operation": "+",
+              "operandValue": 30
+            },
+            {
+              "priceOperationId": 6,
+              "operation": "-",
+              "operandValue": 60
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 13,
+          "id": 13
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 1,
+              "priceOperationId": 4,
+              "operation": "+",
+              "operandValue": 40
+            },
+            {
+              "priceOperationId": 7,
+              "operation": "-",
+              "operandValue": 50
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 14,
+          "id": 21
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 1,
+              "priceOperationId": 3,
+              "operation": "+",
+              "operandValue": 50
+            },
+            {
+              "priceOperationId": 8,
+              "operation": "-",
+              "operandValue": 40
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 15,
+          "id": 29
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 1,
+              "priceOperationId": 2,
+              "operation": "+",
+              "operandValue": 60
+            },
+            {
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 16,
+          "id": 37
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 2,
+              "priceOperationId": 5,
+              "operation": "+",
+              "operandValue": 30
+            },
+            {
+              "priceOperationId": 6,
+              "operation": "-",
+              "operandValue": 60
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 17,
+          "id": 15
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 2,
+              "priceOperationId": 4,
+              "operation": "+",
+              "operandValue": 40
+            },
+            {
+              "priceOperationId": 7,
+              "operation": "-",
+              "operandValue": 50
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 18,
+          "id": 23
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 2,
+              "priceOperationId": 3,
+              "operation": "+",
+              "operandValue": 50
+            },
+            {
+              "priceOperationId": 8,
+              "operation": "-",
+              "operandValue": 40
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 19,
+          "id": 31
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 2,
+              "priceOperationId": 2,
+              "operation": "+",
+              "operandValue": 60
+            },
+            {
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 20,
+          "id": 39
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 3,
+              "priceOperationId": 5,
+              "operation": "+",
+              "operandValue": 30
+            },
+            {
+              "priceOperationId": 6,
+              "operation": "-",
+              "operandValue": 60
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 21,
+          "id": 17
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 3,
+              "priceOperationId": 4,
+              "operation": "+",
+              "operandValue": 40
+            },
+            {
+              "priceOperationId": 7,
+              "operation": "-",
+              "operandValue": 50
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 22,
+          "id": 25
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 3,
+              "priceOperationId": 3,
+              "operation": "+",
+              "operandValue": 50
+            },
+            {
+              "priceOperationId": 8,
+              "operation": "-",
+              "operandValue": 40
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 23,
+          "id": 33
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 3,
+              "priceOperationId": 2,
+              "operation": "+",
+              "operandValue": 60
+            },
+            {
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 24,
+          "id": 41
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 4,
+              "priceOperationId": 5,
+              "operation": "+",
+              "operandValue": 30
+            },
+            {
+              "priceOperationId": 6,
+              "operation": "-",
+              "operandValue": 60
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 25,
+          "id": 19
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 4,
+              "priceOperationId": 4,
+              "operation": "+",
+              "operandValue": 40
+            },
+            {
+              "priceOperationId": 7,
+              "operation": "-",
+              "operandValue": 50
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 26,
+          "id": 27
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 4,
+              "priceOperationId": 3,
+              "operation": "+",
+              "operandValue": 50
+            },
+            {
+              "priceOperationId": 8,
+              "operation": "-",
+              "operandValue": 40
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 27,
+          "id": 35
+        },
+        {
+          "cardOperations": [
+            {
+              "shareId": 4,
+              "priceOperationId": 2,
+              "operation": "+",
+              "operandValue": 60
+            },
+            {
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 28,
+          "id": 43
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 2,
+              "operation": "+",
+              "operandValue": 60
+            },
+            {
+              "shareId": 1,
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 29,
+          "id": 38
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 3,
+              "operation": "+",
+              "operandValue": 50
+            },
+            {
+              "shareId": 1,
+              "priceOperationId": 8,
+              "operation": "-",
+              "operandValue": 40
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 30,
+          "id": 30
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 4,
+              "operation": "+",
+              "operandValue": 40
+            },
+            {
+              "shareId": 1,
+              "priceOperationId": 7,
+              "operation": "-",
+              "operandValue": 50
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 31,
+          "id": 22
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 5,
+              "operation": "+",
+              "operandValue": 30
+            },
+            {
+              "shareId": 1,
+              "priceOperationId": 6,
+              "operation": "-",
+              "operandValue": 60
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 32,
+          "id": 14
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 2,
+              "operation": "+",
+              "operandValue": 60
+            },
+            {
+              "shareId": 2,
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 33,
+          "id": 40
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 3,
+              "operation": "+",
+              "operandValue": 50
+            },
+            {
+              "shareId": 2,
+              "priceOperationId": 8,
+              "operation": "-",
+              "operandValue": 40
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 34,
+          "id": 32
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 4,
+              "operation": "+",
+              "operandValue": 40
+            },
+            {
+              "shareId": 2,
+              "priceOperationId": 7,
+              "operation": "-",
+              "operandValue": 50
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 35,
+          "id": 24
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 5,
+              "operation": "+",
+              "operandValue": 30
+            },
+            {
+              "shareId": 2,
+              "priceOperationId": 6,
+              "operation": "-",
+              "operandValue": 60
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 36,
+          "id": 16
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 2,
+              "operation": "+",
+              "operandValue": 60
+            },
+            {
+              "shareId": 3,
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 37,
+          "id": 42
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 3,
+              "operation": "+",
+              "operandValue": 50
+            },
+            {
+              "shareId": 3,
+              "priceOperationId": 8,
+              "operation": "-",
+              "operandValue": 40
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 38,
+          "id": 34
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 4,
+              "operation": "+",
+              "operandValue": 40
+            },
+            {
+              "shareId": 3,
+              "priceOperationId": 7,
+              "operation": "-",
+              "operandValue": 50
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 39,
+          "id": 26
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 5,
+              "operation": "+",
+              "operandValue": 30
+            },
+            {
+              "shareId": 3,
+              "priceOperationId": 6,
+              "operation": "-",
+              "operandValue": 60
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 40,
+          "id": 18
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 2,
+              "operation": "+",
+              "operandValue": 60
+            },
+            {
+              "shareId": 4,
+              "priceOperationId": 9,
+              "operation": "-",
+              "operandValue": 30
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 41,
+          "id": 44
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 3,
+              "operation": "+",
+              "operandValue": 50
+            },
+            {
+              "shareId": 4,
+              "priceOperationId": 8,
+              "operation": "-",
+              "operandValue": 40
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 42,
+          "id": 36
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 4,
+              "operation": "+",
+              "operandValue": 40
+            },
+            {
+              "shareId": 4,
+              "priceOperationId": 7,
+              "operation": "-",
+              "operandValue": 50
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 43,
+          "id": 28
+        },
+        {
+          "cardOperations": [
+            {
+              "priceOperationId": 5,
+              "operation": "+",
+              "operandValue": 30
+            },
+            {
+              "shareId": 4,
+              "priceOperationId": 6,
+              "operation": "-",
+              "operandValue": 60
+            }
+          ],
+          "quantity": 1,
+          "displayOrder": 44,
+          "id": 20
+        }
+      ]
+    }
+  ]
+}
