@@ -64,6 +64,7 @@ const CurrentTurnCompact = ({
       }}
     >
       <select
+        className="form-control"
         onChange={event =>
           onUpdateCard(
             outstandingCards.find(
@@ -100,7 +101,7 @@ const CurrentTurnCompact = ({
         type="number"
         min={0}
         step={1}
-        className="input"
+        className="form-control"
         style={{ width: "100%", textAlign: "center" }}
         value={first[index]}
       />
@@ -132,7 +133,7 @@ const CurrentTurnCompact = ({
         type="number"
         min={0}
         step={1}
-        className="input"
+        className="form-control"
         style={{ width: "100%", textAlign: "center" }}
         value={last[index]}
       />

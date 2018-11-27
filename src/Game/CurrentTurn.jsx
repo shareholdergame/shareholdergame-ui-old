@@ -69,7 +69,7 @@ const CurrentTurn = ({
             type="number"
             min={0}
             step={1}
-            className="input"
+            className="form-control"
             style={{ width: "100%", textAlign: "center" }}
             value={first[index]}
           />
@@ -81,6 +81,7 @@ const CurrentTurn = ({
   tableCells.push(
     <td key="card" style={{ ...selectedRowStyle, border: THICK_BORDER }}>
       <select
+        className="form-control"
         onChange={event =>
           onUpdateCard(
             outstandingCards.find(
@@ -146,7 +147,7 @@ const CurrentTurn = ({
             type="number"
             min={0}
             step={1}
-            className="input"
+            className="form-control"
             style={{ width: "100%", textAlign: "center" }}
             value={last[index]}
           />
