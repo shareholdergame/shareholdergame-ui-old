@@ -21,6 +21,7 @@ const THICK_BORDER = "2px solid grey";
 const GameBoard = ({
   game,
   first,
+  isCardSelected,
   last,
   previousPrices,
   bank,
@@ -114,6 +115,7 @@ const GameBoard = ({
             game.result[game.progress.turn - 1].outstandingCards
           }
           first={first}
+          isCardSelected={isCardSelected}
           last={last}
           previousPrices={previousPrices}
           bank={bank}

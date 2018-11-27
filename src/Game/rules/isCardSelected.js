@@ -4,7 +4,7 @@ class isCardSelected {
       isCardSelected: !!state.selectedCard
     });
 
-    return { updatedState };
+    return { updatedState, isLastRuleApplied: !state.selectedCard };
   };
 }
 

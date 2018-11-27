@@ -99,10 +99,11 @@ class CurrentTurnState extends React.Component {
   };
 
   render = () => {
-    const { first, last, previousPrices, bank } = this.state;
+    const { first, isCardSelected, last, previousPrices, bank } = this.state;
 
     return this.props.children({
       first,
+      isCardSelected,
       last,
       previousPrices,
       bank,

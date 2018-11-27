@@ -13,6 +13,7 @@ const THICK_BORDER = "2px solid grey";
 
 const CurrentTurn = ({
   first,
+  isCardSelected,
   last,
   previousPrices,
   bank,
@@ -141,6 +142,7 @@ const CurrentTurn = ({
             onChange={event =>
               onUpdateStockAmount(false, index, event.target.value)
             }
+            disabled={!isCardSelected}
             type="number"
             min={0}
             step={1}
