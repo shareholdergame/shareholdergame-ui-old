@@ -48,7 +48,7 @@ const Game = ({ game, self }) =>
       <CurrentTurnState previousTurns={game.progress.previousTurns}>
         {({
           first,
-          isCardSelected,
+          selectedCard,
           last,
           previousPrices,
           bank,
@@ -69,7 +69,7 @@ const Game = ({ game, self }) =>
                       <GameBoardCompact
                         game={game}
                         first={first}
-                        isCardSelected={isCardSelected}
+                        selectedCard={selectedCard}
                         last={last}
                         previousPrices={previousPrices}
                         bank={bank}
@@ -91,7 +91,7 @@ const Game = ({ game, self }) =>
                       <GameBoard
                         game={game}
                         first={first}
-                        isCardSelected={isCardSelected}
+                        selectedCard={selectedCard}
                         last={last}
                         previousPrices={previousPrices}
                         bank={bank}

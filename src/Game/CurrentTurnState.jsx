@@ -54,7 +54,7 @@ class CurrentTurnState extends React.Component {
       first,
       last,
       bank,
-      isCardSelected: false,
+      selectedCard: null,
       areAllPricesUpdated: false,
       isComplete: false
     };
@@ -99,11 +99,11 @@ class CurrentTurnState extends React.Component {
   };
 
   render = () => {
-    const { first, isCardSelected, last, previousPrices, bank } = this.state;
+    const { first, selectedCard, last, previousPrices, bank } = this.state;
 
     return this.props.children({
       first,
-      isCardSelected,
+      selectedCard,
       last,
       previousPrices,
       bank,

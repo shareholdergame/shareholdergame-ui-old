@@ -36,7 +36,6 @@ const applyRules = (state, updates) => {
       isValid: true,
       isLastRuleApplied: false,
       updatedState: Object.assign({}, state, updates, {
-        isCardSelected: false,
         areAllPricesUpdated: false,
         isComplete: false
       })

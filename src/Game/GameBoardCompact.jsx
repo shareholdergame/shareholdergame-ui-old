@@ -13,7 +13,7 @@ import GameBoardPropTypes from "./GameBoardPropTypes";
 const GameBoardCompact = ({
   game,
   first,
-  isCardSelected,
+  selectedCard,
   last,
   previousPrices,
   bank,
@@ -49,7 +49,7 @@ const GameBoardCompact = ({
             game.result[game.progress.turn - 1].outstandingCards
           }
           first={first}
-          isCardSelected={isCardSelected}
+          selectedCard={selectedCard}
           last={last}
           previousPrices={previousPrices}
           bank={bank}

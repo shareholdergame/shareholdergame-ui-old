@@ -1,6 +1,7 @@
 import React from "react";
 
-import { injectIntl, intlShape } from "react-intl";
+import { FormattedMessage, injectIntl, intlShape } from "react-intl";
+import Button from "react-bootstrap/lib/Button";
 
 import {
   CurrentTurnPropTypes,
@@ -13,7 +14,7 @@ const THICK_BORDER = "2px solid grey";
 
 const CurrentTurn = ({
   first,
-  isCardSelected,
+  selectedCard,
   last,
   previousPrices,
   bank,
@@ -80,30 +81,47 @@ const CurrentTurn = ({
 
   tableCells.push(
     <td key="card" style={{ ...selectedRowStyle, border: THICK_BORDER }}>
-      <select
-        className="form-control"
-        onChange={event =>
-          onUpdateCard(
-            outstandingCards.find(
-              outstandingCard =>
-                `${outstandingCard.id}` === `${event.target.value}`
+      {selectedCard ? (
+        <div>
+          {selectedCard.card.getCardLabel()}
+          <Button
+            bsSize="xs"
+            style={{ marginTop: "1em" }}
+            onClick={() => onUpdateCard(null)}
+          >
+            <FormattedMessage
+              id="game.card.change-button-label"
+              description="Change button label"
+              defaultMessage="change"
+            />
+          </Button>
+        </div>
+      ) : (
+        <select
+          className="form-control"
+          onChange={event =>
+            onUpdateCard(
+              outstandingCards.find(
+                outstandingCard =>
+                  `${outstandingCard.id}` === `${event.target.value}`
+              )
             )
-          )
-        }
-      >
-        <option />
-        {outstandingCards.map(outstandingCard => (
-          <option
-            key={outstandingCard.id}
-            value={outstandingCard.id}
-            /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
-              __html: `${outstandingCard.card.cardHTML}${intl.formatMessage(
-                outstandingCard.card.color.letter
-              )}`
-            }}
-          />
-        ))}
-      </select>
+          }
+        >
+          <option />
+          {outstandingCards.map(outstandingCard => (
+            <option
+              key={outstandingCard.id}
+              value={outstandingCard.id}
+              /* eslint-disable-line react/no-danger */ dangerouslySetInnerHTML={{
+                __html: `${outstandingCard.card.cardHTML}${intl.formatMessage(
+                  outstandingCard.card.color.letter
+                )}`
+              }}
+            />
+          ))}
+        </select>
+      )}
     </td>
   );
 
@@ -143,7 +161,7 @@ const CurrentTurn = ({
             onChange={event =>
               onUpdateStockAmount(false, index, event.target.value)
             }
-            disabled={!isCardSelected}
+            disabled={!selectedCard}
             type="number"
             min={0}
             step={1}

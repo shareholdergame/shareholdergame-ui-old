@@ -1,9 +1,9 @@
-import { bool, number, arrayOf, string, func } from "prop-types";
+import { shape, number, arrayOf, string, func } from "prop-types";
 
 const CurrentTurnStatePropTypes = {
   // from state component
   first: arrayOf(string).isRequired,
-  isCardSelected: bool.isRequired,
+  selectedCard: shape(),
   last: arrayOf(string).isRequired,
   previousPrices: arrayOf(number).isRequired,
   bank: number.isRequired,

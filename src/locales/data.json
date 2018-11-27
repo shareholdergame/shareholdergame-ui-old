@@ -98,7 +98,8 @@
     "card.colors.letter.red": "r",
     "card.colors.letter.yellow": "y",
     "card.colors.letter.green": "g",
-    "card.colors.letter.unknown": "?"
+    "card.colors.letter.unknown": "?",
+    "game.card.change-button-label": "change"
   },
   "ru_RU": {
     "global.yourturn.button": "Ваш Ход",
@@ -210,6 +211,7 @@
     "card.colors.letter.red": "к",
     "card.colors.letter.yellow": "ж",
     "card.colors.letter.green": "з",
-    "card.colors.letter.unknown": "?"
+    "card.colors.letter.unknown": "?",
+    "game.card.change-button-label": "поменять"
   }
 }
