@@ -11,7 +11,7 @@
     "createdTime": "Mon Dec 26 00:02:14 MSK 2016",
     "startedTime": "Mon Dec 26 00:02:14 MSK 2016",
     "finishedTime": "Mon Dec 26 21:48:24 MSK 2016",
-    "gameStatus": "FINISHED",
+    "gameSetStatus": "FINISHED",
     "label": "Player 1 - Player 2 - 10",
     "published": false,
     "players": [
