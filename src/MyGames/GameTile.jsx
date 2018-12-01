@@ -14,19 +14,19 @@ import { LinkContainer } from "react-router-bootstrap";
 
 const gameLetters = ["A", "B", "C", "D", "E", "F", "G", "H", "I", "J"];
 
-const GameTile = props => (
+const GameTile = ({ game, self }) => (
   <Well>
     <Row>
       <Col xs={12} style={{ marginBottom: "1em" }}>
         <span style={{ whiteSpace: "nowrap" }}>
           <FormattedMessage
             id="mygames.game.type"
-            description="props.game type text on props.game tile"
+            description="game type text on game tile"
             defaultMessage="{major} x {minor} - {total} turns"
             values={{
-              major: props.game.options.major,
-              minor: props.game.options.minor,
-              total: props.game.options.major + props.game.options.minor
+              major: game.options.major,
+              minor: game.options.minor,
+              total: game.options.major + game.options.minor
             }}
           />
         </span>
@@ -34,19 +34,19 @@ const GameTile = props => (
           <span style={{ whiteSpace: "nowrap" }} className="hidden-xs">
             <FormattedMessage
               id="mygames.game.started"
-              description="props.game started time text on props.game tile"
+              description="game started time text on game tile"
               defaultMessage="Started:"
             />
           </span>{" "}
           <span style={{ whiteSpace: "nowrap" }}>
-            <FormattedRelative value={new Date(props.game.started)} />
+            <FormattedRelative value={new Date(game.started)} />
           </span>
         </span>
       </Col>
     </Row>
 
     <p style={{ fontSize: "large", textAlign: "center", margin: "1em 0" }}>
-      {props.game.players
+      {game.players
         .map(player => ({
           player,
           component: (
@@ -69,7 +69,7 @@ const GameTile = props => (
         .reduce((players, player) => {
           players.push(player.component);
 
-          if (props.game.players.length * 2 - 1 > players.length) {
+          if (game.players.length * 2 - 1 > players.length) {
             players.push(
               <span key={`${player.player.id}_separator`}>
                 <FormattedMessage
@@ -87,7 +87,7 @@ const GameTile = props => (
 
     <p style={{ fontSize: "large", textAlign: "center" }}>
       <span style={{ marginRight: "2em" }}>
-        Game {gameLetters[props.game.turn - 1]}
+        Game {gameLetters[game.turn - 1]}
       </span>
       <span>
         <FormattedMessage
@@ -95,18 +95,17 @@ const GameTile = props => (
           description="Turn number on game tile"
           defaultMessage="Move {round}.{turn}"
           values={{
-            round: props.game.round,
-            turn: props.game.turn
+            round: game.round,
+            turn: game.turn
           }}
         />
       </span>{" "}
     </p>
 
     <div style={{ textAlign: "center" }}>
-      <LinkContainer to={`/game/${props.game.id}`}>
-        {props.game.players.findIndex(player => player.id === props.self.id) +
-          1 ===
-        props.game.turn ? (
+      <LinkContainer to={`/game/${game.id}/${game.letter}`}>
+        {game.players.findIndex(player => player.id === self.id) + 1 ===
+        game.turn ? (
           <Button bsStyle="success" bsSize="large">
             <FormattedMessage
               id="global.yourturn.button"

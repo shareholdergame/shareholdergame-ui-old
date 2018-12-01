@@ -164,7 +164,7 @@ const Navigation = props => {
               <img
                 className="align-top"
                 alt="Stockholder game logo"
-                style={{ height: "1em" }}
+                style={{ height: "1em", width: "1em" }}
                 src="/images/logo.png"
               />
             </Link>

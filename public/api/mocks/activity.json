@@ -2,70 +2,14 @@
   "result": {
     "activity": [
       {
-        "type": "INVITATION",
-        "timestamp": "2018-02-21T23:15:30.000Z",
-        "replied": false,
-        "player": {
-          "id": 7,
-          "name": "Зырянов",
-          "userpic": "avatar_7.jpg"
-        },
-        "game": {
-          "started": "2018-02-21T23:15:30.000Z",
-          "options": {
-            "major": 4,
-            "minor": 6,
-            "players": 2
-          }
-        }
-      },
-      {
-        "type": "INVITATION",
-        "timestamp": "2018-02-22T23:15:31.000Z",
-        "replied": true,
-        "accepted": true,
-        "player": {
-          "id": 1,
-          "name": "Admin",
-          "userpic": "avatar_1.png"
-        },
-        "game": {
-          "id": 273,
-          "started": "2018-02-21T23:15:30.000Z",
-          "options": {
-            "major": 4,
-            "minor": 6,
-            "players": 2
-          }
-        }
-      },
-      {
-        "type": "INVITATION",
-        "timestamp": "2018-02-22T23:15:32.000Z",
-        "replied": true,
-        "accepted": false,
-        "player": {
-          "id": 1234,
-          "name": "Governor",
-          "userpic": "avatar_8.jpg"
-        },
-        "game": {
-          "started": "2018-02-21T23:15:30.000Z",
-          "options": {
-            "major": 3,
-            "minor": 5,
-            "players": 2
-          }
-        }
-      },
-      {
         "type": "YOUR_TURN",
         "timestamp": "2018-02-20T23:15:33.000Z",
         "game": {
           "id": 761234782134,
+          "letter": "B",
           "started": "2018-02-21T23:15:30.000Z",
-          "round": 4,
-          "turn": 1,
+          "round": 6,
+          "turn": 2,
           "options": {
             "major": 4,
             "minor": 6,
@@ -86,11 +30,96 @@
         }
       },
       {
+        "type": "YOUR_TURN",
+        "timestamp": "2018-02-22T23:15:34.000Z",
+        "game": {
+          "id": 761234782135,
+          "letter": "B",
+          "started": "2018-02-21T23:15:30.000Z",
+          "round": 7,
+          "turn": 1,
+          "options": {
+            "major": 3,
+            "minor": 5,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            },
+            {
+              "id": 1,
+              "name": "Admin",
+              "userpic": "avatar_1.png"
+            }
+          ]
+        }
+      },
+      {
+        "type": "YOUR_TURN",
+        "timestamp": "2018-02-22T23:15:35.000Z",
+        "game": {
+          "id": 12341252,
+          "letter": "B",
+          "started": "2018-02-21T23:15:30.000Z",
+          "round": 10,
+          "turn": 1,
+          "options": {
+            "major": 3,
+            "minor": 5,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            },
+            {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            }
+          ]
+        }
+      },
+      {
+        "type": "YOUR_TURN",
+        "timestamp": "2018-02-22T23:15:36.000Z",
+        "game": {
+          "id": 12341253,
+          "letter": "B",
+          "started": "2018-02-21T23:15:30.000Z",
+          "round": 10,
+          "turn": 2,
+          "options": {
+            "major": 3,
+            "minor": 5,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            },
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            }
+          ]
+        }
+      },
+      {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-18T23:15:34.000Z",
+        "timestamp": "2018-02-18T23:15:37.000Z",
         "winner": true,
         "game": {
           "id": 12341251,
+          "letter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -112,11 +141,70 @@
         }
       },
       {
+        "type": "INVITATION",
+        "timestamp": "2018-02-21T23:15:30.000Z",
+        "replied": false,
+        "player": {
+          "id": 7,
+          "name": "Зырянов",
+          "userpic": "avatar_7.jpg"
+        },
+        "game": {
+          "started": "2018-02-21T23:15:30.000Z",
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          }
+        }
+      },
+      {
+        "type": "INVITATION",
+        "timestamp": "2018-02-22T23:15:38.000Z",
+        "replied": true,
+        "accepted": true,
+        "player": {
+          "id": 1,
+          "name": "Admin",
+          "userpic": "avatar_1.png"
+        },
+        "game": {
+          "id": 273,
+          "letter": "A",
+          "started": "2018-02-21T23:15:30.000Z",
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          }
+        }
+      },
+      {
+        "type": "INVITATION",
+        "timestamp": "2018-02-22T23:15:39.000Z",
+        "replied": true,
+        "accepted": false,
+        "player": {
+          "id": 1234,
+          "name": "Governor",
+          "userpic": "avatar_8.jpg"
+        },
+        "game": {
+          "started": "2018-02-21T23:15:30.000Z",
+          "options": {
+            "major": 3,
+            "minor": 5,
+            "players": 2
+          }
+        }
+      },
+      {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-17T23:15:35.000Z",
+        "timestamp": "2018-02-17T23:15:40.000Z",
         "winner": false,
         "game": {
           "id": 12341251,
+          "letter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -139,10 +227,11 @@
       },
       {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-16T23:15:36.000Z",
+        "timestamp": "2018-02-16T23:15:41.000Z",
         "winner": true,
         "game": {
           "id": 12341252,
+          "letter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -165,10 +254,11 @@
       },
       {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-16T23:15:37.000Z",
+        "timestamp": "2018-02-16T23:15:42.000Z",
         "winner": true,
         "game": {
           "id": 12341253,
+          "letter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -191,10 +281,11 @@
       },
       {
         "type": "GAME_DONE",
-        "timestamp": "2018-02-16T23:15:38.000Z",
+        "timestamp": "2018-02-16T23:15:43.000Z",
         "winner": true,
         "game": {
           "id": 12341254,
+          "letter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,

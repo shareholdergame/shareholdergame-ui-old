@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { withRouter, Link } from "react-router-dom";
 
 import ButtonGroup from "react-bootstrap/lib/ButtonGroup";
 import Button from "react-bootstrap/lib/Button";
@@ -15,10 +15,12 @@ import { FormattedMessage } from "react-intl";
 const InvitationActivity = props => {
   let action;
 
+  const gameURL = `/game/${props.game.id}/${props.game.letter}`;
+
   if (props.replied) {
     if (props.accepted) {
       action = (
-        <LinkContainer to={`/game/${props.game.id}`}>
+        <LinkContainer to={gameURL}>
           <Button>
             <Glyphicon glyph="eye-open" />{" "}
             <FormattedMessage
@@ -65,7 +67,14 @@ const InvitationActivity = props => {
   }
 
   return (
-    <tr>
+    <tr
+      onClick={() => {
+        if (props.accepted) {
+          props.history.push(gameURL);
+        }
+      }}
+      style={props.accepted ? { cursor: "pointer" } : {}}
+    >
       <td style={{ textAlign: "center" }}>
         <Image
           src={`/images/userpics/${props.player.userpic}`}
@@ -122,11 +131,12 @@ InvitationActivity.propTypes = {
     }).isRequired
   }).isRequired,
   replied: bool.isRequired,
-  accepted: bool
+  accepted: bool,
+  history: shape().isRequired
 };
 
 InvitationActivity.defaultProps = {
   accepted: true
 };
 
-export default InvitationActivity;
+export default withRouter(InvitationActivity);
