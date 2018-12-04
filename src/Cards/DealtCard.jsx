@@ -2,11 +2,11 @@ class DealtCard {
   constructor(id, card) {
     this.id = id;
     this.card = card;
-    this.priceChangeOperationIds = null;
+    this.priceChangeOperations = null;
   }
 
   setPriceChangeOperationIds(ids) {
-    this.priceChangeOperationIds = ids;
+    this.priceChangeOperations = ids;
   }
 }
 

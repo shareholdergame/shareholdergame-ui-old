@@ -51,11 +51,13 @@ class CurrentTurnState extends React.Component {
       totalCapital,
       previousShares,
       previousPrices,
+      newPrices: previousPrices,
+      areAllPricesUpdated: false,
       first,
       last,
       bank,
       selectedCard: null,
-      areAllPricesUpdated: false,
+      priceOperations: [],
       isComplete: false
     };
   }
@@ -99,13 +101,25 @@ class CurrentTurnState extends React.Component {
   };
 
   render = () => {
-    const { first, selectedCard, last, previousPrices, bank } = this.state;
+    const {
+      first,
+      selectedCard,
+      previousPrices,
+      priceOperations,
+      newPrices,
+      areAllPricesUpdated,
+      last,
+      bank
+    } = this.state;
 
     return this.props.children({
       first,
       selectedCard,
-      last,
       previousPrices,
+      priceOperations,
+      newPrices,
+      areAllPricesUpdated,
+      last,
       bank,
       onUpdateCard: card => {
         this.onUpdateCard(card);
