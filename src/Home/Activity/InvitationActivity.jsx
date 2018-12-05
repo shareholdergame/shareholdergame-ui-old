@@ -15,7 +15,7 @@ import { FormattedMessage } from "react-intl";
 const InvitationActivity = props => {
   let action;
 
-  const gameURL = `/game/${props.game.id}/${props.game.letter}`;
+  const gameURL = `/game/${props.game.id}/${props.game.gameLetter}`;
 
   if (props.replied) {
     if (props.accepted) {

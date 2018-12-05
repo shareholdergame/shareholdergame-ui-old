@@ -3,10 +3,38 @@
     "activity": [
       {
         "type": "YOUR_TURN",
+        "timestamp": "Wed Sep 12 15:43:38 MSK 2018",
+        "game": {
+          "id": 1376214132,
+          "gameLetter": "B",
+          "started": "Tue Sep 11 14:55:27 MSK 2018",
+          "round": 6,
+          "turn": 2,
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            },
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            }
+          ]
+        }
+      },
+      {
+        "type": "YOUR_TURN",
         "timestamp": "2018-02-20T23:15:33.000Z",
         "game": {
           "id": 761234782134,
-          "letter": "B",
+          "gameLetter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "round": 6,
           "turn": 2,
@@ -34,7 +62,7 @@
         "timestamp": "2018-02-22T23:15:34.000Z",
         "game": {
           "id": 761234782135,
-          "letter": "B",
+          "gameLetter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "round": 7,
           "turn": 1,
@@ -62,7 +90,7 @@
         "timestamp": "2018-02-22T23:15:35.000Z",
         "game": {
           "id": 12341252,
-          "letter": "B",
+          "gameLetter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "round": 10,
           "turn": 1,
@@ -90,7 +118,7 @@
         "timestamp": "2018-02-22T23:15:36.000Z",
         "game": {
           "id": 12341253,
-          "letter": "B",
+          "gameLetter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "round": 10,
           "turn": 2,
@@ -119,7 +147,7 @@
         "winner": true,
         "game": {
           "id": 12341251,
-          "letter": "B",
+          "gameLetter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -170,7 +198,7 @@
         },
         "game": {
           "id": 273,
-          "letter": "A",
+          "gameLetter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -204,7 +232,7 @@
         "winner": false,
         "game": {
           "id": 12341251,
-          "letter": "B",
+          "gameLetter": "B",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -231,7 +259,7 @@
         "winner": true,
         "game": {
           "id": 12341252,
-          "letter": "A",
+          "gameLetter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -258,7 +286,7 @@
         "winner": true,
         "game": {
           "id": 12341253,
-          "letter": "A",
+          "gameLetter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,
@@ -285,7 +313,7 @@
         "winner": true,
         "game": {
           "id": 12341254,
-          "letter": "A",
+          "gameLetter": "A",
           "started": "2018-02-21T23:15:30.000Z",
           "options": {
             "major": 4,

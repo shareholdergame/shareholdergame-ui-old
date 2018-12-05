@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 
 const GameDoneActivity = props => {
-  const gameURL = `/game/${props.game.id}/${props.game.letter}`;
+  const gameURL = `/game/${props.game.id}/${props.game.gameLetter}`;
 
   return (
     <tr>

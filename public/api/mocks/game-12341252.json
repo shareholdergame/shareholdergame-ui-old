@@ -51,7 +51,7 @@
     "games": [
       {
         "id": -905381166,
-        "letter": "A",
+        "gameLetter": "A",
         "result": [
           {
             "turnOrder": 2,
@@ -75,7 +75,7 @@
       },
       {
         "id": 234523452346,
-        "letter": "B",
+        "gameLetter": "B",
         "result": [
           {
             "turnOrder": 2,

@@ -11,7 +11,7 @@ import Col from "react-bootstrap/lib/Col";
 import { FormattedMessage } from "react-intl";
 
 const YourTurnActivity = props => {
-  const gameURL = `/game/${props.game.id}/${props.game.letter}`;
+  const gameURL = `/game/${props.game.id}/${props.game.gameLetter}`;
 
   return (
     <tr>
