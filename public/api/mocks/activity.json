@@ -2,8 +2,9 @@
   "result": {
     "activity": [
       {
-        "type": "YOUR_TURN",
+        "type": "GAME_DONE",
         "timestamp": "Wed Sep 12 15:43:38 MSK 2018",
+        "winner": true,
         "game": {
           "id": 1376214132,
           "gameLetter": "B",

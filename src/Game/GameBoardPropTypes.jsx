@@ -1,7 +1,5 @@
 import { shape, number, arrayOf, string, bool } from "prop-types";
 
-import CurrentTurnStatePropTypes from "./CurrentTurnStatePropTypes";
-
 const GameBoardPropTypes = {
   game: shape({
     rounds: arrayOf(
@@ -12,9 +10,7 @@ const GameBoardPropTypes = {
         wonmoney: number
       })
     ).isRequired
-  }).isRequired,
-
-  ...CurrentTurnStatePropTypes
+  }).isRequired
 };
 
 export default GameBoardPropTypes;
