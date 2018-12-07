@@ -76,7 +76,7 @@
           "players": [
             {
               "turnOrder": 1,
-              "id": 5678,
+              "playerId": 5678,
               "playerCards": [
                 {
                   "applied": true,
@@ -132,7 +132,7 @@
             },
             {
               "turnOrder": 2,
-              "id": 1234,
+              "playerId": 1234,
               "playerCards": [
                 {
                   "applied": true,
