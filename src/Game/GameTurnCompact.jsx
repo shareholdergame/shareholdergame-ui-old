@@ -6,7 +6,11 @@ import { bool, number, shape } from "prop-types";
 
 import { allColors } from "../Cards/CardColor";
 
-import ShareCell from "./ShareCell";
+import {
+  getFirstStepCells,
+  getLastStepCells,
+  getBankAmounts
+} from "./GameTurnHelper";
 
 const THICK_BORDER = "2px solid grey";
 
@@ -48,33 +52,7 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
     </td>
   );
 
-  const firstStepCells = turn.steps.reduce((cells, step) => {
-    if (step.stepType === "FIRST_BUY_SELL_STEP") {
-      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
-        cells.push(
-          <ShareCell
-            key={`first_${share.id}`}
-            share={share}
-            color={allColors[index]}
-          >
-            <span
-              style={{
-                color: share.amount
-                  ? "black"
-                  : Color(allColors[index].style)
-                      .darken(0.5)
-                      .alpha(0.2)
-              }}
-            >
-              {share.amount}
-            </span>
-          </ShareCell>
-        )
-      );
-    }
-
-    return cells;
-  }, []);
+  const firstStepCells = getFirstStepCells(turn);
 
   const priceCells = turn.steps.reduce((cells, step) => {
     if (step.stepType === "PRICE_CHANGE_STEP") {
@@ -113,33 +91,7 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
     return cells;
   }, []);
 
-  const lastStepCells = turn.steps.reduce((cells, step) => {
-    if (step.stepType === "LAST_BUY_SELL_STEP") {
-      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
-        cells.push(
-          <ShareCell
-            key={`last_${share.id}`}
-            share={share}
-            color={allColors[index]}
-          >
-            <span
-              style={{
-                color: share.amount
-                  ? "black"
-                  : Color(allColors[index].style)
-                      .darken(0.5)
-                      .alpha(0.2)
-              }}
-            >
-              {share.amount}
-            </span>
-          </ShareCell>
-        )
-      );
-    }
-
-    return cells;
-  }, []);
+  const lastStepCells = getLastStepCells(turn);
 
   const bankCell = (
     <td
@@ -151,7 +103,7 @@ const GameTurnCompact = ({ lastRound, turn, turnIndex, turnsPerRound }) => {
       }}
       rowSpan={rowsPerTurn}
     >
-      {turn.bank}
+      {getBankAmounts(turn)}
     </td>
   );
 
