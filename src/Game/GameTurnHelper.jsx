@@ -5,34 +5,10 @@ import { allColors } from "../Cards/CardColor";
 
 import ShareCell from "./ShareCell";
 
-export const getBankAmounts = turn => {
-  const changeSteps = [
-    ...turn.steps.filter(step => step.stepType === "LAST_BUY_SELL_STEP"),
-    ...turn.steps
-      .filter(
-        step =>
-          step.stepType === "REPURCHASE_STEP" ||
-          step.stepType === "COMPENSATION_STEP"
-      )
-      .sort((a, b) => a.originalStepId - b.originalStepId)
-  ];
-
-  const cashValues = changeSteps
-    .map(changeStep => changeStep.cashValue)
-    .reduce((changedAmounts, amount) => {
-      if (
-        changedAmounts.length === 0 ||
-        changedAmounts[changedAmounts.length - 1] !== amount
-      ) {
-        changedAmounts.push(amount);
-      }
-
-      return changedAmounts;
-    }, []);
-
-  return cashValues.map(
+export const getBankAmounts = turn =>
+  turn.bankAmounts.map(
     (amount, amountIndex) =>
-      amountIndex < cashValues.length - 1 ? (
+      amountIndex < turn.bankAmounts.length - 1 ? (
         <span
           key={amount}
           style={{
@@ -54,7 +30,6 @@ export const getBankAmounts = turn => {
         </span>
       )
   );
-};
 
 export const getFirstStepCells = turn => {
   const firstStepCells = turn.steps.reduce((cells, step) => {

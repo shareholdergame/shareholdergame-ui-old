@@ -6,8 +6,12 @@ import DealtCard from "../Cards/DealtCard";
 const gameStepSequence = {
   PRICE_CHANGE_STEP: 0,
   FIRST_BUY_SELL_STEP: 1,
-  LAST_BUY_SELL_STEP: 2,
-  COMPENSATION_STEP: 3
+  LAST_BUY_SELL_STEP: 2
+};
+
+const gameOverrideSteps = {
+  COMPENSATION_STEP: 3,
+  REPURCHASE_STEP: 4
 };
 
 const deck = new Deck();
@@ -115,12 +119,29 @@ export const getGame = createSelector(
         .map(turn => {
           const newTurn = { ...turn };
 
-          newTurn.bank = newTurn.steps
+          newTurn.bankAmounts = newTurn.steps
+            .filter(step => gameStepSequence[step.stepType])
             .sort(
               (a, b) =>
                 gameStepSequence[a.stepType] - gameStepSequence[b.stepType]
             )
-            .reduce((accumulator, step) => step.cashValue, 0);
+            .reduce((cashValue, step) => [step.cashValue], [0]);
+
+          newTurn.bankAmounts = newTurn.steps
+            .filter(step => gameOverrideSteps[step.stepType])
+            .sort(
+              (a, b) =>
+                gameOverrideSteps[a.stepType] - gameOverrideSteps[b.stepType]
+            )
+            .reduce((changedAmounts, step) => {
+              if (
+                changedAmounts[changedAmounts.length - 1] !== step.cashValue
+              ) {
+                changedAmounts.push(step.cashValue);
+              }
+
+              return changedAmounts;
+            }, newTurn.bankAmounts);
 
           return newTurn;
         });

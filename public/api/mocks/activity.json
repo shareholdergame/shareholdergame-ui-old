@@ -4,6 +4,35 @@
       {
         "type": "GAME_DONE",
         "timestamp": "Wed Sep 12 15:43:38 MSK 2018",
+        "winner": false,
+        "game": {
+          "id": 1376214132,
+          "gameLetter": "A",
+          "started": "Tue Sep 11 14:55:27 MSK 2018",
+          "round": 6,
+          "turn": 2,
+          "options": {
+            "major": 4,
+            "minor": 6,
+            "players": 2
+          },
+          "players": [
+            {
+              "id": 5678,
+              "name": "Sergey Chernyshev",
+              "userpic": "avatar_137.jpg"
+            },
+            {
+              "id": 1234,
+              "name": "Governor",
+              "userpic": "avatar_8.jpg"
+            }
+          ]
+        }
+      },
+      {
+        "type": "GAME_DONE",
+        "timestamp": "Wed Sep 12 15:43:38 MSK 2018",
         "winner": true,
         "game": {
           "id": 1376214132,
