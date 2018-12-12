@@ -25,7 +25,8 @@ class CurrentTurnState extends React.Component {
     const myPreviousSellStep = myPreviousTurn.steps.find(
       step => step.stepType === "LAST_BUY_SELL_STEP"
     );
-    const { bank } = myPreviousTurn;
+    const bank =
+      myPreviousTurn.bankAmounts[myPreviousTurn.bankAmounts.length - 1];
 
     const immediatelyPreviousTurn =
       props.previousTurns[props.previousTurns.length - 1];

@@ -9,7 +9,7 @@ const CurrentTurnStatePropTypes = {
   previousPrices: arrayOf(number).isRequired,
   newPrices: arrayOf(number).isRequired,
   areAllPricesUpdated: bool.isRequired,
-  bank: number.isRequired,
+  bank: number.iSrequired,
   onUpdateStockAmount: func.isRequired,
   onUpdateCard: func.isRequired
 };
