@@ -70,7 +70,12 @@ const GameDoneActivity = props => {
             <div>
               <small>
                 <Link to={gameURL}>
-                  #{props.game.id}-{props.game.gameLetter}
+                  <FormattedMessage
+                    id="global.numbersign"
+                    description="Number sign"
+                    defaultMessage="#"
+                  />
+                  {props.game.id}-{props.game.gameLetter}
                 </Link>
               </small>
             </div>
