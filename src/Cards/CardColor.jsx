@@ -1,11 +1,12 @@
 import { defineMessages } from "react-intl";
 
 class CardColor {
-  constructor(letter, columnLabel, style, sortOrder) {
+  constructor(letter, columnLabel, style, index) {
     this.letter = letter;
     this.columnLabel = columnLabel;
     this.style = style;
-    this.sortOrder = sortOrder;
+    this.index = index;
+    this.sortOrder = 400 - 100 * index;
   }
 }
 
@@ -72,33 +73,33 @@ export const BLUE = new CardColor(
   colorLetters.blue,
   colorColumnLabels.blue,
   "blue",
-  400
+  0
 );
 export const RED = new CardColor(
   colorLetters.red,
   colorColumnLabels.red,
   "red",
-  300
+  1
 );
 export const YELLOW = new CardColor(
   colorLetters.yellow,
   colorColumnLabels.yellow,
   "yellow",
-  200
+  2
 );
 
 export const GREEN = new CardColor(
   colorLetters.green,
   colorColumnLabels.green,
   "green",
-  100
+  3
 );
 
 export const UNKNOWN = new CardColor(
   colorLetters.unknown,
   colorColumnLabels.unknown,
   "silver",
-  0
+  4
 );
 
 export const allColors = [BLUE, RED, YELLOW, GREEN];

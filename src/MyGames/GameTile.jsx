@@ -103,7 +103,7 @@ const GameTile = ({ game, self }) => (
     </p>
 
     <div style={{ textAlign: "center" }}>
-      <LinkContainer to={`/game/${game.id}/${game.letter}`}>
+      <LinkContainer to={`/game/${game.id}/${game.gameLetter}`}>
         {game.players.findIndex(player => player.id === self.id) + 1 ===
         game.turn ? (
           <Button bsStyle="success" bsSize="large">

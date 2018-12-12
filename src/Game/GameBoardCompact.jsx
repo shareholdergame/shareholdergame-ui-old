@@ -14,8 +14,11 @@ const GameBoardCompact = ({
   game,
   first,
   selectedCard,
-  last,
   previousPrices,
+  priceOperations,
+  newPrices,
+  areAllPricesUpdated,
+  last,
   bank,
   onUpdateStockAmount,
   onUpdateCard
@@ -50,8 +53,11 @@ const GameBoardCompact = ({
           }
           first={first}
           selectedCard={selectedCard}
-          last={last}
           previousPrices={previousPrices}
+          priceOperations={priceOperations}
+          newPrices={newPrices}
+          areAllPricesUpdated={areAllPricesUpdated}
+          last={last}
           bank={bank}
           onUpdateStockAmount={onUpdateStockAmount}
           onUpdateCard={onUpdateCard}

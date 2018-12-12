@@ -11,7 +11,7 @@ import { Link } from "react-router-dom";
 import { FormattedMessage } from "react-intl";
 
 const GameDoneActivity = props => {
-  const gameURL = `/game/${props.game.id}/${props.game.letter}`;
+  const gameURL = `/game/${props.game.id}/${props.game.gameLetter}`;
 
   return (
     <tr>
@@ -27,30 +27,32 @@ const GameDoneActivity = props => {
       <td>
         <Row>
           <Col xs={12} sm={6}>
-            <b>
-              {props.game.players.reduce((players, player) => {
-                players.push(
-                  <Link key={player.id} to={`/players/${player.name}`}>
-                    {player.name}
-                  </Link>
-                );
-
-                if (props.game.players.length * 2 - 1 > players.length) {
+            <div>
+              <b>
+                {props.game.players.reduce((players, player) => {
                   players.push(
-                    <span key={`${player.id}_separator`}>
-                      <FormattedMessage
-                        id="global.vs"
-                        description="Versus separator between player names"
-                        defaultMessage=" vs. "
-                      />
-                    </span>
+                    <Link key={player.id} to={`/players/${player.name}`}>
+                      {player.name}
+                    </Link>
                   );
-                }
 
-                return players;
-              }, [])}
-            </b>
-            <p>
+                  if (props.game.players.length * 2 - 1 > players.length) {
+                    players.push(
+                      <span key={`${player.id}_separator`}>
+                        <FormattedMessage
+                          id="global.vs"
+                          description="Versus separator between player names"
+                          defaultMessage=" vs. "
+                        />
+                      </span>
+                    );
+                  }
+
+                  return players;
+                }, [])}
+              </b>
+            </div>
+            <div>
               {props.winner ? (
                 <FormattedMessage
                   id="home.activity.gameover.won"
@@ -64,7 +66,14 @@ const GameDoneActivity = props => {
                   defaultMessage="Game is over. You lost."
                 />
               )}
-            </p>
+            </div>
+            <div>
+              <small>
+                <Link to={gameURL}>
+                  #{props.game.id}-{props.game.gameLetter}
+                </Link>
+              </small>
+            </div>
           </Col>
           <Col xs={12} sm={6} className="activity-actions">
             <LinkContainer to={gameURL}>

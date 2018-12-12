@@ -1,5 +1,7 @@
 import React from "react";
 
+import Color from "color";
+
 import { FormattedMessage, injectIntl, intlShape } from "react-intl";
 import Button from "react-bootstrap/lib/Button";
 
@@ -16,8 +18,10 @@ const THICK_BORDER = "2px solid grey";
 const CurrentTurnCompact = ({
   first,
   selectedCard,
-  last,
   previousPrices,
+  newPrices,
+  areAllPricesUpdated,
+  last,
   bank,
   onUpdateStockAmount,
   onUpdateCard,
@@ -132,7 +136,18 @@ const CurrentTurnCompact = ({
       color={color}
       current
     >
-      {previousPrices[index]}
+      <span
+        style={{
+          color:
+            newPrices[index] !== previousPrices[index]
+              ? "black"
+              : Color(allColors[index].style)
+                  .darken(0.5)
+                  .alpha(0.2)
+        }}
+      >
+        {newPrices[index]}
+      </span>
     </ShareCell>
   ));
 
@@ -147,7 +162,7 @@ const CurrentTurnCompact = ({
         onChange={event =>
           onUpdateStockAmount(false, index, event.target.value)
         }
-        disabled={!selectedCard}
+        disabled={!areAllPricesUpdated}
         type="number"
         min={0}
         step={1}

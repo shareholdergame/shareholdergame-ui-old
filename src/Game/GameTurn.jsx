@@ -6,7 +6,11 @@ import { bool, number, shape } from "prop-types";
 
 import { allColors } from "../Cards/CardColor";
 
-import ShareCell from "./ShareCell";
+import {
+  getFirstStepCells,
+  getLastStepCells,
+  getBankAmounts
+} from "./GameTurnHelper";
 
 const THICK_BORDER = "2px solid grey";
 
@@ -55,29 +59,7 @@ const GameTurn = ({
     );
   }
 
-  const firstStepCells = turn.steps.reduce((cells, step) => {
-    if (step.stepType === "FIRST_BUY_SELL_STEP") {
-      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
-        cells.push(
-          <ShareCell key={`first_${share.id}`} color={allColors[index]}>
-            <span
-              style={{
-                color: share.amount
-                  ? "black"
-                  : Color(allColors[index].style)
-                      .darken(0.5)
-                      .alpha(0.2)
-              }}
-            >
-              {share.amount}
-            </span>
-          </ShareCell>
-        )
-      );
-    }
-
-    return cells;
-  }, []);
+  const firstStepCells = getFirstStepCells(turn);
 
   if (firstStepCells.length > 0) {
     tableCells = tableCells.concat(firstStepCells);
@@ -141,29 +123,7 @@ const GameTurn = ({
     return cells;
   }, tableCells);
 
-  const lastStepCells = turn.steps.reduce((cells, step) => {
-    if (step.stepType === "LAST_BUY_SELL_STEP") {
-      step.shares.sort((a, b) => a.id - b.id).forEach((share, index) =>
-        cells.push(
-          <ShareCell key={`last_${share.id}`} color={allColors[index]}>
-            <span
-              style={{
-                color: share.amount
-                  ? "black"
-                  : Color(allColors[index].style)
-                      .darken(0.5)
-                      .alpha(0.2)
-              }}
-            >
-              {share.amount}
-            </span>
-          </ShareCell>
-        )
-      );
-    }
-
-    return cells;
-  }, []);
+  const lastStepCells = getLastStepCells(turn);
 
   if (lastStepCells.length > 0) {
     tableCells = tableCells.concat(lastStepCells);
@@ -185,7 +145,7 @@ const GameTurn = ({
 
   tableCells.push(
     <td key="bank" style={bankCellStyle}>
-      {turn.bank}
+      {getBankAmounts(turn)}
     </td>
   );
 

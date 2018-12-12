@@ -1,7 +1,6 @@
 class isCardSelected {
   static apply = state => ({
-    updatedState: state,
-    isLastRuleApplied: !state.selectedCard
+    updatedState: state
   });
 }
 
